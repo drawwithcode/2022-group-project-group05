@@ -86,7 +86,7 @@ function listenerSetup() {
 }
 
 function socketSetup() {
-  clientSocket = io.connect("http://localhost:3000")
+  clientSocket = io.connect()
 
   clientSocket.on("morse", morseReceived)
   clientSocket.on("bitsend", bitSendReceived)
