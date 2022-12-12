@@ -1,0 +1,66 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+button {
+  width: 30vw;
+  height: 10vh;
+  background-color: #000;
+  color: #FFF;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 1.5em;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #fff;
+  position: fixed;
+}
+
+#start {
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+}
+
+#bitsend {
+  top: 35vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  display: none;
+}
+
+#morse {
+  top: 70vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  display: none;
+  width: 20vw;
+  height: 20vw;
+}
+
+#morse.active {
+  background-color: #fff;
+}
+
+#byte {
+  width: 80vw;
+  display: none;
+  position: fixed;
+  top: 20vh;
+  left: 50vw;
+  transform: translateX(-50%)
+}
+
+.bit {
+  width: 10vw;
+  height: 10vw;
+  position: relative;
+  display: inherit;
+}
+
+.bit.active {
+  background-color: #fff;
+}
