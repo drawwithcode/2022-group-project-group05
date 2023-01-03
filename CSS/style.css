@@ -1,8 +1,15 @@
+@font-face {
+  font-family: 'myFont';
+  src: url('/assets/fonts/Voxel.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: lores-15;
+  font-family: 'myFont', Courier, monospace;
 }
 
 body {
