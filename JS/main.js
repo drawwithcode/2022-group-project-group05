@@ -1,14 +1,9 @@
-var menubtn;
-var menu;
+var menubtn = document.getElementById("menu-btn")
+var menu = document.getElementById("menu")
 
-function setup() {
-    menubtn = select("#menu-btn");
-    menu = select("#menu");
-
-    menubtn.elt.addEventListener('click', toggleMenu);
-}
+menubtn.addEventListener('click', toggleMenu);
 
 function toggleMenu() {
-    menubtn.elt.classList.toggle("active")
-    menu.elt.classList.toggle("active")
+    menubtn.classList.toggle("active")
+    menu.classList.toggle("active")
 }
