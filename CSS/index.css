@@ -1,20 +1,43 @@
+#bgCanvas {
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    display: block;
+  }
+  
 #logo-wrap{
+    margin:auto;
+    margin-top:100%;
     height: 30vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-#logo{
-    position: relative;
-    font-size: 4em;
-}
 
-#start{
-    color: #fff;
-    background-color: #000;
-    font-size: 2em;
-    padding: 0.3em;
-    margin-top: 10vh;
-}
+
+#experience {
+    position: fixed;
+    bottom:25px;
+    display:flex;
+    margin:10% 0  10% 0;
+    flex-direction:row;
+    justify-content: center;
+    align-items:center;
+    width:100%;
+    background-color: none;
+    border: none;
+ }
+
+ .active {
+    display:none;
+    margin:auto;
+  }
+
+  #experience.active{
+    display:none;
+    margin:auto;
+  }
