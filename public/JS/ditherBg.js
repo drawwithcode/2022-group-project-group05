@@ -86,6 +86,8 @@ function setup (){
   colorMode(RGB, 255, 255, 255);
   pixelDensity(100)
 
+  frameRate(12)
+
   seed=0.0
 }
 
@@ -106,7 +108,7 @@ pop()
 
 //DITHER
 seed= seed + 0.01;
-let val1= noise(seed)*30; 
+let val1= noise(seed)*150; 
 
 console.log(val1)
 

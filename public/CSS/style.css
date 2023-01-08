@@ -1,24 +1,24 @@
 @font-face {
   font-family: 'myFont';
-  src: url('/assets/fonts/Voxel.otf');
+  src: url('/public/assets/fonts/Voxel.otf');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Redaction35';
-  src: url('/assets/fonts/Redaction35-Regular.otf');
+  src: url('/public/assets/fonts/Redaction35-Regular.otf');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Redaction35Italic';
-  src: url('/assets/fonts/Redaction35-Italic.otf');
+  src: url('/public/assets/fonts/Redaction35-Italic.otf');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'Redaction50';
-  src: url('/assets/fonts/Redaction50-Regular.otf');
+  src: url('/public/assets/fonts/Redaction50-Regular.otf');
   font-weight: normal;
   font-style: normal;
 }
