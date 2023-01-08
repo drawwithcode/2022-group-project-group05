@@ -7,9 +7,9 @@ var express = require("express")
 var app = express();
 var server = app.listen(PORT);
 
-app.use(express.static("public"));
+app.use("/public", express.static("public"));
 
-console.log("server running")
+console.log("server running on localhost://" + PORT)
 
 var serverSocket = require("socket.io")
 
