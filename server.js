@@ -9,7 +9,7 @@ var server = app.listen(PORT);
 
 app.use("/public", express.static("public"));
 
-console.log("server running on localhost://" + PORT)
+console.log("RUNNING SERVER ON http://localhost:" + PORT + "/public")
 
 var serverSocket = require("socket.io")
 

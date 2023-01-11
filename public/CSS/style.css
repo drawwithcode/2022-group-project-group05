@@ -29,23 +29,24 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  overflow-y:scroll;
+  overflow-y: scroll;
   font-family: 'Redaction35', Courier, monospace;
   visibility: visible;
 }
 
 body {
+  background-color:black;
   position: relative;
   display: flex;
   flex-direction: column;
   height:100vh;
   
-  color:"#wFF36F7";
   align-items: center;
   justify-content: space-around;
 }
 
-a{
+
+a {
   text-decoration: none;
   color:white;
   position:absolute;
@@ -53,19 +54,28 @@ a{
   font-size: 1.8em;
   font-family: 'Redaction35Italic', Courier, monospace;
 }
-
-button{
-  font-family: 'Redaction35', Courier, monospace;
-  border:none;
+a.hover{
+  text-decoration:underline;
 }
 
-div{
+button {
+  font-family: 'Redaction35', Courier, monospace;
+  border:none;
+  background-color: none;
+  /*background-color: #FF36F7;
+  box-shadow: #960090;
+  height:50px;*/
+}
+
+div {
   width:100%;
 }
 
-p{
+p {
   font-family: 'Redaction35', Courier, monospace;
   color:white;
+  margin: 0.5em;
+  font-size: 1.3em;
 }
 
 
@@ -73,11 +83,21 @@ p{
   display: none;
 }
 
+/*background*/
+#bgCanvas {
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  z-index:-5;
+  display: block;
+}
+
 
 /*menu*/
 #menu-btn {
   position: fixed;
-  z-index: 100;
+  z-index: 5;
   background-color: #fff;
   top: 20px;
   right: 20px;
@@ -114,12 +134,10 @@ p{
 
 #btnPurple.active  {
   display: none;
-  margin:auto;
 }
 
 #btnWhite.active {
   display: none;
-  margin:auto;
 }
 
 #menu-btn.active {
@@ -135,12 +153,6 @@ p{
   justify-content: center;
 }
 
-.active {
-  display:none;
-  margin:auto;
-}
-
-
 .menu-elt{
   width:80%;
   vertical-align: middle;
@@ -152,12 +164,12 @@ p{
 
 
 
+/*content*/
 #content-wrap{
-  box-sizing: border-box;
   display: flex;
   width: 100vw;
-  padding:80% 0 20% 0;
-  margin-bottom: 10%;
+  padding:50% 0 0% 0;
+  margin-bottom: 15%;
   height:fit-content;
   flex-direction: column;
   align-items: center;
@@ -165,8 +177,27 @@ p{
 }
 
 .content{
-  font-size: 1.3em;
   margin:0 10% 0 10% ;
   width: 80%;
-  word-break: break-all;
+  /*word-break: break-all;*/
+}
+
+
+
+/*button experience*/
+#experience {
+  position: fixed;
+  bottom:25px;
+  display:flex;
+  margin:10% 0  10% 0;
+  flex-direction:row;
+  justify-content: center;
+  align-items:center;
+  width:100%;
+  filter: drop-shadow(10px 0px 0px #960090)
+}
+
+.active {
+  display:none;
+  margin:auto;
 }

@@ -4,19 +4,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon" type="image/x-icon" href="assets/elements/favicon.png">
     <title>N01</title>
 
     <link rel="stylesheet" href="https://use.typekit.net/gwx5cpj.css">
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
-    <link rel="stylesheet" type="text/css" href="CSS/concept.css">
+    <link rel="stylesheet" type="text/css" href="CSS/login.css">
+    
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
   </head>
 
   <body>
   
     <!--menù compatto-->
-    <button id="menu-btn" class= "active"  onclick="toggleMenu('concept')"> 
-      <img  id="btnPurple" class= "active"  src="assets/elements/iconHeart.png">
-      <img id="btnWhite"  src="assets/elements/iconHeartInverted.png">
+    <button id="menu-btn" onclick="toggleMenu('waiting')"> 
+      <img  id="btnPurple"  src="assets/elements/iconHeart.png">
+      <img id="btnWhite"  class= "active" src="assets/elements/iconHeartInverted.png">
     </button>
 
     <!--menù intero-->
@@ -45,14 +49,22 @@
 
     <div id="content-wrap">
       <div class="content">
-        <p>concept</p>
-        <p>conceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconcept</p>
-        <p>conceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconcept</p>
-        <p>conceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconceptconcept</p>
-        <p></p>
+        <p style="text-align:center; font-family: 'myFont'; font-size: 1.8em;"> Let’s commit </br>
+            the perfect crime</br>
+            I’ll steal your heart</br>
+            and you’ll steal mine</p>
       </div>
     </div>
 
+    <btn id="experience"  class="active">
+        <a href="experience.html">
+        <img src="assets/elements/buttonHeart.png"></a>
+      </btn>
+      
+     <!--sfondo-->
+     <canvas id="bgCanvas"></canvas>
+      
+    <script src="JS/ditherBg.js"></script>
     <script src="JS/main.js"></script>
     <script>
       let=concept= true;

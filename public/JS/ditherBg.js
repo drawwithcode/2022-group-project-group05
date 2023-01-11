@@ -73,12 +73,10 @@ const dithers = {
 
 let seed;
 
-let bgCanvas= document.getElementById("bgCanvas");
+//bgCanvas= document.getElementById("bgCanvas");
 let ctx= bgCanvas.getContext("2d");
 
 let experience=document.getElementById("experience")
-
-experience.addEventListener("hover", animation)
 
 function setup (){
   noStroke();
@@ -93,27 +91,13 @@ function setup (){
 
 function draw(){
 
-push()
-
-for (let i=20; i<200; i++){
-let ypos= 1
-fill("yellow")
-rect(i, 200 + ypos, 45, 45)
-ypos=ypos
-}
-
-pop()
-
-
 
 //DITHER
-seed= seed + 0.01;
+//a ogni iter della funzione il valore del seed incrementa
+seed= seed + 0.005;
 let val1= noise(seed)*150; 
 
-console.log(val1)
-
 let gradient = ctx.createLinearGradient(0, val1 , 0,  bgCanvas.height);
-
 gradient.addColorStop( 0,"#FF36F7");
 gradient.addColorStop(1, "white"/*color(myRed3, myGreen3, myBlue3)*/);
 
@@ -126,15 +110,6 @@ const imageData = ctx.getImageData( 0, 0, ctx.canvas.width, ctx.canvas.height );
 //apply dither effect
 dither(imageData, [imageData.data.buffer]);
 
-}
-
-
-function animation(){
-  pop()
-
-  fill(255)
-  rect(30, 20, 55, 55)
-  push()
 }
 
 function dither (imageData, []){

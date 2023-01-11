@@ -1,43 +1,27 @@
-#bgCanvas {
-    position:fixed;
-    width:100%;
-    height:100%;
-    z-index:-1;
-    display: block;
-  }
-  
+
 #logo-wrap{
+  position:flex;
     margin:auto;
-    margin-top:100%;
+    margin-top:64%;
     height: 30vh;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    font-style:'myFont';
     align-items: center;
     justify-content: center;
 }
-
-
-
-#experience {
-    position: fixed;
-    bottom:25px;
-    display:flex;
-    margin:10% 0  10% 0;
-    flex-direction:row;
-    justify-content: center;
-    align-items:center;
-    width:100%;
-    background-color: none;
-    border: none;
- }
-
- .active {
-    display:none;
-    margin:auto;
-  }
 
   #experience.active{
     display:none;
     margin:auto;
   }
+
+#animationHeart{
+  position:fixed;
+  height:100%;
+  width:100%;
+  background-color:none;
+  z-index:-3;
+}
+

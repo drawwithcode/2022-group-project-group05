@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="assets/elements/favicon.png">
+    <title>N01</title>
+
+    <link rel="stylesheet" href="https://use.typekit.net/gwx5cpj.css">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/login.css">
+    
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+
+  </head>
+
+  <body>
+  
+   <!--menù compatto-->
+   <button id="menu-btn" onclick="toggleMenu('login')"> 
+    <img  id="btnPurple"  src="assets/elements/iconHeart.png">
+    <img id="btnWhite"  class= "active" src="assets/elements/iconHeartInverted.png">
+  </button>
+
+  <!--menù intero-->
+  <div id="menu">
+    <div class="menu-elt">
+    <a href="index.html">find your soulmate</a>
+    <img src="assets/elements/buttonHome.png">
+  </div>
+
+    <div class="menu-elt">
+      <a href="concept.html">about N01</a>
+      <img src="assets/elements/buttonMenu.png">
+    </div>
+    
+    <div class="menu-elt">
+      <a href="gallery.html">happy endings</a>
+      <img src="assets/elements/buttonExperience.png">
+    </div>
+
+    <div class="menu-elt">
+      <a href="credits.html">credits</a>
+      <img src="assets/elements/buttonMenu.png">
+    </div>
+  </div>
+
+
+  <!--content-->
+    <div id="content-wrap">
+      <div  id="part1" class="content" >
+        <p > N01 knows that every story is a love story.</p>
+        <p style= " margin-top:10%"> Start your own by writing <span>your name.</span></p> 
+      
+      <input required id="name" 
+      placeholder="who is looking for love..." onfocus="this.placeholder =''"  onblur="this.placeholder ='who is looking for love...'" >
+      <div class="menu-elt">
+      <input id="submit"  type="submit" onclick="setName(name)" value="Send">
+      <img id="submitImg"  src="assets/elements/buttonInput.png"  >
+      </div>
+      </div>
+
+      <div id="part2" class="content active" >
+        <p id="nameField"></p>
+        <p> Love is blind and so is your date: find your soulmate by communicating like a machine.</br>
+            Every time you touch my heart a bit of informaiton will be sent</br>to your lover and the other way round.</br>
+            When you get together</br><span>it's kiss time: </span>
+            put your phones face to face and find out what love holds for you.</br></br>
+          Good luck, sweetie!</br>(ɔ°‿°)ɔ <3</p>
+      </div>
+    </div>
+
+    <btn id="experience" class="active">
+        <a href="waiting.html">
+        <img src="assets/elements/buttonHeart.png"></a>
+      </btn>
+
+      
+     <!--sfondo-->
+     <canvas id="bgCanvas"></canvas>
+      
+    <script src="JS/main.js"></script>
+    <script src="JS/login.js"></script>
+    <script src="JS/ditherBg.js"></script>
+
+    <script>
+      let=concept= true;
+    </script>
+
+  </body>
+</html>

@@ -4,29 +4,52 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon" type="image/x-icon" href="assets/elements/favicon.png">
     <title>N01</title>
 
     <link rel="stylesheet" href="https://use.typekit.net/gwx5cpj.css">
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
   </head>
 
   <body>
-    <div id="menu">
-      <div id="menu-wrap">
-        <a href="index.html"><div class="menu-elt">experience</div></a>
-        <a href="concept.html"><div class="menu-elt">concept</div></a>
-        <a href="gallery.html"><div class="menu-elt">gallery</div></a>
-        <a href="credits.html"><div class="menu-elt">credits</div></a>
-      </div>
-    </div>
-    <div id="menu-btn"></div>
+    <!--menù compatto-->
+    <button id="menu-btn" onclick="toggleMenu('gallery')"> 
+      <img  id="btnPurple"  src="assets/elements/iconHeart.png">
+      <img id="btnWhite"  class= "active"  src="assets/elements/iconHeartInverted.png">
+    </button>
 
-    <div id="content-wrap">
-      <div class="content">
-        <p>gallery</p>
+    <!--menù intero-->
+    <div id="menu">
+      <div class="menu-elt">
+      <a href="index.html">find your soulmate</a>
+      <img src="assets/elements/buttonHome.png">
+    </div>
+
+      <div class="menu-elt">
+        <a href="concept.html">about N01</a>
+        <img src="assets/elements/buttonMenu.png">
+      </div>
+      
+    
+      <div class="menu-elt">
+        <a href="gallery.html">happy endings</a>
+        <img src="assets/elements/buttonExperience.png">
+      </div>
+
+      <div class="menu-elt">
+        <a href="credits.html">credits</a>
+        <img src="assets/elements/buttonMenu.png">
       </div>
     </div>
+    
+     <!--sfondo-->
+     <canvas id="bgCanvas"></canvas>
 
     <script src="JS/main.js"></script>
+   <script src="JS/ditherBg.js"></script>
+
   </body>
 </html>

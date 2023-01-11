@@ -54,5 +54,5 @@ button {
   top: 65vh;
   left: 50vw;
   transform: translate(-50%, -50% );
-  filter: drop-shadow(1.666vh 0px 0px #960090)
+  filter: drop-shadow(10px 0px 0px 0px #960090)
 }
