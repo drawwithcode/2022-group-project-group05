@@ -50,31 +50,37 @@
 
   <!--content-->
     <div id="content-wrap">
+
+       <!--input field--> 
       <div  id="part1" class="content" >
-        <p > N01 knows that every story is a love story.</p>
+
+        <p >N01 knows that every story is a love story.</p>
         <p style= " margin-top:10%"> Start your own by writing <span>your name.</span></p> 
-      
-      <input required id="name" 
-      placeholder="who is looking for love..." onfocus="this.placeholder =''"  onblur="this.placeholder ='who is looking for love...'" >
-      <div class="menu-elt">
-      <input id="submit"  type="submit" onclick="setName(name)" value="Send">
-      <img id="submitImg"  src="assets/elements/buttonInput.png"  >
-      </div>
+        
+        <input required id="name" 
+        placeholder="who is looking for love..." onfocus="this.placeholder =''"  onblur="this.placeholder ='who is looking for love...'" >
+
+        <div id="submitBtn">
+          <input id="submit"  type="submit" onclick="setName(name)" value="send">
+          <img id="submitImg"  src="assets/elements/buttonInput.png"  >
+        </div>
+
       </div>
 
+       <!--iinstructions--> 
       <div id="part2" class="content active" >
-        <p id="nameField"></p>
-        <p> Love is blind and so is your date: find your soulmate by communicating like a machine.</br>
-            Every time you touch my heart a bit of informaiton will be sent</br>to your lover and the other way round.</br>
-            When you get together</br><span>it's kiss time: </span>
+        <p>Dear <span id="nameField"></span>,</p>
+        <p style="font-size:1.4em;"> Love is blind and so is your date: find your soulmate by communicating like a machine.</br>
+            Every time you touch my heart a bit of information will be sent to your lover and the other way around.</br>
+            Listen to your devices to find each other and when you get together<span> it's kiss time: </span>
             put your phones face to face and find out what love holds for you.</br></br>
           Good luck, sweetie!</br>(ɔ°‿°)ɔ <3</p>
       </div>
     </div>
 
     <btn id="experience" class="active">
-        <a href="waiting.html">
-        <img src="assets/elements/buttonHeart.png"></a>
+        <a href="waiting.html">find your soulmate</a>
+        <img src="assets/elements/buttonHome.png">
       </btn>
 
       

@@ -1,6 +1,14 @@
 html, body {
   margin: 0;
+  position:relative;
   padding: 0;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main{
+z-index:-3;
 }
 
 canvas {
@@ -13,9 +21,7 @@ button {
   color: #FFF;
   font-family:'Courier New', Courier, monospace;
   font-size: 1.5em;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #fff;
+  border:none;
   position: fixed;
 }
 
@@ -26,12 +32,9 @@ button {
 }
 
 #morse {
-  top: 30vh;
-  left: 50vw;
-  transform: translate(-50%, -50% );
-  display: none;
-  width: 20vw;
-  height: 20vw;
+  display: flex;
+  width: 10vw;
+  height: 10vw;
 }
 
 #morse.active {
@@ -49,10 +52,9 @@ button {
 }
 
 #heart {
-  position: fixed;
-  height: 10vh;
-  top: 65vh;
-  left: 50vw;
-  transform: translate(-50%, -50% );
-  filter: drop-shadow(10px 0px 0px 0px #960090)
+  position:absolute;
+  display: flex;
+  width:30%;
+  z-index:-1;
+  filter: drop-shadow(10px 0px 0px 0px #960090);
 }
