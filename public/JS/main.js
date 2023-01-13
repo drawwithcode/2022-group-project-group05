@@ -27,7 +27,7 @@ function toggleMenu(page) {
     menu.classList.toggle("active")
 
     //per le pagine con la canvas di sfondo cambio il menu
-    if (page=="home"|| page=="gallery" || page=="waiting" || page=="login"){
+    if (page=="home"|| page=="gallery" || page=="waiting" || page=="login" || page=="output"){
     //il bottone cambia colore di sfondo
     menubtn.classList.toggle("active")
     heartPurple.classList.toggle("active")

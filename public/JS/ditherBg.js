@@ -1,3 +1,8 @@
+//GRADIENT
+let seed;
+let color= "#FF36F7";
+
+//DITHER
 const thresholdMaps = [
     [
       [0, 8, 2, 10],
@@ -71,44 +76,47 @@ const dithers = {
     },
   };
 
-let seed;
+//VARIABILI
+let bgCanvas;
+let ctx;
 
-//bgCanvas= document.getElementById("bgCanvas");
-let ctx= bgCanvas.getContext("2d");
 
-let experience=document.getElementById("experience")
-
-function setup (){
+function setup(){
   noStroke();
-  clear()
   colorMode(RGB, 255, 255, 255);
-  pixelDensity(100)
+  pixelDensity(1)
 
   frameRate(12)
+  
+  console.log(bgCanvas)
 
   seed=0.0
 }
 
 function draw(){
+  clear();
 
+  //ricreo la canva ogni volta così da non avere problemi se ingrandisco o rimpicciolisco la window
+  bgCanvas= createCanvas(windowWidth, windowHeight);
+  ctx= canvas.getContext('2d');
+    
+  //imposto un valore di noise che rende animato il mio gradiente di sfondo
+  seed= seed + 0.005;
+  let val1= noise(seed)*800; 
 
-//DITHER
-//a ogni iter della funzione il valore del seed incrementa
-seed= seed + 0.005;
-let val1= noise(seed)*150; 
+  //disegno il gradiente di sfondo
+  let gradient = ctx.createLinearGradient(0, val1, 0,  bgCanvas.height);
+  gradient.addColorStop(0, color);
+  gradient.addColorStop(1, "white");
+    
+  ctx.fillStyle=gradient;
+  rect(0,0,bgCanvas.width, bgCanvas.height)
 
-let gradient = ctx.createLinearGradient(0, val1 , 0,  bgCanvas.height);
-gradient.addColorStop( 0,"#FF36F7");
-gradient.addColorStop(1, "white"/*color(myRed3, myGreen3, myBlue3)*/);
+  // get the image from bgCanvas
+  const imageData = ctx.getImageData( 0, 0, bgCanvas.width, bgCanvas.height );
 
-ctx.fillStyle=gradient;
-ctx.fillRect(0,0,bgCanvas.width, bgCanvas.height)
-
-// get the image from bgCanvas
-const imageData = ctx.getImageData( 0, 0, ctx.canvas.width, ctx.canvas.height );
-
-//apply dither effect
-dither(imageData, [imageData.data.buffer]);
+  //apply dither effect
+  dither(imageData, [imageData.data.buffer]);
 
 }
 
@@ -116,7 +124,7 @@ function dither (imageData, []){
     // imageData
     const width = imageData.width;
     const pixels = imageData.data;
-    const dither = dithers["rgb_8"];
+    const dither = dithers["rgb_4"];
     
     const intensity = (r, g, b) =>
     Math.floor(0.2126 * r + 0.7152 * g + 0.0722 * b);

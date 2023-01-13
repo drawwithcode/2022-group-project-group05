@@ -1,4 +1,3 @@
-
 class Heart {
     constructor(e, x, y){
         this.e= new Image(100,100);
@@ -10,10 +9,16 @@ class Heart {
     }
 }
 
+let heartCnv;
+
+function setup(){
+    heartCnv= createCanvas(windowWidth,windowHeight);
+}
+
 let cnv;
 let heart;
 
-let heartCnv= document.getElementById("animationHeart")
+//let heartCnv= document.getElementById("animationHeart")
 let heartCtx;
 let heartImage;
 let arrayHeart= [];

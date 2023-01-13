@@ -9,7 +9,8 @@
 
     <link rel="stylesheet" href="https://use.typekit.net/gwx5cpj.css">
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
-    <link rel="stylesheet" type="text/css" href="CSS/output.css">
+    
+    <link rel="stylesheet" type="text/css" href="CSS/final.css">
 
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
@@ -28,7 +29,7 @@
     <div id="menu">
       <div class="menu-elt">
       <a href="index.html">find your soulmate</a>
-      <img src="assets/elements/buttonHome.png">
+      <img id="imgBtn" src="assets/elements/buttonHome.png">
     </div>
 
       <div class="menu-elt">
@@ -39,7 +40,7 @@
     
       <div class="menu-elt">
         <a href="gallery.html">happy endings</a>
-        <img src="assets/elements/buttonExperience.png">
+        <img src="assets/elements/buttonExperience.svg">
       </div>
 
       <div class="menu-elt">
@@ -50,30 +51,31 @@
 
 
     <div id="content-wrap">
-    <btn id="content">
-        <a  href="gallery.html" style="color:white;">record a memory</a>
-        <img src="assets/elements/buttonInput.png">
-      </btn>
-        <!--gallery-->
-    <btn id="content">
+    <div class="content">
+        <a href="gallery.html" style="color:#FF36F7;">record a memory</a>
+        <img id="imgBtn"  src="assets/elements/buttonExperienceWhite.png" >
+      </div>
+        <!--gallery
+    <div class="content">
       <a href="gallery.html">happy endings</a>
-      <img src="assets/elements/buttonHome.png">
-    </btn>
+      <img src="assets/elements/buttonExperience.svg">
+    </div>-->
 
-    <btn id="content">
+    <div class="content">
         <a href="waiting.html">find another match</a>
         <img src="assets/elements/buttonHome.png">
-      </btn>
-
-     <!--sfondo-->
-     <canvas id="bgCanvas"></canvas>
+      </div>
+      <!--sfondo
+      <canvas id="bgCanvas"></canvas>-->
+    </div>
 
     <script src="JS/main.js"></script>
     <script src="JS/ditherBg.js"></script>
-    <script src="JS/animationHeart.js"></script>
+    
+    <!--<script src="JS/saveCanvas.js"></script>
+    <script src="JS/animationHeart.js"></script>-->
 
     <script>
-      let bgCanvas= document.getElementById("bgCanvas");
       let home= true;
     </script>
 
