@@ -12,11 +12,21 @@
     align-items: center;
     justify-content: center;
     margin: 2% 0 2% 0;
-    
-    
   }
   
-  main{
-    visibility:visible;
-    background-color: green;
+#output {
+  display: flex;
+  align-items:center;
+  margin:auto;
+  justify-content:center;
+  flex-direction:column;
+  }
+
+  #names{
+    display:flex;
+    color:white; 
+    font-family:'myFont';
+    font-size: 1.6em;
+    text-align: center;
+    width:100%;
   }

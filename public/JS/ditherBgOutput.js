@@ -1,5 +1,9 @@
+//NAME
+let url = new URL(location.href); 
+let input = url.searchParams.get("name1");
+
 //GRADIENT
-let seed;
+let seed= 0.0;
 let color= "#FF36F7";
 
 //DITHER
@@ -80,25 +84,41 @@ const dithers = {
 let bgCanvas;
 let ctx;
 
+let output;
 
 function setup(){
-  noStroke();
-  colorMode(RGB, 255, 255, 255);
-  pixelDensity(1)
+   bgCanvas= createCanvas(windowWidth, windowHeight);
+   ctx= canvas.getContext('2d');
 
-  frameRate(12)
-  
-  console.log(bgCanvas)
+    noStroke();
+    colorMode(RGB, 255, 255, 255);
+    pixelDensity(1)
+    frameRate(12)
 
-  seed=0.0
+   //OUTPUT
+
+   output= document.createElement("div")
+   output.id="output"
+
+   let img= document.createElement("img");
+   img.src="./assets/elements/output.png"
+
+   let names= document.createElement("p")
+   names.innerHTML = String(input) + " + " + String(input)
+   
+   names.style.fontSize="2em"
+   names.style.fontFamily="myFont"
+
+   document.body.appendChild(output);
+   document.body.appendChild(img);
+   document.body.appendChild(names);
+
+   output.appendChild(img);
+   output.appendChild(names);
 }
 
 function draw(){
   clear();
-
-  //ricreo la canva ogni volta così da non avere problemi se ingrandisco o rimpicciolisco la window
-  bgCanvas= createCanvas(windowWidth, windowHeight);
-  ctx= canvas.getContext('2d');
     
   //imposto un valore di noise che rende animato il mio gradiente di sfondo
   seed= seed + 0.005;
@@ -117,9 +137,6 @@ function draw(){
 
   //apply dither effect
   dither(imageData, [imageData.data.buffer]);
-
-  fill("red")
-  rect(0,0,100,100)
 
 }
 
@@ -172,7 +189,8 @@ function drawCanvas(cnv, img) {
 }
 
 
+//funzione che salva la canvas come immagine
 function saveCnv(){
-  
-saveCanvas(bgCanvas, 'n01', 'png');
+  //bgCanvas.parent(output)
+  saveCanvas(bgCanvas, 'n01', 'png');
 }

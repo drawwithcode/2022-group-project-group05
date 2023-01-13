@@ -1,8 +1,11 @@
 
+      let url = new URL(location.href); 
+      let input = url.searchParams.get("name1");
+
      setTimeout(experienceOpener, 3600)
 
       function experienceOpener(){
-        window.open("experience.html", "_self")
+        window.open("experience.html?name1="+ input, "_self")
       }
 
       setInterval(loading, 600)

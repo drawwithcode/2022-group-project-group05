@@ -9,10 +9,10 @@
 
     <link rel="stylesheet" href="https://use.typekit.net/gwx5cpj.css">
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
-    
-    <link rel="stylesheet" type="text/css" href="CSS/final.css">
+    <link rel="stylesheet" type="text/css" href="CSS/output.css">
 
     <script src="libraries/p5.min.js"></script>
+    <script src="libraries/htmltocanvas.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
     
   </head>
@@ -49,35 +49,28 @@
       </div>
     </div>
 
-
     <div id="content-wrap">
-    <div class="content">
-        <a href="gallery.html" style="color:#FF36F7;">record a memory</a>
+    <div class="menu-elt"style="margin:2% 0 2% 0">
+        <a onclick="saveCnv()" style="color:#FF36F7;">record a memory</a>
         <img id="imgBtn"  src="assets/elements/buttonExperienceWhite.png" >
       </div>
         <!--gallery
-    <div class="content">
+    <div class="menu-elt">
       <a href="gallery.html">happy endings</a>
       <img src="assets/elements/buttonExperience.svg">
     </div>-->
 
-    <div class="content">
+    <div class="menu-elt" style="margin:2% 0 2% 0">
         <a href="waiting.html">find another match</a>
         <img src="assets/elements/buttonHome.png">
       </div>
-      <!--sfondo
-      <canvas id="bgCanvas"></canvas>-->
+
     </div>
 
     <script src="JS/main.js"></script>
-    <script src="JS/ditherBg.js"></script>
+    <script src="JS/ditherBgOutput.js"></script>
     
-    <!--<script src="JS/saveCanvas.js"></script>
-    <script src="JS/animationHeart.js"></script>-->
-
-    <script>
-      let home= true;
-    </script>
+    <!--<script src="JS/animationHeart.js"></script>-->
 
   </body>
 </html>

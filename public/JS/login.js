@@ -1,12 +1,11 @@
 let nameField = document.getElementById('nameField');
-
 experienceBtn = document.getElementById("experience");
 
 
 function setName(name){
     //let nameInput= document.getElementById('name')
     name = document.getElementById('name').value;
-    var pInput = (name);
+    pInput = name;
     nameField.innerHTML = pInput;
 
 //check if name esiste
@@ -23,4 +22,10 @@ function pShow(){
 
     experienceBtn.style.display="flex";
     console.log(experienceBtn)
+}
+
+function newWindow(page){
+    if(page=="login"){
+        window.open("waiting.html?name1="+ pInput, "_self")
+    }
 }
