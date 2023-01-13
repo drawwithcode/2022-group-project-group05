@@ -50,27 +50,32 @@
     </div>
 
     <div id="content-wrap">
-    <div class="menu-elt"style="margin:2% 0 2% 0">
+    <div class="menu-elt"style="margin:1% 0 1% 0">
         <a onclick="saveCnv()" style="color:#FF36F7;">record a memory</a>
         <img id="imgBtn"  src="assets/elements/buttonExperienceWhite.png" >
       </div>
-        <!--gallery
-    <div class="menu-elt">
+      
+        <!--gallery-->
+    <div class="menu-elt" style="margin:1% 0 1% 0">
       <a href="gallery.html">happy endings</a>
       <img src="assets/elements/buttonExperience.svg">
-    </div>-->
+    </div>
 
-    <div class="menu-elt" style="margin:2% 0 2% 0">
-        <a href="waiting.html">find another match</a>
+    <div class="menu-elt" style="margin:1% 0 1% 0">
+        <a onclick="newWindow('waiting')">find another match</a>
         <img src="assets/elements/buttonHome.png">
       </div>
 
     </div>
 
-    <script src="JS/main.js"></script>
-    <script src="JS/ditherBgOutput.js"></script>
+
+    <script> 
+      let page="output";
+    </script>
     
-    <!--<script src="JS/animationHeart.js"></script>-->
+    <script src="JS/main.js"></script>
+    <script src="JS/ditherBg.js"></script>
+    
 
   </body>
 </html>

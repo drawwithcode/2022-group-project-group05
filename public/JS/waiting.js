@@ -1,7 +1,4 @@
 
-      let url = new URL(location.href); 
-      let input = url.searchParams.get("name1");
-
      setTimeout(experienceOpener, 3600)
 
       function experienceOpener(){

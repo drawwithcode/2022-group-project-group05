@@ -47,7 +47,22 @@ function toggleMenu(page) {
     }
 }
 
+
+
+function newWindow(page){
+    //let url = new URL(location.href); 
+    //  let input = url.searchParams.get("name1");
+      
+ if (page=="waiting"){
+        window.open("waiting.html?name1="+ input, "_self")
+    } 
+}
+
+
+
+
 /*
+
     let menuElt= Array.from(document.getElementsByClassName("menu-elt"))
 
     console.log(menuElt)
@@ -59,5 +74,3 @@ function toggleMenu(page) {
     function btnPressed(element){
    element.style.filter= "drop-shadow(0px)"
 }*/
-
-

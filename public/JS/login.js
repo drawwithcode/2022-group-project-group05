@@ -5,8 +5,8 @@ experienceBtn = document.getElementById("experience");
 function setName(name){
     //let nameInput= document.getElementById('name')
     name = document.getElementById('name').value;
-    pInput = name;
-    nameField.innerHTML = pInput;
+    input = name;
+    nameField.innerHTML = input;
 
 //check if name esiste
     if (name.length != 0 ){
@@ -26,6 +26,6 @@ function pShow(){
 
 function newWindow(page){
     if(page=="login"){
-        window.open("waiting.html?name1="+ pInput, "_self")
+        window.open("waiting.html?name1="+ input, "_self")
     }
 }
