@@ -21,6 +21,7 @@ class User{
     constructor(id) {
         this.id = id;
         this.pairedId = 0;
+        this.color = 0;
     }
 }
 
@@ -43,8 +44,8 @@ function newConnection(socket) {
     //when user starts, add them to waitlist, if they  can be paired, pair 
     socket.on("start", function () {
         waiting.push(getUser(this.id))
-
         unpaired += 1;
+        console.log(this.id + " ready, unpaired: " + unpaired)
         if (unpaired > 1) {
             pair();
         }
@@ -66,19 +67,24 @@ function newConnection(socket) {
     socket.on("disconnect", function () {
         console.log(socket.id + " disconnected")
         var userIndex = users.findIndex(user => user.id == this.id);
+        var waitIndex = waiting.findIndex(user => user.id == this.id);
 
-        if (users[userIndex].pairedId == 0) {
-            waiting.splice(waiting.findIndex(user => user.id == this.id), 1)
+        if (waitIndex != -1) {
+            waiting.splice(waitIndex, 1)
             unpaired -= 1;
             console.log("was unpaired")
         }
         else {
-            var paired = getUser(users[userIndex].pairedId)
-            paired.pairedId = 0;
-            io.to(paired.id).emit("unpaired", 0)
-            waiting.push(paired)
-            unpaired += 1;
-            console.log("was paired")
+            console.log(waiting)
+            console.log(users[userIndex])
+            if (users[userIndex].pairedId != 0) {
+                var paired = getUser(users[userIndex].pairedId)
+                paired.pairedId = 0;
+                io.to(paired.id).emit("unpaired", 0)
+                waiting.push(paired)
+                unpaired += 1;
+                console.log("was paired")
+            }
         }
 
         if (unpaired > 1) {
@@ -91,12 +97,13 @@ function newConnection(socket) {
 
 //takes the first two waiting users and pairs them
 function pair() {
+    console.log("pairing")
     waiting[0].pairedId = waiting[1].id
     waiting[1].pairedId = waiting[0].id
     unpaired -= 2;
 
-    io.to(waiting[0].id).emit("paired", waiting[1].id)
-    io.to(waiting[1].id).emit("paired", waiting[0].id)
+    io.to(waiting[0].id).emit("paired", waiting[1])
+    io.to(waiting[1].id).emit("paired", waiting[0])
     console.log("paired " + waiting[0].id + " and " + waiting[1].id)
     waiting.splice(0, 2);
     console.log(waiting)
