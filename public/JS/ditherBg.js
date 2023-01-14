@@ -7,9 +7,14 @@ let input = url.searchParams.get("name1");
 
 
 //////GRADIENT
+<<<<<<< Updated upstream
 let seed=0.0;
 let color1= "#FF36F7";
 let color2= "blue";
+=======
+let seed = 0.0;
+let pairColor = "#FF36F7";
+>>>>>>> Stashed changes
 
 //////DITHER
 const thresholdMaps = [
@@ -161,6 +166,7 @@ let sketch = function(p) {
   }
 
 //////imposto la funzione per adattare la dimensione della canva alla window
+<<<<<<< Updated upstream
   addEventListener("resize", (event) => {
     console.log("ridimensiono")
     windowWidth = window.innerWidth
@@ -170,6 +176,25 @@ let sketch = function(p) {
 
 }
 
+=======
+  document.addEventListener("resize", (event) => {
+  windowWidth = window.innerWidth
+  windowHeight = window.innerHeight
+  p.resizeCanvas(windowWidth, windowHeight)});
+
+}
+
+let p1 = new p5(sketch)//SFONDO
+//let p2 = new p5(sketch)//ARTWORK
+
+
+p1.setup = function() {
+  p1.createCanvas(windowWidth, windowHeight);
+  p1.noStroke();
+  p1.colorMode(p1.RGB, 255, 255, 255);
+  p1.pixelDensity(1)
+  p1.frameRate(24)
+>>>>>>> Stashed changes
 
 p1 = new p5(sketch)//SFONDO
 
@@ -185,7 +210,11 @@ p1.draw = function (){
 
   //disegno il gradiente di sfondo
   let gradient = ctx.createLinearGradient(0, val1, 0,  p1.height);
+<<<<<<< Updated upstream
   gradient.addColorStop(0, color1);
+=======
+  gradient.addColorStop(0, pairColor);
+>>>>>>> Stashed changes
   gradient.addColorStop(1, "white");
     
   ctx.fillStyle=gradient;
