@@ -18,7 +18,8 @@
 
     <!--button-->
       <button id="morse"></button>
-        <img src="assets/elements/buttonHeart.png" id="heart">
+      <!--<img src="assets/elements/buttonHeart.png" id="heart">-->
+      <button id="heart" style="top: 70vh; z-index: 1;">START</button>
       <span id="status">Waiting</span>
 
       
@@ -27,7 +28,7 @@
       let url = new URL(location.href); 
       let input = url.searchParams.get("name1");
 
-     //setTimeout(experienceOpener, 3600)
+     setTimeout(experienceOpener, 3600)
 
       function experienceOpener(){
         window.open("output.html?name1="+ input, "_self")
