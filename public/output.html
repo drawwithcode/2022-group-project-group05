@@ -9,17 +9,18 @@
 
     <link rel="stylesheet" href="https://use.typekit.net/gwx5cpj.css">
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
-    <link rel="stylesheet" type="text/css" href="CSS/login.css">
-    <link rel="stylesheet" type="text/css" href="CSS/waiting.css">
-    
+    <link rel="stylesheet" type="text/css" href="CSS/output.css">
+
     <script src="libraries/p5.min.js"></script>
+    <script src="libraries/htmltocanvas.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
+    
   </head>
 
   <body>
-  
+
     <!--menù compatto-->
-    <button id="menu-btn" onclick="toggleMenu('waiting')"> 
+    <button id="menu-btn" onclick="toggleMenu('output')"> 
       <img  id="btnPurple"  src="assets/elements/iconHeart.png">
       <img id="btnWhite"  class= "active" src="assets/elements/iconHeartInverted.png">
     </button>
@@ -28,7 +29,7 @@
     <div id="menu">
       <div class="menu-elt">
       <a href="index.html">find your soulmate</a>
-      <img src="assets/elements/buttonHome.png">
+      <img id="imgBtn" src="assets/elements/buttonHome.png">
     </div>
 
       <div class="menu-elt">
@@ -39,7 +40,7 @@
     
       <div class="menu-elt">
         <a href="gallery.html">happy endings</a>
-        <img src="assets/elements/buttonExperience.png">
+        <img src="assets/elements/buttonExperience.svg">
       </div>
 
       <div class="menu-elt">
@@ -48,34 +49,33 @@
       </div>
     </div>
 
-     <!--frasi-->
     <div id="content-wrap">
-      <div class="content">
-        <p id="quotes" style="text-align:center; font-family: 'myFont'; font-size: 2.5em;"> Let’s commit </br>
-            the perfect crime</br>
-            I’ll steal your heart</br>
-            and you’ll steal mine</p>
+    <div class="menu-elt"style="margin:1% 0 1% 0">
+        <a onclick="saveCnv()" style="color:#FF36F7;">record a memory</a>
+        <img id="imgBtn"  src="assets/elements/buttonExperienceWhite.png" >
       </div>
       
-     <!--loading-->
-      <div id="arrayHearts"> 
-        <img class="hearts" src="assets/elements/iconHeartInverted.png">
-        <img class="hearts" src="assets/elements/iconHeartInverted.png">
-        <img class="hearts" src="assets/elements/iconHeartInverted.png">
-      </div>
+        <!--gallery-->
+    <div class="menu-elt" style="margin:1% 0 1% 0">
+      <a href="gallery.html">happy endings</a>
+      <img src="assets/elements/buttonExperience.svg">
     </div>
 
-     <!--sfondo-->
-     <canvas id="bgCanvas"></canvas>
+    <div class="menu-elt" style="margin:1% 0 1% 0">
+        <a onclick="newWindow('waiting')">find another match</a>
+        <img src="assets/elements/buttonHome.png">
+      </div>
 
-     <script>
-      let page="waiting";
+    </div>
 
+
+    <script> 
+      let page="output";
     </script>
-      
+    
     <script src="JS/main.js"></script>
     <script src="JS/ditherBg.js"></script>
-    <script src="JS/waiting.js"></script>
     
+
   </body>
 </html>

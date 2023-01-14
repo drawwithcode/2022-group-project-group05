@@ -2,14 +2,16 @@ p {
   margin: 0px;
   font-size: 1.6em;
 }
+
 span {
   font-family: 'Redaction35italic'
 }
 
 #content-wrap{
   display: flex;
+  position:fixed;
   width: 100vw;
-  margin:0;
+  margin:auto;
   padding:20% 0 20% 0;
   height:fit-content;
   flex-direction: column;
@@ -20,6 +22,9 @@ span {
 .content{
   margin:0 10% 0 10% ;
   width: 80%;
+  
+  align-items: center;
+  overflow-y: scroll;
 }
 
   input {
@@ -28,9 +33,8 @@ span {
     font-size: 1.2em;
     font-family:'Redaction35'; 
     color:#FF36F7;
-    box-shadow: 10px 0px #960090;
     border:none;
-    width:80%;
+    width:100%;
   }
 
   input:focus {
@@ -43,6 +47,17 @@ span {
     font-family:'Redaction35italic'; 
     font-size: 1.1em;
    }
+ 
+   #submitBtn{
+    margin:auto;
+    margin-top:15%;
+    width:80%;
+    vertical-align: middle;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+  }
 
   #submitImg{  
     vertical-align: middle;
@@ -50,27 +65,30 @@ span {
     align-items: center;
     justify-content: center;
     filter: drop-shadow(10px 0px 0px #960090)
-    
   }
-  
+ 
   #submit{
-    margin:0px;
-    padding:0px;
-    background-color: none;
+    color:#FF36F7;
+    margin:auto;
+    padding:5px;
+    z-index:1;
+    background-color: white;
     position:absolute;
-    width:fit-content;
+    width:auto;
+    font-size: 1.6em;
+    font-family:'Redaction35italic'; 
     box-shadow: none;
   }
   
-  #experience {
-    position: fixed;
-    display:flex;
-    bottom:50px;
+  #nameField{
+    font-family:'Redaction35italic'; 
   }
-
-  #experience.active {
+  
+  #experience {
+    position: absolute;
     display:none;
   }
+
 
 .active {
   display:none;

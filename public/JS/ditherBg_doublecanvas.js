@@ -1,6 +1,9 @@
 //GRADIENT
-let seed=0.0;
+let seed= 0.0;
 let color= "#FF36F7";
+
+let windowWidth = window.innerWidth
+let windowHeight = window.innerHeight
 
 //DITHER
 const thresholdMaps = [
@@ -60,9 +63,10 @@ const thresholdMaps = [
 
 const dithers = {
     rgb_4: {
+      isGrayscale: false,
       mapIndex: [2, 1, 2],
       colorCount: [2, 4, 2],
-    },/*
+    },
     rgb_6: {
       isGrayscale: false,
       mapIndex: [1, 1, 1],
@@ -72,21 +76,17 @@ const dithers = {
       isGrayscale: false,
       mapIndex: [1, 1, 1],
       colorCount: [8, 8, 4],
-    },*/
+    },
   };
 
+//VARIABILI
 
-//CANVAS
-let bgCanvas;
+//Background
 let ctx;
 
-//NAME
-//prendo il nome dell'utente dall'url dopo il login
-let url = new URL(location.href); 
-let input = url.searchParams.get("name1");
 
+//heart 
 
-//CUORICINI
 let heartImage;
 let arrayHeart= [];
 
@@ -108,102 +108,32 @@ class Heart {
   }
 }
 
-/*
-function setup(){
-  noStroke();
-  colorMode(RGB, 255, 255, 255);
-  pixelDensity(1)
-  frameRate(12)
-
-  heartImage= loadImage('./assets/elements/iconHeartInverted.png')
-  
-  bgCanvas= createCanvas(windowWidth, windowHeight);
-  ctx= canvas.getContext('2d');
-  
-    
-  //se sono nella pagina finale
-  if(page=="output"){
-  
-    output= document.createElement("div")
-    output.id="output"
-
-    let img= document.createElement("img");
-    img.src="./assets/elements/output.png"
-
-    let names= document.createElement("p")
-    names.innerHTML = String(input) + " + " + String(input)
-    
-    names.style.fontSize="2em"
-    names.style.fontFamily="myFont"
-
-    document.body.appendChild(output);
-    document.body.appendChild(img);
-    document.body.appendChild(names);
-
-    output.appendChild(img);
-    output.appendChild(names);
-  }
-
-  //animazione cuoricini
-  if(page=="home"){
-
-    document.addEventListener("click", clickHeart);
-    setInterval(spawnHeart,1500)
-  }
-}
-
-function draw(){
-    
-  //imposto un valore di noise che rende animato il mio gradiente di sfondo
-  seed= seed + 0.005;
-  let val1= noise(seed)*800; 
-
-  //disegno il gradiente di sfondo
-  let gradient = ctx.createLinearGradient(0, val1, 0,  bgCanvas.height);
-  gradient.addColorStop(0, color);
-  gradient.addColorStop(1, "white");
-    
-  ctx.fillStyle=gradient;
-  rect(0,0,bgCanvas.width, bgCanvas.height)
-
-  // get the image from bgCanvas
-  const imageData = ctx.getImageData( 0, 0, bgCanvas.width, bgCanvas.height );
-
-  //apply dither effect
-  dither(imageData, [imageData.data.buffer]);
-  
-  for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}
-
-}*/
-
-
-//CREO LA CLASSE DELLE CANVAS
 let sketch = function(p) {
 
-  p.setup = function() {
-    p.createCanvas(windowWidth, windowHeight);
-    p.noStroke();
-    p.colorMode(p.RGB, 255, 255, 255);
-    p.pixelDensity(1)
-    p.frameRate(12)
+    p.setup = function() {
+      p.createCanvas(windowWidth, windowHeight);
+      p.noStroke();
+      p.colorMode(p.RGB, 255, 255, 255);
+      p.pixelDensity(1)
+      p.frameRate(12)
 
-    heartImage = p.loadImage('./assets/elements/animationHeart.svg');
-  }
+      heartImage = p.loadImage('./assets/elements/animationHeart.svg');
+    }
 
-  //imposto la funzione per adattare la dimensione della canva alla window
-addEventListener("resize", (event) => {
-  windowWidth = window.innerWidth
-  windowHeight = window.innerHeight
-  p.resizeCanvas(windowWidth, windowHeight)});
+  addEventListener("resize", (event) => {
+    windowWidth = window.innerWidth
+    windowHeight = window.innerHeight
+    p.resizeCanvas(windowWidth, windowHeight)});
 
-}
+ }
 
-let p1 = new p5(sketch)//SFONDO
+let p1 = new p5(sketch)
+let p2 = new p5(sketch)
 
 p1.draw = function (){
-
+  
   p1.canvas.id = "bgCanvas"
-
+  
   ctx= p1.canvas.getContext('2d');
     
   //imposto un valore di noise che rende animato il mio gradiente di sfondo
@@ -224,30 +154,19 @@ p1.draw = function (){
   //apply dither effect
   dither(imageData, [imageData.data.buffer]);
 
+  for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}
 
-  //animazione cuoricini
-  if(page=="home"){
-
-    document.addEventListener("click", clickHeart);
-    setInterval(spawnHeart,1500)
-  }
-  
-  IF(page=="output"){
-
-    let p2 = new p5(sketch)//ARTWORK
-  }
 
 }
 
 
 p2.draw = function() {
+  
+  p2.clear()
 
-p2.clear()
-
-p2.canvas.id = "artworkFinale"
-
+  p2.canvas.id = "artworkFinale"
+  
 }
-
 
 function dither (imageData, []){
     // imageData
@@ -297,67 +216,21 @@ function drawCanvas(cnv, img) {
     ctx.putImageData(img, 0, 0);
 }
 
+//HEART SPAWNING
 
+document.addEventListener("click", spawnHeart);
+document.addEventListener("keypress", saveImage);
 
-//funzione che salva la canvas come immagine
-function saveCnv(){
-  //bgCanvas.parent(output)
-  saveCanvas(bgCanvas, 'n01', 'png');
+function spawnHeart(){
+
+  let xHeart= p1.mouseX
+  let yHeart= p1.mouseY
+
+  arrayHeart.push(new Heart(xHeart, yHeart))
+
 }
 
-
-//funzione che aggiunge i div alla galleria
-if(page=="gallery"){
-  function mouseClicked(){
-    console.clear()
-    console.log("daje")
-    //OUTPUT
-
-    output= document.createElement("div")
-    output.id="output"
-
-    let img= document.createElement("img");
-    img.src="./assets/elements/output.png"
-
-    let names= document.createElement("p")
-    names.innerHTML = "nome1" + " + " + "nome2"
-    
-    names.style.fontSize="2em"
-    names.style.fontFamily="myFont"
-
-    document.body.appendChild(output);
-    document.body.appendChild(img);
-    document.body.appendChild(names);
-
-    output.appendChild(img);
-    output.appendChild(names);
-  }
+function saveImage() {
+  console.log("save")
+  p1.saveCanvas(p1.canvas, "canvas", "jpg")
 }
-
-
-
-  function clickHeart(){
-
-    let xHeart= mouseX
-    let yHeart= mouseY
-
-    arrayHeart.push(new Heart(xHeart, yHeart))
-
-  }
-
-
-  function spawnHeart(){
-    
-    let xHeart= random(0, bgCanvas.width)
-    console.log(xHeart)
-    let yHeart= bgCanvas.height
-
-    arrayHeart.push(new Heart(xHeart, yHeart))
-
-    console.log( arrayHeart)
-  }
-
-  addEventListener("resize", (event) => {
-    windowWidth = window.innerWidth
-    windowHeight = window.innerHeight
-    resizeCanvas(windowWidth, windowHeight)});

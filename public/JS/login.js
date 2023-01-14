@@ -1,16 +1,15 @@
 let nameField = document.getElementById('nameField');
-let	button = document.getElementById("submit");
+experienceBtn = document.getElementById("experience");
 
-//let experienceBtn = document.getElementById("experience")
 
 function setName(name){
-    let nameInput= document.getElementById('name')
+    //let nameInput= document.getElementById('name')
     name = document.getElementById('name').value;
-    var pInput = ("Dear " +  name +",");
-    nameField.innerHTML = pInput;
-console.log(nameInput.required)
+    input = name;
+    nameField.innerHTML = input;
 
-    if (nameInput.required == true){
+//check if name esiste
+    if (name.length != 0 ){
         pShow()
     }
 };
@@ -21,5 +20,12 @@ function pShow(){
     let parte2= document.getElementById('part2');
     parte2.classList.toggle("active");
 
-    experienceBtn.classList.toggle("active");
+    experienceBtn.style.display="flex";
+    console.log(experienceBtn)
+}
+
+function newWindow(page){
+    if(page=="login"){
+        window.open("waiting.html?name1="+ input, "_self")
+    }
 }

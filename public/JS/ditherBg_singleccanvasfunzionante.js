@@ -95,20 +95,21 @@ class Heart {
       this.x = x;
       this.y = y;
   }
+
   move() {
 
     this.y= this.y-5
 
-    p1.push();
+    push();
 
-      p1.translate(this.x, this.y);
-      p1.image(heartImage, 0, 0);
+      translate(this.x, this.y);
+      image(heartImage, 0, 0);
 
-    p1.pop()
+    pop()
   }
 }
 
-/*
+
 function setup(){
   noStroke();
   colorMode(RGB, 255, 255, 255);
@@ -174,80 +175,7 @@ function draw(){
   
   for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}
 
-}*/
-
-
-//CREO LA CLASSE DELLE CANVAS
-let sketch = function(p) {
-
-  p.setup = function() {
-    p.createCanvas(windowWidth, windowHeight);
-    p.noStroke();
-    p.colorMode(p.RGB, 255, 255, 255);
-    p.pixelDensity(1)
-    p.frameRate(12)
-
-    heartImage = p.loadImage('./assets/elements/animationHeart.svg');
-  }
-
-  //imposto la funzione per adattare la dimensione della canva alla window
-addEventListener("resize", (event) => {
-  windowWidth = window.innerWidth
-  windowHeight = window.innerHeight
-  p.resizeCanvas(windowWidth, windowHeight)});
-
 }
-
-let p1 = new p5(sketch)//SFONDO
-
-p1.draw = function (){
-
-  p1.canvas.id = "bgCanvas"
-
-  ctx= p1.canvas.getContext('2d');
-    
-  //imposto un valore di noise che rende animato il mio gradiente di sfondo
-  seed= seed + 0.005;
-  let val1= p1.noise(seed)*800; 
-
-  //disegno il gradiente di sfondo
-  let gradient = ctx.createLinearGradient(0, val1, 0,  p1.height);
-  gradient.addColorStop(0, color);
-  gradient.addColorStop(1, "white");
-    
-  ctx.fillStyle=gradient;
-  p1.rect(0,0,p1.width, p1.height)
-
-  // get the image from bgCanvas
-  const imageData = ctx.getImageData( 0, 0, p1.width, p1.height );
-
-  //apply dither effect
-  dither(imageData, [imageData.data.buffer]);
-
-
-  //animazione cuoricini
-  if(page=="home"){
-
-    document.addEventListener("click", clickHeart);
-    setInterval(spawnHeart,1500)
-  }
-  
-  IF(page=="output"){
-
-    let p2 = new p5(sketch)//ARTWORK
-  }
-
-}
-
-
-p2.draw = function() {
-
-p2.clear()
-
-p2.canvas.id = "artworkFinale"
-
-}
-
 
 function dither (imageData, []){
     // imageData
