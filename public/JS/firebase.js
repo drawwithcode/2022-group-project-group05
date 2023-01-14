@@ -36,7 +36,6 @@
       
       let allArtworks;
 
-      /*
       let recived;
       export function readUserData(userId, recived) {
         get(ref(db, `gallery/${userId}`)).then((snapshot) => {
@@ -50,4 +49,4 @@
           console.error(error);
         });
       }
-      console.log(recived)*/
+      console.log(recived)

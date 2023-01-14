@@ -8,8 +8,7 @@ let input = url.searchParams.get("name1");
 
 //////GRADIENT
 let seed=0.0;
-let color1= "#FF36F7";
-let color2= "blue";
+let colorGr= "#FF36F7";
 
 //////DITHER
 const thresholdMaps = [
@@ -93,6 +92,45 @@ let p1;//bg
 let ctx;
 
 let outp;//output
+let rows=8;
+const grid1 = [
+  [0, 0, 1, 1, 1, 0, 0, 0],
+  [0, 1, 1, 1, 1, 1, 0, 0],
+  [1, 1, 1, 1, 1, 1, 1, 0],
+  [1, 1, 1, 1, 1, 1, 1, 0],
+  [1, 1, 1, 1, 1, 1, 1, 0],
+  [1, 1, 1, 1, 1, 1, 1, 0],
+  [1, 1, 1, 1, 1, 1, 1, 0],
+  [0, 1, 1, 1, 1, 1, 1, 0],
+  [0, 0, 1, 1, 1, 1, 1, 1],
+  [0, 0, 0, 1, 1, 1, 1, 1],
+  [0, 0, 0, 0, 1, 1, 1, 1],
+  [0, 0, 0, 0, 0, 1, 1, 1],
+  [0, 0, 0, 0, 0, 0, 1, 1],
+  [0, 0, 0, 0, 0, 0, 0, 1],
+];
+let message1 = [];
+const grid2 = [
+  [0, 0, 0, 1, 1, 1, 0, 0],
+  [0, 0, 1, 1, 1, 1, 1, 0],
+  [1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 0],
+  [0, 1, 1, 1, 1, 1, 0, 0],
+  [0, 1, 1, 1, 1, 0, 0, 0],
+  [0, 1, 1, 1, 0, 0, 0, 0],
+  [0, 1, 1, 0, 0, 0, 0, 0],
+  [0, 1, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0],
+];
+let message2 = [];
+
+let color1= "red";
+let color2= "blue";
+
 let data= {
   color1: color1,
   color2: color2,
@@ -185,7 +223,7 @@ p1.draw = function (){
 
   //disegno il gradiente di sfondo
   let gradient = ctx.createLinearGradient(0, val1, 0,  p1.height);
-  gradient.addColorStop(0, color1);
+  gradient.addColorStop(0, colorGr);
   gradient.addColorStop(1, "white");
     
   ctx.fillStyle=gradient;
@@ -215,30 +253,50 @@ p1.draw = function (){
 //////OUTPUT
 function graphicOutput(){
 
-  outp= p1.createGraphics(p1.width*3/4,p1.height*3/4);
-  
-  let grid = [];
-  const rows = 15;
-  for (let i = 0; i < rows; i++) {
-    grid[i] = [false, false, false, false, false, false, false, false, false, false]
+  outp= p1.createGraphics(p1.width*3/4,p1.height*2.5/4);
+
+  let myindex = 0;
+  outp.push()
+  for (let i = 0; i < 70; i++) {
+    message1.push(i % 2);
   }
 
-  for (let x = 0; x < rows; x++) {
-    for (let y = 0; y < rows; y++) {
-      if(grid[x][y]){
-      outp.fill(0);
-      }else{
-      outp.fill(255);
+
+  for (let i = 0; i < grid1[0].length; i++) {
+    for (let j = 0; j < grid1.length; j++) {
+      if (grid1[j][i] == 1) {
+        if (message1[myindex] == 1) outp.fill("white");
+        else outp.fill(color1);
+        outp.square(i *((outp.width/2) / rows)+((outp.width/2) / rows)/2, j *((outp.width/2) / rows), (outp.width/2) / rows);
+        myindex++;
       }
-    outp.rect(x*((outp.width) / rows),y*(outp.width) / rows,(outp.width) / rows, (outp.width) / rows)
     }
   }
+  outp.pop()
+
+  outp.push()
+  for (let i = 0; i < 70; i++) {
+    message2.push(i % 2);
+    console.log(message2)
+  }
+
+  for (let i = 0; i < grid2[0].length; i++) {
+    for (let j = 0; j < grid2.length; j++) {
+      if (grid2[j][i] == 1) {
+        if (message2[myindex] == 1) outp.fill("white");
+        else outp.fill(color2);
+        outp.square(i *((outp.width/2) / rows)+(outp.width/2)-((outp.width/2) / rows)/2, j *((outp.width/2) / rows), (outp.width/2) / rows);
+        myindex++;
+      }
+    }
+  }
+  outp.pop()
   
  outp.fill(255);
  outp.textSize(30);
  outp.textFont(Redaction)
  outp.textAlign(outp.CENTER)
- outp.text(input + " + " + input, outp.width/2,outp.height*2.2/4)
+ outp.text(input + " + " + input, outp.width/2,outp.height*2.3/4)
  
  writeUserData("canva", data)
   
@@ -313,6 +371,11 @@ function drawCanvas(cnv, img) {
 
 //////SAVE CANVAS
 //////funzione che salva la canvas come immagine
+if(page=="output"){
+  let saveButton= document.getElementById("save");
+  saveButton.addEventListener("click", saveCnv)
+}
+
 function saveCnv(){
   p1.saveCanvas(p1.canvas, 'n01', 'png');
 }
