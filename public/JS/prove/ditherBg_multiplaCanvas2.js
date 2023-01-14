@@ -79,13 +79,12 @@ const dithers = {
 
 
 //////CANVAS
-//let p1;
-//let p2;
-//let windowWidth = window.innerWidth
-//let windowHeight = window.innerHeight
+let p1;
+let p2;
+let windowWidth = window.innerWidth
+let windowHeight = window.innerHeight
 
 let bgCanvas;
-let output;
 let ctx;
 
 let myFont;
@@ -109,27 +108,23 @@ class Heart {
 
     this.y= this.y-5
 
-    push();
+    p1.push();
 
-      translate(this.x, this.y);
-      image(heartImage, 0, 0);
+      p1.translate(this.x, this.y);
+      p1.image(heartImage, 0, 0);
 
-    pop()
+    p1.pop()
   }
 }
 
-
-
-//FUNZIONI
-function preload(){
-  myFont=loadFont("./assets/fonts/Voxel.otf");
-  heartImage= loadImage('./assets/elements/iconHeartInverted.png');
-}
+/*
 function setup(){
   noStroke();
   colorMode(RGB, 255, 255, 255);
   pixelDensity(1)
   frameRate(12)
+
+  heartImage= loadImage('./assets/elements/iconHeartInverted.png')
   
   bgCanvas= createCanvas(windowWidth, windowHeight);
   ctx= canvas.getContext('2d');
@@ -137,13 +132,8 @@ function setup(){
     
   //////se sono nella pagina finale
   if(page=="output"){
-    
-  graphicOutput()
-    
-    //ctx.drawImage(output,100,100)
-    
-
-  /*output= document.createElement("div")
+  
+    output= document.createElement("div")
     output.id="output"
 
     let img= document.createElement("img");
@@ -160,11 +150,12 @@ function setup(){
     document.body.appendChild(names);
 
     output.appendChild(img);
-    output.appendChild(names);*/
+    output.appendChild(names);
   }
 
   //animazione cuoricini
   if(page=="home"){
+
     document.addEventListener("click", clickHeart);
     setInterval(spawnHeart,1500)
   }
@@ -190,15 +181,12 @@ function draw(){
   //apply dither effect
   dither(imageData, [imageData.data.buffer]);
   
-  //animazione cuori
   for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}
 
-  image(output, 150, 150);
-
-}
+}*/
 
 
-/*
+//FUNZIONI
 //////CREO LA CLASSE DELLE CANVAS
 let sketch = function(p) {
 
@@ -216,7 +204,7 @@ let sketch = function(p) {
     p.pixelDensity(1)
     p.frameRate(24)
 
-  }
+  }*/
 
 //////imposto la funzione per adattare la dimensione della canva alla window
 document.addEventListener("resize", (event) => {
@@ -304,7 +292,11 @@ p2.setup = function() {
   console.log(p2.canvas.width)
   
   p1.canvas.appendChild(p2.canvas)
+
 }
+
+
+
 
 p2.draw = function() { //ARTWORK
 
@@ -337,16 +329,9 @@ p2.draw = function() { //ARTWORK
 //
 }
 
-}*/
 
-//////OUTPUT
-function graphicOutput(){
-  output= createGraphics(100,100);
-  output.position((windowWidth-100)/2, (windowHeight-100)/2 )
-  output.background(20)
-  output.ellipse(0,0,100)
-  console.log(output)
 }
+
 
 
 //////DITHER
@@ -391,6 +376,7 @@ function dither (imageData, []){
     
     drawCanvas(ctx, imageData);
 }
+
 //////ridisegno la canvas con i pixel nuovi
 function drawCanvas(cnv, img) {
     cnv.canvas.width = img.width;
@@ -403,34 +389,8 @@ function drawCanvas(cnv, img) {
 //////funzione che salva la canvas come immagine
 function saveCnv(){
   //bgCanvas.parent(output)
-  saveCanvas(bgCanvas, 'n01', 'png');
+  p1.saveCanvas(p1.canvas, 'n01', 'png');
 }
-
-
-//////ANIMAZIONE CUORICINI
-addEventListener("click", clickHeart);
-//////onclick
-  function clickHeart(){
-
-    let xHeart= mouseX
-    let yHeart= mouseY
-
-    arrayHeart.push(new Heart(xHeart, yHeart))
-
-  } 
-
-//////setinterval
-  function spawnHeart(){
-    
-    let xHeart= random(0, bgCanvas.width)
-    let yHeart= bgCanvas.height
-
-    arrayHeart.push(new Heart(xHeart, yHeart))
-    
-  }
-
-  
-
 
 
 /*funzione che aggiunge i div alla galleria
@@ -461,3 +421,30 @@ if(page=="gallery"){
   }
 }*/
 
+
+//////ANIMAZIONE CUORICINI
+
+addEventListener("click", clickHeart);
+//////onclick
+  function clickHeart(){
+
+    let xHeart= p1.mouseX
+    let yHeart= p1.mouseY
+
+    arrayHeart.push(new Heart(xHeart, yHeart))
+
+  }
+  
+setInterval(spawnHeart,1500)
+//////setinterval
+  function spawnHeart(){
+    
+    let xHeart= p1.random(0, p1.canvas.width)
+    console.log(xHeart)
+    let yHeart= p1.canvas.height
+
+    arrayHeart.push(new Heart(xHeart, yHeart))
+
+    console.log( arrayHeart)
+    
+  }
