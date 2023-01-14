@@ -107,9 +107,11 @@ function pairFound() {
 }
 
 function startApp() {
-  start = true;
-  select("#morse").elt.style.display = "block"
-  startSend();
+  if(!start){
+    start = true;
+    select("#morse").elt.style.display = "block"
+    startSend();
+  }
 }
 
 function listenerSetup() {

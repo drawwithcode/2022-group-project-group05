@@ -22,8 +22,31 @@ class User{
         this.id = id;
         this.pairedId = 0;
         this.color = 0;
+        this.msg = [];
+        this.timer = 0;
+        this.active = false;
+    }
+
+    updateMsg(){
+        this.msg.push(this.active);
+
+        if(this.msg.length > 70){
+            this.msg.shift()
+        }
+        else if(this.msg.length == 10){
+            console.log("id: "+this.id+"; msg: "+this.msg)
+        }
+    }
+
+    reset(){
+        this.pairedId = 0;
+        this.msg = [];
+        clearInterval(this.timer)
+        this.active = false;
     }
 }
+
+const CLOCK = 882;
 
 var users = [];
 
@@ -53,10 +76,14 @@ function newConnection(socket) {
 
     //when user sends morse message, forward to paired user
     socket.on("morse", function (data) {
-        var receiver = getUser(this.id).pairedId;
+        var sender = getUser(this.id);
+        var receiverId = sender.pairedId;
+        
+        if (receiverId != 0) {
+            io.to(receiverId).emit("morse", data)
 
-        if (receiver != 0) {
-            io.to(receiver).emit("morse", data)
+            //save the state of the sender (pressing or not)
+            sender.active = data;
         }
         
         console.log(this.id + " - morse")
@@ -69,7 +96,9 @@ function newConnection(socket) {
         var userIndex = users.findIndex(user => user.id == this.id);
         var waitIndex = waiting.findIndex(user => user.id == this.id);
 
+        //check if user was waiting
         if (waitIndex != -1) {
+            //user was waiting
             waiting.splice(waitIndex, 1)
             unpaired -= 1;
             console.log("was unpaired")
@@ -77,11 +106,18 @@ function newConnection(socket) {
         else {
             console.log(waiting)
             console.log(users[userIndex])
+            //user was paired
             if (users[userIndex].pairedId != 0) {
+                //stop user timer
+                clearInterval(users[userIndex].timer)
+
                 var paired = getUser(users[userIndex].pairedId)
-                paired.pairedId = 0;
+
+                //set paired user to waiting
                 io.to(paired.id).emit("unpaired", 0)
                 waiting.push(paired)
+                paired.reset();
+                
                 unpaired += 1;
                 console.log("was paired")
             }
@@ -104,6 +140,15 @@ function pair() {
 
     io.to(waiting[0].id).emit("paired", waiting[1])
     io.to(waiting[1].id).emit("paired", waiting[0])
+
+    //start the users' timers
+    for (let i = 0; i <= 1; i++){
+        let user = getUser(waiting[i].id)
+        user.timer = setInterval(function () {
+            user.updateMsg()
+        }, CLOCK)
+    }
+
     console.log("paired " + waiting[0].id + " and " + waiting[1].id)
     waiting.splice(0, 2);
     console.log(waiting)
