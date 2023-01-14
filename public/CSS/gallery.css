@@ -1,9 +1,6 @@
 
-body {
-display:block;
-}
 
-#output {
+.output {
   display: flex;
   align-items:center;
   margin:auto;

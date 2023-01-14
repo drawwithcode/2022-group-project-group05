@@ -1,0 +1,32 @@
+
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyC2E9PqGGjWmW2n-zetbOPHWjWDWVCcWFM",
+        authDomain: "letteralmenten01.firebaseapp.com",
+        projectId: "letteralmenten01",
+        storageBucket: "letteralmenten01.appspot.com",
+        messagingSenderId: "964463300527",
+        appId: "1:964463300527:web:4da7b85d1ca1eab00e295a",
+        measurementId: "G-BJ922KXF12",
+        databaseURL: "https://letteralmenten01-default-rtdb.europe-west1.firebasedatabase.app/"
+      };
+
+      import { getDatabase, ref, set, child, push, update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      export function writeUserData(userId, data) {
+        console.log(data)
+        const db = getDatabase();
+        //userid sarà il nome del file
+        //scrivo nella cartella graphics data che è un parametro che si definisce quando chiamo la funzione nel setup
+        set(ref(db, 'graphics/' + userId), {
+          graphics: data
+        });
+      }

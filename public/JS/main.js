@@ -34,10 +34,12 @@ function toggleMenu(page) {
     heartWhite.classList.toggle("active")
     }
 
+    if (page!="gallery"){
     //il contenuto diventa invisibile
     content.classList.toggle("active")
     experienceBtn.classList.toggle("active")
-
+    }
+    
     if (page=="home"){
         logo.classList.toggle("active")
     }
