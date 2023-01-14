@@ -1,8 +1,10 @@
-//GRADIENT
+//VARIABILI
+
+//////GRADIENT
 let seed=0.0;
 let color= "#FF36F7";
 
-//DITHER
+//////DITHER
 const thresholdMaps = [
     [
       [0, 8, 2, 10],
@@ -76,17 +78,22 @@ const dithers = {
   };
 
 
-//CANVAS
+//////CANVAS
+let windowWidth = window.innerWidth
+let windowHeight = window.innerHeight
+
 let bgCanvas;
 let ctx;
 
-//NAME
-//prendo il nome dell'utente dall'url dopo il login
+let myFont;
+
+//////NAME
+//////prendo il nome dell'utente dall'url dopo il login
 let url = new URL(location.href); 
 let input = url.searchParams.get("name1");
 
 
-//CUORICINI
+//////CUORICINI
 let heartImage;
 let arrayHeart= [];
 
@@ -121,7 +128,7 @@ function setup(){
   ctx= canvas.getContext('2d');
   
     
-  //se sono nella pagina finale
+  //////se sono nella pagina finale
   if(page=="output"){
   
     output= document.createElement("div")
@@ -177,21 +184,26 @@ function draw(){
 }*/
 
 
-//CREO LA CLASSE DELLE CANVAS
+//FUNZIONI
+//////CREO LA CLASSE DELLE CANVAS
 let sketch = function(p) {
 
+  p.preload = function(){
+    heartImage = p.loadImage('./assets/elements/iconHeartInverted.png');
+
+  }
+/*
   p.setup = function() {
     p.createCanvas(windowWidth, windowHeight);
     p.noStroke();
     p.colorMode(p.RGB, 255, 255, 255);
     p.pixelDensity(1)
-    p.frameRate(12)
+    p.frameRate(24)
 
-    heartImage = p.loadImage('./assets/elements/animationHeart.svg');
-  }
+  }*/
 
-  //imposto la funzione per adattare la dimensione della canva alla window
-addEventListener("resize", (event) => {
+//////imposto la funzione per adattare la dimensione della canva alla window
+document.addEventListener("resize", (event) => {
   windowWidth = window.innerWidth
   windowHeight = window.innerHeight
   p.resizeCanvas(windowWidth, windowHeight)});
@@ -199,6 +211,17 @@ addEventListener("resize", (event) => {
 }
 
 let p1 = new p5(sketch)//SFONDO
+let p2 = new p5(sketch)//ARTWORK
+
+
+p1.setup = function() {
+  p1.createCanvas(windowWidth, windowHeight);
+  p1.noStroke();
+  p1.colorMode(p1.RGB, 255, 255, 255);
+  p1.pixelDensity(1)
+  p1.frameRate(24)
+
+}
 
 p1.draw = function (){
 
@@ -218,37 +241,84 @@ p1.draw = function (){
   ctx.fillStyle=gradient;
   p1.rect(0,0,p1.width, p1.height)
 
-  // get the image from bgCanvas
+  //prendo i dati dei pixel del gradiente
   const imageData = ctx.getImageData( 0, 0, p1.width, p1.height );
 
-  //apply dither effect
+  //chiamo la funzione che applica il dither sull'array di pixel del gradiente
   dither(imageData, [imageData.data.buffer]);
 
 
   //animazione cuoricini
   if(page=="home"){
 
-    document.addEventListener("click", clickHeart);
-    setInterval(spawnHeart,1500)
+    for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}
   }
   
-  IF(page=="output"){
+  if (page=="output"){
+   output()
+   p1.canvas.appendChild(p2.canvas)
 
-    let p2 = new p5(sketch)//ARTWORK
+  }
+  //galleria
+  if (page=="gallery"){
+    document.addEventListener("click", function(){
+      output()
+    });
   }
 
 }
 
 
-p2.draw = function() {
+//artwork
+function output(){
 
-p2.clear()
+  p2.setup = function() {
+    p2.createCanvas(100, 100);
+    p2.noStroke();
+    p2.colorMode(p2.RGB, 255, 255, 255);
+    p2.pixelDensity(1)
+    p2.frameRate(24)
+    p2.background(255)
+  
+  }
 
-p2.canvas.id = "artworkFinale"
+  p2.draw = function() { //ARTWORK
 
+    p2.canvas.id = "artworkFinale";
+
+    let grid = [];
+    const rows = 15;
+    for (let i = 0; i < rows; i++) {
+      grid[i] = [false, false, false, false, false, false, false, false, false, false]
+    }
+
+    for (let x = 0; x < rows; x++) {
+      for (let y = 0; y < rows; y++) {
+        if(grid[x][y]){
+        p2.fill(0);
+        }else{
+        p2.fill(255);
+        }
+      p2.rect(x*(p2.width / rows),y*(p2.width / rows),p2.width / rows,p2.height / rows)
+      }
+    }
+    
+    console.log(p1.canvas, p2.canvas);
+  }
+  
+  p1.pop()
+    p1.fill(255);
+    //p.textFont(myFont);
+    p1.textSize(16);
+    p1.textAlign(p2.CENTER);
+    p1.text(input + " + " + input, p2.width/2, p2.height*2.2/4)
+  p1.push()
 }
 
 
+
+//////DITHER
+//////processo i pixel
 function dither (imageData, []){
     // imageData
     const width = imageData.width;
@@ -290,7 +360,7 @@ function dither (imageData, []){
     drawCanvas(ctx, imageData);
 }
 
-//ridisegno la canvas con i pixel nuovi
+//////ridisegno la canvas con i pixel nuovi
 function drawCanvas(cnv, img) {
     cnv.canvas.width = img.width;
     cnv.canvas.height = img.height;
@@ -298,15 +368,15 @@ function drawCanvas(cnv, img) {
 }
 
 
-
-//funzione che salva la canvas come immagine
+//////SAVE CANVAS
+//////funzione che salva la canvas come immagine
 function saveCnv(){
   //bgCanvas.parent(output)
-  saveCanvas(bgCanvas, 'n01', 'png');
+  p1.saveCanvas(p1.canvas, 'n01', 'png');
 }
 
 
-//funzione che aggiunge i div alla galleria
+/*funzione che aggiunge i div alla galleria
 if(page=="gallery"){
   function mouseClicked(){
     console.clear()
@@ -332,32 +402,32 @@ if(page=="gallery"){
     output.appendChild(img);
     output.appendChild(names);
   }
-}
+}*/
 
 
+//////ANIMAZIONE CUORICINI
 
+addEventListener("click", clickHeart);
+//////onclick
   function clickHeart(){
 
-    let xHeart= mouseX
-    let yHeart= mouseY
+    let xHeart= p1.mouseX
+    let yHeart= p1.mouseY
 
     arrayHeart.push(new Heart(xHeart, yHeart))
 
   }
-
-
+  
+setInterval(spawnHeart,1500)
+//////setinterval
   function spawnHeart(){
     
-    let xHeart= random(0, bgCanvas.width)
+    let xHeart= p1.random(0, p1.canvas.width)
     console.log(xHeart)
-    let yHeart= bgCanvas.height
+    let yHeart= p1.canvas.height
 
     arrayHeart.push(new Heart(xHeart, yHeart))
 
     console.log( arrayHeart)
+    
   }
-
-  addEventListener("resize", (event) => {
-    windowWidth = window.innerWidth
-    windowHeight = window.innerHeight
-    resizeCanvas(windowWidth, windowHeight)});

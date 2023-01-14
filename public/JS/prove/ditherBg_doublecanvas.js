@@ -162,7 +162,7 @@ p1.draw = function (){
 
 p2.draw = function() {
   
-  p2.clear()
+  //p2.clear()
 
   p2.canvas.id = "artworkFinale"
   
