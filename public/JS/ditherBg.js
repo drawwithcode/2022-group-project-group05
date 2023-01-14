@@ -1,8 +1,15 @@
 //VARIABILI
 
+//////NAME
+//////prendo il nome dell'utente dall'url dopo il login
+let url = new URL(location.href); 
+let input = url.searchParams.get("name1");
+
+
 //////GRADIENT
 let seed=0.0;
-let color= "#FF36F7";
+let color1= "#FF36F7";
+let color2= "blue";
 
 //////DITHER
 const thresholdMaps = [
@@ -82,23 +89,23 @@ const dithers = {
 let windowWidth = window.innerWidth
 let windowHeight = window.innerHeight
 
-let p1;
+let p1;//bg
 let ctx;
-let outp;
 
-let myFont;
+let outp;//output
+let data= {
+  color1: color1,
+  color2: color2,
+  name1: input,
+  name2: input,
+};
 
 
-
-/////GALLERIA
+let p2;//gallery
 let importedData=[1,2,3,4,5];
 
-
-
-//////NAME
-//////prendo il nome dell'utente dall'url dopo il login
-let url = new URL(location.href); 
-let input = url.searchParams.get("name1");
+let myFont;
+let Redaction;
 
 
 //////CUORICINI
@@ -114,20 +121,20 @@ class Heart {
 
     this.y= this.y-5
 
-    push();
+    p1.push();
 
-      translate(this.x, this.y);
-      image(heartImage, 0, 0);
+      p1.translate(this.x, this.y);
+      p1.image(heartImage, 0, 0);
 
-    pop()
+    p1.pop()
   }
 }
 
 
-
-import { writeUserData } from "/firebase.js"
-
-
+//importo dal firebase la funzione che scrive i dati dell'output
+import { writeUserData } from "/public/JS/firebase.js"
+//importo dal firebase la funzione che legge i dati dal database
+import { readUserData } from "/public/JS/firebase.js"
 
 
 
@@ -135,11 +142,13 @@ import { writeUserData } from "/firebase.js"
 let sketch = function(p) {
 
   p.preload = function(){
-    myFont=p.loadFont("./assets/fonts/Voxel.otf")
+    myFont = p.loadFont("./assets/fonts/Voxel.otf")
+    Redaction= p.loadFont("./assets/fonts/Redaction35-Italic.otf")
     heartImage = p.loadImage('./assets/elements/iconHeartInverted.png');
   }
 
   p.setup = function() {
+
     p.createCanvas(windowWidth, windowHeight);
     p.noStroke();
     p.colorMode(p.RGB, 255, 255, 255);
@@ -152,7 +161,8 @@ let sketch = function(p) {
   }
 
 //////imposto la funzione per adattare la dimensione della canva alla window
-  document.addEventListener("resize", (event) => {
+  addEventListener("resize", (event) => {
+    console.log("ridimensiono")
     windowWidth = window.innerWidth
     windowHeight = window.innerHeight
     p.resizeCanvas(windowWidth, windowHeight)
@@ -175,7 +185,7 @@ p1.draw = function (){
 
   //disegno il gradiente di sfondo
   let gradient = ctx.createLinearGradient(0, val1, 0,  p1.height);
-  gradient.addColorStop(0, color);
+  gradient.addColorStop(0, color1);
   gradient.addColorStop(1, "white");
     
   ctx.fillStyle=gradient;
@@ -195,7 +205,7 @@ p1.draw = function (){
   
   //creo l'output
   if(page=="output"){
-    p1.image(outp, (windowWidth-outp.width)/2,  (windowHeight-outp.height)/2);
+    p1.image(outp, (windowWidth-outp.width)/2,  (windowHeight-outp.height)*2/3);
   }
 
 }
@@ -205,7 +215,7 @@ p1.draw = function (){
 //////OUTPUT
 function graphicOutput(){
 
-  outp= p1.createGraphics(p1.width/2,p1.height/2);
+  outp= p1.createGraphics(p1.width*3/4,p1.height*3/4);
   
   let grid = [];
   const rows = 15;
@@ -225,23 +235,27 @@ function graphicOutput(){
   }
   
  outp.fill(255);
- outp.textSize(16);
-  let text= input + " + " + input;
- outp.text(text, 0,outp.height*2.2/4)
+ outp.textSize(30);
+ outp.textFont(Redaction)
+ outp.textAlign(outp.CENTER)
+ outp.text(input + " + " + input, outp.width/2,outp.height*2.2/4)
+ 
+ writeUserData("canva", data)
   
 }
 
 
 
+let recived;
 if (page=="gallery"){
 
-  addEventListener("onload", createCanva)
-  ////CREATE CANVA GALLERY
-  function createCanva(){
-    for(let i=0; i<importedData.length;  i++){
-      let p2=new p5(sketch);
-        p2.canvas.id = "bgCanvas"
-    }
+  readUserData("p2", recived)
+  console.log(recived)
+
+  p2=new p5(sketch);
+
+  p2.draw = function (){
+    p2.text(data,100,100)
   }
 
 }
@@ -317,11 +331,15 @@ addEventListener("click", clickHeart);
   } 
 
 //////setinterval
-  function spawnHeart(){
-    
-    let xHeart= p1.random(0, p1.canvas.width)
-    let yHeart= p1.canvas.height
+if(page=="home"){
+  setInterval(spawnHeart,1500)
+}
 
-    arrayHeart.push(new Heart(xHeart, yHeart))
-    
-  }
+function spawnHeart(){
+  
+  let xHeart= p1.random(0, p1.canvas.width)
+  let yHeart= p1.canvas.height
+
+  arrayHeart.push(new Heart(xHeart, yHeart))
+  
+}

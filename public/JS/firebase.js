@@ -16,17 +16,38 @@
         databaseURL: "https://letteralmenten01-default-rtdb.europe-west1.firebasedatabase.app/"
       };
 
-      import { getDatabase, ref, set, child, push, update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+      import { getDatabase, ref, set, get, update} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
     
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
 
+      const db = getDatabase();
+
       export function writeUserData(userId, data) {
-        console.log(data)
-        const db = getDatabase();
+       // console.log(data)
         //userid sarà il nome del file
         //scrivo nella cartella graphics data che è un parametro che si definisce quando chiamo la funzione nel setup
-        set(ref(db, 'graphics/' + userId), {
-          graphics: data
+        set(ref(db, 'gallery/' + userId), {
+          data: data
         });
       }
+
+      
+      
+      let allArtworks;
+
+      /*
+      let recived;
+      export function readUserData(userId, recived) {
+        get(ref(db, `gallery/${userId}`)).then((snapshot) => {
+          if (snapshot.exists()) {
+            console.log(snapshot.val());
+            recived=snapshot.val()
+          } else {
+            console.log("No data available");
+          }
+        }).catch((error) => {
+          console.error(error);
+        });
+      }
+      console.log(recived)*/
