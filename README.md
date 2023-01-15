@@ -43,7 +43,10 @@ The whole experience takes place in a room, where N01 is displayed on a screen, 
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
 Cheesy love quotes and heart patterns make N01 almost feel like a dating site. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. 
 ![structure](README.img/structure.png)
-After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery. 
+After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery. <br>
+The structure was made with html linked pages…. <br> 
+Another interesting aspect of the homepage is the wallpaper, created with a dithering effect…
+
 
 entra dal codice
 struttura sito con commento html
