@@ -17,9 +17,9 @@ The project takes inspiration from the experiment held at Cornell University, ca
    a. [Binary Code](#binarycode)<br>
    b. [Exhibition](#exhibition)<br>
 2. Experience<br>
-   a. [Guru of love](#guru-of-love)<br>
-   b. [Matching](#matchings)<br>
-   c. [Happy endings](#happy-endings)<br>
+   
+   a. [Matching](#matchings)<br>
+   b. [Happy endings](#happy-endings)<br>
 
 3. [Team](#team)<br>
 
