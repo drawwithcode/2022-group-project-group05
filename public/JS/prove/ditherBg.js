@@ -244,7 +244,7 @@ p1.draw = function (){
   }
   //creo l'output
   if(page=="output"){
-    p1.image(outp, (windowWidth-outp.width)/2,  (windowHeight-outp.height)*2/3);
+    p1.image(outp, (windowWidth-outp.width)/2,  (windowHeight-outp.height)/2);
   }
 
 }
@@ -254,9 +254,11 @@ p1.draw = function (){
 //////OUTPUT
 function graphicOutput(){
 
-  outp= p1.createGraphics(p1.width*3/4,p1.height*2.5/4);
+  outp= p1.createGraphics(p1.width*3/4, p1.height/3);
 
+  let size = (outp.width/2) / rows;//definisco la dimensione in base alla width della canvas
   let myindex = 0;
+
   outp.push()
   for (let i = 0; i < 70; i++) {
     message1.push(i % 2);
@@ -268,7 +270,7 @@ function graphicOutput(){
       if (grid1[j][i] == 1) {
         if (message1[myindex] == 1) outp.fill("white");
         else outp.fill(color1);
-        outp.square(i *((outp.width/2) / rows)+((outp.width/2) / rows)/2, j *((outp.width/2) / rows), (outp.width/2) / rows);
+        outp.square(i *size + size/2, j *size, size);
         myindex++;
       }
     }
@@ -280,14 +282,13 @@ function graphicOutput(){
     message2.push(i % 2);
   }
 
-  
   console.log(message2, grid2)
   for (let i = 0; i < grid2[0].length; i++) {
     for (let j = 0; j < grid2.length; j++) {
       if (grid2[j][i] == 1) {
         if (message2[myindex] == 1) outp.fill("white");
         else outp.fill(color2);
-        outp.square(i *((outp.width/2) / rows)+(outp.width/2)-((outp.width/2) / rows)/2, j *((outp.width/2) / rows), (outp.width/2) / rows);
+        outp.square(i *size +(outp.width/2)-size/2, j *size, size);
         myindex++;
       }
     }
@@ -295,10 +296,10 @@ function graphicOutput(){
   outp.pop()
   
  outp.fill(255);
- outp.textSize(30);
+ outp.textSize(25);
  outp.textFont(Redaction)
  outp.textAlign(outp.CENTER)
- outp.text(input + " + " + input, outp.width/2,outp.height*2.3/4)
+ outp.text(input + " + " + input, outp.width/2, outp.height)
  
  writeUserData("canva", data)
   

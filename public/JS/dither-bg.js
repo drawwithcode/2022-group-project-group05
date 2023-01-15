@@ -211,33 +211,33 @@ class Heart {
 }
 
 if (page=="home"){
-p2 = new p5(sketch)
+  p2 = new p5(sketch)
 
-p2.draw= function(){
-  p2.clear()
-  
-  p2.canvas.id = "animation-hearts"
-  
-  for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}
+  p2.draw= function(){
+    p2.clear()
+    
+    p2.canvas.id = "animation-hearts"
+    
+    for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}
 
-}
+  }
 
-//NEW HEART ON CLICK
-document.addEventListener("click", clickHeart);
+  //NEW HEART ON CLICK
+  document.addEventListener("click", clickHeart);
 
-function clickHeart(){
-  let xHeart= p2.mouseX
-  let yHeart= p2.mouseY
-  arrayHeart.push(new Heart(xHeart, yHeart))
-}
+  function clickHeart(){
+    let xHeart= p2.mouseX
+    let yHeart= p2.mouseY
+    arrayHeart.push(new Heart(xHeart, yHeart))
+  }
 
-//HEART SPAWNING
-setInterval(spawnHeart,2500)
-function spawnHeart(){
-  
-  let xHeart= p2.random(0, p2.canvas.width)
-  let yHeart= p2.canvas.height
-  arrayHeart.push(new Heart(xHeart, yHeart))
-  
-}
+  //HEART SPAWNING
+  setInterval(spawnHeart,2500)
+  function spawnHeart(){
+    
+    let xHeart= p2.random(0, p2.canvas.width)
+    let yHeart= p2.canvas.height
+    arrayHeart.push(new Heart(xHeart, yHeart))
+    
+  }
 }

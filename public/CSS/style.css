@@ -164,13 +164,3 @@ canvas {
 .content{
   margin: 2vh;
 }
-
-
-
-/*button experience*/
-#btn-container {
-  align-self:flex-end;
-  justify-content: center;
-  align-items:center;
-  width:100%;
-}
