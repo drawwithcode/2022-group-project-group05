@@ -14,7 +14,7 @@ The project takes inspiration from the experiment held at Cornell University, ca
 **Table of Contents**
 
 1. N01<br>
-   a. [Presence](#presence)<br>
+   a. [Presence](#themeofpresence)<br>
    b. [Exhibition](#exhibition)<br>
 2. Experience<br>
    a. [Guru of love](#guru-of-love)<br>
@@ -27,7 +27,7 @@ The project takes inspiration from the experiment held at Cornell University, ca
 
 # N01
 
-## Presence
+## Theme of Presence
 
 The project has the aim to make present the basic language of every machine: binary code. N01 takes inspiration from the experiment held at Cornell University, called ‘‘Communicating Intimacy One Bit at a Time’’, where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels.
 In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
