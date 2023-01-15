@@ -9,7 +9,7 @@ _What if communicating directly like machines could help us find true love more 
 
 N01 is a web experience that allows you to find your soulmate only talking with one bit messages.
 
-The project takes inspiration from the experiment held at Cornell University, called ‘‘Communicating Intimacy One Bit at a Time’’, where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
+The project takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
 
 **Table of Contents**
 
@@ -27,7 +27,7 @@ The project takes inspiration from the experiment held at Cornell University, ca
 
 ## Binary Code
 
-The project has the aim to make present the basic language of every machine: binary code. N01 takes inspiration from the experiment held at Cornell University, called ‘‘Communicating Intimacy One Bit at a Time’’, where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels.
+The project has the aim to make present the basic language of every machine: binary code. N01 takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels.
 In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
 
 **http://alumni.media.mit.edu/~jofish/writing/io-chi-short-paper.pdf**
@@ -41,7 +41,7 @@ The whole experience takes place in a room, where N01 is displayed on a screen, 
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
 Cheesy love quotes and heart patterns make N01 almost feel like a dating site. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. 
 
-## Guru of love
+
 ## Matching
 ## Happy endings
 
