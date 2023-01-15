@@ -37,12 +37,21 @@ In the same way N01 connects people and show them that even with the smaller amo
 The whole experience takes place in a room, where N01 is displayed on a screen, explaining to participants how to join. When people enter, they connect simultaneously to the server and they get paired up by it, so they can start the experience. To participate is required a mobile phone. 
 
 
-![structure](README.img/structure.png)
+
 
 # Experience
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
 Cheesy love quotes and heart patterns make N01 almost feel like a dating site. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. 
+![structure](README.img/structure.png)
 The experience itselfs starts with color recognition
+entra dal codice
+struttura sito con commento html
+home- commento dither e cuori 
+esperienza spiegata bene- login (nome e assegnato il colore)
+waiting (matching) - parte eli
+digitazione e salvataggio array in bit e suono
+generazione output
+
 
 ## Matching
 parte codice del matching 
