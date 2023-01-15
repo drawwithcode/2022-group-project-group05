@@ -16,7 +16,6 @@ span {
   height:fit-content;
   flex-direction: column;
   align-items: center;
-  overflow-y: scroll;
 }
 
 .content{
@@ -85,7 +84,6 @@ span {
   }
   
   #experience {
-    position: absolute;
     display:none;
   }
 

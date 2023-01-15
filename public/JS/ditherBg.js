@@ -277,9 +277,10 @@ function graphicOutput(){
   outp.push()
   for (let i = 0; i < 70; i++) {
     message2.push(i % 2);
-    console.log(message2)
   }
 
+  
+  console.log(message2, grid2)
   for (let i = 0; i < grid2[0].length; i++) {
     for (let j = 0; j < grid2.length; j++) {
       if (grid2[j][i] == 1) {
