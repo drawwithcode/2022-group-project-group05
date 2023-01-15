@@ -9,7 +9,7 @@ _What if communicating directly like machines could help us find true love more 
 
 N01 is a web experience that allows you to find your soulmate only talking with one bit messages.
 
-The project takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
+The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
 
 **Table of Contents**
 
@@ -42,30 +42,31 @@ The whole experience takes place in a room, where N01 is displayed on a screen, 
 # Experience
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
 Cheesy love quotes and heart patterns make N01 almost feel like a dating site. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. 
-The experince itselfs starts with color recognition (parte del codice) 
+The experience itselfs starts with color recognition
 
 ## Matching
 parte codice del matching 
 ## Happy endings
-parte della gallery
+At the end of the experience it would be possible to see the heart that you and your parter generated, and to have access to the gallery that collects everyone's matches. The database was created thanks to firebase...  (parte della gallery)
 # The code
 
 ##
 
 # Team
 
-Meet the team 
+Letteralmente N01
 ![team](images/team.png)
 
 ## Credits
 
-Draw With Code: Creative Coding 2021/2022 <br>
+Draw With Code: Creative Coding <br>
+Academic Year 2022/2023 <br>
 Politecnico di Milano – Dipartimento di Design
 
 ### Faculty
 
-- Michele Mauri
-- Tommaso Elli
-- Andrea Benedetti
+ Michele Mauri
+ Tommaso Elli
+ Andrea Benedetti
 
 
