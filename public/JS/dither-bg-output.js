@@ -127,7 +127,7 @@ let Redaction;
 
 
 let p2;//gallery
-let data;
+let ctx2;
 
 /*{
   color1: color1,
@@ -280,6 +280,11 @@ if (page=="gallery"){
 }*/
 
 
+
+let dataBoh;
+let data;
+let imageData;
+
 //CANVA TO SAVE ON DATABASE
 p2 = new p5(sketch);
 
@@ -289,16 +294,20 @@ p2.draw = function (){
 
   p2.image(outp, 0,0);
 
-  data = p2.canvas.toDataURL();
-  console.log(data)
+  dataBoh = p2.canvas.toDataURL();
+  
+  ctx2=p2.canvas.getContext("2d");
+  let imageData = ctx2.getImageData( 0, 0, p2.width, p2.height );
+
+  data= [imageData.data.buffer];
 
   p2.canvas.style.display="none";
-
   
- writeUserData("canva", data)
+writeUserData("canva", data)
+
 }
 
-
+console.log(data, imageData, dataBoh)
 
 //////DITHER
 //////processo i pixel
