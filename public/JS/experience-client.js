@@ -26,13 +26,10 @@ let colArray = [
 ]
 
 let userColor;
-let pairColor;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  background(0);
+  noCanvas()
   frameRate(20);
-
   //setup video
   video = createCapture(VIDEO)
   video.hide();

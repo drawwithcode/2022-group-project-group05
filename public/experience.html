@@ -14,6 +14,10 @@
   </head>
 
   <body ondblclick="">
+    <script>
+      let page = "experience"
+    </script>
+    <script type="module" src="JS/ditherBg.js"></script>
     <script src="JS/experience-client.js"></script>
 
     <!--button-->
@@ -28,7 +32,7 @@
       let url = new URL(location.href); 
       let input = url.searchParams.get("name1");
 
-     setTimeout(experienceOpener, 3600)
+      //setTimeout(experienceOpener, 3600)
 
       function experienceOpener(){
         window.open("output.html?name1="+ input, "_self")

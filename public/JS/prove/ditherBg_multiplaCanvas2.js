@@ -1,14 +1,8 @@
 //VARIABILI
 
-//////NAME
-//////prendo il nome dell'utente dall'url dopo il login
-let url = new URL(location.href); 
-let input = url.searchParams.get("name1");
-
-
 //////GRADIENT
 let seed=0.0;
-let colorGr= "#FF36F7";
+let color= "#FF36F7";
 
 //////DITHER
 const thresholdMaps = [
@@ -85,65 +79,20 @@ const dithers = {
 
 
 //////CANVAS
+let p1;
+let p2;
 let windowWidth = window.innerWidth
 let windowHeight = window.innerHeight
 
-let p1;//bg
+let bgCanvas;
 let ctx;
 
-let outp;//output
-let rows=8;
-const grid1 = [
-  [0, 0, 1, 1, 1, 0, 0, 0],
-  [0, 1, 1, 1, 1, 1, 0, 0],
-  [1, 1, 1, 1, 1, 1, 1, 0],
-  [1, 1, 1, 1, 1, 1, 1, 0],
-  [1, 1, 1, 1, 1, 1, 1, 0],
-  [1, 1, 1, 1, 1, 1, 1, 0],
-  [1, 1, 1, 1, 1, 1, 1, 0],
-  [0, 1, 1, 1, 1, 1, 1, 0],
-  [0, 0, 1, 1, 1, 1, 1, 1],
-  [0, 0, 0, 1, 1, 1, 1, 1],
-  [0, 0, 0, 0, 1, 1, 1, 1],
-  [0, 0, 0, 0, 0, 1, 1, 1],
-  [0, 0, 0, 0, 0, 0, 1, 1],
-  [0, 0, 0, 0, 0, 0, 0, 1],
-];
-let message1 = [];
-const grid2 = [
-  [0, 0, 0, 1, 1, 1, 0, 0],
-  [0, 0, 1, 1, 1, 1, 1, 0],
-  [1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 0],
-  [0, 1, 1, 1, 1, 1, 0, 0],
-  [0, 1, 1, 1, 1, 0, 0, 0],
-  [0, 1, 1, 1, 0, 0, 0, 0],
-  [0, 1, 1, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0],
-];
-let message2 = [];
-
-let color1= "red";
-let color2= "blue";
-
-let data= {
-  color1: color1,
-  color2: color2,
-  name1: input,
-  name2: input,
-};
-
-
-let p2;//gallery
-let importedData=[1,2,3,4,5];
-
 let myFont;
-let Redaction;
+
+//////NAME
+//////prendo il nome dell'utente dall'url dopo il login
+let url = new URL(location.href); 
+let input = url.searchParams.get("name1");
 
 
 //////CUORICINI
@@ -168,48 +117,126 @@ class Heart {
   }
 }
 
+/*
+function setup(){
+  noStroke();
+  colorMode(RGB, 255, 255, 255);
+  pixelDensity(1)
+  frameRate(12)
 
-//importo dal firebase la funzione che scrive i dati dell'output
-import { writeUserData } from "/public/JS/firebase.js"
-//importo dal firebase la funzione che legge i dati dal database
-import { readUserData } from "/public/JS/firebase.js"
+  heartImage= loadImage('./assets/elements/iconHeartInverted.png')
+  
+  bgCanvas= createCanvas(windowWidth, windowHeight);
+  ctx= canvas.getContext('2d');
+  
+    
+  //////se sono nella pagina finale
+  if(page=="output"){
+  
+    output= document.createElement("div")
+    output.id="output"
+
+    let img= document.createElement("img");
+    img.src="./assets/elements/output.png"
+
+    let names= document.createElement("p")
+    names.innerHTML = String(input) + " + " + String(input)
+    
+    names.style.fontSize="2em"
+    names.style.fontFamily="myFont"
+
+    document.body.appendChild(output);
+    document.body.appendChild(img);
+    document.body.appendChild(names);
+
+    output.appendChild(img);
+    output.appendChild(names);
+  }
+
+  //animazione cuoricini
+  if(page=="home"){
+
+    document.addEventListener("click", clickHeart);
+    setInterval(spawnHeart,1500)
+  }
+}
+
+function draw(){
+    
+  //imposto un valore di noise che rende animato il mio gradiente di sfondo
+  seed= seed + 0.005;
+  let val1= noise(seed)*800; 
+
+  //disegno il gradiente di sfondo
+  let gradient = ctx.createLinearGradient(0, val1, 0,  bgCanvas.height);
+  gradient.addColorStop(0, color);
+  gradient.addColorStop(1, "white");
+    
+  ctx.fillStyle=gradient;
+  rect(0,0,bgCanvas.width, bgCanvas.height)
+
+  // get the image from bgCanvas
+  const imageData = ctx.getImageData( 0, 0, bgCanvas.width, bgCanvas.height );
+
+  //apply dither effect
+  dither(imageData, [imageData.data.buffer]);
+  
+  for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}
+
+}*/
 
 
-
+//FUNZIONI
 //////CREO LA CLASSE DELLE CANVAS
 let sketch = function(p) {
 
   p.preload = function(){
-    myFont = p.loadFont("./assets/fonts/Voxel.otf")
-    Redaction= p.loadFont("./assets/fonts/Redaction35-Italic.otf")
+    myFont=p.loadFont("./assets/fonts/Voxel.otf")
     heartImage = p.loadImage('./assets/elements/iconHeartInverted.png');
+
   }
 
+/*
   p.setup = function() {
-
     p.createCanvas(windowWidth, windowHeight);
     p.noStroke();
     p.colorMode(p.RGB, 255, 255, 255);
     p.pixelDensity(1)
     p.frameRate(24)
-  
-    //generazione dell'output
-    graphicOutput()
-    
-  }
+
+  }*/
 
 //////imposto la funzione per adattare la dimensione della canva alla window
-  addEventListener("resize", (event) => {
-    console.log("ridimensiono")
-    windowWidth = window.innerWidth
-    windowHeight = window.innerHeight
-    p.resizeCanvas(windowWidth, windowHeight)
-  });
+document.addEventListener("resize", (event) => {
+  windowWidth = window.innerWidth
+  windowHeight = window.innerHeight
+  //p.resizeCanvas(windowWidth, windowHeight)
+});
 
 }
 
-
 p1 = new p5(sketch)//SFONDO
+
+p1.setup = function() {
+  p1.createCanvas(windowWidth, windowHeight);
+  p1.noStroke();
+  p1.colorMode(p1.RGB, 255, 255, 255);
+  p1.pixelDensity(1)
+  p1.frameRate(24)
+
+  
+  if (page=="output"){
+    output()
+   }
+
+   //galleria
+  if (page=="gallery"){
+    document.addEventListener("click", function(){
+      output()
+    });
+  }
+  
+}
 
 p1.draw = function (){
 
@@ -223,7 +250,7 @@ p1.draw = function (){
 
   //disegno il gradiente di sfondo
   let gradient = ctx.createLinearGradient(0, val1, 0,  p1.height);
-  gradient.addColorStop(0, colorGr);
+  gradient.addColorStop(0, color);
   gradient.addColorStop(1, "white");
     
   ctx.fillStyle=gradient;
@@ -238,86 +265,73 @@ p1.draw = function (){
 
   //animazione cuoricini
   if(page=="home"){
+
     for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}
   }
   
-  //creo l'output
   if(page=="output"){
-    p1.image(outp, (windowWidth-outp.width)/2,  (windowHeight-outp.height)*2/3);
+    ctx.drawImage(p2.canvas,(windowWidth-p2.width)/2 , (windowHeight- p2.height)/2)
   }
 
 }
 
 
+//artwork
+function output(){
+ let widthCvn2;
+ let heightCvn2;
+p2 = new p5(sketch)//ARTWORK
 
-//////OUTPUT
-function graphicOutput(){
+p2.setup = function() {
+  p2.createCanvas(100,100);
+  p2.canvas.width = 100;
+  
+  p2.canvas.height = 100;
+  //cnv2.position((windowWidth-p2.width)/2 , (windowHeight- p2.height)/2 )
+  console.log(p2.canvas)
+  console.log(p2.canvas.width)
+  
+  p1.canvas.appendChild(p2.canvas)
 
-  outp= p1.createGraphics(p1.width*3/4,p1.height*2.5/4);
+}
 
-  let myindex = 0;
-  outp.push()
-  for (let i = 0; i < 70; i++) {
-    message1.push(i % 2);
+
+
+
+p2.draw = function() { //ARTWORK
+
+  p2.canvas.id = "artworkFinale";
+
+  let grid = [];
+  const rows = 15;
+  for (let i = 0; i < rows; i++) {
+    grid[i] = [false, false, false, false, false, false, false, false, false, false]
   }
 
-
-  for (let i = 0; i < grid1[0].length; i++) {
-    for (let j = 0; j < grid1.length; j++) {
-      if (grid1[j][i] == 1) {
-        if (message1[myindex] == 1) outp.fill("white");
-        else outp.fill(color1);
-        outp.square(i *((outp.width/2) / rows)+((outp.width/2) / rows)/2, j *((outp.width/2) / rows), (outp.width/2) / rows);
-        myindex++;
+  for (let x = 0; x < rows; x++) {
+    for (let y = 0; y < rows; y++) {
+      if(grid[x][y]){
+      p2.fill(0);
+      }else{
+      p2.fill(255);
       }
+    p2.rect(x*(100 / rows),y*(100 / rows),100 / rows, 100 / rows)
     }
   }
-  outp.pop()
+  
+  p2.fill(255);
+  p2.textFont(myFont);
+  p2.textSize(16);
+  p2.textAlign(p2.CENTER);
+  p2.text(input + " + " + input, p2.width/2, p2.height*2.2/4)
 
-  outp.push()
-  for (let i = 0; i < 70; i++) {
-    message2.push(i % 2);
-  }
-
   
-  console.log(message2, grid2)
-  for (let i = 0; i < grid2[0].length; i++) {
-    for (let j = 0; j < grid2.length; j++) {
-      if (grid2[j][i] == 1) {
-        if (message2[myindex] == 1) outp.fill("white");
-        else outp.fill(color2);
-        outp.square(i *((outp.width/2) / rows)+(outp.width/2)-((outp.width/2) / rows)/2, j *((outp.width/2) / rows), (outp.width/2) / rows);
-        myindex++;
-      }
-    }
-  }
-  outp.pop()
-  
- outp.fill(255);
- outp.textSize(30);
- outp.textFont(Redaction)
- outp.textAlign(outp.CENTER)
- outp.text(input + " + " + input, outp.width/2,outp.height*2.3/4)
- 
- writeUserData("canva", data)
-  
+//
 }
 
 
-
-let recived;
-if (page=="gallery"){
-
-  readUserData("p2", recived)
-  console.log(recived)
-
-  p2=new p5(sketch);
-
-  p2.draw = function (){
-    p2.text(data,100,100)
-  }
-
 }
+
 
 
 //////DITHER
@@ -362,6 +376,7 @@ function dither (imageData, []){
     
     drawCanvas(ctx, imageData);
 }
+
 //////ridisegno la canvas con i pixel nuovi
 function drawCanvas(cnv, img) {
     cnv.canvas.width = img.width;
@@ -372,17 +387,43 @@ function drawCanvas(cnv, img) {
 
 //////SAVE CANVAS
 //////funzione che salva la canvas come immagine
-if(page=="output"){
-  let saveButton= document.getElementById("save");
-  saveButton.addEventListener("click", saveCnv)
-}
-
 function saveCnv(){
+  //bgCanvas.parent(output)
   p1.saveCanvas(p1.canvas, 'n01', 'png');
 }
 
 
+/*funzione che aggiunge i div alla galleria
+if(page=="gallery"){
+  function mouseClicked(){
+    console.clear()
+    console.log("daje")
+    //OUTPUT
+
+    output= document.createElement("div")
+    output.id="output"
+
+    let img= document.createElement("img");
+    img.src="./assets/elements/output.png"
+
+    let names= document.createElement("p")
+    names.innerHTML = "nome1" + " + " + "nome2"
+    
+    names.style.fontSize="2em"
+    names.style.fontFamily="myFont"
+
+    document.body.appendChild(output);
+    document.body.appendChild(img);
+    document.body.appendChild(names);
+
+    output.appendChild(img);
+    output.appendChild(names);
+  }
+}*/
+
+
 //////ANIMAZIONE CUORICINI
+
 addEventListener("click", clickHeart);
 //////onclick
   function clickHeart(){
@@ -392,18 +433,18 @@ addEventListener("click", clickHeart);
 
     arrayHeart.push(new Heart(xHeart, yHeart))
 
-  } 
-
+  }
+  
+setInterval(spawnHeart,1500)
 //////setinterval
-if(page=="home"){
-  setInterval(spawnHeart,1500)
-}
+  function spawnHeart(){
+    
+    let xHeart= p1.random(0, p1.canvas.width)
+    console.log(xHeart)
+    let yHeart= p1.canvas.height
 
-function spawnHeart(){
-  
-  let xHeart= p1.random(0, p1.canvas.width)
-  let yHeart= p1.canvas.height
+    arrayHeart.push(new Heart(xHeart, yHeart))
 
-  arrayHeart.push(new Heart(xHeart, yHeart))
-  
-}
+    console.log( arrayHeart)
+    
+  }
