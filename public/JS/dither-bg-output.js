@@ -294,16 +294,17 @@ p2.draw = function (){
 
   p2.image(outp, 0,0);
 
-  dataBoh = p2.canvas.toDataURL();
+  dataBoh = p2.canvas.toDataURL();//unica tipologia di dati che scrive nel databse
   
-  ctx2=p2.canvas.getContext("2d");
-  let imageData = ctx2.getImageData( 0, 0, p2.width, p2.height );
+  //nessuno di questi due tipi li scrive nel database
+  /*ctx2=p2.canvas.getContext("2d");
+  imageData = ctx2.getImageData( 0, 0, p2.width, p2.height )
 
-  data= [imageData.data.buffer];
+  data= [imageData.data.buffer];*/
 
   p2.canvas.style.display="none";
   
-writeUserData("canva", data)
+  writeUserData("ciaomamma", dataBoh)
 
 }
 
