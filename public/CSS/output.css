@@ -1,38 +1,4 @@
-
-#content-wrap{
-    position: fixed;
-    bottom:25px;
-    margin-bottom: 10%;
-    padding:0;
-    }
-  
-.content{
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2% 0 2% 0;
-  }
-  
-#output {
-  position:absolute;
-  top:30%;
-  display: flex;
-  align-items:center;
+#btn-container{
   margin:auto;
-  justify-content:center;
-  flex-direction:column;
-  }
-
-  #names{
-    display:flex;
-    color:white; 
-    font-family:'myFont';
-    font-size: 1.6em;
-    text-align: center;
-    width:100%;
-  }
-
-  #artworkFinale{
-z-index:1000;
-  }
+  margin-bottom:0;
+}

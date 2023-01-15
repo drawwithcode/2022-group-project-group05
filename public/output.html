@@ -15,16 +15,15 @@
     
   </head>
 
-  <body>
+  <body class="flex-col">
 
     <!--menù compatto-->
-    <button id="menu-btn" onclick="toggleMenu('output')"> 
-      <img  id="btnPurple"  src="assets/elements/iconHeart.png">
-      <img id="btnWhite"  class= "active" src="assets/elements/iconHeartInverted.png">
-    </button>
+    <btn id="menu-btn" class="menu flex-col"> 
+      <img  id="heart" src="assets/elements/iconHeart.png">
+    </btn>
 
-     <!--menù intero-->
-     <div class="menu flex-col" id="menu">
+    <!--menù intero-->
+    <div class="menu flex-col" id="menu">
 
       <div class="centered-wrap">
         <btn class="menu-elt flex-col">
@@ -38,32 +37,36 @@
         </btn>
       </div>
         
-        <a id="about" href="concept.html">about N01</a>
-  
-      </div>
+      <a id="about" href="https://github.com/drawwithcode/2022-group-project-group05/blob/website/README.md">about N01</a>
 
-      
-      
-        <!--gallery-->
-    <div class="menu-elt" style="margin:1% 0 1% 0">
-      <a href="gallery.html">happy endings</a>
-      <img src="assets/elements/buttonExperience.svg">
     </div>
 
-    <div class="menu-elt" style="margin:1% 0 1% 0">
-        <a onclick="newWindow('waiting')">find another match</a>
+
+    <div id="btn-container">
+      <!--save-->
+      <btn class="menu-elt flex-col">
+        <a id="save" style="color:#FF36F7;">record a memory</a>
+        <img src="assets/elements/buttonHomeWhite.png" >
+      </btn>
+      
+      <!--gallery-->
+      <btn class="menu-elt flex-col">
+        <a href="gallery.html">happy endings</a>
         <img src="assets/elements/buttonHome.png">
-      </div>
+      </btn>
+      
+      <!--loading-->
+      <btn class="menu-elt flex-col">
+        <a>find another match</a>
+        <img src="assets/elements/buttonHome.png">
+      </btn>
 
     </div>
 
 
-    <script> 
-      let page="output";
-    </script>
+    <script> let page="output"; </script>
+    <script src="JS/menu.js"></script>
     <script type="module" src="/public/JS/firebase.js"></script>
-
-    <script src="JS/main.js"></script>
     <script type="module" src="JS/ditherBg.js"></script>
 
   </body>

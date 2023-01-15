@@ -87,7 +87,6 @@ a {
 a:hover{
   cursor: pointer;
   text-decoration: underline;
-  text-decoration-thickness: 2px;
 }
 
 /*background*/
@@ -175,9 +174,3 @@ canvas {
   align-items:center;
   width:100%;
 }
-
-
-
-/*#imgBtn{
-  filter: drop-shadow(10px 0px 0px 0px #960090);
-}*/
