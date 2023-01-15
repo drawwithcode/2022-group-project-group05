@@ -149,14 +149,18 @@ canvas {
   margin:5% 0 5% 0;
 }
 
+#about{
+  position:fixed;
+  bottom:4vh;
+
+  display:flex;
+  
+  color:#FF36F7;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
 
 
-/*content*/
-/*#content-wrap{
-  display: flex;
-  width: 100%;
-  overflow-y: scroll;
-}*/
 
 .content{
   margin: 2vh;
