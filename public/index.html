@@ -15,68 +15,56 @@
     
   </head>
 
-  <body>
+  <body class="flex-col">
 
     <!--menù compatto-->
-    <button id="menu-btn" onclick="toggleMenu('home')"> 
-      <img  id="btnPurple"  src="assets/elements/iconHeart.png">
-      <img id="btnWhite"  class= "active" src="assets/elements/iconHeartInverted.png">
-    </button>
+    <btn id="menu-btn" class="menu flex-col"> 
+      <img  id="heart" src="assets/elements/iconHeart.png">
+    </btn>
 
     <!--menù intero-->
-    <div id="menu">
-      <div class="menu-elt">
+    <div class="menu flex-col" id="menu">
+
+      <btn class="menu-elt flex-col">
       <a href="index.html">find your soulmate</a>
       <img src="assets/elements/buttonHome.png">
-    </div>
-
-      <div class="menu-elt">
-        <a href="concept.html">about N01</a>
-        <img src="assets/elements/buttonMenu.png">
-      </div>
+    </btn>
       
-    
-      <div class="menu-elt">
+      <btn class="menu-elt flex-col">
         <a href="gallery.html">happy endings</a>
         <img src="assets/elements/buttonExperience.png">
-      </div>
-
-      <div class="menu-elt">
-        <a href="credits.html">credits</a>
+      </btn>
+      
+      <btn class="menu-elt flex-col">
+        <a href="concept.html">about N01</a>
         <img src="assets/elements/buttonMenu.png">
-      </div>
+      </btn>
+
     </div>
 
-        <!--logo-->
-    <div id="logo-wrap">
+    <!--content-->    
+    <div id="logo-container" class="centered-wrap flex-col">
+      <!--logo-->
       <img src="assets/elements/logo.png">
       <p id="pay-off">A little bit of love.</p>
     </div>
 
-        <!--descrizione-->
-    <div id="content-wrap">
-      <div class="content">
-        <p>Everyone deserves a love story and technologies nowdays seem to know more about it then humans do.
-          </br>Acting as a machine may be the right way to look for a partner.</br> 
-          Let N01 help you find your soulmate by using
-          only 1-bit message. </br>
-          </br> Ready to fall in love sweetie? 
-        </p>
-      </div>
-    </div>
+     <!--descrizione-->
+    <p id="description" class="content">
+      Everyone deserves a love story and technologies nowdays seem to know more about it then humans do.</br>
+      Let N01 help you find your soulmate by using only 1-bit message. </br></br>
+      Ready to fall in love sweetie? 
+    </p>
 
-
-        <!--inizio esperienza-->
-    <btn id="experience">
+    <!--inizio esperienza-->
+    <btn id="btn-container">
       <a href="login.html">find your soulmate</a>
       <img src="assets/elements/buttonHome.png">
     </btn>
 
-    <script>
-      let page="home"
-    </script>
-
-    <script src="JS/main.js"></script>
+    <script> let page="home" </script>
+    <script src="JS/menu.js"></script>
+    <script src="JS/index.js"></script>
     <script type= "module" src="JS/ditherBg.js"></script>
 
     

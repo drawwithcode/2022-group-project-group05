@@ -1,31 +1,32 @@
+let name; //nome dell'utente
 let nameField = document.getElementById('nameField');
-experienceBtn = document.getElementById("experience");
+
+let experienceBtn = document.getElementById("btn-container");
 
 
-function setName(name){
-    //let nameInput= document.getElementById('name')
+function setName(){
     name = document.getElementById('name').value;
-    input = name;
-    nameField.innerHTML = input;
+    nameField.innerHTML = name;
 
-//check if name esiste
+    //check if name esiste
     if (name.length != 0 ){
         pShow()
     }
 };
 
 function pShow(){
+    //faccio scomparire la sezione dell'input
     let parte1= document.getElementById('part1');
-    parte1.classList.toggle("active");
+    parte1.style.display= "none";
+    
+    //faccio comparire la sezione dell'esperienza
     let parte2= document.getElementById('part2');
-    parte2.classList.toggle("active");
-
+    parte2.style.display= "flex";
     experienceBtn.style.display="flex";
-    console.log(experienceBtn)
 }
 
-function newWindow(page){
-    if(page=="login"){
-        window.open("waiting.html?name1="+ input, "_self")
-    }
+experienceBtn.addEventListener("click", newWindow)
+
+function newWindow(){
+     window.open("loading.html?name1="+ name, "_self")
 }

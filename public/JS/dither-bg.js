@@ -1,11 +1,5 @@
 //VARIABILI
 
-//////NAME
-//////prendo il nome dell'utente dall'url dopo il login
-let url = new URL(location.href); 
-let input = url.searchParams.get("name1");
-
-
 //////GRADIENT
 let seed=0.0;
 let colorGr= "#FF36F7";
@@ -70,17 +64,7 @@ const dithers = {
     rgb_4: {
       mapIndex: [2, 1, 2],
       colorCount: [2, 4, 2],
-    },/*
-    rgb_6: {
-      isGrayscale: false,
-      mapIndex: [1, 1, 1],
-      colorCount: [4, 4, 4],
     },
-    rgb_8: {
-      isGrayscale: false,
-      mapIndex: [1, 1, 1],
-      colorCount: [8, 8, 4],
-    },*/
   };
 
 
@@ -91,99 +75,11 @@ let windowHeight = window.innerHeight
 let p1;//bg
 let ctx;
 
-let outp;//output
-let rows=8;
-const grid1 = [
-  [0, 0, 1, 1, 1, 0, 0, 0],
-  [0, 1, 1, 1, 1, 1, 0, 0],
-  [1, 1, 1, 1, 1, 1, 1, 0],
-  [1, 1, 1, 1, 1, 1, 1, 0],
-  [1, 1, 1, 1, 1, 1, 1, 0],
-  [1, 1, 1, 1, 1, 1, 1, 0],
-  [1, 1, 1, 1, 1, 1, 1, 0],
-  [0, 1, 1, 1, 1, 1, 1, 0],
-  [0, 0, 1, 1, 1, 1, 1, 1],
-  [0, 0, 0, 1, 1, 1, 1, 1],
-  [0, 0, 0, 0, 1, 1, 1, 1],
-  [0, 0, 0, 0, 0, 1, 1, 1],
-  [0, 0, 0, 0, 0, 0, 1, 1],
-  [0, 0, 0, 0, 0, 0, 0, 1],
-];
-let message1 = [];
-const grid2 = [
-  [0, 0, 0, 1, 1, 1, 0, 0],
-  [0, 0, 1, 1, 1, 1, 1, 0],
-  [1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 0],
-  [0, 1, 1, 1, 1, 1, 0, 0],
-  [0, 1, 1, 1, 1, 0, 0, 0],
-  [0, 1, 1, 1, 0, 0, 0, 0],
-  [0, 1, 1, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0],
-];
-let message2 = [];
-
-let color1= "red";
-let color2= "blue";
-
-let data= {
-  color1: color1,
-  color2: color2,
-  name1: input,
-  name2: input,
-};
-
-
-let p2;//gallery
-let importedData=[1,2,3,4,5];
-
-let myFont;
-let Redaction;
-
-
-//////CUORICINI
-let heartImage;
-let arrayHeart= [];
-
-class Heart {
-  constructor(x, y){
-      this.x = x;
-      this.y = y;
-  }
-  move() {
-
-    this.y= this.y-5
-
-    p1.push();
-
-      p1.translate(this.x, this.y);
-      p1.image(heartImage, 0, 0);
-
-    p1.pop()
-  }
-}
-
-
-//importo dal firebase la funzione che scrive i dati dell'output
-import { writeUserData } from "/public/JS/firebase.js"
-//importo dal firebase la funzione che legge i dati dal database
-import { readUserData } from "/public/JS/firebase.js"
 
 
 
-//////CREO LA CLASSE DELLE CANVAS
+//CREO LA CLASSE DELLE CANVAS
 let sketch = function(p) {
-
-  p.preload = function(){
-    myFont = p.loadFont("./assets/fonts/Voxel.otf")
-    Redaction= p.loadFont("./assets/fonts/Redaction35-Italic.otf")
-    heartImage = p.loadImage('./assets/elements/iconHeartInverted.png');
-  }
 
   p.setup = function() {
 
@@ -192,11 +88,6 @@ let sketch = function(p) {
     p.colorMode(p.RGB, 255, 255, 255);
     p.pixelDensity(1)
     p.frameRate(24)
-  
-    //generazione dell'output
-    if(page=="output"){
-      graphicOutput()
-    }
     
   }
 
@@ -211,12 +102,11 @@ let sketch = function(p) {
 }
 
 
-p1 = new p5(sketch)//SFONDO
+p1 = new p5(sketch)
 
 p1.draw = function (){
 
   p1.canvas.id = "bgCanvas"
-
   ctx= p1.canvas.getContext('2d');
     
   //imposto un valore di noise che rende animato il mio gradiente di sfondo
@@ -236,87 +126,6 @@ p1.draw = function (){
 
   //chiamo la funzione che applica il dither sull'array di pixel del gradiente
   dither(imageData, [imageData.data.buffer]);
-
-
-  //animazione cuoricini
-  if(page=="home"){
-    for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}
-  }
-  //creo l'output
-  if(page=="output"){
-    p1.image(outp, (windowWidth-outp.width)/2,  (windowHeight-outp.height)*2/3);
-  }
-
-}
-
-
-
-//////OUTPUT
-function graphicOutput(){
-
-  outp= p1.createGraphics(p1.width*3/4,p1.height*2.5/4);
-
-  let myindex = 0;
-  outp.push()
-  for (let i = 0; i < 70; i++) {
-    message1.push(i % 2);
-  }
-
-
-  for (let i = 0; i < grid1[0].length; i++) {
-    for (let j = 0; j < grid1.length; j++) {
-      if (grid1[j][i] == 1) {
-        if (message1[myindex] == 1) outp.fill("white");
-        else outp.fill(color1);
-        outp.square(i *((outp.width/2) / rows)+((outp.width/2) / rows)/2, j *((outp.width/2) / rows), (outp.width/2) / rows);
-        myindex++;
-      }
-    }
-  }
-  outp.pop()
-
-  outp.push()
-  for (let i = 0; i < 70; i++) {
-    message2.push(i % 2);
-  }
-
-  
-  console.log(message2, grid2)
-  for (let i = 0; i < grid2[0].length; i++) {
-    for (let j = 0; j < grid2.length; j++) {
-      if (grid2[j][i] == 1) {
-        if (message2[myindex] == 1) outp.fill("white");
-        else outp.fill(color2);
-        outp.square(i *((outp.width/2) / rows)+(outp.width/2)-((outp.width/2) / rows)/2, j *((outp.width/2) / rows), (outp.width/2) / rows);
-        myindex++;
-      }
-    }
-  }
-  outp.pop()
-  
- outp.fill(255);
- outp.textSize(30);
- outp.textFont(Redaction)
- outp.textAlign(outp.CENTER)
- outp.text(input + " + " + input, outp.width/2,outp.height*2.3/4)
- 
- writeUserData("canva", data)
-  
-}
-
-
-
-let recived;
-if (page=="gallery"){
-
-  readUserData("p2", recived)
-  console.log(recived)
-
-  p2=new p5(sketch);
-
-  p2.draw = function (){
-    p2.text(data,100,100)
-  }
 
 }
 
@@ -363,48 +172,10 @@ function dither (imageData, []){
     
     drawCanvas(ctx, imageData);
 }
+
 //////ridisegno la canvas con i pixel nuovi
 function drawCanvas(cnv, img) {
     cnv.canvas.width = img.width;
     cnv.canvas.height = img.height;
     ctx.putImageData(img, 0, 0);
-}
-
-
-//////SAVE CANVAS
-//////funzione che salva la canvas come immagine
-if(page=="output"){
-  let saveButton= document.getElementById("save");
-  saveButton.addEventListener("click", saveCnv)
-}
-
-function saveCnv(){
-  p1.saveCanvas(p1.canvas, 'n01', 'png');
-}
-
-
-//////ANIMAZIONE CUORICINI
-addEventListener("click", clickHeart);
-//////onclick
-  function clickHeart(){
-
-    let xHeart= p1.mouseX
-    let yHeart= p1.mouseY
-
-    arrayHeart.push(new Heart(xHeart, yHeart))
-
-  } 
-
-//////setinterval
-if(page=="home"){
-  setInterval(spawnHeart,1500)
-}
-
-function spawnHeart(){
-  
-  let xHeart= p1.random(0, p1.canvas.width)
-  let yHeart= p1.canvas.height
-
-  arrayHeart.push(new Heart(xHeart, yHeart))
-  
 }
