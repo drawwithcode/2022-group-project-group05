@@ -40,11 +40,12 @@ The whole experience takes place in a room, where N01 is displayed on a screen, 
 # Experience
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
 Cheesy love quotes and heart patterns make N01 almost feel like a dating site. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. 
-
+The experince itselfs starts with color recognition (parte del codice) 
 
 ## Matching
+parte codice del matching 
 ## Happy endings
-
+parte della gallery
 # The code
 
 ##
