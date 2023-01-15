@@ -37,6 +37,8 @@ In the same way N01 connects people and show them that even with the smaller
 The whole experience takes place in a room.where N01 is displayed on a screen, explaining to participants how to join.when people enter, they connect simultaneously to the server and they get paired up by it, so they can start the experience. To participate is required a mobile phone. -meglio
 
 
+![structure](README.img/structure.png)
+
 # Experience
 
 ## Guru of love
