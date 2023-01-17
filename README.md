@@ -51,8 +51,8 @@ The experience is designed as an interactive exhibition that takes place in a ro
 ## homepage
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
 Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery. <br>
-The structure was made with html linked pages…. <br> 
-Another interesting aspect of the homepage is the wallpaper, created with a dithering effec and the animation of little hearts.
+The structure was made with html linked pages. 
+An interesting aspect of the homepage is the wallpaper, created with a dithering effect, and the animation of little hearts.
 
 ## login
 The first step requires to log into the web site with the personal name or a nickname, so the platform can start matching people. <br>
