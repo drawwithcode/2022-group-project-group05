@@ -19,8 +19,10 @@ The server connects two people; every time one of them touches the heart button,
    b. [Exhibition](#exhibition)<br>
 2. Experience<br>
    
-   a. [Matching](#matchings)<br>
-   b. [Happy endings](#happy-endings)<br>
+   a. [Homepage](#homepage)<br>
+   b. [Matching](#matching) <br>
+   c. [Happy Ending](#output and happy endings) <br>
+  
 
 3. [Team](#team)<br>
 
@@ -77,17 +79,8 @@ digitazione e salvataggio array in bit e suono
 generazione output
 
 
-After scanning the qr code the forst page visible is the landing page, where you can either start the experience or go directly to the final gallery.<br>
-The structure was made with html linked pages...<br>
-Another interesting aspect of the homepage is the wallpaper creted with a dithering effect...
 
-## Matching
-parte codice del matching 
-## Happy endings
-At the end of the experience it would be possible to see the heart that you and your parter generated, and to have access to the gallery that collects everyone's matches. The database was created thanks to firebase...  (parte della gallery)
-# The code
 
-##
 
 # Team
 
