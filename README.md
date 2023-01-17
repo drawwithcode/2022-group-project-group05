@@ -50,13 +50,21 @@ The experience is designed as an interactive exhibition that takes place in a ro
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
 Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery. <br>
 The structure was made with html linked pages…. <br> 
-Another interesting aspect of the homepage is the wallpaper, created with a dithering effect…
+Another interesting aspect of the homepage is the wallpaper, created with a dithering effec and the animation of little hearts.
 
 ## login
+The first step requires to log into the web site with the personal name or a nickname, so the platform can start matching people. <br>
+Everyone gets assigned a color, which will identify them in the further steps.
+
 ## waiting
+While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
 ## matching
-## output
-## happy endings
+When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed resulting in the artwork.  The matching system was created....
+## output and happy endings
+At the end of the experience it would be possible to see the heart that you and your parter generated, and to have access to the gallery that collects everyone's matches. The user can either decide to visualize the gallery, made with a Firebase real time database, or go back to the experience and find another match. 
+The output is generated in this way:
+This is how we used Firebase: 
+
 
 
 
