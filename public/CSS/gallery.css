@@ -1,7 +1,12 @@
+#menu-btn{
+  position:fixed;
+}
+
 #scrollable-ctn{
-  height:200vh;
+  justify-content: flex-start;
 }
 
 img {
-  display:flex;
+  margin:10vh;
+
 }

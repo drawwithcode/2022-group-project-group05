@@ -148,11 +148,9 @@ let ctx2;
 
 
 
-
 //importo dal firebase la funzione che scrive i dati dell'output
 import { writeUserData } from "/public/JS/firebase.js"
-//importo dal firebase la funzione che legge i dati dal database
-import { readUserData } from "/public/JS/firebase.js"
+
 
 
 
@@ -271,27 +269,8 @@ function graphicOutput(){
 }
 
 
-/*
 
-let recived;
-if (page=="gallery"){
-
-  readUserData("canva", recived)
-  console.log(recived)
-
-  p2=new p5(sketch);
-
-  p2.draw = function (){
-    p2.text(data,100,100)
-  }
-
-}*/
-
-
-
-let dataBoh;
-let data;
-let imageData;
+let artwork;
 
 //CANVA TO SAVE ON DATABASE
 p2 = new p5(sketch);
@@ -302,7 +281,8 @@ p2.draw = function (){
 
   p2.image(outp, 0,0);
 
-  dataBoh = p2.canvas.toDataURL();//unica tipologia di dati che scrive nel databse
+  artwork = p2.canvas.toDataURL();//unica tipologia di dati che scrive nel databse
+
   
   //nessuno di questi due tipi li scrive nel database
   /*ctx2=p2.canvas.getContext("2d");
@@ -312,11 +292,19 @@ p2.draw = function (){
 
   p2.canvas.style.display="none";
   
-  writeUserData("ciaomamma", dataBoh)
-
+  writeUserData("ciaomamma", artwork)
+  p2.noLoop()
 }
 
-console.log(data, imageData, dataBoh)
+/*
+function upload(){
+  addArtwork(artwork.src);
+}*/
+
+
+
+
+
 
 //////DITHER
 //////processo i pixel

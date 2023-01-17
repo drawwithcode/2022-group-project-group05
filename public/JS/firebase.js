@@ -16,22 +16,49 @@
         databaseURL: "https://letteralmenten01-default-rtdb.europe-west1.firebasedatabase.app/"
       };
 
-      import { getDatabase, ref, set, get, update} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+      import { getDatabase, ref, set, get, update, onValue} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
     
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
 
-      const db = getDatabase();
+      const db = getDatabase(app);
+      const dbref = ref(db)
 
       export function writeUserData(userId, data) {
        // console.log(data)
         //userid sarà il nome del file
         //scrivo nella cartella graphics data che è un parametro che si definisce quando chiamo la funzione nel setup
-        set(ref(db, 'gallery/' + userId), {
+        set(ref(db, 'gallery/'+ userId), {
           data: data
         });
+
       }
 
+      let artwork;
+
+        //ref(db, `gallery/${userId}`)
+        get(ref(db, `gallery/ciaomamma`)).then((snapshot) => {
+          if (snapshot.exists()) {
+            console.log(snapshot.val());
+            artwork = snapshot.val()
+          } else {
+            console.log("No data available");
+          }
+        }).catch((error) => {
+          console.error(error);
+        });
+
+        /*onValue(dbref, (snapshot) => {
+          const data = snapshot.val();
+          console.log("onValue"+ data)
+        });*/
+
+      export {artwork};
+
+      
+
+
+      /*
       let recived;
       export function readUserData(userId, data) {
         get(ref(db, `gallery/${userId}`)).then((snapshot) => {
@@ -45,4 +72,4 @@
           console.error(error);
         });
       }
-      console.log(recived)
+      console.log(recived)*/

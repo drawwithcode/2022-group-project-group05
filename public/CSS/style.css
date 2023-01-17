@@ -22,14 +22,14 @@ html, body {
   padding: 0;
   overflow-x: hidden;
   overflow-y: scroll;
-
+  
   font-family: 'Redaction35', Courier, monospace;
   visibility: visible;
 }
 
 body {
   position: relative;
-  height:94vh;
+  height:96vh;
   margin:2vh;
 
 }
@@ -115,7 +115,7 @@ canvas {
 
 /*MENU*/
 .menu {
-  position: absolute;
+  position: fixed;
   background-color: #fff;
   z-index: 1;
   
@@ -126,7 +126,7 @@ canvas {
 }
 
 #menu-btn {
-  position:fixed;
+  position:absolute;
   display:flex;
   padding: 0.6vh;
   z-index: 2;
@@ -183,7 +183,6 @@ canvas {
   left:0;
   
   width:100%;
-  background-color:white;
   overflow-y: scroll;
 }
 

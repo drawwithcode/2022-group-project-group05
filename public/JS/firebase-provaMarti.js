@@ -30,7 +30,9 @@ const { getDatabase, ref, push, set, onValue } = await import(fbDatabase);
   const database = getDatabase(app);
 
   // database reference
-  const artworksRef = ref(database, "artworks");
+  const artworksRef = ref(database, 'gallery/');
+
+
 
   // retrieve the stored artworks and put them inside the grid randomly
   onValue(artworksRef, (snapshot) => {
@@ -108,7 +110,7 @@ firebaseSetup();
       
       
       
-      
+      /*
       
       
       
@@ -158,4 +160,4 @@ firebaseSetup();
           console.error(error);
         });
       }
-      console.log(recived)
+      console.log(recived)*/

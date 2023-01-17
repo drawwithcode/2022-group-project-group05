@@ -7,17 +7,19 @@
     <link rel="icon" type="image/x-icon" href="assets/SVG/favicon.svg">
     <title>N01</title>
 
-    <link rel="stylesheet" href="https://use.typekit.net/gwx5cpj.css">
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
     <link rel="stylesheet" type="text/css" href="CSS/gallery.css">
 
     <script src="libraries/p5.min.js"></script>
+    
+    <script type="module" src="JS/firebase.js"></script>
+
   </head>
 
   <body class="flex-col">
 
     <!--menù compatto-->
-    <btn id="menu-btn" class="menu flex-col"> 
+    <btn id="menu-btn" class="menu flex-col content"> 
       <div id="heart"></div>
     </btn>
 
@@ -40,7 +42,7 @@
 
     </div>
 
-    
+
     <div id="scrollable-ctn" class="flex-col">
 
     </div>
@@ -48,9 +50,8 @@
     <script> let page="gallery"</script>
     
     <script src="JS/menu.js"></script>
-    <script type="module" src="JS/firebase.js"></script>
-    <script type="module" src="JS/dither-bg.js"></script>
-    <script src="JS/gallery.js"></script>
+    <script src="JS/dither-bg.js"></script>
+    <script type="module" src="JS/gallery.js"></script>
 
   </body>
 </html>
