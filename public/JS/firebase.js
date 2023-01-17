@@ -1,4 +1,5 @@
 
+
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
       // TODO: Add SDKs for Firebase products that you want to use
@@ -16,13 +17,15 @@
         databaseURL: "https://letteralmenten01-default-rtdb.europe-west1.firebasedatabase.app/"
       };
 
-      import { getDatabase, ref, set, get, update, onValue} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+      import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
     
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
 
       const db = getDatabase(app);
       const dbref = ref(db)
+
+      let name; 
 
       export function writeUserData(userId, data) {
        // console.log(data)
@@ -32,28 +35,39 @@
           data: data
         });
 
+        console.log(userId)
+
       }
 
       let artwork;
 
-        //ref(db, `gallery/${userId}`)
-        get(ref(db, `gallery/ciaomamma`)).then((snapshot) => {
-          if (snapshot.exists()) {
-            console.log(snapshot.val());
-            artwork = snapshot.val()
-          } else {
-            console.log("No data available");
-          }
-        }).catch((error) => {
-          console.error(error);
-        });
+      
+      //import { input } from "/public/JS/dither-bg-output.js";
+    
+
+      //ref(db, `gallery/${userId}`)
+      get(ref(db, `gallery/nome`)).then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val());
+
+          console.log(name)
+
+          artwork = snapshot.val()
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+
+
+      export {artwork};
 
         /*onValue(dbref, (snapshot) => {
           const data = snapshot.val();
           console.log("onValue"+ data)
         });*/
 
-      export {artwork};
 
       
 

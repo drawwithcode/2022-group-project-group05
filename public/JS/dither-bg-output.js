@@ -292,15 +292,12 @@ p2.draw = function (){
 
   p2.canvas.style.display="none";
   
-  writeUserData("ciaomamma", artwork)
+  //writeUserData(input, artwork)
+  writeUserData("nome", artwork)
   p2.noLoop()
 }
 
-/*
-function upload(){
-  addArtwork(artwork.src);
-}*/
-
+//export {input}
 
 
 
