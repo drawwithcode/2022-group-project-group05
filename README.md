@@ -63,7 +63,29 @@ While waiting for a match to be made, an array of cheesy love quotes will appear
 
 ## matching
 ```javascript
+//takes the first two waiting users and pairs them
+function pair() {
+    console.log("pairing")
+    waiting[0].pairedId = waiting[1].id
+    waiting[1].pairedId = waiting[0].id
+    unpaired -= 2;
 
+    io.to(waiting[0].id).emit("paired", waiting[1])
+    io.to(waiting[1].id).emit("paired", waiting[0])
+
+    //start the users' timers
+    for (let i = 0; i <= 1; i++){
+        let user = getUser(waiting[i].id)
+        user.timer = setInterval(function () {
+            user.updateMsg()
+        }, CLOCK)
+    }
+
+    console.log("paired " + waiting[0].id + " and " + waiting[1].id)
+    waiting.splice(0, 2);
+    console.log(waiting)
+}
+```
 When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed resulting in the artwork.  This is how the matching system works: <br>
 
 ## output and happy endings
