@@ -75,13 +75,14 @@ function dither (imageData, []){
 ## login
 The first step requires to log into the web site with the personal name or a nickname, so the platform can start matching people. <br>
 Everyone gets assigned a color, which will identify them in the further steps.
+foto palette
 
 ## waiting
 While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
 
 ## matching
 
-When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed resulting in the artwork.  This is how the matching system works: <br>
+When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed.  This is how the matching system works: <br>
 ```javascript
 //takes the first two waiting users and pairs them
 function pair() {
@@ -115,13 +116,7 @@ This is how we used Firebase:
 
 
 
-entra dal codice
-struttura sito con commento html
-home- commento dither e cuori 
-esperienza spiegata bene- login (nome e assegnato il colore)
-waiting (matching) - parte eli
-digitazione e salvataggio array in bit e suono
-generazione output
+
 
 
 
