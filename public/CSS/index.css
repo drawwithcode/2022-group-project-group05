@@ -3,17 +3,35 @@
 }
 
 #pay-off{
-  margin:2vh 0 0 0;
+  margin: 2vh 0 0 0;
   font-family:'Voxel'; 
   font-size: 3em;
 }
 
-/*classi per lo scroll*/
-#logo-container {
-  margin:2vh;
-  margin-top:auto;
+
+/*
+#scrollable-ctn{
+  height:100vh;
+  overflow-y:scroll;
 }
 
-.content {
-  margin-bottom:auto;
+#scrollable-elt{
+  height:200vh;
 }
+
+
+
+#logo-ctn{
+  bottom:-100;
+  transform: translateY(-150);
+}
+
+#description.reveal{
+  transform: translateY(-150);
+}
+
+#experience-btn.reveal{
+  transform: translateY(100px);
+  transition: 2s all ease;
+}*/
+

@@ -4,7 +4,13 @@
 //////prendo il nome dell'utente dall'url dopo il login
 let url = new URL(location.href); 
 let input = url.searchParams.get("name1");
+let again= document.getElementById("again");
 
+again.addEventListener("click", anotherMatch)
+
+function anotherMatch(){
+  window.open("loading.html?name1="+ input, "_self")
+}
 
 //////GRADIENT
 let seed=0.0;
@@ -119,8 +125,8 @@ const grid2 = [
 ];
 let message2 = [];
 
-let color1= "red";
-let color2= "blue";
+let color1= "#5CC8FF";
+let color2= "#F9B9F2";
 
 let Redaction;
 
@@ -230,6 +236,7 @@ function graphicOutput(){
       if (grid1[j][i] == 1) {
         if (message1[myindex] == 1) outp.fill("white");
         else outp.fill(color1);
+        outp.noStroke()
         outp.square(i *size + size/2, j *size, size);
         myindex++;
       }
@@ -248,6 +255,7 @@ function graphicOutput(){
       if (grid2[j][i] == 1) {
         if (message2[myindex] == 1) outp.fill("white");
         else outp.fill(color2);
+        outp.noStroke()
         outp.square(i *size +(outp.width/2)-size/2, j *size, size);
         myindex++;
       }
@@ -256,7 +264,7 @@ function graphicOutput(){
   outp.pop()
   
  outp.fill(255);
- outp.textSize(25);
+ outp.textSize(30);
  outp.textFont(Redaction)
  outp.textAlign(outp.CENTER)
  outp.text(input + " + " + input, outp.width/2, outp.height)

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/x-icon" href="assets/elements/favicon.png">
+    <link rel="icon" type="image/x-icon" href="assets/SVG/favicon.svg">
     <title>N01</title>
 
     <link rel="stylesheet" href="https://use.typekit.net/gwx5cpj.css">
@@ -19,25 +19,25 @@
 
     <!--menù compatto-->
     <btn id="menu-btn" class="menu flex-col"> 
-      <img  id="heart" src="assets/elements/iconHeart.png">
+      <div id="heart"></div>
     </btn>
 
     <!--menù intero-->
     <div class="menu flex-col" id="menu">
 
-    <div class="centered-wrap">
-      <btn class="menu-elt flex-col">
-        <a href="index.html">find your soulmate</a>
-        <img src="assets/elements/buttonHome.png">
-      </btn>
+      <div class="centered-wrap">
+        <btn class="menu-elt flex-col">
+          <a href="index.html">find your soulmate</a>
+          <img src="assets/SVG/buttonPink.svg">
+        </btn>
+          
+        <btn class="menu-elt flex-col">
+          <a href="gallery.html">happy endings</a>
+          <img src="assets/SVG/buttonPink.svg">
+        </btn>
+      </div>
         
-      <btn class="menu-elt flex-col">
-        <a href="gallery.html">happy endings</a>
-        <img src="assets/elements/buttonHome.png">
-      </btn>
-    </div>
-      
-    <a id="about" href="https://github.com/drawwithcode/2022-group-project-group05/blob/website/README.md">about N01</a>
+      <a id="about" href="https://github.com/drawwithcode/2022-group-project-group05/blob/website/README.md">about N01</a>
 
     </div>
 
@@ -53,14 +53,14 @@
 
       <btn id="submitBtn" class="content flex-col">
         <input id="submit"  type="submit" onclick="setName()" value="send">
-        <img id="submitImg"  src="assets/elements/buttonInput.png"  >
+        <img id="submitImg"  src="assets/SVG/buttonInput.svg"  >
       </btn>
     </div>
 
     
     <!--PART 2--> 
     <!--instructions--> 
-    <div id="part2" class="centered-wrap flex-col" >
+    <div id="part2" class="flex-col" >
       <p  class="content">Dear <span id="nameField"></span>,</br></br>
       Love is blind and so is your date: find your soulmate by communicating like a machine.</br>
       Every time you touch my heart a bit of information will be sent to your lover and the other way around.</br>
@@ -71,7 +71,7 @@
     </div>
 
     <!--inizio esperienza-->
-    <btn id="experience-btn" class="flex-col">
+    <btn id="experience-btn" class="flex-col down">
       <a>find your soulmate</a>
       <img src="assets/elements/buttonHome.png">
     </btn>

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/x-icon" href="assets/elements/favicon.png">
+    <link rel="icon" type="image/x-icon" href="assets/SVG/favicon.svg">
     <title>N01</title>
 
     <link rel="stylesheet" href="https://use.typekit.net/gwx5cpj.css">
@@ -17,51 +17,55 @@
 
   <body class="flex-col">
 
-    <!--menù compatto-->
-    <btn id="menu-btn" class="menu flex-col"> 
-      <img  id="heart" src="assets/elements/iconHeart.png">
-    </btn>
+     <!--menù compatto-->
+     <div id="menu-btn" class="menu flex-col content"> 
+      <div id="heart"></div>
+     </div>
 
-         <!--menù intero-->
+    <!--menù intero-->
     <div class="menu flex-col" id="menu">
 
-      <div class="centered-wrap">
+      <div>
         <btn class="menu-elt flex-col">
           <a href="index.html">find your soulmate</a>
-          <img src="assets/elements/buttonHome.png">
+          <img src="assets/SVG/buttonPink.svg">
         </btn>
           
         <btn class="menu-elt flex-col">
           <a href="gallery.html">happy endings</a>
-          <img src="assets/elements/buttonHome.png">
+          <img src="assets/SVG/buttonPink.svg">
         </btn>
       </div>
         
-        <a id="about" href="https://github.com/drawwithcode/2022-group-project-group05/blob/website/README.md">about N01</a>
-  
-      </div>
+      <a id="about" href="https://github.com/drawwithcode/2022-group-project-group05/blob/website/README.md">about N01</a>
+
+    </div>
 
       
 
     <!--content-->    
-    <div class="centered-wrap flex-col" id="logo-container" >
+    <div id="logo-ctn" class="flex-col reveal"  >
       <!--logo-->
-      <img src="assets/elements/logo.png">
+      <img src="assets/SVG/logo.svg">
       <p id="pay-off">A little bit of love.</p>
     </div>
 
      <!--descrizione-->
-    <p id="description" class="content">
+    <p id="description" class="content reveal">
       Everyone deserves a love story and technologies nowdays seem to know more about it then humans do.</br>
       Let N01 help you find your soulmate by using only 1-bit message. </br></br>
       Ready to fall in love sweetie? 
     </p>
 
     <!--inizio esperienza-->
-    <btn class="flex-col">
+    <btn  class="flex-col down reveal"  id="experience-btn">
       <a href="login.html">find your soulmate</a>
-      <img src="assets/elements/buttonHome.png">
+      <img src="assets/SVG/buttonPink.svg">
     </btn>
+
+    <!-- <div id="scrollable-ctn">
+      <div id="scrollable-elt"></div>
+    </div> -->
 
     <script> let page="home" </script>
     <script src="JS/menu.js"></script>

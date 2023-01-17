@@ -14,7 +14,7 @@ let p2;//hearts
 let sketch = function(p) {
 
   p.preload = function(){
-    heartImage = p.loadImage('./assets/elements/iconHeartInverted.png');
+    heartImage = p.loadImage('./assets/SVG/iconHeart.svg');
   }
 
   p.setup = function() {
@@ -145,7 +145,7 @@ function dither (imageData, []){
     const clamp = (val, min, max) => Math.max(min, Math.min(val, max));
     const map = (val, min1, max1, min2, max2) =>
     ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
-    
+    //prende un valore e li riconverte entro un range - quelli minori diventano il minimo, quelli maggiori diventano il massimo
     
     // filter
     for (let i = 0; i < pixels.length; i += 4) {
@@ -232,7 +232,7 @@ if (page=="home"){
   }
 
   //HEART SPAWNING
-  setInterval(spawnHeart,2500)
+  setInterval(spawnHeart,3000)
   function spawnHeart(){
     
     let xHeart= p2.random(0, p2.canvas.width)
