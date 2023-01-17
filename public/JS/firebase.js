@@ -46,7 +46,9 @@
     
 
       //ref(db, `gallery/${userId}`)
-      get(ref(db, `gallery/nome`)).then((snapshot) => {
+      //get(ref(db, `gallery/nome`)).then((snapshot) => {
+
+      get(ref(db, `gallery/`)).then((snapshot) => {
         if (snapshot.exists()) {
           console.log(snapshot.val());
 

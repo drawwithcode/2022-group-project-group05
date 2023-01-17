@@ -7,9 +7,10 @@ let outputs= []
 
 function newImage(){
 
-  console.log(artwork.data)
+    
+  console.log(artwork.Giacomo.data)
   
-  outputs.push(artwork.data)
+  outputs.push(artwork.Giacomo.data)
 
     outputs.forEach(element => {
         

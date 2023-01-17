@@ -293,7 +293,7 @@ p2.draw = function (){
   p2.canvas.style.display="none";
   
   //writeUserData(input, artwork)
-  writeUserData("nome", artwork)
+  writeUserData(input, artwork)
   p2.noLoop()
 }
 
