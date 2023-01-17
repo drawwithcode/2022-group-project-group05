@@ -15,65 +15,59 @@
     
   </head>
 
-  <body>
+  <body class="flex-col">
 
     <!--menù compatto-->
-    <button id="menu-btn" onclick="toggleMenu('output')"> 
-      <img  id="btnPurple"  src="assets/elements/iconHeart.png">
-      <img id="btnWhite"  class= "active" src="assets/elements/iconHeartInverted.png">
-    </button>
+    <btn id="menu-btn" class="menu flex-col"> 
+      <img id="heart" src="assets/elements/iconHeart.png">
+    </btn>
 
     <!--menù intero-->
-    <div id="menu">
-      <div class="menu-elt">
-      <a href="index.html">find your soulmate</a>
-      <img id="imgBtn" src="assets/elements/buttonHome.png">
+    <div class="menu flex-col" id="menu">
+
+      <div class="centered-wrap">
+        <btn class="menu-elt flex-col">
+          <a href="index.html">find your soulmate</a>
+          <img src="assets/elements/buttonHome.png">
+        </btn>
+          
+        <btn class="menu-elt flex-col">
+          <a href="gallery.html">happy endings</a>
+          <img src="assets/elements/buttonHome.png">
+        </btn>
+      </div>
+        
+      <a id="about" href="https://github.com/drawwithcode/2022-group-project-group05/blob/website/README.md">about N01</a>
+
     </div>
 
-      <div class="menu-elt">
-        <a href="concept.html">about N01</a>
-        <img src="assets/elements/buttonMenu.png">
-      </div>
+
+    <div id="btn-container">
+      <!--save-->
+      <btn id="save" class="flex-col">
+        <a style="color:#FF36F7;">record a memory</a>
+        <img src="assets/elements/buttonHomeWhite.png" >
+      </btn>
       
-    
-      <div class="menu-elt">
+      <!--gallery
+      <btn class="menu-elt flex-col">
         <a href="gallery.html">happy endings</a>
-        <img src="assets/elements/buttonExperience.svg">
-      </div>
-
-      <div class="menu-elt">
-        <a href="credits.html">credits</a>
-        <img src="assets/elements/buttonMenu.png">
-      </div>
-    </div>
-
-    <div id="content-wrap">
-    <div class="menu-elt"style="margin:1% 0 1% 0">
-        <a id="save" style="color:#FF36F7;">record a memory</a>
-        <img id="imgBtn"  src="assets/elements/buttonExperienceWhite.png" >
-      </div>
-      
-        <!--gallery-->
-    <div class="menu-elt" style="margin:1% 0 1% 0">
-      <a href="gallery.html">happy endings</a>
-      <img src="assets/elements/buttonExperience.svg">
-    </div>
-
-    <div class="menu-elt" style="margin:1% 0 1% 0">
-        <a onclick="newWindow('waiting')">find another match</a>
         <img src="assets/elements/buttonHome.png">
-      </div>
+      </btn>-->
+      
+      <!--loading-->
+      <btn class="flex-col">
+        <a>find another match</a>
+        <img src="assets/elements/buttonHome.png">
+      </btn>
 
     </div>
 
 
-    <script> 
-      let page="output";
-    </script>
-    <script type="module" src="/public/JS/firebase.js"></script>
-
-    <script src="JS/main.js"></script>
-    <script type="module" src="JS/ditherBg.js"></script>
+    <script> let page="output"; </script>
+    <script src="JS/menu.js"></script>
+    <script type="module" src="JS/firebase.js"></script>
+    <script type="module" src="JS/dither-bg-output.js"></script>
 
   </body>
 </html>

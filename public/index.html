@@ -22,28 +22,29 @@
       <img  id="heart" src="assets/elements/iconHeart.png">
     </btn>
 
-    <!--menù intero-->
+         <!--menù intero-->
     <div class="menu flex-col" id="menu">
 
-      <btn class="menu-elt flex-col">
-      <a href="index.html">find your soulmate</a>
-      <img src="assets/elements/buttonHome.png">
-    </btn>
-      
-      <btn class="menu-elt flex-col">
-        <a href="gallery.html">happy endings</a>
-        <img src="assets/elements/buttonExperience.png">
-      </btn>
-      
-      <btn class="menu-elt flex-col">
-        <a href="concept.html">about N01</a>
-        <img src="assets/elements/buttonMenu.png">
-      </btn>
+      <div class="centered-wrap">
+        <btn class="menu-elt flex-col">
+          <a href="index.html">find your soulmate</a>
+          <img src="assets/elements/buttonHome.png">
+        </btn>
+          
+        <btn class="menu-elt flex-col">
+          <a href="gallery.html">happy endings</a>
+          <img src="assets/elements/buttonHome.png">
+        </btn>
+      </div>
+        
+        <a id="about" href="https://github.com/drawwithcode/2022-group-project-group05/blob/website/README.md">about N01</a>
+  
+      </div>
 
-    </div>
+      
 
     <!--content-->    
-    <div id="logo-container" class="centered-wrap flex-col">
+    <div class="centered-wrap flex-col" id="logo-container" >
       <!--logo-->
       <img src="assets/elements/logo.png">
       <p id="pay-off">A little bit of love.</p>
@@ -57,7 +58,7 @@
     </p>
 
     <!--inizio esperienza-->
-    <btn id="btn-container">
+    <btn class="flex-col">
       <a href="login.html">find your soulmate</a>
       <img src="assets/elements/buttonHome.png">
     </btn>
@@ -65,8 +66,8 @@
     <script> let page="home" </script>
     <script src="JS/menu.js"></script>
     <script src="JS/index.js"></script>
-    <script type= "module" src="JS/ditherBg.js"></script>
-
     
+    <script src="JS/dither-bg.js"></script>
+
   </body>
 </html>

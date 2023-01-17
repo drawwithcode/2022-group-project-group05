@@ -32,16 +32,12 @@
         });
       }
 
-      
-      
-      let allArtworks;
-
       let recived;
-      export function readUserData(userId, recived) {
+      export function readUserData(userId, data) {
         get(ref(db, `gallery/${userId}`)).then((snapshot) => {
           if (snapshot.exists()) {
             console.log(snapshot.val());
-            recived=snapshot.val()
+            data = snapshot.val()
           } else {
             console.log("No data available");
           }

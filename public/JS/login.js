@@ -1,7 +1,7 @@
 let name; //nome dell'utente
 let nameField = document.getElementById('nameField');
 
-let experienceBtn = document.getElementById("btn-container");
+let experienceBtn = document.getElementById("experience-btn");
 
 
 function setName(){
