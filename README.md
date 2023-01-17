@@ -61,7 +61,8 @@ Everyone gets assigned a color, which will identify them in the further steps.
 ## waiting
 While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
 ## matching
-When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed resulting in the artwork.  This is how the matching system works:
+When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed resulting in the artwork.  This is how the matching system works: <br>
+
 //takes the first two waiting users and pairs them
 function pair() {
     console.log("pairing")
