@@ -1,94 +1,47 @@
-p {
-  margin: 0px;
+/*elementi parte 1*/
+input {
+  display:flex;
+  margin:auto;
+  padding:2vh 4vh;
+  background-color: white;
+
+  font-size: 1.4em;
+  font-family:'Redaction35'; 
+  color:#FF36F7;
+  
+  outline: none;
+  border:none;
+}
+
+input::placeholder {
+  color:#FF9AFB;
+  font-family:'Redaction35italic'; 
+  font-size: 1.0em;
+}
+
+#submitBtn {
+  margin-top:10vh;
+}
+
+#submit{
+  position:absolute;
+  width:auto;
   font-size: 1.6em;
+  font-family:'Redaction35italic'; 
+}
+
+
+
+
+/*elementi parte 2*/
+#part2 {
+  display:none;
+}
+
+#btn-container {
+  display:none;
 }
 
 span {
   font-family: 'Redaction35italic'
-}
-
-#content-wrap{
-  display: flex;
-  position:fixed;
-  width: 100vw;
-  margin:auto;
-  padding:20% 0 20% 0;
-  height:fit-content;
-  flex-direction: column;
-  align-items: center;
-}
-
-.content{
-  margin:0 10% 0 10% ;
-  width: 80%;
-  
-  align-items: center;
-  overflow-y: scroll;
-}
-
-  input {
-    margin:5% 0 10% 0;
-    padding:1em;
-    font-size: 1.2em;
-    font-family:'Redaction35'; 
-    color:#FF36F7;
-    border:none;
-    width:100%;
-  }
-
-  input:focus {
-    outline: none;
-    color:#FF36F7;
-    }
-
-   input::placeholder {
-    color:#FF36F7;
-    font-family:'Redaction35italic'; 
-    font-size: 1.1em;
-   }
- 
-   #submitBtn{
-    margin:auto;
-    margin-top:15%;
-    width:80%;
-    vertical-align: middle;
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #submitImg{  
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    filter: drop-shadow(10px 0px 0px #960090)
-  }
- 
-  #submit{
-    color:#FF36F7;
-    margin:auto;
-    padding:5px;
-    z-index:1;
-    background-color: white;
-    position:absolute;
-    width:auto;
-    font-size: 1.6em;
-    font-family:'Redaction35italic'; 
-    box-shadow: none;
-  }
-  
-  #nameField{
-    font-family:'Redaction35italic'; 
-  }
-  
-  #experience {
-    display:none;
-  }
-
-
-.active {
-  display:none;
-  margin:auto;
 }

@@ -1,26 +1,18 @@
 @font-face {
-  font-family: 'myFont';
+  font-family: 'Voxel';
   src: url('/public/assets/fonts/Voxel.otf');
-  font-weight: normal;
-  font-style: normal;
 }
 @font-face {
   font-family: 'Redaction35';
   src: url('/public/assets/fonts/Redaction35-Regular.otf');
-  font-weight: normal;
-  font-style: normal;
 }
 @font-face {
   font-family: 'Redaction35Italic';
   src: url('/public/assets/fonts/Redaction35-Italic.otf');
-  font-weight: normal;
-  font-style: normal;
 }
 @font-face {
   font-family: 'Redaction50';
   src: url('/public/assets/fonts/Redaction50-Regular.otf');
-  font-weight: normal;
-  font-style: normal;
 }
 
 
@@ -36,19 +28,57 @@ html, body {
 
 body {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  height:100vh;
-  
-  align-items: center;
-  justify-content: space-around;
+  height:94vh;
+  margin:2vh;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 
+/*posizione
+definisco una classe con un flex verticale per la disposizione degli elementi nelle pagine*/
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/*container*/
+.centered-wrap {
+    margin:auto;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+
+
+/*testi*/
+p {
+  font-family: 'Redaction35', Courier, monospace;
+  color:white;
+  font-size: 1.5em;
+}
+
+
+/*bottoni*/
+btn {
+  display:flex;
+
+  font-family: 'Redaction35', Courier, monospace;
+  border:none;
+  background-color: none;
+  
+  filter: drop-shadow(10px 0px 0px #960090)
+}
+
 a {
+  position:absolute;
   text-decoration: none;
   color:white;
-  position:absolute;
   
   font-size: 1.8em;
   font-family: 'Redaction35Italic', Courier, monospace;
@@ -56,36 +86,9 @@ a {
 
 a:hover{
   cursor: pointer;
-  border-bottom: #fff 2px;
-  /*text-decoration: underline;
-  text-decoration-thickness: 2px;*/
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
-
-button {
-  font-family: 'Redaction35', Courier, monospace;
-  border:none;
-  background-color: none;
-  /*background-color: #FF36F7;
-  box-shadow: #960090;
-  height:50px;*/
-}
-
-div {
-  width:100%;
-}
-
-p {
-  font-family: 'Redaction35', Courier, monospace;
-  color:white;
-  margin: 0.5em;
-  font-size: 1.4em;
-}
-
-
-::-webkit-scrollbar {
-  display: none;
-}
-
 
 /*background*/
 canvas {
@@ -102,119 +105,75 @@ canvas {
 }
 
 /*menu*/
-#menu-btn {
+.menu {
   position: fixed;
-  z-index: 5;
   background-color: #fff;
-  top: 20px;
-  right: 20px;
-  width: 45px;
-  height: 45px;
-  display:flex;
-  flex-direction:column;
-  margin:auto;
-  justify-content: space-around;
-}
-
-#menu {
-  position: fixed;
+  z-index: 1;
+  
   display: none;
-  background-color: #fff;
+
   width: 100vw;
   height: 100vh;
-  flex-direction: column;
-  padding: 100px;
-  align-items: center;
-  justify-content: space-around;
-  z-index:2;
 }
 
-/*heartpixel*/
-#btnWhite {
-  display: flex;
-  margin:auto;
+#menu-btn {
+  position:absolute;
+  display:flex;
+  padding:1%;
+  z-index: 2;
+  top: 0px;
+  right: 0px;
+  width: 5vh;/*scrivo la larghezza come proporzione dell'altezza così da avere un menu sempre di forma quadrata*/
+  height: 5vh;
 }
 
-#btnPurple {
-  display: flex;
-  margin:auto;
+#heart{
+  width: fit-content;
 }
 
-#btnPurple.active  {
-  display: none;
-}
 
-#btnWhite.active {
-  display: none;
+/*menu active*/
+.menu.active {
+  position:fixed;
+  display:flex;
 }
 
 #menu-btn.active {
   background-color: #960090;
 }
-
-#menu.active {
-  display: flex;
-  padding:30% 0% 30% 0%;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#heart.active{
+  fill:white;
 }
 
 .menu-elt{
-  width:80%;
-  vertical-align: middle;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin:5% 0 5% 0;
-  
-  filter: drop-shadow(10px 0px 0px #960090)
 }
 
 
 
 /*content*/
-#content-wrap{
+/*#content-wrap{
   display: flex;
   width: 100%;
-  padding:50% 0 0% 0;
-  margin-bottom: 15%;
-  height:fit-content;
-  flex-direction: column;
-  align-items: center;
   overflow-y: scroll;
-}
+}*/
 
 .content{
-  margin:0 10% 0 10% ;
-  width: 80%;
-  /*word-break: break-all;*/
+  margin: 2vh;
 }
 
 
 
 /*button experience*/
-#experience {
-  position: fixed;
-  bottom:25px;
-  display:flex;
-  margin:10% 0  10% 0;
-  flex-direction:row;
+#btn-container {
+  align-self:flex-end;
   justify-content: center;
   align-items:center;
   width:100%;
-  filter: drop-shadow(10px 0px 0px #960090)
-}
-
-.active {
-  display:none;
-  margin:auto;
 }
 
 
-#imgBtn{
-  
+
+/*#imgBtn{
   filter: drop-shadow(10px 0px 0px 0px #960090);
-
-}
+}*/

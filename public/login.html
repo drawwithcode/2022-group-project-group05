@@ -12,85 +12,77 @@
     <link rel="stylesheet" type="text/css" href="CSS/login.css">
     
     <script src="libraries/p5.min.js"></script>
-    <script src="libraries/p5.sound.min.js"></script>
 
   </head>
 
-  <body>
-  
-   <!--menù compatto-->
-   <button id="menu-btn" onclick="toggleMenu('login')"> 
-    <img  id="btnPurple"  src="assets/elements/iconHeart.png">
-    <img id="btnWhite"  class= "active" src="assets/elements/iconHeartInverted.png">
-  </button>
+  <body class="flex-col">
 
-  <!--menù intero-->
-  <div id="menu">
-    <div class="menu-elt">
-    <a href="index.html">find your soulmate</a>
-    <img src="assets/elements/buttonHome.png">
-  </div>
+    <!--menù compatto-->
+    <btn id="menu-btn" class="menu flex-col"> 
+      <img  id="heart" src="assets/elements/iconHeart.png">
+    </btn>
 
-    <div class="menu-elt">
-      <a href="concept.html">about N01</a>
-      <img src="assets/elements/buttonMenu.png">
-    </div>
-    
-    <div class="menu-elt">
-      <a href="gallery.html">happy endings</a>
-      <img src="assets/elements/buttonExperience.png">
-    </div>
+    <!--menù intero-->
+    <div class="menu flex-col" id="menu">
 
-    <div class="menu-elt">
-      <a href="credits.html">credits</a>
-      <img src="assets/elements/buttonMenu.png">
-    </div>
-  </div>
-
-
-  <!--content-->
-    <div id="content-wrap">
-
-       <!--input field--> 
-      <div  id="part1" class="content" >
-
-        <p >N01 knows that every story is a love story.</p>
-        <p > Start your own by writing <span>your name.</span></p> 
-        
-        <input required id="name" 
-        placeholder="who is looking for love..." onfocus="this.placeholder =''"  onblur="this.placeholder ='who is looking for love...'" >
-
-        <div id="submitBtn">
-          <input id="submit"  type="submit" onclick="setName(name)" value="send">
-          <img id="submitImg"  src="assets/elements/buttonInput.png"  >
-        </div>
-
-      </div>
-
-       <!--iinstructions--> 
-      <div id="part2" class="content active" >
-        <p>Dear <span id="nameField"></span>,</p>
-        <p style="font-size:1.4em;"> Love is blind and so is your date: find your soulmate by communicating like a machine.</br>
-            Every time you touch my heart a bit of information will be sent to your lover and the other way around.</br>
-            Listen to your devices to find each other and when you get together<span> it's kiss time: </span>
-            put your phones face to face and find out what love holds for you.</br></br>
-          Good luck, sweetie!</br>(ɔ°‿°)ɔ <3</p>
-      </div>
-    </div>
-
-    <btn id="experience" class="active" onclick="newWindow('login')">
-        <a>find your soulmate</a>
-        <img src="assets/elements/buttonHome.png">
+      <btn class="menu-elt flex-col">
+      <a href="index.html">find your soulmate</a>
+      <img src="assets/elements/buttonHome.png">
+    </btn>
+      
+      <btn class="menu-elt flex-col">
+        <a href="gallery.html">happy endings</a>
+        <img src="assets/elements/buttonExperience.png">
+      </btn>
+      
+      <btn class="btn-container">
+        <a id="about" href="concept.html">about N01</a>
       </btn>
 
-      
-    <script src="JS/main.js"></script>
-    <script src="JS/login.js"></script>
-    <script type= "module"  src="JS/ditherBg.js"></script>
+    </div>
 
-    <script>
-      let page="login";
-    </script>
+    <!--PART 1--> 
+    <!--input field--> 
+    <div id="part1" class="content flex-col">
+
+      <p >N01 knows that every story is a love story.</p>
+      <p >Start your own by writing <span>your name.</span></p> 
+      
+      <input required id="name" 
+      placeholder="who is looking for love..." onfocus="this.placeholder =''"  onblur="this.placeholder ='who is looking for love...'" >
+
+      <btn id="submitBtn" class="content flex-col">
+        <input id="submit"  type="submit" onclick="setName()" value="send">
+        <img id="submitImg"  src="assets/elements/buttonInput.png"  >
+      </btn>
+    </div>
+
+    
+    <!--PART 2--> 
+    <!--instructions--> 
+    <div id="part2" class="centered-wrap flex-col" >
+      <p  class="content">Dear <span id="nameField"></span>,</br></br>
+      Love is blind and so is your date: find your soulmate by communicating like a machine.</br>
+      Every time you touch my heart a bit of information will be sent to your lover and the other way around.</br>
+      Listen to your devices to find each other and when you get together<span> it's kiss time: </span>
+      put your phones face to face and find out what love holds for you.</br></br>
+      Good luck, sweetie!</br>
+      (ɔ°‿°)ɔ <3</p>
+    </div>
+
+    <!--inizio esperienza-->
+    <btn id="btn-container">
+      <a>find your soulmate</a>
+      <img src="assets/elements/buttonHome.png">
+    </btn>
+
+    
+      
+    <script> let page="login"; </script>
+    <script src="JS/menu.js"></script>
+    <script src="JS/login.js"></script>
+    <script src="JS/dither-bg.js"></script>
+
 
   </body>
 </html>
