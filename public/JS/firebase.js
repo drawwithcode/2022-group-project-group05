@@ -1,5 +1,3 @@
-
-
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
       // TODO: Add SDKs for Firebase products that you want to use
@@ -25,8 +23,6 @@
       const db = getDatabase(app);
       const dbref = ref(db)
 
-      let name; 
-
       export function writeUserData(userId, data) {
        // console.log(data)
         //userid sarà il nome del file
@@ -41,13 +37,6 @@
 
       let artwork;
 
-      
-      //import { input } from "/public/JS/dither-bg-output.js";
-    
-
-      //ref(db, `gallery/${userId}`)
-      //get(ref(db, `gallery/nome`)).then((snapshot) => {
-
       get(ref(db, `gallery/`)).then((snapshot) => {
         if (snapshot.exists()) {
           console.log(snapshot.val());
@@ -60,8 +49,22 @@
         console.error(error);
       });
 
-
       export {artwork};
+
+
+
+      
+      //import { input } from "/public/JS/dither-bg-output.js";
+    
+
+      //ref(db, `gallery/${userId}`)
+      //get(ref(db, `gallery/nome`)).then((snapshot) => {
+
+
+
+
+
+
 
         /*onValue(dbref, (snapshot) => {
           const data = snapshot.val();
@@ -71,6 +74,7 @@
 
       
 
+        
 
       /*
       let recived;

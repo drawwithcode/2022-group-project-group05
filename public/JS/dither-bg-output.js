@@ -132,21 +132,7 @@ let Redaction;
 
 
 
-let p2;//gallery
-let ctx2;
-
-/*{
-  color1: color1,
-  color2: color2,
-  name1: input,
-  name2: input,
-  message1: message1,
-  message2: message2
-};*/
-
-
-
-
+let p2;//canva da salvare su firebase per la gallery
 
 //importo dal firebase la funzione che scrive i dati dell'output
 import { writeUserData } from "/public/JS/firebase.js"
@@ -279,21 +265,13 @@ p2.draw = function (){
   p2.resizeCanvas(windowWidth*3/4, windowHeight/3);
   p2.canvas.id= "output";
 
-  p2.image(outp, 0,0);
+  p2.image(outp, 0,0);//disegno l'artwork
+  p2.canvas.style.display="none";//nascondo la canva
 
-  artwork = p2.canvas.toDataURL();//unica tipologia di dati che scrive nel databse
+  artwork = p2.canvas.toDataURL();//converto l'artwork in una stringa da salvare nel database
 
-  
-  //nessuno di questi due tipi li scrive nel database
-  /*ctx2=p2.canvas.getContext("2d");
-  imageData = ctx2.getImageData( 0, 0, p2.width, p2.height )
+  writeUserData(input, artwork)//chiamo la funzione di firebase che salva l'artwork con il nome dello user
 
-  data= [imageData.data.buffer];*/
-
-  p2.canvas.style.display="none";
-  
-  //writeUserData(input, artwork)
-  writeUserData(input, artwork)
   p2.noLoop()
 }
 

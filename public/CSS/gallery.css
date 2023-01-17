@@ -2,8 +2,10 @@
   position:fixed;
 }
 
-#scrollable-ctn{
-  justify-content: flex-start;
+body {
+  padding:2vh;
+  margin:0;
+  height:100vh;
 }
 
 img {
