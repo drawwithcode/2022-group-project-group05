@@ -53,8 +53,22 @@ The whole aesthetic of N01 is playful and a bit silly, taking inspiration from l
 Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery. <br>
 The structure was made with html linked pages. 
 An interesting aspect of the homepage is the wallpaper, created with a dithering effect, and the animation of little hearts.
-We took inspiration from this code: https://github.com/kamoroso94/ordered-dither <br>
+We took inspiration from a code on github: https://github.com/kamoroso94/ordered-dither <br>
 ```javascript
+//pixel get processsed
+function dither (imageData, []){
+    // imageData
+    const width = imageData.width;
+    const pixels = imageData.data;
+    const dither = dithers["rgb_4"];
+    
+    const intensity = (r, g, b) =>
+    Math.floor(0.2126 * r + 0.7152 * g + 0.0722 * b);
+    const clamp = (val, min, max) => Math.max(min, Math.min(val, max));
+    const map = (val, min1, max1, min2, max2) =>
+    ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
+    //taking a value it riconverts the pixel in a certain range
+    
 ```
 
 
