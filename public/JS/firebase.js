@@ -50,8 +50,6 @@
         if (snapshot.exists()) {
           console.log(snapshot.val());
 
-          console.log(name)
-
           artwork = snapshot.val()
         } else {
           console.log("No data available");
