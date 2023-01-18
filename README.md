@@ -16,8 +16,7 @@ The server connects two people; every time one of them touches the heart button,
 1. N01<br>
    a. [Binary Code](#binary-code)<br>
    b. [Exhibition](#exhibition)<br>
-2. Experience<br>
-   
+2. Experience<br>   
    a. [Homepage](#homepage)<br>
    b. [Matching](#matching) <br>
    c. [Happy Ending](#output-and-happy-endings) <br>  
@@ -47,13 +46,13 @@ The experience is designed as an interactive exhibition that takes place in a ro
 ![structure](README.img/structure.png)
 
 The website cn be divided into 3 different parts:
-1. **Homepage** from which you can either go directly to the gallery part or start the experience
-2. **Experience** which in turn can be divided into 4 parts
-   a. Login and rules of the experience
-   b. Waiting list where the user will be associated to another one
-   c. Matching actually with the assiociated
-   d. The output of the experience that will be sent to the gallery
-3. **Gallery** where all the output will be displayed
+1. **Homepage** from which you can either go directly to the gallery part or start the experience <br>
+2. **Experience** which in turn can be divided into 4 parts <br>
+   a. Login and rules of the experience <br>
+   b. Waiting list where the user will be associated to another one <br>
+   c. Matching actually with the assiociated <br>
+   d. The output of the experience that will be sent to the gallery <br>
+3. **Gallery** where all the output will be displayed <br>
 
 ![N01](README.img/N01.gif)
 
