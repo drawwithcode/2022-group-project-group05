@@ -1,4 +1,5 @@
-![logo](README.img/noilogo.png)
+
+   ![logo](README.img/noilogo.png)
 
 # About
 
@@ -86,7 +87,6 @@ function dither (imageData, []){
     
 ```
 and this is how the hearts get defined and generated 
-
 ```javascript
 let heartImage;
 let arrayHeart= [];
