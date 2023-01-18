@@ -98,6 +98,11 @@ foto palette
   <img src="README.img/waiting2.gif"/>
   <img src="README.img/waiting3.gif"/>  
 </p>
+
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![](README.img/waiting1.gif)  |  ![](README.img/waiting2.gif)
+
 While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
 
 **matching** <br>
