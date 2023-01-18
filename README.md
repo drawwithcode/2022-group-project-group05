@@ -57,7 +57,7 @@ The website cn be divided into 3 different parts:
 
 ![structure](README.img/structure.png)
 
-## homepage
+## Homepage
 
 <p align="center">
   <img src="README.img/N01.gif"/>
@@ -87,12 +87,12 @@ function dither (imageData, []){
 
 ## Experience
 
-**login** <br>
+**Login** <br>
 The first step requires to log into the web site with the personal name or a nickname, so the platform can start matching people. <br>
 Everyone gets assigned a color, which will identify them in the further steps.
 foto palette
 
-**waiting** <br>
+**Waiting** <br>
 <p float="center">
   <img src="README.img/waiting1.gif" width="300"/>
   <img src="README.img/waiting2.gif" width="300"/>
@@ -102,7 +102,7 @@ foto palette
 
 While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
 
-**matching** <br>
+**Matching** <br>
 When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed.  This is how the matching system works: <br>
 ```javascript
 //takes the first two waiting users and pairs them
@@ -129,11 +129,11 @@ function pair() {
 }
 ```
 
-**output** <br>
+**Output** <br>
 At the end of the experience it would be possible to see the heart that you and your parter generated
 This is how we create the artwork: 
 
-## happy endings
+## Happy endings
 The gallery is made with a Firebase realtime database that allow the users to check out all their matches few seconds after the update
 This is how we use firebase
 
