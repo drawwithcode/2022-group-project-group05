@@ -24,12 +24,10 @@ let sketch = function(p) {
     p.colorMode(p.RGB, 255, 255, 255);
     p.pixelDensity(1)
     p.frameRate(24)
-    
   }
 
 //////imposto la funzione per adattare la dimensione della canva alla window
   addEventListener("resize", (event) => {
-    console.log("ridimensiono")
     windowWidth = window.innerWidth
     windowHeight = window.innerHeight
     p.resizeCanvas(windowWidth, windowHeight)
@@ -111,7 +109,6 @@ p1.draw = function (){
   seed= seed + 0.05;
   let val= p1.noise(seed)*600; 
   let valMapped = p1.map(val, 0, p1.height, 400, 600)
-  console.log(valMapped)
 
   //disegno il gradiente di sfondo
   let gradient = ctx.createLinearGradient(0, valMapped, 0,  p1.height);
@@ -127,6 +124,8 @@ p1.draw = function (){
   //chiamo la funzione che applica il dither sull'array di pixel del gradiente
   dither(imageData, [imageData.data.buffer]);
 
+  for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}//animo l'array di cuoricini
+
 }
 
 //////processo i pixel
@@ -134,7 +133,7 @@ function dither (imageData, []){
     // imageData
     const width = imageData.width;
     const pixels = imageData.data;
-    const dither =  { mapIndex: [2, 1, 2], colorCount: [2, 4, 2],}
+    const dither =  { mapIndex: [2, 1, 2], colorCount: [2, 4, 2],} //dithers["rgb_4"];
     
     //funzione che rimappa il valore di r, g e b di ogni pixel contenuti nell'arrray
     const intensity = (r, g, b) =>
@@ -156,12 +155,9 @@ function dither (imageData, []){
         const mapSize = mapSide * mapSide ;
         const threshold = thresholdMap[x % mapSide][y % mapSide];
         const numColors = dither.colorCount[c];
+
         const color = Math.floor(
-          clamp(
-            (numColors * colors[c]) / 256 + threshold / mapSize - 0.5,
-            0,
-            numColors - 1
-          )
+          clamp( (numColors * colors[c]) / 256 + threshold / mapSize - 0.5,  0, numColors - 1)
         );
         const nearestColor = Math.floor(map(color, 0, numColors - 1, 0, 255));
     
@@ -172,7 +168,7 @@ function dither (imageData, []){
     drawCanvas(ctx, imageData);
 }
 
-//////ridisegno la canvas con i pixel nuovi
+//////ridisegno la canvas con l'array di pixel trasformato
 function drawCanvas(cnv, img) {
     cnv.canvas.width = img.width;
     cnv.canvas.height = img.height;
@@ -188,52 +184,44 @@ function drawCanvas(cnv, img) {
 let heartImage;
 let arrayHeart= [];
 
+
 //definisco la classe
 class Heart {
   constructor(x, y){
       this.x = x;
       this.y = y;
   }
+
   move() {
 
-    this.y= this.y-2
+    this.y= this.y-4 //si sposta verso l'alto di due pixel
 
-    p2.push();
-
-      p2.translate(this.x, this.y);
-      p2.image(heartImage, 0, 0);
-
-    p2.pop()
+    p1.push();
+      p1.translate(this.x, this.y);
+      p1.image(heartImage, 0, 0);
+    p1.pop()
   }
 }
 
+//NEW HEART ON CLICK
+document.addEventListener("click", function(){
+  let xHeart= p1.mouseX-heartImage.width
+  let yHeart= p1.mouseY-heartImage.height
+  arrayHeart.push(new Heart(xHeart, yHeart))//al click aggiungo un cuore all'array
+})
 
-  p2 = new p5(sketch)
 
-  p2.draw= function(){
-    p2.clear()
-    
-    p2.canvas.id = "animation-hearts"
-    for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}
+if (page=="qrcode" || page=="home") {
 
-  }
-
-  //NEW HEART ON CLICK
-  document.addEventListener("click", function(){
-    let xHeart= p2.mouseX
-    let yHeart= p2.mouseY
-    arrayHeart.push(new Heart(xHeart, yHeart))
-  })
-
-  if (page=="qrcode"){
   //HEART SPAWNING
   setInterval(function(){
     
-    let xHeart= p2.random(0, p2.canvas.width)
-    let yHeart= p2.canvas.height
-    if(xHeart<p2.canvas.width/4||xHeart>p2.canvas.width*3/4 )
-    arrayHeart.push(new Heart(xHeart, yHeart))
+    let xHeart= p1.random(0, p1.canvas.width)
+    let yHeart= p1.canvas.height
+
+    if ( xHeart<p1.canvas.width/4||xHeart>p1.canvas.width*3/4 ){
+      arrayHeart.push(new Heart(xHeart, yHeart))
+    } else return
 
   },3000)
-  
 }

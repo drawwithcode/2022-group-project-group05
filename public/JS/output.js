@@ -126,6 +126,7 @@ let coolors= ["#7FEB9E", "#5CC8FF", "#7D82FE", "#D28AFE", "#FFABE3", "#FF6D6D", 
 let color1;
 let color2;
 
+let names= input + " + " + input
 let Redaction;
 
 
@@ -258,7 +259,7 @@ function graphicOutput(){
  outp.textSize(30);
  outp.textFont(Redaction)
  outp.textAlign(outp.CENTER)
- outp.text(input + " + " + input, outp.width/2, outp.height)
+ outp.text(names, outp.width/2, outp.height)
 }
 
 
@@ -277,10 +278,11 @@ p2.draw = function (){
 
   artwork = p2.canvas.toDataURL();//converto l'artwork in una stringa da salvare nel database
 
-  writeUserData(input, artwork)//chiamo la funzione di firebase che salva l'artwork con il nome dello user
+  writeUserData(names, artwork)//chiamo la funzione di firebase che salva l'artwork con il nome dello user
 
   p2.noLoop()
 }
+
 
 
 //////DITHER
@@ -341,6 +343,6 @@ if(page=="output"){
 }
 
 function saveCnv(){
-  p1.saveCanvas(p1.canvas, 'N01_'+ input +'+' + input, 'png');
+  p1.saveCanvas(p1.canvas, 'N01_'+ names, 'png');
 }
 
