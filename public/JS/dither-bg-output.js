@@ -88,6 +88,7 @@ let p1;//bg
 let ctx;
 
 let outp;//output
+
 let rows=8;
 const grid1 = [
   [0, 0, 1, 1, 1, 0, 0, 0],

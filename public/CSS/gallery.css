@@ -3,16 +3,29 @@
   margin:2vh;
 }
 
-
-body {
-  padding:2vh;
-  margin:0;
-  height:100vh;
-  
+body.flex-col.active{
   justify-content: flex-start;
 }
 
-.artwork {
-  margin:8vh;
 
+.artwork {
+  margin:6vh;
+}
+
+
+#quotes {
+  text-align: center; 
+  font-family: 'Voxel'; 
+  font-size: 2.5em;
+}
+
+
+#arrayHearts{
+  flex-direction:row;
+  justify-content: space-evenly;
+  margin: 4vh 8vh 0 8vh;
+}
+
+.move{
+  transform:translateY(-50%)
 }

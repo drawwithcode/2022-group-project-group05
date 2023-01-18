@@ -107,11 +107,14 @@ p1.draw = function (){
   ctx= p1.canvas.getContext('2d');
     
   //imposto un valore di noise che rende animato il mio gradiente di sfondo
-  seed= seed + 0.005;
-  let val1= p1.noise(seed)*800; 
+  //rimappo il valore entro un range così che l'animazione sia delicata
+  seed= seed + 0.05;
+  let val= p1.noise(seed)*600; 
+  let valMapped = p1.map(val, 0, p1.height, 400, 600)
+  console.log(valMapped)
 
   //disegno il gradiente di sfondo
-  let gradient = ctx.createLinearGradient(0, val1, 0,  p1.height);
+  let gradient = ctx.createLinearGradient(0, valMapped, 0,  p1.height);
   gradient.addColorStop(0, colorGr);
   gradient.addColorStop(1, "white");
     
