@@ -24,7 +24,7 @@ The server connects two people; every time one of them touches the heart button,
 
 3. [Team](#team)<br>
 
-<br>
+
 # N01
 
 ## Binary Code
@@ -41,7 +41,7 @@ In the same way N01 connects people and show them that even with the smaller amo
 
 The experience is designed as an interactive exhibition that takes place in a room. From the outside, people will be attracted by the pink soft lights. Before entering the room, the user reads the concept and can decide to join. A computer is placed right next the entrance and a qr code is displayed on its monitor. The user scans it and finally the experience begins. 
 
-<br>
+
 # Structure
 
 ![structure](README.img/structure.png)
@@ -122,7 +122,7 @@ At the end of the experience it would be possible to see the heart that you and 
 The output is generated in this way:
 This is how we used Firebase: 
 
-<br>
+
 # Team
 
 Letteralmente N01
