@@ -29,7 +29,6 @@ The server connects two people; every time one of them touches the heart button,
 
 <details open>
 
-
     <summary> 
       ## Binary Code
     </summary>
