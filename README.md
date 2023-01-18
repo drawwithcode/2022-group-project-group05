@@ -1,6 +1,6 @@
-
+<p align="center">
    ![logo](README.img/logo.png)
-
+</p>
 # About
 
 Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.
@@ -62,7 +62,7 @@ The website cn be divided into 3 different parts:
 
 <div align= "center">
 <p float="left">
-  <img src="README.img/homepage1.gif" width="300"/>
+  <img src="README.img/homepage1.gif" width="300" style="padding: 0px 0px 0px 10px;"/>
   <img src="README.img/homepage2.gif" width="300"/>
   <img src="README.img/aboutN01.gif" width="300"/>
 </p>
