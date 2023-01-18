@@ -87,12 +87,14 @@ function dither (imageData, []){
 
 ## Experience
 
-**login** <br>
+### login
 The first step requires to log into the web site with the personal name or a nickname, so the platform can start matching people. <br>
 Everyone gets assigned a color, which will identify them in the further steps.
 foto palette
 
-**waiting** <br>
+### waiting
+While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
+
 <div align= "center">
 <p float="left">
   <img src="README.img/waiting1.gif" width="300"/>
@@ -101,10 +103,7 @@ foto palette
 </p>
 </div>
 
-
-While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
-
-**matching** <br>
+### matching
 When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed.  This is how the matching system works: <br>
 ```javascript
 //takes the first two waiting users and pairs them
@@ -131,7 +130,7 @@ function pair() {
 }
 ```
 
-**output** <br>
+### output
 At the end of the experience it would be possible to see the heart that you and your parter generated
 This is how we create the artwork: 
 
