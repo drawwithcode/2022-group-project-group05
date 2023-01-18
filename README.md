@@ -93,7 +93,7 @@ Everyone gets assigned a color, which will identify them in the further steps.
 foto palette
 
 **waiting** <br>
-<p float="left">
+<p float="center">
   <img src="README.img/waiting1.gif" width="300"/>
   <img src="README.img/waiting2.gif" width="300"/>
   <img src="README.img/waiting3.gif" width="300"/>
