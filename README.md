@@ -89,8 +89,9 @@ function dither (imageData, []){
 
 ### login
 The first step requires to log into the web site with the personal name or a nickname, so the platform can start matching people. <br>
-Everyone gets assigned a color, which will identify them in the further steps.
-foto palette
+Everyone gets assigned a color, which will identify them in the further steps. <br>
+![structure](README.img/palette.png)
+
 
 ### waiting
 While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
