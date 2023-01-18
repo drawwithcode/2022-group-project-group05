@@ -47,7 +47,7 @@ In the same way N01 connects people and show them that even with the smaller amo
 <div align= "center">
 <p float="left">
   <img src="README.img/matrix.gif" width="300"/>
-   <div>
+   <div width="300">
   <p> The project has the aim to **make present the basic language of every machine: binary code**. N01 takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels. In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. </p>
    </div>
 
@@ -84,7 +84,7 @@ The website cn be divided into 3 different parts:
 
 <div align= "center">
 <p float="left">
-  <img src="README.img/homepage1.gif" width="300" style="padding: 0px 0px 0px 10px;"/>
+  <img src="README.img/homepage1.gif" width="300"/>
   <img src="README.img/aboutN01.gif" width="300"/>
   <img src="README.img/homepage2.gif" width="300"/>
 </p>
