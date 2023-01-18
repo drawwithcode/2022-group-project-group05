@@ -54,10 +54,10 @@ The website cn be divided into 3 different parts:
 
 ![structure](README.img/structure.png)
 
+## homepage
 
 ![N01](README.img/N01.gif)
 
-## homepage
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
 Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery. <br>
 The structure was made with html linked pages. 
@@ -80,17 +80,17 @@ function dither (imageData, []){
     
 ```
 
-##Experience
+## Experience
 
-**login**
+**login** <br>
 The first step requires to log into the web site with the personal name or a nickname, so the platform can start matching people. <br>
 Everyone gets assigned a color, which will identify them in the further steps.
 foto palette
 
-**waiting**
+**waiting** <br>
 While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
 
-**matching**
+**matching** <br>
 When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed.  This is how the matching system works: <br>
 ```javascript
 //takes the first two waiting users and pairs them
@@ -117,7 +117,7 @@ function pair() {
 }
 ```
 
-**output**
+**output** <br>
 At the end of the experience it would be possible to see the heart that you and your parter generated
 This is how we create the artwork: 
 
