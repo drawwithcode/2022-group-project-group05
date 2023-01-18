@@ -93,6 +93,11 @@ Everyone gets assigned a color, which will identify them in the further steps.
 foto palette
 
 **waiting** <br>
+<p align="center">
+  <img src="README.img/waiting1.gif"/>
+  <img src="README.img/waiting2.gif"/>
+  <img src="README.img/waiting3.gif"/>  
+</p>
 While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
 
 **matching** <br>
