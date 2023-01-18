@@ -18,8 +18,8 @@ The server connects two people; every time one of them touches the heart button,
    b. [Exhibition](#exhibition)<br>
 2. Experience<br>   
    a. [Homepage](#homepage)<br>
-   b. [Matching](#matching) <br>
-   c. [Happy Ending](#output-and-happy-endings) <br>  
+   b. [Experience](#experience)<br>
+   c. [Happy Ending](#output-and-happy-endings)<br>  
 
 3. [Team](#team)<br>
 
@@ -43,16 +43,17 @@ The experience is designed as an interactive exhibition that takes place in a ro
 
 # Structure
 
-![structure](README.img/structure.png)
-
 The website cn be divided into 3 different parts:
 1. **Homepage** from which you can either go directly to the gallery part or start the experience <br>
 2. **Experience** which in turn can be divided into 4 parts <br>
-   a. Login and rules of the experience <br>
-   b. Waiting list where the user will be associated to another one <br>
-   c. Matching actually with the assiociated <br>
-   d. The output of the experience that will be sent to the gallery <br>
-3. **Gallery** where all the output will be displayed <br>
+   a. _Login and rules_ of the experience <br>
+   b. _Waiting list_ where the user will be associated to another one <br>
+   c. _Matching_ actually with the assiociated <br>
+   d. _Output_ of the experience that will be sent to the gallery <br>
+3. **Happy endings** where all the output will be displayed <br>
+
+![structure](README.img/structure.png)
+
 
 ![N01](README.img/N01.gif)
 
@@ -79,17 +80,17 @@ function dither (imageData, []){
     
 ```
 
+##Experience
 
-## login
+**login**
 The first step requires to log into the web site with the personal name or a nickname, so the platform can start matching people. <br>
 Everyone gets assigned a color, which will identify them in the further steps.
 foto palette
 
-## waiting
+**waiting**
 While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
 
-## matching
-
+**matching**
 When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed.  This is how the matching system works: <br>
 ```javascript
 //takes the first two waiting users and pairs them
@@ -116,10 +117,13 @@ function pair() {
 }
 ```
 
-## output and happy endings
-At the end of the experience it would be possible to see the heart that you and your parter generated, and to have access to the gallery that collects everyone's matches. The user can either decide to visualize the gallery, made with a Firebase real time database, or go back to the experience and find another match. 
-The output is generated in this way:
-This is how we used Firebase: 
+**output**
+At the end of the experience it would be possible to see the heart that you and your parter generated
+This is how we create the artwork: 
+
+## happy endings
+The gallery is made with a Firebase realtime database that allow the users to check out all their matches few seconds after the update
+This is how we use firebase
 
 
 # Team
