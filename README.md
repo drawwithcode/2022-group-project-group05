@@ -166,7 +166,7 @@ let container= document.getElementById("img-ctn")
 
 function galleryCreation () {
   
-  document.body.classList.add("active"); //cambio il flex del div
+  document.body.classList.add("active"); //change div's flex
   (document.getElementById("loading")).style.display="none";
 
   //generates an array from database's datas
