@@ -29,11 +29,14 @@ The server connects two people; every time one of them touches the heart button,
 
 # N01
 
+![logo](README.img/matrix.gif)
 ## Binary Code
 
-<div style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>
-The project has the aim to **make present the basic language of every machine: binary code**. N01 takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels. In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
-<br clear="left"/>
+<!--<div style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>-->
+The project has the aim to make *present* the basic language of every machine: *binary code*. 
+
+N01 takes inspiration from the experiment held at Cornell University, called *"Communicating Intimacy One Bit at a Time"*, where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels. In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
+<!-- <br clear="left"/> -->
 
 
 
