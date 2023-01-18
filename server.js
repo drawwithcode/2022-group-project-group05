@@ -7,7 +7,7 @@ var express = require("express")
 var app = express();
 var server = app.listen(PORT);
 
-app.use("/public", express.static("public"));
+app.use(express.static("public"));
 
 console.log("RUNNING SERVER ON http://localhost:" + PORT + "/public")
 
@@ -91,7 +91,7 @@ class User{
             }
         }
         console.log(log)
-        console.log("assigned "+ freeColors[index] + " to "+this.id)
+        console.log("assigned "+ freeColors[index].hex + " to "+this.id)
 
         return index
     }

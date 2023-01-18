@@ -14,7 +14,7 @@ let p2;//hearts
 let sketch = function(p) {
 
   p.preload = function(){
-    heartImage = p.loadImage('./assets/SVG/iconHeart.svg');
+    heartImage = p.loadImage('assets/SVG/iconHeart.svg');
   }
 
   p.setup = function() {
