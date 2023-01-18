@@ -1,4 +1,3 @@
-
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
       // TODO: Add SDKs for Firebase products that you want to use
@@ -16,22 +15,68 @@
         databaseURL: "https://letteralmenten01-default-rtdb.europe-west1.firebasedatabase.app/"
       };
 
-      import { getDatabase, ref, set, get, update} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+      import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
     
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
 
-      const db = getDatabase();
+      const db = getDatabase(app);
+      const dbref = ref(db)
 
       export function writeUserData(userId, data) {
        // console.log(data)
         //userid sarà il nome del file
         //scrivo nella cartella graphics data che è un parametro che si definisce quando chiamo la funzione nel setup
-        set(ref(db, 'gallery/' + userId), {
+        set(ref(db, 'gallery/'+ userId), {
           data: data
         });
+
+        console.log(userId)
+
       }
 
+      let artwork;
+
+      get(ref(db, `gallery/`)).then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val());
+
+          artwork = snapshot.val()
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
+
+      export {artwork};
+
+
+
+      
+      //import { input } from "/public/JS/dither-bg-output.js";
+    
+
+      //ref(db, `gallery/${userId}`)
+      //get(ref(db, `gallery/nome`)).then((snapshot) => {
+
+
+
+
+
+
+
+        /*onValue(dbref, (snapshot) => {
+          const data = snapshot.val();
+          console.log("onValue"+ data)
+        });*/
+
+
+      
+
+        
+
+      /*
       let recived;
       export function readUserData(userId, data) {
         get(ref(db, `gallery/${userId}`)).then((snapshot) => {
@@ -45,4 +90,4 @@
           console.error(error);
         });
       }
-      console.log(recived)
+      console.log(recived)*/

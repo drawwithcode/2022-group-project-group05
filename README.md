@@ -19,8 +19,10 @@ The server connects two people; every time one of them touches the heart button,
    b. [Exhibition](#exhibition)<br>
 2. Experience<br>
    
-   a. [Matching](#matchings)<br>
-   b. [Happy endings](#happy-endings)<br>
+   a. [Homepage](#homepage)<br>
+   b. [Matching](#matching) <br>
+   c. [Happy Ending](#output and happy endings) <br>
+  
 
 3. [Team](#team)<br>
 
@@ -49,37 +51,76 @@ The experience is designed as an interactive exhibition that takes place in a ro
 ## homepage
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
 Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery. <br>
-The structure was made with html linked pages…. <br> 
-Another interesting aspect of the homepage is the wallpaper, created with a dithering effect…
+The structure was made with html linked pages. 
+An interesting aspect of the homepage is the wallpaper, created with a dithering effect, and the animation of little hearts.
+We took inspiration from a code on github: https://github.com/kamoroso94/ordered-dither <br>
+```javascript
+//pixel get processsed
+function dither (imageData, []){
+    // imageData
+    const width = imageData.width;
+    const pixels = imageData.data;
+    const dither = dithers["rgb_4"];
+    
+    const intensity = (r, g, b) =>
+    Math.floor(0.2126 * r + 0.7152 * g + 0.0722 * b);
+    const clamp = (val, min, max) => Math.max(min, Math.min(val, max));
+    const map = (val, min1, max1, min2, max2) =>
+    ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
+    //taking a value it riconverts the pixel in a certain range
+    
+```
+
 
 ## login
+The first step requires to log into the web site with the personal name or a nickname, so the platform can start matching people. <br>
+Everyone gets assigned a color, which will identify them in the further steps.
+foto palette
+
 ## waiting
+While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
+
 ## matching
-## output
-## happy endings
+
+When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed.  This is how the matching system works: <br>
+```javascript
+//takes the first two waiting users and pairs them
+function pair() {
+    console.log("pairing")
+    waiting[0].pairedId = waiting[1].id
+    waiting[1].pairedId = waiting[0].id
+    unpaired -= 2;
+
+    io.to(waiting[0].id).emit("paired", waiting[1])
+    io.to(waiting[1].id).emit("paired", waiting[0])
+
+    //start the users' timers
+    for (let i = 0; i <= 1; i++){
+        let user = getUser(waiting[i].id)
+        user.timer = setInterval(function () {
+            user.updateMsg()
+        }, CLOCK)
+    }
+
+    console.log("paired " + waiting[0].id + " and " + waiting[1].id)
+    waiting.splice(0, 2);
+    console.log(waiting)
+}
+```
+
+## output and happy endings
+At the end of the experience it would be possible to see the heart that you and your parter generated, and to have access to the gallery that collects everyone's matches. The user can either decide to visualize the gallery, made with a Firebase real time database, or go back to the experience and find another match. 
+The output is generated in this way:
+This is how we used Firebase: 
 
 
 
-entra dal codice
-struttura sito con commento html
-home- commento dither e cuori 
-esperienza spiegata bene- login (nome e assegnato il colore)
-waiting (matching) - parte eli
-digitazione e salvataggio array in bit e suono
-generazione output
 
 
-After scanning the qr code the forst page visible is the landing page, where you can either start the experience or go directly to the final gallery.<br>
-The structure was made with html linked pages...<br>
-Another interesting aspect of the homepage is the wallpaper creted with a dithering effect...
 
-## Matching
-parte codice del matching 
-## Happy endings
-At the end of the experience it would be possible to see the heart that you and your parter generated, and to have access to the gallery that collects everyone's matches. The database was created thanks to firebase...  (parte della gallery)
-# The code
 
-##
+
+
 
 # Team
 

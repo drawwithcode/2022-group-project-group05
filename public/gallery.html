@@ -4,52 +4,49 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/x-icon" href="assets/elements/favicon.png">
+    <link rel="icon" type="image/x-icon" href="assets/SVG/favicon.svg">
     <title>N01</title>
 
-    <link rel="stylesheet" href="https://use.typekit.net/gwx5cpj.css">
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
     <link rel="stylesheet" type="text/css" href="CSS/gallery.css">
 
     <script src="libraries/p5.min.js"></script>
+    
+    <script type="module" src="JS/firebase.js"></script>
+
   </head>
 
   <body class="flex-col">
 
     <!--menù compatto-->
-    <btn id="menu-btn" class="menu flex-col"> 
-      <img  id="heart" src="assets/elements/iconHeart.png">
+    <btn id="menu-btn" class="menu flex-col content"> 
+      <div id="heart"></div>
     </btn>
 
     <!--menù intero-->
     <div class="menu flex-col" id="menu">
 
-      <div class="centered-wrap">
+      <div>
         <btn class="menu-elt flex-col">
           <a href="index.html">find your soulmate</a>
-          <img src="assets/elements/buttonHome.png">
+          <img src="assets/SVG/buttonPink.svg">
         </btn>
           
         <btn class="menu-elt flex-col">
           <a href="gallery.html">happy endings</a>
-          <img src="assets/elements/buttonHome.png">
+          <img src="assets/SVG/buttonPink.svg">
         </btn>
       </div>
         
       <a id="about" href="https://github.com/drawwithcode/2022-group-project-group05/blob/website/README.md">about N01</a>
 
     </div>
-    
-    <div id="output-container" class="centered-wrap flex-col">
-
-    </div>
 
     <script> let page="gallery"</script>
     
     <script src="JS/menu.js"></script>
-    <script type="module" src="JS/firebase.js"></script>
-    <script type="module" src="JS/dither-bg.js"></script>
-    <script src="JS/gallery.js"></script>
+    <script src="JS/dither-bg.js"></script>
+    <script type="module" src="JS/gallery.js"></script>
 
   </body>
 </html>

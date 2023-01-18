@@ -4,12 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/x-icon" href="assets/elements/favicon.png">
+    <link rel="icon" type="image/x-icon" href="assets/SVG/favicon.svg">
     <title>N01</title>
 
     <link rel="stylesheet" href="https://use.typekit.net/gwx5cpj.css">
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
     <link rel="stylesheet" type="text/css" href="CSS/output.css">
+    
+    <!-- <script type="module" src="JS/firebase-provaMarti.js"></script> -->
 
     <script src="libraries/p5.min.js"></script>
     
@@ -17,23 +19,23 @@
 
   <body class="flex-col">
 
-    <!--menù compatto-->
-    <btn id="menu-btn" class="menu flex-col"> 
-      <img id="heart" src="assets/elements/iconHeart.png">
+     <!--menù compatto-->
+     <btn id="menu-btn" class="menu flex-col"> 
+      <div id="heart"></div>
     </btn>
 
     <!--menù intero-->
     <div class="menu flex-col" id="menu">
 
-      <div class="centered-wrap">
+      <div>
         <btn class="menu-elt flex-col">
           <a href="index.html">find your soulmate</a>
-          <img src="assets/elements/buttonHome.png">
+          <img src="assets/SVG/buttonPink.svg">
         </btn>
           
         <btn class="menu-elt flex-col">
           <a href="gallery.html">happy endings</a>
-          <img src="assets/elements/buttonHome.png">
+          <img src="assets/SVG/buttonPink.svg">
         </btn>
       </div>
         
@@ -42,11 +44,11 @@
     </div>
 
 
-    <div id="btn-container">
+    <div id="btn-container" class="down">
       <!--save-->
-      <btn id="save" class="flex-col">
-        <a style="color:#FF36F7;">record a memory</a>
-        <img src="assets/elements/buttonHomeWhite.png" >
+      <btn class="flex-col">
+        <a id="save">record a memory</a>
+        <img src="assets/SVG/buttonWhite.svg" >
       </btn>
       
       <!--gallery
@@ -56,9 +58,9 @@
       </btn>-->
       
       <!--loading-->
-      <btn class="flex-col">
-        <a>find another match</a>
-        <img src="assets/elements/buttonHome.png">
+      <btn id="again" class="flex-col">
+        <a >find another match</a>
+        <img src="assets/SVG/buttonPink.svg">
       </btn>
 
     </div>
@@ -66,7 +68,6 @@
 
     <script> let page="output"; </script>
     <script src="JS/menu.js"></script>
-    <script type="module" src="JS/firebase.js"></script>
     <script type="module" src="JS/dither-bg-output.js"></script>
 
   </body>

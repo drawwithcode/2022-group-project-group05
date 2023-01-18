@@ -22,14 +22,16 @@ html, body {
   padding: 0;
   overflow-x: hidden;
   overflow-y: scroll;
+  
   font-family: 'Redaction35', Courier, monospace;
   visibility: visible;
 }
 
 body {
   position: relative;
-  height:94vh;
+  height:96vh;
   margin:2vh;
+
 }
 
 ::-webkit-scrollbar {
@@ -37,8 +39,8 @@ body {
 }
 
 
-/*posizione
-definisco una classe con un flex verticale per la disposizione degli elementi nelle pagine*/
+
+/*posizionamento*/
 .flex-col {
   display: flex;
   flex-direction: column;
@@ -46,12 +48,13 @@ definisco una classe con un flex verticale per la disposizione degli elementi ne
   justify-content: center;
 }
 
+.down {
+  position:absolute;
+  bottom:0;
+}
 
-/*container*/
-.centered-wrap {
-    margin:auto;
-    width: 100%;
-    overflow-y: scroll;
+.content{
+  margin: 2vh;
 }
 
 
@@ -62,6 +65,7 @@ p {
   color:white;
   font-size: 1.5em;
 }
+
 
 
 /*bottoni*/
@@ -75,12 +79,13 @@ btn {
   filter: drop-shadow(10px 0px 0px #960090)
 }
 
+/*link alle pagine interno ai bottoni*/
 a {
   position:absolute;
   text-decoration: none;
   color:white;
   
-  font-size: 1.8em;
+  font-size: 2em;
   font-family: 'Redaction35Italic', Courier, monospace;
 }
 
@@ -88,6 +93,8 @@ a:hover{
   cursor: pointer;
   text-decoration: underline;
 }
+
+
 
 /*background*/
 canvas {
@@ -103,7 +110,10 @@ canvas {
   z-index:-5;
 }
 
-/*menu*/
+
+
+
+/*MENU*/
 .menu {
   position: fixed;
   background-color: #fff;
@@ -118,17 +128,22 @@ canvas {
 #menu-btn {
   position:absolute;
   display:flex;
-  padding:1%;
+  padding: 0.6vh;
   z-index: 2;
   top: 0px;
   right: 0px;
-  width: 5vh;/*scrivo la larghezza come proporzione dell'altezza così da avere un menu sempre di forma quadrata*/
-  height: 5vh;
+  width: 4vh;/*scrivo la larghezza come proporzione dell'altezza così da avere un menu sempre di forma quadrata*/
+  height: 4vh;
 }
 
 #heart{
-  width: fit-content;
+  background-color:#960090;
+  width:100%;
+  height:100%;
+  -webkit-mask: url(/public/assets/SVG/iconHeart.svg) no-repeat center / contain;
+  mask: url(/public/assets/SVG/iconHeart.svg) no-repeat center / contain;
 }
+
 
 
 /*menu active*/
@@ -141,11 +156,11 @@ canvas {
   background-color: #960090;
 }
 #heart.active{
-  fill:white;
+  background-color: white
 }
 
 .menu-elt{
-  margin:5% 0 5% 0;
+  margin:4vh 0 4vh 0;
 }
 
 #about{
@@ -161,6 +176,24 @@ canvas {
 
 
 
-.content{
-  margin: 2vh;
+#scrollable-ctn{
+  position:absolute;
+  z-index:-3;
+  top:0;
+  left:0;
+  
+  width:100%;
+  overflow-y: scroll;
 }
+
+
+/*
+#scrollable-elt {
+  position: absolute;
+  z-index:-3;
+  top:0;
+  left:0;
+  width:100%;
+  background-color:red;
+  overflow-y: scroll;
+}*/

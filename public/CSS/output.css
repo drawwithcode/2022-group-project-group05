@@ -1,8 +1,7 @@
-#btn-container{
-  margin:auto;
-  margin-bottom:0;
+#save{
+  color:#FF36F7;
 }
 
-#save{
-  margin-bottom:2vh;
+#again {
+  margin-top:2vh;
 }

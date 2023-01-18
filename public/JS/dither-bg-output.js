@@ -4,7 +4,13 @@
 //////prendo il nome dell'utente dall'url dopo il login
 let url = new URL(location.href); 
 let input = url.searchParams.get("name1");
+let again= document.getElementById("again");
 
+again.addEventListener("click", anotherMatch)
+
+function anotherMatch(){
+  window.open("loading.html?name1="+ input, "_self")
+}
 
 //////GRADIENT
 let seed=0.0;
@@ -119,34 +125,18 @@ const grid2 = [
 ];
 let message2 = [];
 
-let color1= "red";
-let color2= "blue";
+let color1= "#5CC8FF";
+let color2= "#F9B9F2";
 
 let Redaction;
 
 
 
-let p2;//gallery
-let ctx2;
-
-/*{
-  color1: color1,
-  color2: color2,
-  name1: input,
-  name2: input,
-  message1: message1,
-  message2: message2
-};*/
-
-
-
-
-
+let p2;//canva da salvare su firebase per la gallery
 
 //importo dal firebase la funzione che scrive i dati dell'output
 import { writeUserData } from "/public/JS/firebase.js"
-//importo dal firebase la funzione che legge i dati dal database
-import { readUserData } from "/public/JS/firebase.js"
+
 
 
 
@@ -230,6 +220,7 @@ function graphicOutput(){
       if (grid1[j][i] == 1) {
         if (message1[myindex] == 1) outp.fill("white");
         else outp.fill(color1);
+        outp.noStroke()
         outp.square(i *size + size/2, j *size, size);
         myindex++;
       }
@@ -248,6 +239,7 @@ function graphicOutput(){
       if (grid2[j][i] == 1) {
         if (message2[myindex] == 1) outp.fill("white");
         else outp.fill(color2);
+        outp.noStroke()
         outp.square(i *size +(outp.width/2)-size/2, j *size, size);
         myindex++;
       }
@@ -256,34 +248,15 @@ function graphicOutput(){
   outp.pop()
   
  outp.fill(255);
- outp.textSize(25);
+ outp.textSize(30);
  outp.textFont(Redaction)
  outp.textAlign(outp.CENTER)
  outp.text(input + " + " + input, outp.width/2, outp.height)
 }
 
 
-/*
 
-let recived;
-if (page=="gallery"){
-
-  readUserData("canva", recived)
-  console.log(recived)
-
-  p2=new p5(sketch);
-
-  p2.draw = function (){
-    p2.text(data,100,100)
-  }
-
-}*/
-
-
-
-let dataBoh;
-let data;
-let imageData;
+let artwork;
 
 //CANVA TO SAVE ON DATABASE
 p2 = new p5(sketch);
@@ -292,23 +265,21 @@ p2.draw = function (){
   p2.resizeCanvas(windowWidth*3/4, windowHeight/3);
   p2.canvas.id= "output";
 
-  p2.image(outp, 0,0);
+  p2.image(outp, 0,0);//disegno l'artwork
+  p2.canvas.style.display="none";//nascondo la canva
 
-  dataBoh = p2.canvas.toDataURL();//unica tipologia di dati che scrive nel databse
-  
-  //nessuno di questi due tipi li scrive nel database
-  /*ctx2=p2.canvas.getContext("2d");
-  imageData = ctx2.getImageData( 0, 0, p2.width, p2.height )
+  artwork = p2.canvas.toDataURL();//converto l'artwork in una stringa da salvare nel database
 
-  data= [imageData.data.buffer];*/
+  writeUserData(input, artwork)//chiamo la funzione di firebase che salva l'artwork con il nome dello user
 
-  p2.canvas.style.display="none";
-  
-  writeUserData("ciaomamma", dataBoh)
-
+  p2.noLoop()
 }
 
-console.log(data, imageData, dataBoh)
+//export {input}
+
+
+
+
 
 //////DITHER
 //////processo i pixel
