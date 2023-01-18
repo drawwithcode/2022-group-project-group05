@@ -100,13 +100,6 @@ const thresholdMaps = [
     ],
   ];
 
-const dithers = {
-    rgb_4: {
-      mapIndex: [2, 1, 2],
-      colorCount: [2, 4, 2],
-    },
-  };
-
 p1 = new p5(sketch)
 p1.draw = function (){
 
@@ -126,7 +119,7 @@ p1.draw = function (){
   p1.rect(0,0,p1.width, p1.height)
 
   //prendo i dati dei pixel del gradiente
-  const imageData = ctx.getImageData( 0, 0, p1.width, p1.height );
+  let imageData = ctx.getImageData( 0, 0, p1.width, p1.height );
 
   //chiamo la funzione che applica il dither sull'array di pixel del gradiente
   dither(imageData, [imageData.data.buffer]);
@@ -138,14 +131,15 @@ function dither (imageData, []){
     // imageData
     const width = imageData.width;
     const pixels = imageData.data;
-    const dither = dithers["rgb_4"];
+    const dither =  { mapIndex: [2, 1, 2], colorCount: [2, 4, 2],}
     
+    //funzione che rimappa il valore di r, g e b di ogni pixel contenuti nell'arrray
     const intensity = (r, g, b) =>
     Math.floor(0.2126 * r + 0.7152 * g + 0.0722 * b);
-    const clamp = (val, min, max) => Math.max(min, Math.min(val, max));
-    const map = (val, min1, max1, min2, max2) =>
-    ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
-    //prende un valore e li riconverte entro un range - quelli minori diventano il minimo, quelli maggiori diventano il massimo
+    const clamp = (val, min, max) => Math.max(min, Math.min(val, max)); //prende un valore e verifica che sia compreso entro un range
+    // quelli minori diventano il minimo, quelli maggiori diventano il massimo
+
+    const map = (val, min1, max1, min2, max2) => ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
     
     // filter
     for (let i = 0; i < pixels.length; i += 4) {

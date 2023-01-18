@@ -1,14 +1,18 @@
 #menu-btn{
   position:fixed;
+  margin:2vh;
 }
+
 
 body {
   padding:2vh;
   margin:0;
   height:100vh;
+  
+  justify-content: flex-start;
 }
 
-img {
-  margin:10vh;
+.artwork {
+  margin:8vh;
 
 }
