@@ -1,4 +1,5 @@
-![logo](images)
+
+   ![logo](README.img/logo.png)
 
 # About
 
@@ -28,13 +29,19 @@ The server connects two people; every time one of them touches the heart button,
 
 ## Binary Code
 
-<p align="center">
+<details open> 
+    <summary> 
+      ## Binary Code
+    </summary>
+
+<p float="left">
   <img src="README.img/matrix.gif" alt="Sublime's custom image"/>
 </p>
 
 
 The project has the aim to **make present the basic language of every machine: binary code**. N01 takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels.
 In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
+</details>
 
 
 ## Exhibition
@@ -57,11 +64,15 @@ The website cn be divided into 3 different parts:
 
 ![structure](README.img/structure.png)
 
-## homepage
+## Homepage
 
-<p align="center">
-  <img src="README.img/N01.gif"/>
+<div align= "center">
+<p float="left">
+  <img src="README.img/homepage1.gif" width="300" style="padding: 0px 0px 0px 10px;"/>
+  <img src="README.img/aboutN01.gif" width="300"/>
+  <img src="README.img/homepage2.gif" width="300"/>
 </p>
+</div>
 
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
 Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery. <br>
@@ -87,15 +98,24 @@ function dither (imageData, []){
 
 ## Experience
 
-**login** <br>
+### login
 The first step requires to log into the web site with the personal name or a nickname, so the platform can start matching people. <br>
-Everyone gets assigned a color, which will identify them in the further steps.
-foto palette
+Everyone gets assigned a color, which will identify them in the further steps. <br>
+<img src="README.img/palette.png" width="300"/>
 
-**waiting** <br>
+
+### Waiting
 While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
 
-**matching** <br>
+<div align= "center">
+<p float="left">
+  <img src="README.img/waiting1.gif" width="300"/>
+  <img src="README.img/waiting2.gif" width="300"/>
+  <img src="README.img/waiting3.gif" width="300"/>
+</p>
+</div>
+
+### Matching
 When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed.  This is how the matching system works: <br>
 ```javascript
 //takes the first two waiting users and pairs them
@@ -122,11 +142,11 @@ function pair() {
 }
 ```
 
-**output** <br>
+### Output
 At the end of the experience it would be possible to see the heart that you and your parter generated
 This is how we create the artwork: 
 
-## happy endings
+## Happy endings
 The gallery is made with a Firebase realtime database that allow the users to check out all their matches few seconds after the update
 This is how we use firebase
 
