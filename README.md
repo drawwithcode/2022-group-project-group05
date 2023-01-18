@@ -78,7 +78,7 @@ The structure is composed of 5 html page, each linked to a css and a javascript 
 ***
 The most interesting aspect of the first part are the *dithered background* and the *small hearts animation*
 
-#### dithered background
+#### *dithered background*
 
 To process the pixels of the canva the code is composed of three functions, one the callback of the other. 
 In the function `draw` the context of the canvas is processed as an array of pixels and passed as an argument of the second function.
@@ -131,7 +131,7 @@ function dither (imageData, []){
     drawCanvas(ctx, imageData);
 }
  ```
- The second function `clamps` the r, g, b values of the pixels of the canvas within a certain range to limit the color depth of the image. It then cycles to a `for loop` to define a new array of pixels. 
+In the third function the array of pixels is then applied to the context of the original canvas to redraw its pixels. 
 
  ```javascript
 //third function
@@ -142,12 +142,11 @@ function drawCanvas(cnv, img) {
 }
  
 ```
-In the third function the array of pixels is then applied to the context of the original canvas to redraw its pixels. 
+credits to:  
+https://github.com/kamoroso94/ordered-dither <br>
 
-credits to: https://github.com/kamoroso94/ordered-dither <br>
 
-
-###### heart animation
+#### *heart animation*
 
 ```javascript
 let heartImage;
@@ -204,6 +203,7 @@ if (page=="home"){
   }
 }
 ```
+
 ###
 ## Experience
 
