@@ -5,7 +5,7 @@
 
 Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.
 
-####_What if communicating directly like machines could help us find true love more easily?_
+#### *What if communicating directly like machines could help us find true love more easily?*
 
 N01 is a web experience that allows you to *find your soulmate only talking with one bit messages*. The project takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
 N01 is a web experience that allows you to find your soulmate only talking with one bit messages.
@@ -19,7 +19,7 @@ The server connects two people; every time one of them touches the heart button,
    b. [Exhibition](#exhibition)<br>
    c. [Structure](#structure)<br>
 
-2. Experience<br>   
+2. Experience  
    a. [Homepage](#homepage)<br>
    b. [Experience](#experience)<br>
    c. [Happy Ending](#output-and-happy-endings)<br>  
@@ -27,12 +27,11 @@ The server connects two people; every time one of them touches the heart button,
 3. [Team](#team)<br>
 
 
-# N01
+# ***N01***
 
-![logo](README.img/matrix.gif)
 ## Binary Code
-
 <!--<div style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>-->
+![logo](README.img/binary.gif)
 The project has the aim to make *present* the basic language of every machine: *binary code*. 
 
 N01 takes inspiration from the experiment held at Cornell University, called *"Communicating Intimacy One Bit at a Time"*, where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels. In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
@@ -76,10 +75,10 @@ Cheesy love quotes and heart patterns make N01 almost feel like a dating website
 The structure is composed of 5 html page, each linked to a css and a javascript file, plus three other javascripts documents that add features common to all the pages. 
 
 ***
-####code insigths
+#### code insigths
 The most interesting aspect of the first part are the *dithered background* and the *small hearts animation*
 
-######dithered background
+###### dithered background
 
 To process the pixels of the canva the code is composed of three functions, one the callback of the other. 
 In the function `draw` the context of the canvas is processed as an array of pixels and passed as an argument of the second function.
