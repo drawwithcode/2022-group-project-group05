@@ -51,7 +51,7 @@ let quotes=[
   "True love stories never have endings",
   "Let’s commit a perfect crime: I’ll steal your heart and you’ll steal mine",
   "Let’s flip a coin: tails you’re mine, heads I’m yours",
-  "Isn’t it beautiful when ‘once upon a time’ turns into and ‘happily ever after’?",
+  "Isn’t it beautiful when ‘once upon a time’ turns into an ‘happily ever after’?",
   "Will you lend me a kiss? I promise to give it back",
   "Forget the butterflies, I feel the entire zoo in my stomach when I'm with you!",
   "I think you are suffering from a lack of vitamin ME"]

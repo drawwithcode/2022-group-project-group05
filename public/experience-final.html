@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="assets/elements/favicon.png">
+    <title>N01</title>
+
+    <link rel="stylesheet" href="https://use.typekit.net/gwx5cpj.css">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="CSS/loading.css">
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body class="flex-col">
+ 
+    <div class="centered-wrap">
+
+      <!--frasi-->
+      <p class="content" id="quotes"></p>
+
+       <!--animazione cuoricini-->
+      <div class="flex-col" id="arrayHearts"> 
+          <img class="hearts" src="assets/SVG/iconHeart.svg">
+          <img class="hearts" src="assets/SVG/iconHeart.svg">
+          <img class="hearts" src="assets/SVG/iconHeart.svg">
+      </div>
+
+      <div class="flex-col" id="heart-container">
+        <img src="assets/SVG/iconHeart.svg" id="morse">
+      </div>
+      
+    </div>
+
+    <script> let page="loading"; </script>
+      
+    <script src="JS/experience-final.js"></script>
+    <script src="JS/dither-bg.js"></script>
+    
+  </body>
+</html>

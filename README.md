@@ -1,5 +1,5 @@
 
-   ![logo](README.img/logo.png)
+   ![logo](README.img/noilogo.png)
 
 # About
 
@@ -29,19 +29,10 @@ The server connects two people; every time one of them touches the heart button,
 
 ## Binary Code
 
-<details open> 
-    <summary> 
-      ## Binary Code
-    </summary>
+<div   style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>
+The project has the aim to **make present the basic language of every machine: binary code**. N01 takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels. In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
+<br clear="left"/>
 
-<p float="left">
-  <img src="README.img/matrix.gif" alt="Sublime's custom image"/>
-</p>
-
-
-The project has the aim to **make present the basic language of every machine: binary code**. N01 takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels.
-In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
-</details>
 
 
 ## Exhibition
@@ -68,7 +59,7 @@ The website cn be divided into 3 different parts:
 
 <div align= "center">
 <p float="left">
-  <img src="README.img/homepage1.gif" width="300" style="padding: 0px 0px 0px 10px;"/>
+  <img src="README.img/homepage1.gif" width="300"/>
   <img src="README.img/aboutN01.gif" width="300"/>
   <img src="README.img/homepage2.gif" width="300"/>
 </p>
@@ -95,7 +86,62 @@ function dither (imageData, []){
     //taking a value it riconverts the pixel in a certain range
     
 ```
+and this is how the hearts get defined and generated 
+```javascript
+let heartImage;
+let arrayHeart= [];
 
+//definisco la classe
+class Heart {
+  constructor(x, y){
+      this.x = x;
+      this.y = y;
+  }
+  move() {
+
+    this.y= this.y-2
+
+    p2.push();
+
+      p2.translate(this.x, this.y);
+      p2.image(heartImage, 0, 0);
+
+    p2.pop()
+  }
+}
+
+if (page=="home"){
+  p2 = new p5(sketch)
+
+  p2.draw= function(){
+    p2.clear()
+    
+    p2.canvas.id = "animation-hearts"
+    
+    for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}
+
+  }
+
+  //NEW HEART ON CLICK
+  document.addEventListener("click", clickHeart);
+
+  function clickHeart(){
+    let xHeart= p2.mouseX
+    let yHeart= p2.mouseY
+    arrayHeart.push(new Heart(xHeart, yHeart))
+  }
+
+  //HEART SPAWNING
+  setInterval(spawnHeart,3000)
+  function spawnHeart(){
+    
+    let xHeart= p2.random(0, p2.canvas.width)
+    let yHeart= p2.canvas.height
+    arrayHeart.push(new Heart(xHeart, yHeart))
+    
+  }
+}
+```
 ## Experience
 
 ### login
@@ -148,7 +194,49 @@ This is how we create the artwork:
 
 ## Happy endings
 The gallery is made with a Firebase realtime database that allow the users to check out all their matches few seconds after the update
-This is how we use firebase
+This is how we used firebase for the final gallery:
+```javascript
+import { artwork } from "/public/JS/firebase.js"
+
+//function that controls when datas get imported from database every 100 milliseconds
+let loadingTime = setInterval( ()=>{
+
+  if (artwork!=undefined){ //if the atwork exists the gallery gets generated 
+
+    setTimeout( galleryCreation ,1800)
+    clearInterval(loadingTime, loadingQuotes);
+
+  } else quotesDisplay //or the loading animation gets called 
+
+}, 100)
+
+
+let outputs= []
+let container= document.getElementById("img-ctn")
+
+function galleryCreation () {
+  
+  document.body.classList.add("active"); //change div's flex
+  (document.getElementById("loading")).style.display="none";
+
+  //generates an array from database's datas
+  outputs= Object.keys(artwork).map( function(key) {
+      return artwork[key];
+    });
+
+  outputs.forEach(element => {
+    
+    let imgdata= document.createElement("img")
+    
+    imgdata.src= element.data;
+    imgdata.classList.add("artwork");
+    
+    container.appendChild(imgdata);
+    document.body.appendChild(imgdata);
+
+  })
+}
+```
 
 
 # Team

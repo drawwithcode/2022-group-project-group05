@@ -14,7 +14,7 @@ let p2;//hearts
 let sketch = function(p) {
 
   p.preload = function(){
-    heartImage = p.loadImage('./assets/SVG/iconHeart.svg');
+    heartImage = p.loadImage('assets/SVG/iconHeart.svg');
   }
 
   p.setup = function() {
@@ -43,7 +43,7 @@ let sketch = function(p) {
 
 //DITHERED GRADIENT
 let seed=0.0;
-let colorGr= "#FF36F7";
+let userColor = "#FF36F7";
 
 const thresholdMaps = [
     [
@@ -115,7 +115,7 @@ p1.draw = function (){
 
   //disegno il gradiente di sfondo
   let gradient = ctx.createLinearGradient(0, valMapped, 0,  p1.height);
-  gradient.addColorStop(0, colorGr);
+  gradient.addColorStop(0, userColor);
   gradient.addColorStop(1, "white");
     
   ctx.fillStyle=gradient;

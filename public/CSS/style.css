@@ -1,18 +1,18 @@
 @font-face {
   font-family: 'Voxel';
-  src: url('/public/assets/FONT/Voxel.otf');
+  src: url('../assets/FONT/Voxel.otf');
 }
 @font-face {
   font-family: 'Redaction35';
-  src: url('/public/assets/FONT/Redaction35-Regular.otf');
+  src: url('../assets/FONT/Redaction35-Regular.otf');
 }
 @font-face {
   font-family: 'Redaction35Italic';
-  src: url('/public/assets/FONT/Redaction35-Italic.otf');
+  src: url('../assets/FONT/Redaction35-Italic.otf');
 }
 @font-face {
   font-family: 'Redaction50';
-  src: url('/public/assets/FONT/Redaction50-Regular.otf');
+  src: url('../assets/FONT/Redaction50-Regular.otf');
 }
 
 
@@ -140,8 +140,8 @@ canvas {
   background-color:#960090;
   width:100%;
   height:100%;
-  -webkit-mask: url(/public/assets/SVG/iconHeart.svg) no-repeat center / contain;
-  mask: url(/public/assets/SVG/iconHeart.svg) no-repeat center / contain;
+  -webkit-mask: url(../assets/SVG/iconHeart.svg) no-repeat center / contain;
+  mask: url(../assets/SVG/iconHeart.svg) no-repeat center / contain;
 }
 
 
@@ -186,6 +186,9 @@ canvas {
   overflow-y: scroll;
 }
 
+.hidden {
+  display: none
+}
 
 /*
 #scrollable-elt {
