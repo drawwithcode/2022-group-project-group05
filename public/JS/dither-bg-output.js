@@ -72,12 +72,12 @@ const thresholdMaps = [
     ],
   ];
 
-const dithers = {
+/*const dithers = {
     rgb_4: {
       mapIndex: [2, 1, 2],
       colorCount: [2, 4, 2],
     },
-  };
+  };*/
 
 
 //////CANVAS
@@ -88,6 +88,7 @@ let p1;//bg
 let ctx;
 
 let outp;//output
+
 let rows=8;
 const grid1 = [
   [0, 0, 1, 1, 1, 0, 0, 0],
@@ -125,8 +126,9 @@ const grid2 = [
 ];
 let message2 = [];
 
-let color1= "#5CC8FF";
-let color2= "#F9B9F2";
+let coolors= ["#7FEB9E", "#5CC8FF", "#7D82FE", "#D28AFE", "#FFABE3", "#FF6D6D", "#FFAE63", "#FFE975"]
+let color1;
+let color2;
 
 let Redaction;
 
@@ -144,7 +146,7 @@ import { writeUserData } from "/public/JS/firebase.js"
 let sketch = function(p) {
 
   p.preload = function(){
-    Redaction= p.loadFont("./assets/fonts/Redaction35-Italic.otf")
+    Redaction= p.loadFont("./assets/FONT/Redaction35-Italic.otf")
   }
 
   p.setup = function() {
@@ -208,6 +210,13 @@ function graphicOutput(){
 
   let size = (outp.width/2) / rows;//definisco la dimensione in base alla width della canvas
   let myindex = 0;
+
+  color1= coolors[Math.floor(Math.random() * coolors.length)];
+  color2= coolors[Math.floor(Math.random() * coolors.length)];
+
+  if(color1==color2){
+    color2= coolors[Math.floor(Math.random() * coolors.length)];
+  }
 
   outp.push()
   for (let i = 0; i < 70; i++) {
@@ -275,11 +284,6 @@ p2.draw = function (){
   p2.noLoop()
 }
 
-//export {input}
-
-
-
-
 
 //////DITHER
 //////processo i pixel
@@ -287,7 +291,7 @@ function dither (imageData, []){
     // imageData
     const width = imageData.width;
     const pixels = imageData.data;
-    const dither = dithers["rgb_4"];
+    const dither =  { mapIndex: [2, 1, 2], colorCount: [2, 4, 2], } //dithers["rgb_4"];
     
     const intensity = (r, g, b) =>
     Math.floor(0.2126 * r + 0.7152 * g + 0.0722 * b);
@@ -339,6 +343,6 @@ if(page=="output"){
 }
 
 function saveCnv(){
-  p1.saveCanvas(p1.canvas, 'n01', 'png');
+  p1.saveCanvas(p1.canvas, 'N01_'+ input +'+' + input, 'png');
 }
 

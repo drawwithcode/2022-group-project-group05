@@ -27,7 +27,7 @@
        // console.log(data)
         //userid sarà il nome del file
         //scrivo nella cartella graphics data che è un parametro che si definisce quando chiamo la funzione nel setup
-        set(ref(db, 'gallery/'+ userId), {
+        set(ref(db, 'N01-gallery/'+ userId), {
           data: data
         });
 
@@ -35,9 +35,10 @@
 
       }
 
+      
       let artwork;
 
-      get(ref(db, `gallery/`)).then((snapshot) => {
+      get(ref(db, `N01-gallery/`)).then((snapshot) => {
         if (snapshot.exists()) {
           console.log(snapshot.val());
 

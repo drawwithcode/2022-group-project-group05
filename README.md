@@ -1,4 +1,5 @@
-![logo](images)
+
+   ![logo](README.img/noilogo.png)
 
 # About
 
@@ -16,11 +17,10 @@ The server connects two people; every time one of them touches the heart button,
 1. N01<br>
    a. [Binary Code](#binary-code)<br>
    b. [Exhibition](#exhibition)<br>
-2. Experience<br>
-   
+2. Experience<br>   
    a. [Homepage](#homepage)<br>
-   b. [Matching](#matching) <br>
-   c. [Happy Ending](#output-and-happy-endings) <br>  
+   b. [Experience](#experience)<br>
+   c. [Happy Ending](#output-and-happy-endings)<br>  
 
 3. [Team](#team)<br>
 
@@ -29,10 +29,15 @@ The server connects two people; every time one of them touches the heart button,
 
 ## Binary Code
 
-![experiment](README.img/matrix.gif)
+
+<p float="left">
+  <img src="README.img/matrix.gif" alt="Sublime's custom image"/>
+</p>
+
 
 The project has the aim to **make present the basic language of every machine: binary code**. N01 takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels.
 In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
+
 
 
 ## Exhibition
@@ -44,20 +49,27 @@ The experience is designed as an interactive exhibition that takes place in a ro
 
 # Structure
 
+The website cn be divided into 3 different parts:
+1. **Homepage** from which you can either go directly to the gallery part or start the experience <br>
+2. **Experience** which in turn can be divided into 4 parts <br>
+   a. _Login and rules_ of the experience <br>
+   b. _Waiting list_ where the user will be associated to another one <br>
+   c. _Matching_ actually with the assiociated <br>
+   d. _Output_ of the experience that will be sent to the gallery <br>
+3. **Happy endings** where all the output will be displayed <br>
+
 ![structure](README.img/structure.png)
 
-The website cn be divided into 3 different parts:
-1. **Homepage** from which you can either go directly to the gallery part or start the experience
-2. **Experience** which in turn can be divided into 4 parts
-   a. Login and rules of the experience
-   b. Waiting list where the user will be associated to another one
-   c. Matching actually with the assiociated
-   d. The output of the experience that will be sent to the gallery
-3. **Gallery** where all the output will be displayed
+## Homepage
 
-![N01](README.img/N01.gif)
+<div align= "center">
+<p float="left">
+  <img src="README.img/homepage1.gif" width="300" style="padding: 0px 0px 0px 10px;"/>
+  <img src="README.img/aboutN01.gif" width="300"/>
+  <img src="README.img/homepage2.gif" width="300"/>
+</p>
+</div>
 
-## homepage
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
 Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery. <br>
 The structure was made with html linked pages. 
@@ -80,17 +92,26 @@ function dither (imageData, []){
     
 ```
 
+## Experience
 
-## login
+### login
 The first step requires to log into the web site with the personal name or a nickname, so the platform can start matching people. <br>
-Everyone gets assigned a color, which will identify them in the further steps.
-foto palette
+Everyone gets assigned a color, which will identify them in the further steps. <br>
+<img src="README.img/palette.png" width="300"/>
 
-## waiting
+
+### Waiting
 While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
 
-## matching
+<div align= "center">
+<p float="left">
+  <img src="README.img/waiting1.gif" width="300"/>
+  <img src="README.img/waiting2.gif" width="300"/>
+  <img src="README.img/waiting3.gif" width="300"/>
+</p>
+</div>
 
+### Matching
 When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed.  This is how the matching system works: <br>
 ```javascript
 //takes the first two waiting users and pairs them
@@ -117,10 +138,13 @@ function pair() {
 }
 ```
 
-## output and happy endings
-At the end of the experience it would be possible to see the heart that you and your parter generated, and to have access to the gallery that collects everyone's matches. The user can either decide to visualize the gallery, made with a Firebase real time database, or go back to the experience and find another match. 
-The output is generated in this way:
-This is how we used Firebase: 
+### Output
+At the end of the experience it would be possible to see the heart that you and your parter generated
+This is how we create the artwork: 
+
+## Happy endings
+The gallery is made with a Firebase realtime database that allow the users to check out all their matches few seconds after the update
+This is how we use firebase
 
 
 # Team
