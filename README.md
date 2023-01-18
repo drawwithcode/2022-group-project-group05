@@ -1,7 +1,7 @@
 
    ![logo](README.img/noilogo.png)
 
-# About
+# N01
 
 Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.
 
@@ -14,7 +14,7 @@ The server connects two people; every time one of them touches the heart button,
 
 **Table of Contents**
 
-1. N01  
+1. Concept  
    a. [Binary Code](#binary-code)<br>
    b. [Exhibition](#exhibition)<br>
    c. [Structure](#structure)<br>
@@ -27,15 +27,16 @@ The server connects two people; every time one of them touches the heart button,
 3. [Team](#team)<br>
 
 
-# ***N01***
+# ***Concept***
 
 ## Binary Code
-<!--<div style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>-->
-![binary](README.img/binary.gif)  
+<!--<div style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>
+![binary](README.img/binary.gif)  -->
 
 The project has the aim to make *present* the basic language of every machine: *binary code*. 
 
-N01 takes inspiration from the experiment held at Cornell University, called *"Communicating Intimacy One Bit at a Time"*, where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels. In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
+N01 takes inspiration from the experiment held at Cornell University *Communicating Intimacy One Bit at a Time*, where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels. In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
+
 <!-- <br clear="left"/> -->
 
 
@@ -203,6 +204,8 @@ if (page=="home"){
   }
 }
 ```
+
+
 
 ###
 ## Experience
