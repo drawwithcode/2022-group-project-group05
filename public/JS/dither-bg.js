@@ -207,34 +207,33 @@ class Heart {
   }
 }
 
-if (page=="home"){
+
   p2 = new p5(sketch)
 
   p2.draw= function(){
     p2.clear()
     
     p2.canvas.id = "animation-hearts"
-    
     for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}
 
   }
 
   //NEW HEART ON CLICK
-  document.addEventListener("click", clickHeart);
-
-  function clickHeart(){
+  document.addEventListener("click", function(){
     let xHeart= p2.mouseX
     let yHeart= p2.mouseY
     arrayHeart.push(new Heart(xHeart, yHeart))
-  }
+  })
 
+  if (page=="qrcode"){
   //HEART SPAWNING
-  setInterval(spawnHeart,3000)
-  function spawnHeart(){
+  setInterval(function(){
     
     let xHeart= p2.random(0, p2.canvas.width)
     let yHeart= p2.canvas.height
+    if(xHeart<p2.canvas.width/4||xHeart>p2.canvas.width*3/4 )
     arrayHeart.push(new Heart(xHeart, yHeart))
-    
-  }
+
+  },3000)
+  
 }
