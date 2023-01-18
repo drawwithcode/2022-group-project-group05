@@ -1,12 +1,12 @@
-let name; //nome dell'utente
 let nameField = document.getElementById('nameField');
 
 let experienceBtn = document.getElementById("experience-btn");
 
 
 function setName(){
-    name = document.getElementById('name').value;
+    let name = document.getElementById('name').value;
     nameField.innerHTML = name;
+    window.sessionStorage.setItem("name", name)
 
     //check if name esiste
     if (name.length != 0 ){
@@ -28,5 +28,5 @@ function pShow(){
 experienceBtn.addEventListener("click", newWindow)
 
 function newWindow(){
-     window.open("loading.html?name1="+ name, "_self")
+    window.location.href = "experience-final.html";
 }

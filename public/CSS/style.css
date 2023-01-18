@@ -186,6 +186,9 @@ canvas {
   overflow-y: scroll;
 }
 
+.hidden {
+  display: none
+}
 
 /*
 #scrollable-elt {

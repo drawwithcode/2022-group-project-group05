@@ -17,11 +17,35 @@ var io = serverSocket(server)
 
 //libraries setup ends here
 
+//users setup
+const COLORS = [
+    "#7FEB9E",
+    "#5CC8FF",
+    "#7D82FE",
+    "#D28AFE",
+    "#FFABE3",
+    "#FF6D6D",
+    "#FFAE63",
+    "#FFE975"
+  ]
+
+let colArray = []
+
+for (let i = 0; i < COLORS.length; i++){
+    let colorObj = {
+        hex: COLORS[i],
+        taken: false
+    }
+
+    colArray.push(colorObj)
+}
+
 class User{
     constructor(id) {
         this.id = id;
         this.pairedId = 0;
         this.color = 0;
+        this.name = "";
         this.msg = [];
         this.timer = 0;
         this.active = false;
@@ -43,6 +67,39 @@ class User{
         this.msg = [];
         clearInterval(this.timer)
         this.active = false;
+        this.freeColor()
+    }
+
+    assignColor() {
+        //returns index of first untaken color
+        let freeColors = colArray.filter(color => !color.taken);
+        let index;
+
+        if (freeColors.length > 0) {
+            index = Math.floor(Math.random() * freeColors.length)  
+            
+            this.color = freeColors[index].hex
+            freeColors[index].taken = true
+        }
+
+        let log = "colors: "
+        for (let i = 0; i < colArray.length; i++){
+            log += colArray[i].hex
+            
+            if (i != colArray.length - 1) {
+                log += ", "
+            }
+        }
+        console.log(log)
+        console.log("assigned "+ freeColors[index] + " to "+this.id)
+
+        return index
+    }
+
+    freeColor() {
+        let colorObj = colArray.find(obj => obj.hex = this.color)
+
+        colorObj.taken = false;
     }
 }
 
@@ -51,8 +108,6 @@ const CLOCK = 882;
 var users = [];
 
 var waiting = [];
-
-var unpaired = 0;
 
 io.on("connection", newConnection)
 
@@ -64,12 +119,16 @@ function newConnection(socket) {
         users.push(new User(socket.id))
     }
 
-    //when user starts, add them to waitlist, if they  can be paired, pair 
-    socket.on("start", function () {
-        waiting.push(getUser(this.id))
-        unpaired += 1;
-        console.log(this.id + " ready, unpaired: " + unpaired)
-        if (unpaired > 1) {
+    
+    socket.on("ready", function (username) {
+        getUser(this.id).name = username;
+
+        //set user to waiting
+        waiting.push(this.id)
+        console.log(this.id + " ready, unpaired: " + waiting.length)
+
+        //if enough users to pair, do
+        if (waiting.length > 1) {
             pair();
         }
     })
@@ -93,37 +152,38 @@ function newConnection(socket) {
     //also informs unpaired clients of the status change
     socket.on("disconnect", function () {
         console.log(socket.id + " disconnected")
-        var userIndex = users.findIndex(user => user.id == this.id);
-        var waitIndex = waiting.findIndex(user => user.id == this.id);
+        console.log("waiting: " + waiting)
+        let userIndex = users.findIndex(user => user.id == this.id);
+        let disconnected = users[userIndex];
+        let waitIndex = waiting.indexOf(this.id);
 
         //check if user was waiting
         if (waitIndex != -1) {
             //user was waiting
             waiting.splice(waitIndex, 1)
-            unpaired -= 1;
+            //unpaired -= 1;
             console.log("was unpaired")
         }
         else {
-            console.log(waiting)
-            console.log(users[userIndex])
+            console.log("waiting: " + waiting)
+            console.log(disconnected.id)
             //user was paired
-            if (users[userIndex].pairedId != 0) {
-                //stop user timer
-                clearInterval(users[userIndex].timer)
-
-                var paired = getUser(users[userIndex].pairedId)
+            if (disconnected.pairedId != 0) {
+                let paired = getUser(disconnected.pairedId)
 
                 //set paired user to waiting
                 io.to(paired.id).emit("unpaired", 0)
-                waiting.push(paired)
+                waiting.push(paired.id)
                 paired.reset();
                 
-                unpaired += 1;
+                //reset user
+                disconnected.reset();
+
                 console.log("was paired")
             }
         }
 
-        if (unpaired > 1) {
+        if (waiting.length > 1) {
             pair();
         }
 
@@ -134,22 +194,42 @@ function newConnection(socket) {
 //takes the first two waiting users and pairs them
 function pair() {
     console.log("pairing")
-    waiting[0].pairedId = waiting[1].id
-    waiting[1].pairedId = waiting[0].id
-    unpaired -= 2;
+    let pairingUsers = [getUser(waiting[0]), getUser(waiting[1])]
 
-    io.to(waiting[0].id).emit("paired", waiting[1])
-    io.to(waiting[1].id).emit("paired", waiting[0])
+    for (let i = 0; i < pairingUsers.length; i++){
+        let user = pairingUsers[i]
+        //assign paired id to users
+        user.pairedId = pairingUsers[1 - i].id
+        
+        //assign colors to users
+        user.assignColor()
 
-    //start the users' timers
-    for (let i = 0; i <= 1; i++){
-        let user = getUser(waiting[i].id)
+        //start timers
         user.timer = setInterval(function () {
             user.updateMsg()
         }, CLOCK)
     }
 
-    console.log("paired " + waiting[0].id + " and " + waiting[1].id)
+    let msg = [{}, {}];
+
+    for (let i = 0; i < msg.length; i++){
+        //send users pair id
+        msg[i].id = pairingUsers[1 - i].id
+
+        //send users their color and color to search
+        msg[i].userColor = pairingUsers[i].color
+        msg[i].pairColor = pairingUsers[1 - i].color
+
+        //send users color of paired
+        msg[i].pairName = pairingUsers[1 - i].name
+
+        //send the message
+        io.to(pairingUsers[i].id).emit("paired", msg[i])
+    }
+
+    console.log(msg)
+
+    console.log("paired " + pairingUsers[0].id + " and " + pairingUsers[1].id)
     waiting.splice(0, 2);
     console.log(waiting)
 }
