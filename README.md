@@ -94,10 +94,10 @@ foto palette
 
 **waiting** <br>
 <p float="left">
-  <img src="README.img/waiting1.gif" width="75"/>
-  <img src="README.img/waiting2.gif" width="75"/>
-  <img src="README.img/waiting3.gif" width="75"/>
-  <img src="README.img/waiting4.gif" width="75"/>
+  <img src="README.img/waiting1.gif" width="100"/>
+  <img src="README.img/waiting2.gif" width="100"/>
+  <img src="README.img/waiting3.gif" width="100"/>
+  <img src="README.img/waiting4.gif" width="100"/>
 </p>
 
 
