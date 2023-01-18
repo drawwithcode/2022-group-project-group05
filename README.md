@@ -1,5 +1,5 @@
 
-   ![logo](README.img/logo.png)
+   ![logo](README.img/noilogo.png)
 
 # About
 
