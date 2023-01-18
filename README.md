@@ -144,7 +144,49 @@ This is how we create the artwork:
 
 ## Happy endings
 The gallery is made with a Firebase realtime database that allow the users to check out all their matches few seconds after the update
-This is how we use firebase
+This is how we used firebase for the final gallery:
+```javascript
+import { artwork } from "/public/JS/firebase.js"
+
+//function that controls when datas get imported from database every 100 milliseconds
+let loadingTime = setInterval( ()=>{
+
+  if (artwork!=undefined){ //if the atwork exists the gallery gets generated 
+
+    setTimeout( galleryCreation ,1800)
+    clearInterval(loadingTime, loadingQuotes);
+
+  } else quotesDisplay //or the loading animation gets called 
+
+}, 100)
+
+
+let outputs= []
+let container= document.getElementById("img-ctn")
+
+function galleryCreation () {
+  
+  document.body.classList.add("active"); //change div's flex
+  (document.getElementById("loading")).style.display="none";
+
+  //generates an array from database's datas
+  outputs= Object.keys(artwork).map( function(key) {
+      return artwork[key];
+    });
+
+  outputs.forEach(element => {
+    
+    let imgdata= document.createElement("img")
+    
+    imgdata.src= element.data;
+    imgdata.classList.add("artwork");
+    
+    container.appendChild(imgdata);
+    document.body.appendChild(imgdata);
+
+  })
+}
+```
 
 
 # Team
