@@ -2,7 +2,6 @@
 
 # About
 
-
 Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.
 
 _What if communicating directly like machines could help us find true love more easily?_
@@ -15,24 +14,24 @@ The server connects two people; every time one of them touches the heart button,
 **Table of Contents**
 
 1. N01<br>
-   a. [Binary Code](#binarycode)<br>
+   a. [Binary Code](#binary-code)<br>
    b. [Exhibition](#exhibition)<br>
 2. Experience<br>
    
    a. [Homepage](#homepage)<br>
    b. [Matching](#matching) <br>
-   c. [Happy Ending](#output and happy endings) <br>
-  
+   c. [Happy Ending](#output-and-happy-endings) <br>  
 
 3. [Team](#team)<br>
 
+<br>
 # N01
 
 ## Binary Code
 
-![experiment](README.img/experiment.jpg)
+![experiment](README.img/matrix.gif)
 
-The project has the aim to make present the basic language of every machine: binary code. N01 takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels.
+The project has the aim to **make present the basic language of every machine: binary code**. N01 takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels.
 In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
 
 
@@ -42,10 +41,20 @@ In the same way N01 connects people and show them that even with the smaller amo
 
 The experience is designed as an interactive exhibition that takes place in a room. From the outside, people will be attracted by the pink soft lights. Before entering the room, the user reads the concept and can decide to join. A computer is placed right next the entrance and a qr code is displayed on its monitor. The user scans it and finally the experience begins. 
 
-
-
+<br>
 # Structure
+
 ![structure](README.img/structure.png)
+
+The website cn be divided into 3 different parts:
+1. **Homepage** from which you can either go directly to the gallery part or start the experience
+2. **Experience** which in turn can be divided into 4 parts
+   a. Login and rules of the experience
+   b. Waiting list where the user will be associated to another one
+   c. Matching actually with the assiociated
+   d. The output of the experience that will be sent to the gallery
+3. **Gallery** where all the output will be displayed
+
 ![N01](README.img/N01.gif)
 
 ## homepage
@@ -113,15 +122,7 @@ At the end of the experience it would be possible to see the heart that you and 
 The output is generated in this way:
 This is how we used Firebase: 
 
-
-
-
-
-
-
-
-
-
+<br>
 # Team
 
 Letteralmente N01
