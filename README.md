@@ -1,5 +1,6 @@
-![logo](images)
-
+<p align="center">
+   ![logo](README.img/logo.png)
+</p>
 # About
 
 Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.
