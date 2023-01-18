@@ -31,7 +31,8 @@ The server connects two people; every time one of them touches the heart button,
 
 ## Binary Code
 <!--<div style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>-->
-![logo](README.img/binary.gif)
+![binary](README.img/binary.gif)  
+
 The project has the aim to make *present* the basic language of every machine: *binary code*. 
 
 N01 takes inspiration from the experiment held at Cornell University, called *"Communicating Intimacy One Bit at a Time"*, where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels. In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
@@ -75,16 +76,22 @@ Cheesy love quotes and heart patterns make N01 almost feel like a dating website
 The structure is composed of 5 html page, each linked to a css and a javascript file, plus three other javascripts documents that add features common to all the pages. 
 
 ***
-#### code insigths
 The most interesting aspect of the first part are the *dithered background* and the *small hearts animation*
 
-###### dithered background
+#### dithered background
 
 To process the pixels of the canva the code is composed of three functions, one the callback of the other. 
 In the function `draw` the context of the canvas is processed as an array of pixels and passed as an argument of the second function.
 
 ```javascript
-//pixel get processsed
+//first function
+ let imageData = ctx.getImageData( 0, 0, p1.width, p1.height );
+ dither(imageData, [imageData.data.buffer]);
+ ```
+The second function `clamps` the r, g, b values of the pixels of the canvas within a certain range to limit the color depth of the image. It then cycles to a `for loop` to define a new array of pixels. 
+
+```javascript
+//second function
 function dither (imageData, []){
     // imageData
     const width = imageData.width;
@@ -96,16 +103,51 @@ function dither (imageData, []){
     const clamp = (val, min, max) => Math.max(min, Math.min(val, max));
     const map = (val, min1, max1, min2, max2) =>
     ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
-    //taking a value it riconverts the pixel in a certain range
     
+    const map = (val, min1, max1, min2, max2) => ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
+    
+    // filter
+    for (let i = 0; i < pixels.length; i += 4) {
+      const x = (i / 4) % width;
+      const y = Math.floor(i / 4 / width);
+      const colors = pixels.slice(i, i + 3);
+    
+      for (let c = 0; c < 3; c++) {
+        const thresholdMap = thresholdMaps[dither.mapIndex[c]];
+        const mapSide = thresholdMap.length;
+        const mapSize = mapSide * mapSide ;
+        const threshold = thresholdMap[x % mapSide][y % mapSide];
+        const numColors = dither.colorCount[c];
+
+        const color = Math.floor(
+          clamp( (numColors * colors[c]) / 256 + threshold / mapSize - 0.5,  0, numColors - 1)
+        );
+        const nearestColor = Math.floor(map(color, 0, numColors - 1, 0, 255));
+    
+        pixels[i + c] = nearestColor;
+      }
+    }
+    
+    drawCanvas(ctx, imageData);
+}
+ ```
+ The second function `clamps` the r, g, b values of the pixels of the canvas within a certain range to limit the color depth of the image. It then cycles to a `for loop` to define a new array of pixels. 
+
+ ```javascript
+//third function
+function drawCanvas(cnv, img) {
+    cnv.canvas.width = img.width;
+    cnv.canvas.height = img.height;
+    ctx.putImageData(img, 0, 0);
+}
+ 
 ```
-The second function clamps the r,g,b values of the pixels within a certain range to limit the color depth of the image. 
-It then cycles to a for loop to define a new array of pixels. In the third function the array of pixels is then applied to the context of the original canvas to redraw its pixels. 
+In the third function the array of pixels is then applied to the context of the original canvas to redraw its pixels. 
 
 credits to: https://github.com/kamoroso94/ordered-dither <br>
 
 
-######heart animation
+###### heart animation
 
 ```javascript
 let heartImage;
