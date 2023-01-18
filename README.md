@@ -34,7 +34,7 @@ The server connects two people; every time one of them touches the heart button,
   <img src="README.img/matrix.gif" alt="Sublime's custom image"/>
 </p>
 
-<img src="README.img/matrix.gif" align="left" width="400px"/>
+<img src="README.img/matrix.gif" align="left" width="width/2"/>
 some text floating around the image
 The project has the aim to **make present the basic language of every machine: binary code**. N01 takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels.
 In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
