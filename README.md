@@ -17,6 +17,8 @@ The server connects two people; every time one of them touches the heart button,
 1. N01  
    a. [Binary Code](#binary-code)<br>
    b. [Exhibition](#exhibition)<br>
+   c. [Structure](#structure)<br>
+
 2. Experience<br>   
    a. [Homepage](#homepage)<br>
    b. [Experience](#experience)<br>
@@ -29,7 +31,7 @@ The server connects two people; every time one of them touches the heart button,
 
 ## Binary Code
 
-<div   style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>
+<div style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>
 The project has the aim to **make present the basic language of every machine: binary code**. N01 takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels. In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
 <br clear="left"/>
 
@@ -39,19 +41,19 @@ The project has the aim to **make present the basic language of every machine: b
 
 ![storyboard](README.img/storyboard.png)
 
-The experience is designed as an interactive exhibition that takes place in a room. From the outside, people will be attracted by the pink soft lights. Before entering the room, the user reads the concept and can decide to join. A computer is placed right next the entrance and a qr code is displayed on its monitor. The user scans it and finally the experience begins. 
+The experience is designed as an interactive exhibition that takes place in a room. From the outside, people will be attracted by the pink soft lights. Before entering the room, the user reads the concept and can decide to join. A computer is placed right next the entrance and a QR code is displayed on its monitor. The user scans it and finally the experience begins. 
 
 
 # Structure
 
 The website cn be divided into 3 different parts:
-1. **Homepage** from which you can either go directly to the gallery part or start the experience <br>
-2. **Experience** which in turn can be divided into 4 parts <br>
-   a. _Login and rules_ of the experience <br>
-   b. _Waiting list_ where the user will be associated to another one <br>
-   c. _Matching_ actually with the assiociated <br>
-   d. _Output_ of the experience that will be sent to the gallery <br>
-3. **Happy endings** where all the output will be displayed <br>
+1. ***Homepage*** from which you can either go directly to the gallery part or start the experience <br>
+2. ***Experience*** which in turn can be divided into 4 parts <br>
+   a. *Login and rules* of the experience <br>
+   b. *Waiting list* where the user will be associated to another one <br>
+   c. *Matching* actually with the assiociated <br>
+   d. *Output* of the experience that will be sent to the gallery <br>
+3. ***Happy endings*** where all the output will be displayed <br>
 
 ![structure](README.img/structure.png)
 
@@ -67,11 +69,18 @@ The website cn be divided into 3 different parts:
 
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
 Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery. <br>
-The structure was made with html linked pages. 
 
+The structure is composed of 5 html page, each linked to a css and a javascript file, plus three other javascripts documents that add features common to all the pages. 
+
+***
 ####code insigths
-An interesting aspect of the homepage is the wallpaper, created with a dithering effect, and the animation of little hearts.
-We took inspiration from a code on github: https://github.com/kamoroso94/ordered-dither <br>
+The most interesting aspect of the first part are the *dithered background* and the *small hearts animation*
+
+######dithered background
+
+To process the pixels of the canva the code is composed of three functions, one the callback of the other. 
+In the function `draw` the context of the canvas is processed as an array of pixels and passed as an argument of the second function.
+
 ```javascript
 //pixel get processsed
 function dither (imageData, []){
@@ -88,7 +97,14 @@ function dither (imageData, []){
     //taking a value it riconverts the pixel in a certain range
     
 ```
-and this is how the hearts get defined and generated 
+The second function clamps the r,g,b values of the pixels within a certain range to limit the color depth of the image. 
+It then cycles to a for loop to define a new array of pixels. In the third function the array of pixels is then applied to the context of the original canvas to redraw its pixels. 
+
+credits to: https://github.com/kamoroso94/ordered-dither <br>
+
+
+######heart animation
+
 ```javascript
 let heartImage;
 let arrayHeart= [];
@@ -144,6 +160,7 @@ if (page=="home"){
   }
 }
 ```
+###
 ## Experience
 
 ### login
