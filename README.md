@@ -64,9 +64,9 @@ The website cn be divided into 3 different parts:
 
 <div align= "center">
 <p float="left">
-  <img src="README.img/homepage1.gif" width="300"/>
-  <img src="README.img/aboutN01.gif" width="300"/>
-  <img src="README.img/homepage2.gif" width="300"/>
+  <img src="README.img/homepage1.gif" width="30%"/>
+  <img src="README.img/aboutN01.gif" width="30%"/>
+  <img src="README.img/homepage2.gif" width="30%"/>
 </p>
 </div>
 
