@@ -59,9 +59,13 @@ The website cn be divided into 3 different parts:
 
 ## homepage
 
-<p align="center">
-  <img src="README.img/N01.gif"/>
+<div align= "center">
+<p float="left">
+  <img src="README.img/homepage1.gif" width="300"/>
+  <img src="README.img/homepage2.gif" width="300"/>
+  <img src="README.img/aboutN01.gif" width="300"/>
 </p>
+</div>
 
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
 Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery. <br>
