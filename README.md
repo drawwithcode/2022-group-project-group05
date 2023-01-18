@@ -2,7 +2,6 @@
 
 # About
 
-
 Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.
 
 _What if communicating directly like machines could help us find true love more easily?_
@@ -15,24 +14,26 @@ The server connects two people; every time one of them touches the heart button,
 **Table of Contents**
 
 1. N01<br>
-   a. [Binary Code](#binarycode)<br>
+   a. [Binary Code](#binary-code)<br>
    b. [Exhibition](#exhibition)<br>
-2. Experience<br>
-   
+2. Experience<br>   
    a. [Homepage](#homepage)<br>
-   b. [Matching](#matching) <br>
-   c. [Happy Ending](#output and happy endings) <br>
-  
+   b. [Experience](#experience)<br>
+   c. [Happy Ending](#output-and-happy-endings)<br>  
 
 3. [Team](#team)<br>
+
 
 # N01
 
 ## Binary Code
 
-![experiment](README.img/experiment.jpg)
+<p align="center">
+  <img src="README.img/matrix.gif" alt="Sublime's custom image"/>
+</p>
 
-The project has the aim to make present the basic language of every machine: binary code. N01 takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels.
+
+The project has the aim to **make present the basic language of every machine: binary code**. N01 takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels.
 In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
 
 
@@ -43,12 +44,25 @@ In the same way N01 connects people and show them that even with the smaller amo
 The experience is designed as an interactive exhibition that takes place in a room. From the outside, people will be attracted by the pink soft lights. Before entering the room, the user reads the concept and can decide to join. A computer is placed right next the entrance and a qr code is displayed on its monitor. The user scans it and finally the experience begins. 
 
 
-
 # Structure
+
+The website cn be divided into 3 different parts:
+1. **Homepage** from which you can either go directly to the gallery part or start the experience <br>
+2. **Experience** which in turn can be divided into 4 parts <br>
+   a. _Login and rules_ of the experience <br>
+   b. _Waiting list_ where the user will be associated to another one <br>
+   c. _Matching_ actually with the assiociated <br>
+   d. _Output_ of the experience that will be sent to the gallery <br>
+3. **Happy endings** where all the output will be displayed <br>
+
 ![structure](README.img/structure.png)
-![N01](README.img/N01.gif)
 
 ## homepage
+
+<p align="center">
+  <img src="README.img/N01.gif"/>
+</p>
+
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
 Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery. <br>
 The structure was made with html linked pages. 
@@ -71,17 +85,17 @@ function dither (imageData, []){
     
 ```
 
+## Experience
 
-## login
+**login** <br>
 The first step requires to log into the web site with the personal name or a nickname, so the platform can start matching people. <br>
 Everyone gets assigned a color, which will identify them in the further steps.
 foto palette
 
-## waiting
+**waiting** <br>
 While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
 
-## matching
-
+**matching** <br>
 When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed.  This is how the matching system works: <br>
 ```javascript
 //takes the first two waiting users and pairs them
@@ -108,18 +122,13 @@ function pair() {
 }
 ```
 
-## output and happy endings
-At the end of the experience it would be possible to see the heart that you and your parter generated, and to have access to the gallery that collects everyone's matches. The user can either decide to visualize the gallery, made with a Firebase real time database, or go back to the experience and find another match. 
-The output is generated in this way:
-This is how we used Firebase: 
+**output** <br>
+At the end of the experience it would be possible to see the heart that you and your parter generated
+This is how we create the artwork: 
 
-
-
-
-
-
-
-
+## happy endings
+The gallery is made with a Firebase realtime database that allow the users to check out all their matches few seconds after the update
+This is how we use firebase
 
 
 # Team
