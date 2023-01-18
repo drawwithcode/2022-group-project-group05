@@ -72,13 +72,6 @@ const thresholdMaps = [
     ],
   ];
 
-/*const dithers = {
-    rgb_4: {
-      mapIndex: [2, 1, 2],
-      colorCount: [2, 4, 2],
-    },
-  };*/
-
 
 //////CANVAS
 let windowWidth = window.innerWidth
@@ -88,8 +81,9 @@ let p1;//bg
 let ctx;
 
 let outp;//output
-
 let rows=8;
+
+//first half of the heart
 const grid1 = [
   [0, 0, 1, 1, 1, 0, 0, 0],
   [0, 1, 1, 1, 1, 1, 0, 0],
@@ -106,8 +100,8 @@ const grid1 = [
   [0, 0, 0, 0, 0, 0, 1, 1],
   [0, 0, 0, 0, 0, 0, 0, 1],
 ];
-let message1 = [];
 
+//second half of the 
 const grid2 = [
   [0, 0, 0, 1, 1, 1, 0, 0],
   [0, 0, 1, 1, 1, 1, 1, 0],
@@ -124,6 +118,8 @@ const grid2 = [
   [0, 1, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0],
 ];
+
+let message1 = [];
 let message2 = [];
 
 let coolors= ["#7FEB9E", "#5CC8FF", "#7D82FE", "#D28AFE", "#FFABE3", "#FF6D6D", "#FFAE63", "#FFE975"]
@@ -180,11 +176,14 @@ p1.draw = function (){
   ctx= p1.canvas.getContext('2d');
     
   //imposto un valore di noise che rende animato il mio gradiente di sfondo
-  seed= seed + 0.005;
-  let val1= p1.noise(seed)*800; 
+  //rimappo il valore entro un range così che l'animazione sia delicata
+  seed= seed + 0.05;
+  let val= p1.noise(seed)*600; 
+  let valMapped = p1.map(val, 0, p1.height, 400, 600)
+  console.log(valMapped)
 
   //disegno il gradiente di sfondo
-  let gradient = ctx.createLinearGradient(0, val1, 0,  p1.height);
+  let gradient = ctx.createLinearGradient(0, valMapped, 0,  p1.height);
   gradient.addColorStop(0, colorGr);
   gradient.addColorStop(1, "white");
     
@@ -197,8 +196,7 @@ p1.draw = function (){
   //chiamo la funzione che applica il dither sull'array di pixel del gradiente
   dither(imageData, [imageData.data.buffer]);
 
-
-    p1.image(outp, (windowWidth-outp.width)/2,  (windowHeight-outp.height)/2);
+  p1.image(outp, (windowWidth-outp.width)/2,  (windowHeight-outp.height)/2);
 }
 
 
