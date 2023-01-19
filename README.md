@@ -16,13 +16,12 @@ The server connects two people; every time one of them touches the heart button,
 #### **INDEX**
 1. Concept  
    a. [Binary Code](#binary-code)<br>
-   b. [Exhibition](#exhibition)<br>
    c. [Structure](#structure)<br>
 
 2. Experience  
-   a. [Homepage](#homepage)<br>
-   b. [Connection](#waiting-and-matching)<br>
-   c. [Artwork and gallery](#output-and-happy-endings)<br>  
+   a. [Exhibition + Homepage](#homepage)<br>
+   b. [Connect](#waiting-and-matching)<br>
+   c. [Generate](#output-and-happy-endings)<br>  
 
 3. [Literally N01](#literally-n01)<br>
 
