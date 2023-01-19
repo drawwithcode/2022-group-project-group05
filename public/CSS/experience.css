@@ -1,15 +1,4 @@
-html, body {
-  margin: 0;
-  position:relative;
-  padding: 0;
-  vertical-align: middle;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-main{
-z-index:-3;
-}
+
 
 canvas {
   display: block;

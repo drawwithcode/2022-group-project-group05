@@ -127,6 +127,7 @@ function newConnection(socket) {
         //set user to waiting
         waiting.push(this.id)
         console.log(this.id + " ready, unpaired: " + waiting.length)
+        console.log("free colors: " + colArray.filter(color => !color.taken).length)
 
         //if enough users to pair, do
         if (waiting.length > 1) {

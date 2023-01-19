@@ -97,21 +97,6 @@ let subH;
 let subX;
 let subY;
 
-let total = 0;
-let threshold = 3;
-let targetPercent = 0.7;
-
-let colArray = [
-  "#7FEB9E",
-  "#5CC8FF",
-  "#7D82FE",
-  "#D28AFE",
-  "#FFABE3",
-  "#FF6D6D",
-  "#FFAE63",
-  "#FFE975"
-]
-
 //setup bottoni
 document.getElementById('morse').oncontextmenu = function (event) {
   //disabilita menù a tendina quando tieni premuto
