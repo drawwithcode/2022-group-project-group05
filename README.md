@@ -19,9 +19,9 @@ The server connects two people; every time one of them touches the heart button,
    b. [Structure](#structure)<br>
 
 2. Experience  
-   a. [Experience+Homepage](#Experience-+-Homepage)<br>
-   b. [Login+Matching](#Login-+-Matching)<br>
-   c. [Artwork+Gallery](#Artwork-+-Gallery)<br>  
+   a. [Experience+Homepage](#homepage+)<br>
+   b. [Login+Matching](#waiting-and-matching)<br>
+   c. [Artwork+Gallery](#output-and-happy-endings)<br>  
 
 3. Credits  
    a. [LetteralmenteN01](#letteralmenteN01)<br>
@@ -64,24 +64,26 @@ These parts corresponds to a flow composed of five html pages (the home, the log
 
 # ***Experience***
 
-</br> The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers. Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it.</br></br>
 ## Exhibition + Homepage
 
 ### Exhibition
 ![storyboard](README.img/storyboard.png)
 
-The experience is held in room of an art-exhibition. The space is illuminated by soft pink lamps, intringuing the people to come closer. </br>
-Before entering the room, a printed sheet will display the concept of the project and a computer placed right next the entrance will display the QR code that enables to access to the website. 
+The experience is designed as an interactive exhibition that takes place in a room illuminated by soft pink lamps. </br>
+From the outside, people will stop to read the concept and decide if to join. </br> A computer will be then be placed right next the entrance, displaying the QR code that enables to access to the experience. 
 
+
+### Homepage
 <img src="README.img/qrcode.gif" width="100%">
-
-## Homepage
-After scanning the QR code the first page visible is the home. From it the user is able to access the experience and, by opening the menu, open the final gallery and the README file in the githup repository.</br>
+After scanning the QR code the first page visible is the homepage where you can start the experience. By opening the menu the user is able to access the final gallery and the README file in the githup repository.</br>
+The homepage gives the user an introduction, explaining brielfy the concept 
 
 <div align="center"> 
   <img src="README.img/homepage1.gif" width="30%"> 
   <img src="README.img/readmee.gif" width="30%">
 </div> 
+
+</br> The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers. Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it.</br></br>
 
 
 <!-- <div display="flex" justify-content=" space-eavenly"  style="margin-right:20%">align-items= "center" 
