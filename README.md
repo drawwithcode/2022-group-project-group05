@@ -31,7 +31,7 @@ The server connects two people; every time one of them touches the heart button,
 # ***Concept***
 
 ## Binary Code
-![binary](README.img/binary.gif)
+![binary](README.img/matrix.gif)
 
 <!--<div style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>
 ![binary](README.img/binary.gif)  -->
@@ -45,8 +45,10 @@ N01 takes inspiration from the experiment held at Cornell University *Communicat
 ## Exhibition
 ![storyboard](README.img/storyboard.png)
 
-The experience is designed as an interactive exhibition that takes place in a room. From the outside, people will be attracted by the pink soft lights. Before entering the room, the user reads the concept and can decide to join. A computer is placed right next the entrance and a QR code is displayed on its monitor. The user scans it and finally the experience begins. 
+The experience is designed as an interactive exhibition that takes place in a room illuminated by soft pink lamps. </br>
+From the outside, people will stop to read the concept and decide if to join. </br> A computer will be then be placed right next the entrance, displaying the QR code that enables to access to the experience. 
 
+![storyboard](README.img/qrcode.gif)
 
 ## Structure
 The website can be divided into 3 different parts:
@@ -68,7 +70,7 @@ These parts corresponds to a flow composed of five html pages (the home, the log
 # ***Experience***
 
 ## Homepage
-After scanning the QR code the first page visible is the homepage where you can start the experience. By opening the menu go directly to the final gallery, open the README file in the githup repository.</br>
+After scanning the QR code the first page visible is the homepage where you can start the experience. By opening the menu the user is able to access the final gallery and the README file in the githup repository.</br>
 
 <div align="center"> 
   <img src="README.img/homepage1.gif" width="30%"> 
