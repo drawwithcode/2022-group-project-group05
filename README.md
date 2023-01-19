@@ -66,7 +66,7 @@ These parts corresponds to a flow composed of 5 html pages (the home, the login,
 
 ## Homepage
 
-<div> <img src="README.img/homepage1.gif" width="30%"> </div>
+<div> <img src="README.img/homepage1.gif" align="left" width="30%"> </div>
 <dl>
     <dd>After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery.
     The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.</br>
