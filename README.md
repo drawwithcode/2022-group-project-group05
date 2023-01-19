@@ -19,9 +19,9 @@ The server connects two people; every time one of them touches the heart button,
    b. [Structure](#structure)<br>
 
 2. Experience  
-   a. [Experience+Homepage](#homepage+)<br>
-   b. [Login+Matching](#waiting-and-matching)<br>
-   c. [Artwork+Gallery](#output-and-happy-endings)<br>  
+   a. [Experience+Homepage](#Experience-+-Homepage)<br>
+   b. [Login+Matching](#Login-+-Matching)<br>
+   c. [Artwork+Gallery](#Artwork-+-Gallery)<br>  
 
 3. Credits  
    a. [LetteralmenteN01](#letteralmenteN01)<br>
