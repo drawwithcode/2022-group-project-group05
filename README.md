@@ -13,15 +13,19 @@ The server connects two people; every time one of them touches the heart button,
 
 ---
 
-#### **INDEX**
+#### **INDEX**  
+
 1. Concept (っ◕‿◕)っ ♡      
    a. [binary code](#binary-code)<br>
    b. [structure](#structure)<br>
 
-2. Experience (´ε｀ )♡ 
-   a. [experience♡homepage](#experience♡homepage)<br>
-   b. [login + matching](#Login-+-Matching)<br>
-   c. [artwork + gallery](#Artwork-+-Gallery)<br>  
+2. Experience (´ε｀ )♡       
+   a. [experience](#experience)<br>
+   b. [homepage](#homepage)<br>
+   c. [login](#login)<br>
+   d. [matching](#matching)<br>  
+   e. [artwork](#experience)<br>
+   f. [gallery](#experience)<br>
 
 3. Credits (｡♡‿♡｡)     
    a. [letteralmenteN01](#letteralmenteN01)<br>
@@ -66,24 +70,24 @@ These parts corresponds to a flow composed of five html pages (the home, the log
 
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers. Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it.</br></br>
 
-## exhibition♡homepage
 
-### Exhibition
+### *Exhibition*
 ![storyboard](README.img/storyboard.png)
 
 The experience is held in room of an art-exhibition. The space is illuminated by soft pink lamps, intringuing the people to come closer. </br>
 Before entering the room, a printed sheet will display the concept of the project and a computer placed right next the entrance will display the QR code that enables to access to the website. 
 
-<img src="README.img/qrcode.gif" width="100%">
+<img src="README.img/qr.gif" width="100%">
 
-## Homepage
+---
+
+## *Homepage*
 After scanning the QR code the first page visible is the home. From it the user is able to access the experience and, by opening the menu, open the final gallery and the README file in the githup repository.</br>
 
 <div align="center"> 
   <img src="README.img/homepage1.gif" width="30%"> 
   <img src="README.img/readmee.gif" width="30%">
 </div> 
-
 
 <!-- <div display="flex" justify-content=" space-eavenly"  style="margin-right:20%">align-items= "center" 
 <p width="60%">-->
@@ -201,11 +205,17 @@ document.addEventListener("click", function(){
 
 ---
 
-## Login + Matching
-
 ### Login
 The first step requires to log into the web-site with the personal name or a nickname. This input is necessary both to render the final output and to save the artwork into the firebase gallery. <br> 
 After the input some instructions guide the user into the next step of the experience.
+
+<div align= "center">
+  <img src="README.img/login.gif" width="30%"/>
+</div>
+
+---
+
+### Matching
 While waiting for a match to be made, each user is assigned randomly a cheesy love quote.
 
 <div align= "center">
@@ -214,8 +224,17 @@ While waiting for a match to be made, each user is assigned randomly a cheesy lo
   <img src="README.img/waiting3.gif" width="30%"/>
 </div>
 
+When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. When the two people phisically meet they have to scan the respective devices to identify each other. After that the connection between the two is completed.
+
+<div align= "center">
+  <img src="README.img/waiting1.gif" width="30%"/>
+  <img src="README.img/waiting2.gif" width="30%"/>
+</div>
+
 #### ------------------------------------------------------ *code insights* ------------------------------------------------------
 
+
+#### *matching*
 
 ```javascript
 //takes the first two waiting users and pairs them
@@ -304,8 +323,9 @@ function pair() {
 }
 ```
 
-### Matching
-When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed.  This is how the matching system works: <br>
+#### *1bit-communication*
+
+  This is how the matching system works: <br>
 
 ```javascript
 //takes the first two waiting users and pairs them
@@ -331,12 +351,24 @@ function pair() {
     console.log(waiting)
 }
 ```
+#### *recognition*
+
+#### *inputs storage*
+
 ---
 
-## Output + gallery
-
 ### Output
-At the end of the experience the data sent by the two users are stored in the `local.storage` of the website and used to render an artwork. The image consists of a pixeleted-heart divided in two half, and it is obtained by itering the inputs of the two users, saved as elements of an `array`, into another `for loop` that draws the shape of the heart. </br>
+
+<div align= "center">
+  <img src="README.img/waiting1.gif" width="30%"/>
+  <img src="README.img/waiting2.gif" width="30%"/>
+  <img src="README.img/waiting3.gif" width="30%"/>
+</div>
+
+#### ------------------------------------------------------ *code insights* ------------------------------------------------------
+
+#### *output*
+The data sent by the two users are stored in the `local.storage` of the website and used to render an artwork. The image consists of a pixeleted-heart divided in two half, and it is obtained by itering the inputs of the two users, saved as elements of an `array`, into another `for loop` that draws the shape of the heart. </br>
 
 ```javascript
 
@@ -383,7 +415,6 @@ function graphicOutput(){//////OUTPUT
 }
 
 ```
-
 The artwork is generated as a `p5.Graphics` in the setup and rendered as an image into the draw function of two different `p5 sketches`:
 -`p1` the main canvas, downloadable by the user as a png file in their device
 -`p2` secondary hidden canvas, created to save the artwork into the Firebase database. This second canva is indeed processed with the method `getImageData` and exported as an `url` to the javascript file linked to firebase.
@@ -419,9 +450,14 @@ p2.draw = function (){
 }
 ```
 
-Firebase function are indeed imported in an external javascript file of type module. Both the functions and the variables are imported and exported from this file into the gallery.js and the output.js documents to set and get the objects saved into the database. Set is used to add an object to the gallery, get to obtain an array of all the elements contained under a certain #key into the database.
+Firebase function are indeed imported in an external javascript file of type module. Both the functions and the variables are imported and exported from this file into the `gallery.js` and the `output.js` documents to set and get the objects saved into the database. `set` is used to add an `object` to the gallery, `get` to obtain an `array` of all the elements contained under a certain `#key` into the database.
+
+---
 
 ### Gallery
+
+#### ------------------------------------------------------ *code insights* ------------------------------------------------------
+
 The gallery is made with a Firebase realtime database that allow the users to check out all their matches few seconds after the update
 This is how we used firebase for the final gallery:
 
@@ -476,7 +512,6 @@ function galleryCreation () {
 <div align= "center">
   <img src="README.img/waiting1.gif" width="30%"/>
   <img src="README.img/waiting2.gif" width="30%"/>
-  <img src="README.img/waiting3.gif" width="30%"/>
 </div>
 
 ## Info
