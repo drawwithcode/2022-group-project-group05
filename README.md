@@ -1,18 +1,17 @@
 
 ![logo](README.img/noilogo.png)
 
-Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.  
+Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.</br>
 
+#### ***What if communicating directly like machines could help us find true love more easily? <3***
 
-
-#### *What if communicating directly like machines could help us find true love more easily?*
-
-N01 is a web experience that allows you to *find your soulmate only talking with one bit messages*. 
-The project takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
+N01 is a web experience that allows you to ***find your soulmate only talking with one bit messages***. 
+The project takes inspiration from the experiment held at Cornell University, called *Communicating Intimacy One Bit at a Time*, where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
 N01 is a web experience that allows you to find your soulmate only talking with one bit messages.
 
 The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
 
+---
 
 #### **Table of Contents**
 1. Concept  
@@ -27,7 +26,7 @@ The server connects two people; every time one of them touches the heart button,
 
 3. [Team](#team)<br>
 
-
+---
 
 # ***Concept***
 
@@ -37,11 +36,9 @@ The server connects two people; every time one of them touches the heart button,
 
 The project has the aim to make *present* the basic language of every machine: *binary code*. 
 
-N01 takes inspiration from the experiment held at Cornell University *Communicating Intimacy One Bit at a Time*, where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels. In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. 
+N01 takes inspiration from the experiment held at Cornell University *Communicating Intimacy One Bit at a Time*, where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels. In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. </br>
 
 <!-- <br clear="left"/> -->
-
-
 
 ## Exhibition
 ![storyboard](README.img/storyboard.png)
@@ -164,61 +161,32 @@ credits to: [`kamoroso94/ordered-dither`](https://github.com/kamoroso94/ordered-
 
 
 #### *heart animation*
+The animation is defined as a method of a `class`. On `click` a new object is pushed into an array that is then itered in the draw function to apply the function to all of its elements.
 
 ```javascript
-let heartImage;
-let arrayHeart= [];
-
-//definisco la classe
 class Heart {
   constructor(x, y){
       this.x = x;
       this.y = y;
   }
+
   move() {
 
-    this.y= this.y-2
+    this.y= this.y-4
 
-    p2.push();
-
-      p2.translate(this.x, this.y);
-      p2.image(heartImage, 0, 0);
-
-    p2.pop()
+    p1.push();
+      p1.translate(this.x, this.y);
+      p1.image(heartImage, 0, 0);
+    p1.pop()
   }
 }
 
-if (page=="home"){
-  p2 = new p5(sketch)
-
-  p2.draw= function(){
-    p2.clear()
-    
-    p2.canvas.id = "animation-hearts"
-    
-    for(let i = 0; i < arrayHeart.length; i++) {arrayHeart[i].move()}
-
-  }
-
-  //NEW HEART ON CLICK
-  document.addEventListener("click", clickHeart);
-
-  function clickHeart(){
-    let xHeart= p2.mouseX
-    let yHeart= p2.mouseY
-    arrayHeart.push(new Heart(xHeart, yHeart))
-  }
-
-  //HEART SPAWNING
-  setInterval(spawnHeart,3000)
-  function spawnHeart(){
-    
-    let xHeart= p2.random(0, p2.canvas.width)
-    let yHeart= p2.canvas.height
-    arrayHeart.push(new Heart(xHeart, yHeart))
-    
-  }
-}
+//NEW HEART ON CLICK
+document.addEventListener("click", function(){
+  let xHeart= p1.mouseX-heartImage.width
+  let yHeart= p1.mouseY-heartImage.height
+  arrayHeart.push(new Heart(xHeart, yHeart))//al click aggiungo un cuore all'array
+})
 ```
 
 
