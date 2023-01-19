@@ -121,7 +121,6 @@ const grid2 = [
 let message1 = JSON.parse(sessionStorage.getItem("msg1"));
 let message2 = JSON.parse(sessionStorage.getItem("msg2"));
 
-let coolors = ["#7FEB9E", "#5CC8FF", "#7D82FE", "#D28AFE", "#FFABE3", "#FF6D6D", "#FFAE63", "#FFE975"]
 let color1 = sessionStorage.getItem("color1");
 let color2 = sessionStorage.getItem("color2");;
 
@@ -204,7 +203,7 @@ p1.draw = function (){
 //////OUTPUT
 function graphicOutput(){
 
-  outp= p1.createGraphics(p1.width*3/4, p1.height/3);
+  outp= p1.createGraphics(p1.width*3/4, p1.height/2.5);
 
   let size = (outp.width/2) / rows;//definisco la dimensione in base alla width della canvas
   let myindex = 0;
