@@ -15,11 +15,11 @@ The server connects two people; every time one of them touches the heart button,
 
 #### **INDEX**
 1. Concept  
-   a. [Binary Code](#binary-code)<br>
-   b. [Structure](#structure)<br>
+   a. [<3 Binary Code](#binary-code)<br>
+   b. [<3 Structure](#structure)<br>
 
 2. Experience  
-   a. [experience + homepage](#Experience-+-Homepage)<br>
+   a. [experience + homepage](#experience-+-homepage)<br>
    b. [login + matching](#Login-+-Matching)<br>
    c. [artwork + gallery](#Artwork-+-Gallery)<br>  
 
@@ -472,7 +472,7 @@ function galleryCreation () {
 
 # Credits
 
-## ***Literally N01 <3***
+## ***Letteralmente N01***
 <div align= "center">
   <img src="README.img/waiting1.gif" width="30%"/>
   <img src="README.img/waiting2.gif" width="30%"/>
