@@ -85,8 +85,7 @@ After scanning the qr code the first page visible is the landing page, where you
   </div> 
 </div>-->
 
-#### -----------------------------------------------------*behind the code*-----------------------------------------------------
-The most interesting parts of the code are the *dithered background* and the *small hearts animation*
+#### -----------------------------------------------------*code insights*-----------------------------------------------------
 
 #### *dithered background*
 To process the pixels of the canva the code is composed of three functions, one the callback of the other. 
@@ -243,8 +242,86 @@ function pair() {
 ### Output
 At the end of the experience the data sent by the two users are stored in the `local.storage` of the website and used to render an artwork. The image consists of a pixeleted-heart divided in two half, and it is obtained by itering the inputs of the two users, saved as elements of an `array`, into another `for loop` that draws the shape of the heart. </br>
 
-The artwork is generated as a `p5.Graphics` and rendered as an image both in the main canvas, to enable the user to download the element as a png file in their device, and in other hidden canvas, to save the artwork into the firebase database. This second canva is indeed processed with the method `getImageData` and exported as an `url` to the javascript file linked to firebase.
+```javascript
+
+function graphicOutput(){//////OUTPUT
+
+  outp= p1.createGraphics(p1.width*3/4, p1.height/3);
+
+  let size = (outp.width/2) / rows;//definisco la dimensione in base alla width della canvas
+  let myindex = 0;
+
+  outp.push()
+  for (let i = 0; i < grid1[0].length; i++) {
+    for (let j = 0; j < grid1.length; j++) {
+      if (grid1[j][i] == 1) {
+        if (message1[myindex] == 1) outp.fill("white");
+        else outp.fill(color1);
+        outp.noStroke()
+        outp.square(i *size + size/2, j *size, size);
+        myindex++;
+      }
+    }
+  }
+  outp.pop()
+
+  outp.push()
+  for (let i = 0; i < grid2[0].length; i++) {
+    for (let j = 0; j < grid2.length; j++) {
+      if (grid2[j][i] == 1) {
+        if (message2[myindex] == 1) outp.fill("white");
+        else outp.fill(color2);
+        outp.noStroke()
+        outp.square(i *size +(outp.width/2)-size/2, j *size, size);
+        myindex++;
+      }
+    }
+  }
+  outp.pop()
+  
+  outp.fill(255);
+  outp.textSize(30);
+  outp.textFont(Redaction)
+  outp.textAlign(outp.CENTER)
+  outp.text(names, outp.width/2, outp.height)
+}
+
+```
+
+The artwork is generated as a `p5.Graphics` in the setup and rendered as an image into the draw function of two different `p5 sketches`:
+-`p1` the main canvas, downloadable by the user as a png file in their device
+-`p2` secondary hidden canvas, created to save the artwork into the Firebase database. This second canva is indeed processed with the method `getImageData` and exported as an `url` to the javascript file linked to firebase.
 </br>
+
+```javascript
+p1 = new p5(sketch) //MAIN CANVA
+
+p1.draw = function (){
+
+  p1.canvas.id = "bgCanvas"
+
+  //other lines of code
+
+  p1.image(outp, (windowWidth-outp.width)/2,  (windowHeight-outp.height)/2);
+}
+
+
+p2 = new p5(sketch); //SECONDARY CANVA
+
+p2.draw = function (){
+  p2.resizeCanvas(windowWidth*3/4, windowHeight/3);
+  p2.canvas.id= "output";
+  p2.canvas.style.display="none";
+
+  p2.image(outp, 0,0);//disegno l'artwork
+
+  artwork = p2.canvas.toDataURL();//converto l'artwork in una stringa da salvare nel database
+
+  writeUserData(names, artwork)//chiamo la funzione di firebase che salva l'artwork con il nome dello user
+
+  p2.noLoop()
+}
+```
 
 Firebase function are indeed imported in an external javascript file of type module. Both the functions and the variables are imported and exported from this file into the gallery.js and the output.js documents to set and get the objects saved into the database. Set is used to add an object to the gallery, get to obtain an array of all the elements contained under a certain #key into the database.
 
