@@ -203,10 +203,10 @@ p1.draw = function (){
 //////OUTPUT
 function graphicOutput(){
 
-  if (p1.height<700){
+  if (p1.height<800){
     outp= p1.createGraphics(p1.width*3/4, p1.height/2.25);
   } else {
-    outp= p1.createGraphics(p1.width*3/4, p1.height/3);
+    outp= p1.createGraphics(p1.width*3/4, p1.height/2.75);
   }
 
   let size = (outp.width/2) / rows;//definisco la dimensione in base alla width della canvas
@@ -250,7 +250,7 @@ function graphicOutput(){
   outp.textSize(30);
   outp.textFont(Redaction)
   outp.textAlign(outp.CENTER)
-  outp.text(names, outp.width / 2, outp.height)
+  outp.text(names, outp.width / 2, outp.height-10)
   outp.pop();
 }
 
@@ -262,10 +262,10 @@ let artwork;
 p2 = new p5(sketch);
 
 p2.draw = function (){
-  if (p1.height<700){
+  if (p1.height<800){
     p2.resizeCanvas(windowWidth*3/4, windowHeight/2.25);
   } else {
-    p2.resizeCanvas(windowWidth*3/4, windowHeight/3);
+    p2.resizeCanvas(windowWidth*3/4, windowHeight/2.75);
   }
   
   p2.canvas.id= "output";
