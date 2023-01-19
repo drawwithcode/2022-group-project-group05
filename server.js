@@ -148,6 +148,25 @@ function newConnection(socket) {
         console.log(this.id + " - morse")
     })
 
+    socket.on("success", function () {
+        console.log("success: "+this.id)
+        let sender = getUser(this.id);
+        
+        let pair = [sender, getUser(sender.pairedId)]
+
+        for (let i = 0; i < pair.length; i++){
+            let msg = {};
+
+            msg.msg = pair[i].msg
+            msg.pairName = pair[1 - i].name
+            msg.pairMsg = pair[1 - i].msg
+
+            io.to(pair[i].id).emit("success", msg)
+            console.log(msg)
+        }
+
+    })
+
     //remove disconnected user and unpair them
     //also informs unpaired clients of the status change
     socket.on("disconnect", function () {
@@ -193,45 +212,47 @@ function newConnection(socket) {
 
 //takes the first two waiting users and pairs them
 function pair() {
-    console.log("pairing")
-    let pairingUsers = [getUser(waiting[0]), getUser(waiting[1])]
+    if(colArray.filter(color => !color.taken).length > 0){
+        console.log("pairing")
+        let pairingUsers = [getUser(waiting[0]), getUser(waiting[1])]
 
-    for (let i = 0; i < pairingUsers.length; i++){
-        let user = pairingUsers[i]
-        //assign paired id to users
-        user.pairedId = pairingUsers[1 - i].id
-        
-        //assign colors to users
-        user.assignColor()
+        for (let i = 0; i < pairingUsers.length; i++) {
+            let user = pairingUsers[i]
+            //assign paired id to users
+            user.pairedId = pairingUsers[1 - i].id
+                
+            //assign colors to users
+            user.assignColor()
 
-        //start timers
-        user.timer = setInterval(function () {
-            user.updateMsg()
-        }, CLOCK)
+            //start timers
+            user.timer = setInterval(function () {
+                user.updateMsg()
+            }, CLOCK)
+        }
+
+        let msg = [{}, {}];
+
+        for (let i = 0; i < msg.length; i++) {
+            //send users pair id
+            msg[i].id = pairingUsers[1 - i].id
+
+            //send users their color and color to search
+            msg[i].userColor = pairingUsers[i].color
+            msg[i].pairColor = pairingUsers[1 - i].color
+
+            //send users color of paired
+            msg[i].pairName = pairingUsers[1 - i].name
+
+            //send the message
+            io.to(pairingUsers[i].id).emit("paired", msg[i])
+        }
+
+        console.log(msg)
+
+        console.log("paired " + pairingUsers[0].id + " and " + pairingUsers[1].id)
+        waiting.splice(0, 2);
+        console.log(waiting)
     }
-
-    let msg = [{}, {}];
-
-    for (let i = 0; i < msg.length; i++){
-        //send users pair id
-        msg[i].id = pairingUsers[1 - i].id
-
-        //send users their color and color to search
-        msg[i].userColor = pairingUsers[i].color
-        msg[i].pairColor = pairingUsers[1 - i].color
-
-        //send users color of paired
-        msg[i].pairName = pairingUsers[1 - i].name
-
-        //send the message
-        io.to(pairingUsers[i].id).emit("paired", msg[i])
-    }
-
-    console.log(msg)
-
-    console.log("paired " + pairingUsers[0].id + " and " + pairingUsers[1].id)
-    waiting.splice(0, 2);
-    console.log(waiting)
 }
 
 //just a nicer way to write this
