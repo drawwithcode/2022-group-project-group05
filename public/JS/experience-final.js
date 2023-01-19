@@ -62,6 +62,7 @@ function morseReceived(data) {
 function statusUpdate(data) {
   if (data == 0) {
     paired = false;
+    userColor = "#FF36F7";
     startLoading();
   }
   else {
