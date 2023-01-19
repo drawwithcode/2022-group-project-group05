@@ -31,7 +31,7 @@ The server connects two people; every time one of them touches the heart button,
 # ***Concept***
 
 ## Binary Code
-![binary](README.img/matrixcopia.gif)
+<img src="README.img/matrixcopia.gif" width="100%">
 
 <!--<div style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>
 ![binary](README.img/binary.gif)  -->
@@ -48,7 +48,7 @@ N01 takes inspiration from the experiment held at Cornell University *Communicat
 The experience is designed as an interactive exhibition that takes place in a room illuminated by soft pink lamps. </br>
 From the outside, people will stop to read the concept and decide if to join. </br> A computer will be then be placed right next the entrance, displaying the QR code that enables to access to the experience. 
 
-![storyboard](README.img/qrcode.gif)
+<img src="README.img/qrcode.gif" width="100%">
 
 ## Structure
 The website can be divided into 3 different parts:
