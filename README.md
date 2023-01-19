@@ -21,8 +21,8 @@ The server connects two people; every time one of them touches the heart button,
 
 2. Experience  
    a. [Homepage](#homepage)<br>
-   b. [Waiting and matching](#waiting-and-matching)<br>
-   c. [Output and gallery](#output-and-happy-endings)<br>  
+   b. [Connection](#waiting-and-matching)<br>
+   c. [Artwork and gallery](#output-and-happy-endings)<br>  
 
 3. [Literally N01](#literally-n01)<br>
 
@@ -31,6 +31,7 @@ The server connects two people; every time one of them touches the heart button,
 # ***Concept***
 
 ## Binary Code
+<img src="README.img/binary.gif" align="left" width="width/3"/>
 <!--<div style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>
 ![binary](README.img/binary.gif)  -->
 
@@ -66,7 +67,7 @@ These parts corresponds to a flow composed of five html pages (the home, the log
 # ***Experience***
 
 ## Homepage
-After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery.</br>
+After scanning the QR code the first page visible is the homepage where you can start the experience. By opening the menu go directly to the final gallery, open the README file in the githup repository.</br>
 
 <div align="center"> 
   <img src="README.img/homepage1.gif" width="30%"> 
@@ -198,7 +199,6 @@ document.addEventListener("click", function(){
 The first step requires to log into the web-site with the personal name or a nickname. This input is necessary both to render the final output and to save the artwork into the firebase gallery. <br> 
 After the input some instructions guide the user into the next step of the experience.
 
-
 ### Waiting
 While waiting for a match to be made, each user is assigned randomly a cheesy love quote.
 
@@ -209,6 +209,7 @@ While waiting for a match to be made, each user is assigned randomly a cheesy lo
 </div>
 
 #### ----------------------------------------------------- *code insights* -----------------------------------------------------
+
 
 ```javascript
 //takes the first two waiting users and pairs them
