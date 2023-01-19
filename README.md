@@ -19,7 +19,7 @@ The server connects two people; every time one of them touches the heart button,
    b. [structure](#structure)<br>
 
 2. Experience (´ε｀ )♡ 
-   a. [experience + homepage](#experience+homepage)<br>
+   a. [experience♡homepage](#experience♡homepage)<br>
    b. [login + matching](#Login-+-Matching)<br>
    c. [artwork + gallery](#Artwork-+-Gallery)<br>  
 
