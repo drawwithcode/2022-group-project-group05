@@ -4,30 +4,3 @@
   font-family:'Voxel'; 
   font-size: 3em;
 }
-
-
-/*
-#scrollable-ctn{
-  height:100vh;
-  overflow-y:scroll;
-}
-
-#scrollable-elt{
-  height:200vh;
-}
-
-
-
-#logo-ctn{
-  bottom:-100;
-  transform: translateY(-150);
-}
-
-#description.reveal{
-  transform: translateY(-150);
-}
-
-#experience-btn.reveal{
-  transform: translateY(100px);
-  transition: 2s all ease;
-}*/

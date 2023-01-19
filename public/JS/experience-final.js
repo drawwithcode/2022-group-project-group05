@@ -33,6 +33,7 @@ function socketSetup() {
   clientSocket.on("morse", morseReceived)
   clientSocket.on("paired", statusUpdate)
   clientSocket.on("unpaired", statusUpdate)
+  clientSocket.on("success", successReceive)
 }
 
 function morseSend(value) {
@@ -82,6 +83,7 @@ function startApp() {
 //setup status
 let start = false;
 let paired = false;
+let pairColor;
 
 //setup oscillatore
 let osc = new p5.Oscillator("sine")
@@ -110,6 +112,15 @@ let colArray = [
   "#FFE975"
 ]
 
+//setup bottoni
+document.getElementById('morse').oncontextmenu = function (event) {
+  //disabilita menù a tendina quando tieni premuto
+  event.preventDefault();
+  event.stopPropagation(); 
+  event.stopImmediatePropagation();
+  return false;
+};
+
 //p5 setup
 function setup() {
   noCanvas()
@@ -131,6 +142,48 @@ function setup() {
   listenerSetup();
 
   socketSetup();
+}
+
+function draw() {
+
+  if (paired) {
+    if (colorSearch(pairColor)) {
+      successFind();
+    }
+  }
+  
+}
+
+const PIXEL_TRESHOLD = 50 //max 422 min 0
+const PERCENT_THRESHOLD = 0.7 //max 1 min 0
+
+function colorSearch(target) {
+  let total = 0;
+
+  let r = red(target)
+  let g = green(target)
+  let b = blue(target)
+
+  let sub = video.get(subX, subY, subW, subH);
+
+  for (let x = subX; x < subX + subW; x++){
+    for (let y = sbuY; y < subY + subH; y++){
+
+      let pixel = sub.get(x,y)
+
+      let diffR = Math.abs(red(pixel) - r)
+      let diffG = Math.abs(green(pixel) - g)
+      let diffB = Math.abs(blue(pixel) - b)
+
+      let distance = Math.sqrt(diffR * diffR + diffG * diffG + diffB * diffB)
+      
+      if (distance < PIXEL_TRESHOLD) {
+        total++
+      }
+    }
+  }
+
+  return (total/(subH*subW) > PERCENT_THRESHOLD)
 }
 
 //scelta randomica delle frasi
@@ -210,4 +263,22 @@ function startLoading() {
 
   //nascondi tasto cuore
   document.getElementById("heart-container").classList.add("hidden")
+}
+
+function successFind() {
+  clientSocket.emit("success")
+}
+
+function successReceive(data) {
+  console.log(data)
+
+  sessionStorage.setItem("msg1", JSON.stringify(data.msg1))
+  sessionStorage.setItem("color1", data.color1)
+  sessionStorage.setItem("name1", data.name1)
+
+  sessionStorage.setItem("msg2", JSON.stringify(data.msg2))
+  sessionStorage.setItem("color2", data.color2)
+  sessionStorage.setItem("name2", data.name2)
+
+  location.href="output.html"
 }
