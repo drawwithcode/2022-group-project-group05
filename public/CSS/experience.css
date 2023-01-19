@@ -1,8 +1,8 @@
-
-
+/*
 canvas {
   display: block;
 }
+
 button {
   width: 30vw;
   height: 10vh;
@@ -20,6 +20,16 @@ button {
   transform: translate(-50%, -50%);
 }
 
+#status{
+  position: fixed;
+  top: 80vh;
+  left: 50vw;
+  transform: translate(-50%, -50% );
+  color: #960090;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 1.5em;
+}*/
+
 #morse {
   display: flex;
   width: 20vw;
@@ -32,15 +42,6 @@ button {
   height: 30vw;
 }
 
-#status{
-  position: fixed;
-  top: 80vh;
-  left: 50vw;
-  transform: translate(-50%, -50% );
-  color: #960090;
-  font-family:'Courier New', Courier, monospace;
-  font-size: 1.5em;
-}
 
 #heart {
   position:absolute;
