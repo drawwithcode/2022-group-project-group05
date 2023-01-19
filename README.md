@@ -204,11 +204,9 @@ After the input some instructions will guide the user into the next step of the 
 While waiting for a match to be made, an array of cheesy love quotes will appear to entertain the user.
 
 <div align= "center">
-<p float="left">
   <img src="README.img/waiting1.gif" width="30%"/>
   <img src="README.img/waiting2.gif" width="30%"/>
   <img src="README.img/waiting3.gif" width="30%"/>
-</p>
 </div>
 
 ### Matching
@@ -243,12 +241,17 @@ function pair() {
 ## Output and gallery
 
 ### Output
-At the end of the experience it would be possible to see the heart that you and your parter generated
-This is how we create the artwork: 
+At the end of the experience the data sent by the two users are stored in the `local.storage` of the website and used to render an artwork. The image consists of a pixeleted-heart divided in two half, and it is obtained by itering the inputs of the two users, saved as elements of an `array`, into another `for loop` that draws the shape of the heart. </br>
+
+The artwork is generated as a `p5.Graphics` and rendered as an image both in the main canvas, to enable the user to download the element as a png file in their device, and in other hidden canvas, to save the artwork into the firebase database. This second canva is indeed processed with the method `getImageData` and exported as an `url` to the javascript file linked to firebase.
+</br>
+
+Firebase function are indeed imported in an external javascript file of type module. Both the functions and the variables are imported and exported from this file into the gallery.js and the output.js documents to set and get the objects saved into the database. Set is used to add an object to the gallery, get to obtain an array of all the elements contained under a certain #key into the database.
 
 ### Happy endings
 The gallery is made with a Firebase realtime database that allow the users to check out all their matches few seconds after the update
 This is how we used firebase for the final gallery:
+
 ```javascript
 import { artwork } from "/public/JS/firebase.js"
 
