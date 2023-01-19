@@ -3,7 +3,7 @@
 
 Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.</br></br>
 
-#### ***What if communicating directly like machines could help us find true love more easily? <3***
+#### **What if communicating like machines could help us find true love more? <3**
 
 N01 is a web experience that allows you to ***find your soulmate only talking with one bit messages***. 
 The project takes inspiration from the experiment held at Cornell University, called *Communicating Intimacy One Bit at a Time*, where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
@@ -201,10 +201,6 @@ document.addEventListener("click", function(){
 
 ### Login
 
-<div align="center"> 
-  <img src="README.img/login.gif" width="30%">
-</div> 
-
 The first step requires to log into the web-site with the personal name or a nickname. This input is necessary both to render the final output and to save the artwork into the firebase gallery. <br> 
 After the input some instructions guide the user into the next step of the experience.
 
@@ -226,16 +222,29 @@ While waiting for a match to be made, each user is assigned randomly a cheesy lo
 When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. When the two people phisically meet they have to scan the respective devices to identify each other. After that the connection between the two is completed.
 
 <div align= "center">
-  <img src="README.img/waiting1.gif" width="30%"/>
-  <img src="README.img/waiting2.gif" width="30%"/>
+  <img src="README.img/matching1.gif" width="30%"/>
+  <img src="README.img/matching2.gif" width="30%"/>
 </div>
 
 
 #### ------------------------------------------------------ *code insights* ------------------------------------------------------
 
-#### *matching*
-To match the users the server compiles an array of all the clients connected. It then cycles through a loop composed of the two clients and calls the function ```assignColor()``` for the color assignment and recognition and the function ```UpdateMsg()``` to save the state of the button in an array.
+To connect the users the server uses 3 different functions.   
 
+```javascript
+function socketSetup() {
+  clientSocket.on("morse", morseReceived)//makes the other user device play a sound
+  clientSocket.on("paired", statusUpdate)//if the users are paired stops the loading animation
+  clientSocket.on("unpaired", statusUpdate)// else keeps the user waiting
+  clientSocket.on("success", successReceive)//saves the data sent by the two users in the local.storage 
+}
+
+```
+<!--
+#### *pairing*
+
+To match the users the server compiles an array of all the clients connected. It then cycles through a loop composed of the two clients and calls the function ```assignColor()``` for the color assignment and recognition and the function ```UpdateMsg()``` to save the state of the button in an array.
+<!-- 
 ```javascript
 //takes the first two waiting users and pairs them
 function pair() {
@@ -257,6 +266,7 @@ function pair() {
     }
 }
 ```
+-->
 <!-- 
 When the detection occurs the server saves the names, the colors, and the messages sent by the two partecipants in the local.storage of the website session. 
 
@@ -282,7 +292,7 @@ When the detection occurs the server saves the names, the colors, and the messag
     waiting.splice(0, 2);
     console.log(waiting)
 }
-```-->
+```
 
 #### *1bit-communication*
 
@@ -312,8 +322,58 @@ function pair() {
     console.log(waiting)
 }
 ```
+-->
+#### *color detection*
+
+
+```javascript
+const PIXEL_TRESHOLD = 50 //max 422 min 0
+const PERCENT_THRESHOLD = 0.7 //max 1 min 0
+
+function colorSearch(targetHex) {
+  let total = 0;
+  let target = color(targetHex)
+
+  let r = red(target)
+  let g = green(target)
+  let b = blue(target)
+
+  let sub = video.get(subX, subY, subW, subH);
+
+  p1.image(sub, p1.width / 2 - subW / 2, p1.height * 2 / 3 - subH / 2)
+  
+  let distanceTotal = 0;
+
+  for (let x = 0; x < subW; x++){
+    for (let y = 0; y < subH; y++){
+
+      let pixel = sub.get(x,y)
+
+      let diffR = Math.abs(red(pixel) - r)
+      let diffG = Math.abs(green(pixel) - g)
+      let diffB = Math.abs(blue(pixel) - b)
+
+      let distance = Math.sqrt(diffR * diffR + diffG * diffG + diffB * diffB)
+      distanceTotal += distance;
+      
+      if (distance < PIXEL_TRESHOLD) {
+        total++
+      }
+    }
+  }
+  let avgDist = distanceTotal / (subH * subW)
+  //p1.textSize(20)
+  p1.text(Math.round(avgDist*100)/100 + " success%: " + (total / (subH * subW)), 10, 10)
+  let result = (total / (subH * subW) > PERCENT_THRESHOLD)
+
+  return result
+}
+```
+
 
 #### *inputs storage*
+```javascript
+```
 
 ---
 
@@ -321,9 +381,9 @@ function pair() {
 The data sent by the two users are stored is used to render an artwork. The image consists of a pixeleted-heart divided in two half, one for each partecipant. The color of the heart is the one assigned by the server during the experience session while the name is the input given by the user in the first section of the website. </br>
 
 <div align= "center">
-  <img src="README.img/waiting1.gif" width="30%"/>
-  <img src="README.img/waiting2.gif" width="30%"/>
-  <img src="README.img/waiting3.gif" width="30%"/>
+  <img src="README.img/output1.png" width="30%"/>
+  <img src="README.img/output2.png" width="30%"/>
+  <img src="README.img/output3.png" width="30%"/>
 </div>
 
 #### ------------------------------------------------------ *code insights* ------------------------------------------------------
@@ -396,6 +456,7 @@ p1.draw = function (){
 -->
 
 ```javascript
+
 let names = sessionStorage.getItem("name1") + " + " + sessionStorage.getItem("name2")
 
 p2 = new p5(sketch); //SECONDARY CANVA
@@ -414,7 +475,6 @@ p2.draw = function (){
   p2.noLoop()
 }
 ```
-
 The artwork, generated as a `p5.Graphics` in the setup, is rendered as an image into the draw function and then processed with the method `getImageData` to be exported as a `string` to the javascript file linked to firebase.
 </br>
 
