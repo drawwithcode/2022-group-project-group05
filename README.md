@@ -297,12 +297,9 @@ function galleryCreation () {
 
 ---
 
-# ***Literally N01***
-
-![team](images/team.png)
+# ***Literally N01 <3***
 
 ## Team
-
 <div align= "center">
   <img src="README.img/waiting1.gif" width="30%"/>
   <img src="README.img/waiting2.gif" width="30%"/>
