@@ -3,11 +3,11 @@
 
 Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.
 
-<p align="center">
 
-#### *What if communicating directly like machines could help us find true love more easily?*
+### *What if communicating directly like machines could help us find true love more easily?*
 
-N01 is a web experience that allows you to *find your soulmate only talking with one bit messages*. The project takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
+N01 is a web experience that allows you to *find your soulmate only talking with one bit messages*. 
+The project takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
 N01 is a web experience that allows you to find your soulmate only talking with one bit messages.
 
 The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
@@ -67,7 +67,7 @@ These parts corresponds to a flow composed of 5 html pages (the home, the login,
 ## Homepage
 After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery.</br>
 
-<div  align="center"> 
+<div align="center"> 
 <img src="README.img/homepage1.gif" width="30%" > 
 <img src="README.img/aboutN01.gif" width="30%"/>
 </div> 
@@ -86,9 +86,7 @@ Cheesy love quotes and heart patterns make N01 almost feel like a dating website
   </div> 
 </div>-->
 
-<p align="center" >
-
-#### ----------------------*behind the code*----------------------
+#### --------------------------------------------*behind the code*--------------------------------------------
 The most interesting parts of the code are the *dithered background* and the *small hearts animation*
 
 #### *dithered background*
