@@ -66,11 +66,11 @@ These parts corresponds to a flow composed of 5 html pages (the home, the login,
 
 ## Homepage
 
-<div> <img src="README.img/homepage1.gif" align="left" width="20%"> <dl></dl> </div>
+<div> <img src="README.img/homepage1.gif" align="left" width="20%"> <p style="margin-left:20%" ></p> </div>
 <dl>
     <dd>After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery.</br></br>
     The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
-    Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it.</br></br></br></br> 
+    Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it.</br></br></br></br></br></br>
     </dd>
 </dl>
 
