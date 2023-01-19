@@ -65,16 +65,14 @@ These parts corresponds to a flow composed of 5 html pages (the home, the login,
 
 
 ## Homepage
+After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery.</br></br>
+  The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
+  Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it.</br></br>
 
 <div  align="center"> 
 <img src="README.img/homepage1.gif" width="30%" > 
 <img src="README.img/aboutN01.gif" width="30%"/>
 </div> 
-After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery.</br></br>
-    The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.
-    Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it.</br></br></br></br></br></br>
-
-
 
 <!-- <div display="flex" justify-content=" space-eavenly"  style="margin-right:20%">align-items= "center" 
 <p width="60%">-->
@@ -85,7 +83,7 @@ After scanning the qr code the first page visible is the landing page, where you
   </div> 
 </div>-->
 
-### ----------*behind the code*----------
+### ---------------*behind the code*---------------
 The most interesting parts of the code are the *dithered background* and the *small hearts animation*
 
 #### *dithered background*
