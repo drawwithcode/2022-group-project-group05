@@ -203,11 +203,17 @@ class Heart {
   }
 }
 
+let hasFocus = true;
+window.addEventListener("focus", function () { hasFocus=true;})
+window.addEventListener("blur", function () { hasFocus=false;})
+
+
 //NEW HEART ON CLICK
 document.addEventListener("click", function(){
   let xHeart= p1.mouseX-heartImage.width
   let yHeart= p1.mouseY-heartImage.height
-  arrayHeart.push(new Heart(xHeart, yHeart))//al click aggiungo un cuore all'array
+
+    arrayHeart.push(new Heart(xHeart, yHeart))//al click aggiungo un cuore all'array
 })
 
 
@@ -219,9 +225,10 @@ if (page=="qrcode" || page=="home") {
     let xHeart= p1.random(0, p1.canvas.width)
     let yHeart= p1.canvas.height
 
-    if ( xHeart<p1.canvas.width/4||xHeart>p1.canvas.width*3/4 ){
-      arrayHeart.push(new Heart(xHeart, yHeart))
-    } else return
-
-  },3000)
+    if(hasFocus==true){
+      if ( xHeart<p1.canvas.width/4||xHeart>p1.canvas.width*3/4 ){
+        arrayHeart.push(new Heart(xHeart, yHeart))
+      } else return
+    }
+  }, 3000)
 }
