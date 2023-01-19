@@ -20,12 +20,12 @@ The server connects two people; every time one of them touches the heart button,
    b. [structure](#structure)<br>
 
 2. Experience (´ε｀ )♡       
-   a. [experience](#experience)<br>
+   a. [exhibition](#exhibition)<br>
    b. [homepage](#homepage)<br>
    c. [login](#login)<br>
    d. [matching](#matching)<br>  
-   e. [artwork](#experience)<br>
-   f. [gallery](#experience)<br>
+   e. [artwork](#artwork)<br>
+   f. [gallery](#gallery)<br>
 
 3. Credits (｡♡‿♡｡)     
    a. [letteralmenteN01](#letteralmenteN01)<br>
