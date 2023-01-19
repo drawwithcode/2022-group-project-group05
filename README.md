@@ -14,26 +14,26 @@ The server connects two people; every time one of them touches the heart button,
 ---
 
 #### **INDEX**
-1. Concept  
-   a. [<3 Binary Code](#binary-code)<br>
-   b. [<3 Structure](#structure)<br>
+1. Concept (っ◕‿◕)っ ♥      
+   a. [binary code](#binary-code)<br>
+   b. [structure](#structure)<br>
 
-2. Experience  
-   a. [experience+homepage](#experience+homepage)<br>
+2. Experience (´ε｀ )♡ 
+   a. [experience + homepage](#experience+homepage)<br>
    b. [login + matching](#Login-+-Matching)<br>
    c. [artwork + gallery](#Artwork-+-Gallery)<br>  
 
-3. Credits  
-   a. [LetteralmenteN01](#letteralmenteN01)<br>
-   b. [Info](#info)<br>
+3. Credits (｡♥‿♥｡)     
+   a. [letteralmenteN01](#letteralmenteN01)<br>
+   b. [info](#info)<br>
 
 
 
 ---
 
-# ***Concept***
+# ** Concept (っ◕‿◕)っ ♥ **
 
-## Binary Code
+## *Binary Code*
 <img src="README.img/matrixcopia.gif" width="100%">
 
 <!--<div style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>
@@ -62,7 +62,7 @@ These parts corresponds to a flow composed of five html pages (the home, the log
 
 ---
 
-# ***Experience***
+# ** Experience (´ε｀ )♡ **
 
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers. Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it.</br></br>
 
@@ -470,7 +470,7 @@ function galleryCreation () {
 
 ---
 
-# Credits
+# **Credits (｡♥‿♥｡)**
 
 ## ***Letteralmente N01***
 <div align= "center">
