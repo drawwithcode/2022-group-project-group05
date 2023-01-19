@@ -109,18 +109,27 @@ document.getElementById('morse').oncontextmenu = function (event) {
 //p5 setup
 function setup() {
   noCanvas()
-  frameRate(20);
+  frameRate(24);
   //setup video
-  video = createCapture(VIDEO)
+  video = createCapture({
+    audio: false,
+    video: {
+        facingMode: {
+          ideal: "environment",
+        }
+    }
+}, function() {
+    console.log('capture ready')
+});
   video.hide();
 
-  let subW = Math.round(video.width / 10)
-  let subH = Math.round(video.height / 10)
-  let subX = Math.round(video.width / 2 - subW / 2)
-  let subY = Math.round(video.height / 2 - subH / 2)
-
   video.elt.setAttribute('playsinline', '');
-  
+
+  subW = Math.round(video.width / 3)
+  subH = Math.round(video.height / 2)
+  subX = Math.round(video.width / 2 - subW / 2)
+  subY = Math.round(video.height / 2 - subH / 2)
+
   //setup oscillator
   osc.amp(1)
 
@@ -142,8 +151,9 @@ function draw() {
 const PIXEL_TRESHOLD = 50 //max 422 min 0
 const PERCENT_THRESHOLD = 0.7 //max 1 min 0
 
-function colorSearch(target) {
+function colorSearch(targetHex) {
   let total = 0;
+  let target = color(targetHex)
 
   let r = red(target)
   let g = green(target)
@@ -151,8 +161,12 @@ function colorSearch(target) {
 
   let sub = video.get(subX, subY, subW, subH);
 
-  for (let x = subX; x < subX + subW; x++){
-    for (let y = sbuY; y < subY + subH; y++){
+  p1.image(sub, p1.width / 2 - subW / 2, p1.height * 2 / 3 - subH / 2)
+  
+  let distanceTotal = 0;
+
+  for (let x = 0; x < subW; x++){
+    for (let y = 0; y < subH; y++){
 
       let pixel = sub.get(x,y)
 
@@ -161,14 +175,19 @@ function colorSearch(target) {
       let diffB = Math.abs(blue(pixel) - b)
 
       let distance = Math.sqrt(diffR * diffR + diffG * diffG + diffB * diffB)
+      distanceTotal += distance;
       
       if (distance < PIXEL_TRESHOLD) {
         total++
       }
     }
   }
+  let avgDist = distanceTotal / (subH * subW)
+  //p1.textSize(20)
+  p1.text(Math.round(avgDist*100)/100 + " success%: " + (total / (subH * subW)), 10, 10)
+  let result = (total / (subH * subW) > PERCENT_THRESHOLD)
 
-  return (total/(subH*subW) > PERCENT_THRESHOLD)
+  return result
 }
 
 //scelta randomica delle frasi
