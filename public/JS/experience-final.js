@@ -271,14 +271,14 @@ function successFind() {
 
 function successReceive(data) {
   console.log(data)
-  //save user data
-  sessionStorage.setItem("message", data.msg)
-  sessionStorage.setItem("userColor", userColor)
 
-  //save paired user data
-  sessionStorage.setItem("pairName", data.pairName)
-  sessionStorage.setItem("pairMsg", data.pairMsg)
-  sessionStorage.setItem("pairColor", pairColor)
+  sessionStorage.setItem("msg1", JSON.stringify(data.msg1))
+  sessionStorage.setItem("color1", data.color1)
+  sessionStorage.setItem("name1", data.name1)
 
-  //location.href="output.html"
+  sessionStorage.setItem("msg2", JSON.stringify(data.msg2))
+  sessionStorage.setItem("color2", data.color2)
+  sessionStorage.setItem("name2", data.name2)
+
+  location.href="output.html"
 }

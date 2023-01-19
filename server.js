@@ -49,6 +49,7 @@ class User{
         this.msg = [];
         this.timer = 0;
         this.active = false;
+        this.success = false;
     }
 
     updateMsg(){
@@ -152,17 +153,33 @@ function newConnection(socket) {
         console.log("success: "+this.id)
         let sender = getUser(this.id);
         
-        let pair = [sender, getUser(sender.pairedId)]
+        if(!sender.success){
+            let pair = [sender, getUser(sender.pairedId)]
 
-        for (let i = 0; i < pair.length; i++){
+            pair[0].success = true;
+            pair[1].success = true;
+
+            let random = Math.round(Math.random())
+
+            for (let i = 0; i < pair.length; i++) {
+                while(pair[i].msg.length < 70) {
+                    pair[i].msg.push(true)
+                }
+            }
+
             let msg = {};
 
-            msg.msg = pair[i].msg
-            msg.pairName = pair[1 - i].name
-            msg.pairMsg = pair[1 - i].msg
+            msg.msg1 = pair[random].msg
+            msg.color1 = pair[random].color
+            msg.name1 = pair[random].name
 
-            io.to(pair[i].id).emit("success", msg)
-            console.log(msg)
+            msg.msg2 = pair[1 - random].msg
+            msg.color2 = pair[1 - random].color
+            msg.name2 = pair[1 - random].name
+            
+            for (let i = 0; i < pair.length; i++) {
+                io.to(pair[i].id).emit("success", msg)
+            }
         }
 
     })
@@ -182,6 +199,9 @@ function newConnection(socket) {
             waiting.splice(waitIndex, 1)
             //unpaired -= 1;
             console.log("was unpaired")
+        }
+        else if (disconnected.success) {
+            disconnected.reset()
         }
         else {
             console.log("waiting: " + waiting)
@@ -212,7 +232,7 @@ function newConnection(socket) {
 
 //takes the first two waiting users and pairs them
 function pair() {
-    if(colArray.filter(color => !color.taken).length > 0){
+    if(colArray.filter(color => !color.taken).length > 1){
         console.log("pairing")
         let pairingUsers = [getUser(waiting[0]), getUser(waiting[1])]
 

@@ -2,14 +2,13 @@
 
 //////NAME
 //////prendo il nome dell'utente dall'url dopo il login
-let url = new URL(location.href); 
-let input = url.searchParams.get("name1");
+let url = new URL(location.href);
 let again= document.getElementById("again");
 
 again.addEventListener("click", anotherMatch)
 
 function anotherMatch(){
-  window.open("loading.html?name1="+ input, "_self")
+  location.href = "experience-final.html"
 }
 
 //////GRADIENT
@@ -119,14 +118,14 @@ const grid2 = [
   [0, 0, 0, 0, 0, 0, 0, 0],
 ];
 
-let message1 = [];
-let message2 = [];
+let message1 = JSON.parse(sessionStorage.getItem("msg1"));
+let message2 = JSON.parse(sessionStorage.getItem("msg2"));
 
-let coolors= ["#7FEB9E", "#5CC8FF", "#7D82FE", "#D28AFE", "#FFABE3", "#FF6D6D", "#FFAE63", "#FFE975"]
-let color1;
-let color2;
+let coolors = ["#7FEB9E", "#5CC8FF", "#7D82FE", "#D28AFE", "#FFABE3", "#FF6D6D", "#FFAE63", "#FFE975"]
+let color1 = sessionStorage.getItem("color1");
+let color2 = sessionStorage.getItem("color2");;
 
-let names= input + " + " + input
+let names = sessionStorage.getItem("name1") + " + " + sessionStorage.getItem("name2")
 let Redaction;
 
 
@@ -134,7 +133,7 @@ let Redaction;
 let p2;//canva da salvare su firebase per la gallery
 
 //importo dal firebase la funzione che scrive i dati dell'output
-import { writeUserData } from "/public/JS/firebase.js"
+import { writeUserData } from "../JS/firebase.js"
 
 
 
@@ -181,7 +180,7 @@ p1.draw = function (){
   seed= seed + 0.05;
   let val= p1.noise(seed)*600; 
   let valMapped = p1.map(val, 0, p1.height, 400, 600)
-  console.log(valMapped)
+  //console.log(valMapped)
 
   //disegno il gradiente di sfondo
   let gradient = ctx.createLinearGradient(0, valMapped, 0,  p1.height);
@@ -210,56 +209,46 @@ function graphicOutput(){
   let size = (outp.width/2) / rows;//definisco la dimensione in base alla width della canvas
   let myindex = 0;
 
-  color1= coolors[Math.floor(Math.random() * coolors.length)];
-  color2= coolors[Math.floor(Math.random() * coolors.length)];
-
-  if(color1==color2){
-    color2= coolors[Math.floor(Math.random() * coolors.length)];
-  }
-
   outp.push()
-  for (let i = 0; i < 70; i++) {
-    message1.push(i % 2);
-  }
+  outp.noStroke()
 
-
-  for (let i = 0; i < grid1[0].length; i++) {
-    for (let j = 0; j < grid1.length; j++) {
-      if (grid1[j][i] == 1) {
-        if (message1[myindex] == 1) outp.fill("white");
-        else outp.fill(color1);
-        outp.noStroke()
-        outp.square(i *size + size/2, j *size, size);
+  for (let i = 0; i < grid1.length; i++) {
+    for (let j = 0; j < grid1[0].length; j++) {
+      if (grid1[i][j] == true) {
+        if (message1[myindex]) outp.fill(color1);
+        else outp.fill(255);
+        outp.square(j *size + size/2, i *size, size);
         myindex++;
       }
     }
   }
   outp.pop()
 
-  outp.push()
-  for (let i = 0; i < 70; i++) {
-    message2.push(i % 2);
-  }
+  myindex = 0;
 
-  console.log(message2, grid2)
-  for (let i = 0; i < grid2[0].length; i++) {
-    for (let j = 0; j < grid2.length; j++) {
-      if (grid2[j][i] == 1) {
-        if (message2[myindex] == 1) outp.fill("white");
-        else outp.fill(color2);
-        outp.noStroke()
-        outp.square(i *size +(outp.width/2)-size/2, j *size, size);
+  outp.push()
+  outp.noStroke()
+
+  for (let i = 0; i < grid2.length; i++) {
+    for (let j = 0; j < grid2[0].length; j++) {
+      if (grid2[i][j] == 1) {
+        if (message2[myindex] == true) outp.fill(color2);
+        else outp.fill("white");
+        outp.square(j *size +(outp.width/2)-size/2, i *size, size);
         myindex++;
       }
     }
   }
-  outp.pop()
-  
- outp.fill(255);
- outp.textSize(30);
- outp.textFont(Redaction)
- outp.textAlign(outp.CENTER)
- outp.text(names, outp.width/2, outp.height)
+  outp.pop();
+
+  outp.push();
+
+  outp.fill(255);
+  outp.textSize(30);
+  outp.textFont(Redaction)
+  outp.textAlign(outp.CENTER)
+  outp.text(names, outp.width / 2, outp.height)
+  outp.pop();
 }
 
 
