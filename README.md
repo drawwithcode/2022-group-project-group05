@@ -45,7 +45,7 @@ N01 takes inspiration from the experiment held at Cornell University *Communicat
 
 <!-- <br clear="left"/> -->
 
-## Structure
+## *Structure*
 The website can be divided into 3 different parts:
 1. ***Homepage*** from which you can either go directly to the gallery part or start the experience <br>
 2. ***Logging and matching*** which in turn can be divided into 4 parts <br>
@@ -66,7 +66,7 @@ These parts corresponds to a flow composed of five html pages (the home, the log
 
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers. Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it.</br></br>
 
-## exhibition+homepage
+## exhibition♡homepage
 
 ### Exhibition
 ![storyboard](README.img/storyboard.png)
