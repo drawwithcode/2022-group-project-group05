@@ -47,7 +47,7 @@ N01 takes inspiration from the experiment held at Cornell University *Communicat
 The experience is designed as an interactive exhibition that takes place in a room illuminated by soft pink lamps. </br>
 From the outside, people will stop to read the concept and decide if to join. </br> A computer will be then be placed right next the entrance, displaying the QR code that enables to access to the experience. 
 
-<img src="README.img/qr.gif" width="100%">
+<img src="README.img/qr.gif" width="75%">
 
 ## Structure
 The website can be divided into 3 different parts:
