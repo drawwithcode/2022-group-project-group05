@@ -418,6 +418,8 @@ The artwork, generated as a `p5.Graphics` in the setup, are rendered as an image
 
 ### Gallery
 
+At last but not least, the
+
 #### ------------------------------------------------------ *code insights* ------------------------------------------------------
 
 ```javascript
@@ -445,6 +447,7 @@ export {artwork};
 Firebase functions are indeed imported in an external javascript file of type `module`. This documents exports and imports functions and variables both from the javascripts file of the ouput and the gallery to get and set data into the database. </br>
 The method `get` in particular, returns an `array` of all the elements contained under a certain `#key` from the database. The `key` is defined using the inputs of the users, saving just one object per match.
 
+<!--
 The gallery is made with a Firebase realtime database that allows the users to check out all their matches few seconds after the update
 This is how we used firebase for the final gallery:
 
@@ -490,7 +493,7 @@ function galleryCreation () {
   })
 }
 ```
-
+-->
 ---
 
 # **Credits (｡♡‿♡｡)**
