@@ -24,7 +24,7 @@ The server connects two people; every time one of them touches the heart button,
    b. [Waiting and matching](#waiting-and-matching)<br>
    c. [Output and gallery](#output-and-happy-endings)<br>  
 
-3. [Team](#team)<br>
+3. [Literally N01](#literally-n01)<br>
 
 ---
 
@@ -295,11 +295,19 @@ function galleryCreation () {
 }
 ```
 
+---
 
-# Team
+# ***Literally N01***
 
 ![team](images/team.png)
-# *Letteralmente N01*
+
+## Team
+
+<div align= "center">
+  <img src="README.img/waiting1.gif" width="30%"/>
+  <img src="README.img/waiting2.gif" width="30%"/>
+  <img src="README.img/waiting3.gif" width="30%"/>
+</div>
 
 ## Credits
 
