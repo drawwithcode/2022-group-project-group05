@@ -9,7 +9,7 @@ var server = app.listen(PORT);
 
 app.use(express.static("public"));
 
-console.log("RUNNING SERVER ON http://localhost:" + PORT + "/public")
+console.log("RUNNING SERVER ON http://localhost:" + PORT)
 
 var serverSocket = require("socket.io")
 
@@ -104,7 +104,7 @@ class User{
     }
 }
 
-const CLOCK = 882;
+const CLOCK = 300;
 
 var users = [];
 

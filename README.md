@@ -206,6 +206,11 @@ document.addEventListener("click", function(){
 ---
 
 ### Login
+
+<div align="center"> 
+  <img src="README.img/login.gif" width="30%">
+</div> 
+
 The first step requires to log into the web-site with the personal name or a nickname. This input is necessary both to render the final output and to save the artwork into the firebase gallery. <br> 
 After the input some instructions guide the user into the next step of the experience.
 
