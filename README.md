@@ -393,6 +393,7 @@ p1.draw = function (){
 -->
 
 ```javascript
+let names = sessionStorage.getItem("name1") + " + " + sessionStorage.getItem("name2")
 
 p2 = new p5(sketch); //SECONDARY CANVA
 
