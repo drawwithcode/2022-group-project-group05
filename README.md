@@ -426,6 +426,10 @@ The artwork, generated as a `p5.Graphics` in the setup, are rendered as an image
 
 At last but not least, the
 
+<div align= "center">
+  <img src="README.img/waiting1.gif" width="30%"/>
+</div>
+
 #### ------------------------------------------------------ *code insights* ------------------------------------------------------
 
 ```javascript
