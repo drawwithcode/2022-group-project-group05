@@ -23,7 +23,7 @@ The server connects two people; every time one of them touches the heart button,
    a. [experience](#experience)<br>
    b. [homepage](#homepage)<br>
    c. [login](#login)<br>
-   d. [matching](#matching)<br>  
+   d. [matching](#matching)<br>
    e. [artwork](#experience)<br>
    f. [gallery](#experience)<br>
 
@@ -173,7 +173,7 @@ function drawCanvas(cnv, img) {
 ```
 credits to: [`kamoroso94/ordered-dither`](https://github.com/kamoroso94/ordered-dither) <br>
 
-
+<!-- 
 #### *heart animation*
 The animation is defined as a method of a `class`. On `click` a new object is pushed into an array that is then itered in the draw function to apply the function to all of its elements.
 
@@ -212,7 +212,7 @@ After the input some instructions guide the user into the next step of the exper
 <div align= "center">
   <img src="README.img/login.gif" width="30%"/>
 </div>
-
+-->
 ---
 
 ### Matching
@@ -230,6 +230,7 @@ When the match is made, the people have to start sending messages touching the h
   <img src="README.img/waiting1.gif" width="30%"/>
   <img src="README.img/waiting2.gif" width="30%"/>
 </div>
+
 
 #### ------------------------------------------------------ *code insights* ------------------------------------------------------
 
@@ -358,6 +359,7 @@ function pair() {
 ---
 
 ### Output
+The data sent by the two users are stored in the `local.storage` of the website and used to render an artwork. The image consists of a pixeleted-heart divided in two half, one for each partecipant. The color of the heart is the one assigned by the server during the experience session while the name is the input given by the user in the first section of the website. </br>
 
 <div align= "center">
   <img src="README.img/waiting1.gif" width="30%"/>
@@ -367,6 +369,7 @@ function pair() {
 
 #### ------------------------------------------------------ *code insights* ------------------------------------------------------
 
+<!-- 
 #### *output*
 The data sent by the two users are stored in the `local.storage` of the website and used to render an artwork. The image consists of a pixeleted-heart divided in two half, and it is obtained by itering the inputs of the two users, saved as elements of an `array`, into another `for loop` that draws the shape of the heart. </br>
 
@@ -448,9 +451,12 @@ p2.draw = function (){
 
   p2.noLoop()
 }
-```
+```-->
+The artwork, generated as a `p5.Graphics` in the setup, are rendered as an image into the draw function and then processed with the method `getImageData` to be exported as an `string` to the javascript file linked to firebase.
+</br>
 
-Firebase function are indeed imported in an external javascript file of type module. Both the functions and the variables are imported and exported from this file into the `gallery.js` and the `output.js` documents to set and get the objects saved into the database. `set` is used to add an `object` to the gallery, `get` to obtain an `array` of all the elements contained under a certain `#key` into the database.
+Firebase functions are indeed imported in an external javascript file of type module. Both the functions and the variables are imported and exported from this file into both the javascript files of the output and the gallery, to set and get the objects saved into the database. </br>
+The method `set` is used to add an `object` to the gallery, `get` to obtain the `array` of all the elements contained under a certain `#key` from the database.
 
 ---
 
@@ -506,7 +512,7 @@ function galleryCreation () {
 
 ---
 
-# **Credits (｡♥‿♥｡)**
+# **Credits (｡♡‿♡｡)**
 
 ## ***Letteralmente N01***
 <div align= "center">
