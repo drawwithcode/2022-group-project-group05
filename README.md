@@ -31,7 +31,9 @@ The server connects two people; every time one of them touches the heart button,
 # ***Concept***
 
 ## Binary Code
-<img src="README.img/binary.gif" align="left" width="width/3"/>
+<div align="center"> 
+  <img src="README.img/binary.gif"/>
+<div>
 <!--<div style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>
 ![binary](README.img/binary.gif)  -->
 
