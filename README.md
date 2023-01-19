@@ -66,11 +66,14 @@ These parts corresponds to a flow composed of 5 html pages (the home, the login,
 
 ## Homepage
 
-<div > <img src="README.img/homepage1.gif" align="left" width="30%"  style="margin-right: 10%"></div>
+<div> <img src="README.img/homepage1.gif" align="left" width="30%">
+  <p style="margin-left: 10%" >
+  The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.</br>
+  Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery.
+  </p>
+</div>
 <!-- <div display="flex" justify-content=" space-eavenly">align-items= "center" 
 <p width="60%">-->
-The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.</br>
-Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery.
   <!--<div >
     <img src="README.img/homepage1.gif" float="right"  width="30%"/>
      <img src="README.img/aboutN01.gif" width="30%"/>
