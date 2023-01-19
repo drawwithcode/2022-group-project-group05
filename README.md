@@ -31,7 +31,7 @@ The server connects two people; every time one of them touches the heart button,
 # ***Concept***
 
 ## Binary Code
-![binary](README.img/matrix copia.gif)
+![binary](README.img/matrixcopia.gif)
 
 <!--<div style="margin-right: 80px;" ><img src="README.img/matrix.gif" align="left" width="width/3"/></div>
 ![binary](README.img/binary.gif)  -->
@@ -89,7 +89,7 @@ After scanning the QR code the first page visible is the homepage where you can 
   </div> 
 </div>-->
 
-#### ----------------------------------------------------- *code insights* -----------------------------------------------------
+#### ------------------------------------------------------ *code insights* ------------------------------------------------------
 
 #### *dithered background*
 To process the pixels of the canva the code is composed of three functions, one the callback of the other. 
@@ -211,7 +211,7 @@ While waiting for a match to be made, each user is assigned randomly a cheesy lo
   <img src="README.img/waiting3.gif" width="30%"/>
 </div>
 
-#### ----------------------------------------------------- *code insights* -----------------------------------------------------
+#### ------------------------------------------------------ *code insights* ------------------------------------------------------
 
 
 ```javascript
