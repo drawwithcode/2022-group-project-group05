@@ -14,7 +14,7 @@ The server connects two people; every time one of them touches the heart button,
 ---
 
 #### **INDEX**
-1. Concept (っ◕‿◕)っ ♥      
+1. Concept (っ◕‿◕)っ ♡      
    a. [binary code](#binary-code)<br>
    b. [structure](#structure)<br>
 
@@ -23,7 +23,7 @@ The server connects two people; every time one of them touches the heart button,
    b. [login + matching](#Login-+-Matching)<br>
    c. [artwork + gallery](#Artwork-+-Gallery)<br>  
 
-3. Credits (｡♥‿♥｡)     
+3. Credits (｡♡‿♡｡)     
    a. [letteralmenteN01](#letteralmenteN01)<br>
    b. [info](#info)<br>
 
@@ -31,7 +31,7 @@ The server connects two people; every time one of them touches the heart button,
 
 ---
 
-# ** Concept (っ◕‿◕)っ ♥ **
+# **Concept (っ◕‿◕)っ ♡**
 
 ## *Binary Code*
 <img src="README.img/matrixcopia.gif" width="100%">
@@ -62,7 +62,7 @@ These parts corresponds to a flow composed of five html pages (the home, the log
 
 ---
 
-# ** Experience (´ε｀ )♡ **
+# **Experience (´ε｀ )♡**
 
 The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers. Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it.</br></br>
 
