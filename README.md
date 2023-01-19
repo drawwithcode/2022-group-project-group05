@@ -1,7 +1,7 @@
 
 ![logo](README.img/noilogo.png)
 
-Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.</br>
+Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.</br></br>
 
 #### ***What if communicating directly like machines could help us find true love more easily? <3***
 
@@ -21,8 +21,8 @@ The server connects two people; every time one of them touches the heart button,
 
 2. Experience  
    a. [Homepage](#homepage)<br>
-   b. [Experience](#experience)<br>
-   c. [Happy Ending](#output-and-happy-endings)<br>  
+   b. [Waiting and matching](#waiting-and-matching)<br>
+   c. [Output and gallery](#output-and-happy-endings)<br>  
 
 3. [Team](#team)<br>
 
@@ -61,8 +61,10 @@ The website can be divided into 3 different parts:
 These parts corresponds to a flow composed of 5 html pages (the home, the login, the experience, the output and the gallery), each linked to a different css and a javascript file, plus three other javascripts documents that add features common to all the pages. 
 ###
 
+---
 
-# Experience
+# ***Experience***
+
 ## Homepage
 After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery.</br>
 
@@ -83,7 +85,7 @@ After scanning the qr code the first page visible is the landing page, where you
   </div> 
 </div>-->
 
-#### ---------------------------------------------------*behind the code*---------------------------------------------------
+#### -----------------------------------------------------*behind the code*-----------------------------------------------------
 The most interesting parts of the code are the *dithered background* and the *small hearts animation*
 
 #### *dithered background*
@@ -189,15 +191,13 @@ document.addEventListener("click", function(){
 })
 ```
 
+---
 
+## Waiting and Matching
 
-###
-## Experience
-
-### login
-The first step requires to log into the web site with the personal name or a nickname, so the platform can start matching people. <br>
-Everyone gets assigned a color, which will identify them in the further steps. <br>
-<img src="README.img/palette.png" width="300"/>
+### Login
+The first step requires to log into the web-site with the personal name or a nickname. This input is necessary both to render the final output and to save the artwork into the firebase gallery. <br> 
+After the input some instructions will guide the user into the next step of the experience.
 
 
 ### Waiting
@@ -213,6 +213,7 @@ While waiting for a match to be made, an array of cheesy love quotes will appear
 
 ### Matching
 When the match is made, the people have to start sending messages touching the heart button, that will result in a sound in the other person's device. The two people will have then to find one another physically, so the connection between the two is completed.  This is how the matching system works: <br>
+
 ```javascript
 //takes the first two waiting users and pairs them
 function pair() {
@@ -237,12 +238,15 @@ function pair() {
     console.log(waiting)
 }
 ```
+---
+
+## Output and gallery
 
 ### Output
 At the end of the experience it would be possible to see the heart that you and your parter generated
 This is how we create the artwork: 
 
-## Happy endings
+### Happy endings
 The gallery is made with a Firebase realtime database that allow the users to check out all their matches few seconds after the update
 This is how we used firebase for the final gallery:
 ```javascript
@@ -291,8 +295,8 @@ function galleryCreation () {
 
 # Team
 
-Letteralmente N01
 ![team](images/team.png)
+# *Letteralmente N01*
 
 ## Credits
 
@@ -302,8 +306,8 @@ Politecnico di Milano – Dipartimento di Design
 
 ### Faculty
 
- Michele Mauri
- Tommaso Elli
- Andrea Benedetti
+ Michele Mauri  
+ Tommaso Elli  
+ Andrea Benedetti  
 
 
