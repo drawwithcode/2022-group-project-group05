@@ -66,11 +66,14 @@ These parts corresponds to a flow composed of 5 html pages (the home, the login,
 
 ## Homepage
 
-<div> <img src="README.img/homepage1.gif" align="left" width="10%" style="display:flex; justify-content:space-eavenly" >
-</div>
+<div> <img src="README.img/homepage1.gif" width="30%"> </div>
+<dl>
+    <dd>After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery.
+    The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.</br>
+    Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it.</br></br></br></br> 
+    </dd>
+</dl>
 
-The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.</br>
-Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery.
 
 <!-- <div display="flex" justify-content=" space-eavenly">align-items= "center" 
 <p width="60%">-->
@@ -81,11 +84,10 @@ Cheesy love quotes and heart patterns make N01 almost feel like a dating website
   </div> 
 </div>-->
 
-***
-The most interesting aspect of the first part are the *dithered background* and the *small hearts animation*
+### *behnd the code*
+The most interesting parts of the code are the *dithered background* and the *small hearts animation*
 
 #### *dithered background*
-
 To process the pixels of the canva the code is composed of three functions, one the callback of the other. 
 In the function `draw` the context of the canvas is processed as an array of pixels and passed as an argument of the second function.
 
