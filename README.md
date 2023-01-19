@@ -567,7 +567,7 @@ function galleryCreation () {
 # **Credits (｡♡‿♡｡)**
 
 ## ***Letteralmente N01***
-
+<div float= "left">
   <div align= "center">
   <img src="README.img/buttonHeart.svg" width="20%"/>
   Davide Agostinelli (^▽^)
