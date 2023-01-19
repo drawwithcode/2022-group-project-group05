@@ -439,11 +439,11 @@ p2.draw = function (){
   p2.canvas.id= "output";
   p2.canvas.style.display="none";
 
-  p2.image(outp, 0,0);//disegno l'artwork
+  p2.image(outp, 0,0);//<I draw the artwork
 
-  artwork = p2.canvas.toDataURL();//converto l'artwork in una stringa da salvare nel database
+  artwork = p2.canvas.toDataURL();//I convert the artwork to save it in the database
 
-  writeUserData(names, artwork)//chiamo la funzione di firebase che salva l'artwork con il nome dello user
+  writeUserData(names, artwork)//I call the firebase function that saves the artwork with user's name
 
   p2.noLoop()
 }
