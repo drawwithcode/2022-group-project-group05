@@ -24,7 +24,7 @@ The server connects two people; every time one of them touches the heart button,
    b. [homepage](#homepage)<br>
    c. [login](#login)<br>
    d. [matching](#matching)<br>  
-   e. [artwork](#artwork)<br>
+   e. [artwork](#output)<br>
    f. [gallery](#gallery)<br>
 
 3. Credits (｡♡‿♡｡)     
