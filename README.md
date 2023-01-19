@@ -16,14 +16,18 @@ The server connects two people; every time one of them touches the heart button,
 #### **INDEX**
 1. Concept  
    a. [Binary Code](#binary-code)<br>
-   c. [Structure](#structure)<br>
+   b. [Structure](#structure)<br>
 
 2. Experience  
-   a. [Exhibition + Homepage](#homepage)<br>
-   b. [Connect](#waiting-and-matching)<br>
-   c. [Generate](#output-and-happy-endings)<br>  
+   a. [Experience+Homepage](#homepage+)<br>
+   b. [Login+Matching](#waiting-and-matching)<br>
+   c. [Artwork+Gallery](#output-and-happy-endings)<br>  
 
-3. [Literally N01](#literally-n01)<br>
+3. Credits  
+   a. [LetteralmenteN01](#letteralmenteN01)<br>
+   b. [Info](#info)<br>
+
+
 
 ---
 
@@ -40,14 +44,6 @@ The project has the aim to make *present* the basic language of every machine: *
 N01 takes inspiration from the experiment held at Cornell University *Communicating Intimacy One Bit at a Time*, where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels. In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. </br>
 
 <!-- <br clear="left"/> -->
-
-## Exhibition
-![storyboard](README.img/storyboard.png)
-
-The experience is designed as an interactive exhibition that takes place in a room illuminated by soft pink lamps. </br>
-From the outside, people will stop to read the concept and decide if to join. </br> A computer will be then be placed right next the entrance, displaying the QR code that enables to access to the experience. 
-
-<img src="README.img/qr.gif" width="75%">
 
 ## Structure
 The website can be divided into 3 different parts:
@@ -68,7 +64,17 @@ These parts corresponds to a flow composed of five html pages (the home, the log
 
 # ***Experience***
 
+## Exhibition + Homepage
+
+## Exhibition
+![storyboard](README.img/storyboard.png)
+
+The experience is designed as an interactive exhibition that takes place in a room illuminated by soft pink lamps. </br>
+From the outside, people will stop to read the concept and decide if to join. </br> A computer will be then be placed right next the entrance, displaying the QR code that enables to access to the experience. 
+
+
 ## Homepage
+<img src="README.img/qrcode.gif" width="100%">
 After scanning the QR code the first page visible is the homepage where you can start the experience. By opening the menu the user is able to access the final gallery and the README file in the githup repository.</br>
 
 <div align="center"> 
@@ -195,13 +201,11 @@ document.addEventListener("click", function(){
 
 ---
 
-## Waiting and Matching
+## Login + Matching
 
 ### Login
 The first step requires to log into the web-site with the personal name or a nickname. This input is necessary both to render the final output and to save the artwork into the firebase gallery. <br> 
 After the input some instructions guide the user into the next step of the experience.
-
-### Waiting
 While waiting for a match to be made, each user is assigned randomly a cheesy love quote.
 
 <div align= "center">
@@ -329,7 +333,7 @@ function pair() {
 ```
 ---
 
-## Output and gallery
+## Output + gallery
 
 ### Output
 At the end of the experience the data sent by the two users are stored in the `local.storage` of the website and used to render an artwork. The image consists of a pixeleted-heart divided in two half, and it is obtained by itering the inputs of the two users, saved as elements of an `array`, into another `for loop` that draws the shape of the heart. </br>
@@ -417,7 +421,7 @@ p2.draw = function (){
 
 Firebase function are indeed imported in an external javascript file of type module. Both the functions and the variables are imported and exported from this file into the gallery.js and the output.js documents to set and get the objects saved into the database. Set is used to add an object to the gallery, get to obtain an array of all the elements contained under a certain #key into the database.
 
-### Happy endings
+### Gallery
 The gallery is made with a Firebase realtime database that allow the users to check out all their matches few seconds after the update
 This is how we used firebase for the final gallery:
 
@@ -466,22 +470,20 @@ function galleryCreation () {
 
 ---
 
-# ***Literally N01 <3***
+# Credits
 
-## Team
+## ***Literally N01 <3***
 <div align= "center">
   <img src="README.img/waiting1.gif" width="30%"/>
   <img src="README.img/waiting2.gif" width="30%"/>
   <img src="README.img/waiting3.gif" width="30%"/>
 </div>
 
-## Credits
+## Info
 
 Draw With Code: Creative Coding <br>
 Academic Year 2022/2023 <br>
 Politecnico di Milano – Dipartimento di Design
-
-### Faculty
 
  Michele Mauri  
  Tommaso Elli  
