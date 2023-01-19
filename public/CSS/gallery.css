@@ -1,3 +1,10 @@
+body{
+  height:100vh;
+  margin: 0;
+  padding:2vh;
+}
+
+
 #menu-btn{
   position:fixed;
   margin:2vh;
@@ -29,3 +36,4 @@ body.flex-col.active{
 .move{
   transform:translateY(-50%)
 }
+
