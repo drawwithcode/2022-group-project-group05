@@ -66,17 +66,17 @@ These parts corresponds to a flow composed of 5 html pages (the home, the login,
 
 ## Homepage
 
-<div display="flex" justify-content=" space-eavenly"><!-- align-items= "center" -->
-  <p width="60%">
-  The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.</br>
-  Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery.
-  </p>
-  <div >
+<div > <img src="README.img/homepage1.gif" align="left" width="30%"  style="margin-right: 10%"></div>
+<!-- <div display="flex" justify-content=" space-eavenly">align-items= "center" 
+<p width="60%">-->
+The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers.</br>
+Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it. After scanning the qr code the first page visible is the landing page, where you can either start the experience or go directly to the final gallery.
+  <!--<div >
     <img src="README.img/homepage1.gif" float="right"  width="30%"/>
-    <!-- <img src="README.img/aboutN01.gif" width="30%"/>
-    <img src="README.img/homepage2.gif" width="30%"/> -->
+     <img src="README.img/aboutN01.gif" width="30%"/>
+    <img src="README.img/homepage2.gif" width="30%"/> 
   </div> 
-</div>
+</div>-->
 
 ***
 The most interesting aspect of the first part are the *dithered background* and the *small hearts animation*
@@ -153,7 +153,7 @@ function drawCanvas(cnv, img) {
 }
  
 ```
-credits to: [`kamoroso94/ordered-dither`]https://github.com/kamoroso94/ordered-dither <br>
+credits to: [`kamoroso94/ordered-dither`](https://github.com/kamoroso94/ordered-dither) <br>
 
 
 #### *heart animation*
