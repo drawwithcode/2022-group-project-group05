@@ -1,9 +1,11 @@
 
 ![logo](README.img/noilogo.png)
 
-Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.
+Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.  
 
-### *What if communicating directly like machines could help us find true love more easily?*
+
+
+#### *What if communicating directly like machines could help us find true love more easily?*
 
 N01 is a web experience that allows you to *find your soulmate only talking with one bit messages*. 
 The project takes inspiration from the experiment held at Cornell University, called "Communicating Intimacy One Bit at a Time", where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
@@ -11,9 +13,8 @@ N01 is a web experience that allows you to find your soulmate only talking with 
 
 The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
 
-###
-#### **Table of Contents**
 
+#### **Table of Contents**
 1. Concept  
    a. [Binary Code](#binary-code)<br>
    b. [Exhibition](#exhibition)<br>
@@ -26,7 +27,7 @@ The server connects two people; every time one of them touches the heart button,
 
 3. [Team](#team)<br>
 
-###
+
 
 # ***Concept***
 
@@ -85,7 +86,7 @@ After scanning the qr code the first page visible is the landing page, where you
   </div> 
 </div>-->
 
-#### -------------------------------------------------*behind the code*-------------------------------------------------
+#### ---------------------------------------------------*behind the code*---------------------------------------------------
 The most interesting parts of the code are the *dithered background* and the *small hearts animation*
 
 #### *dithered background*
