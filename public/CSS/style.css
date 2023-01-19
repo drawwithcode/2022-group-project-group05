@@ -71,8 +71,6 @@ p {
 /*bottoni*/
 btn {
   display:flex;
-
-  font-family: 'Redaction35', Courier, monospace;
   border:none;
   background-color: none;
   
@@ -89,9 +87,17 @@ a {
   font-family: 'Redaction35Italic', Courier, monospace;
 }
 
+
 a:hover{
   cursor: pointer;
   text-decoration: underline;
+}
+
+p{
+  font-family: 'Redaction 35', Courier, monospace;
+  color:white;
+  margin: 0.5em;
+  font-size: 1.4em;
 }
 
 
@@ -174,7 +180,6 @@ canvas {
   text-decoration: underline;
   text-decoration-thickness: 2px;
 }
-
 
 
 #scrollable-ctn{

@@ -25,6 +25,7 @@
     <!--menù intero-->
     <div class="menu flex-col" id="menu">
 
+      <div>
         <btn class="menu-elt flex-col">
           <a href="index.html">find your soulmate</a>
           <img src="assets/SVG/buttonPink.svg">
@@ -34,6 +35,7 @@
           <a href="gallery.html">happy endings</a>
           <img src="assets/SVG/buttonPink.svg">
         </btn>
+      </div>
         
       <a id="about" href="https://github.com/drawwithcode/2022-group-project-group05/blob/website/README.md">about N01</a>
 
@@ -41,12 +43,12 @@
 
     <!--PART 1--> 
     <!--input field--> 
-    <div id="part1" class="content flex-col">
+    <div id="part1" class="flex-col">
 
       <p >N01 knows that every story is a love story.</p>
       <p >Start your own by writing <span>your name.</span></p> 
       
-      <input required id="name" 
+      <input required id="name" class="content"
       placeholder="who is looking for love..." onfocus="this.placeholder =''"  onblur="this.placeholder ='who is looking for love...'" >
 
       <btn id="submitBtn" class="content flex-col">
