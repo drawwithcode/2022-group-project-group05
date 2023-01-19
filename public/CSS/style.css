@@ -1,18 +1,18 @@
 @font-face {
   font-family: 'Voxel';
-  src: url('/public/assets/fonts/Voxel.otf');
+  src: url('../assets/FONT/Voxel.otf');
 }
 @font-face {
   font-family: 'Redaction35';
-  src: url('/public/assets/fonts/Redaction35-Regular.otf');
+  src: url('../assets/FONT/Redaction35-Regular.otf');
 }
 @font-face {
   font-family: 'Redaction35Italic';
-  src: url('/public/assets/fonts/Redaction35-Italic.otf');
+  src: url('../assets/FONT/Redaction35-Italic.otf');
 }
 @font-face {
   font-family: 'Redaction50';
-  src: url('/public/assets/fonts/Redaction50-Regular.otf');
+  src: url('../assets/FONT/Redaction50-Regular.otf');
 }
 
 
@@ -71,8 +71,6 @@ p {
 /*bottoni*/
 btn {
   display:flex;
-
-  font-family: 'Redaction35', Courier, monospace;
   border:none;
   background-color: none;
   
@@ -89,9 +87,17 @@ a {
   font-family: 'Redaction35Italic', Courier, monospace;
 }
 
+
 a:hover{
   cursor: pointer;
   text-decoration: underline;
+}
+
+p{
+  font-family: 'Redaction35', Courier, monospace;
+  color:white;
+  margin: 0.5em;
+  font-size: 1.5em;
 }
 
 
@@ -116,8 +122,9 @@ canvas {
 /*MENU*/
 .menu {
   position: fixed;
-  background-color: #fff;
+  top:0;
   z-index: 1;
+  background-color: #fff;
   
   display: none;
 
@@ -140,8 +147,8 @@ canvas {
   background-color:#960090;
   width:100%;
   height:100%;
-  -webkit-mask: url(/public/assets/SVG/iconHeart.svg) no-repeat center / contain;
-  mask: url(/public/assets/SVG/iconHeart.svg) no-repeat center / contain;
+  -webkit-mask: url(../assets/SVG/iconHeart.svg) no-repeat center / contain;
+  mask: url(../assets/SVG/iconHeart.svg) no-repeat center / contain;
 }
 
 
@@ -175,7 +182,6 @@ canvas {
 }
 
 
-
 #scrollable-ctn{
   position:absolute;
   z-index:-3;
@@ -186,6 +192,9 @@ canvas {
   overflow-y: scroll;
 }
 
+.hidden {
+  display: none
+}
 
 /*
 #scrollable-elt {

@@ -16,7 +16,7 @@ input {
 
 input::placeholder {
   color:#FF9AFB;
-  font-family:'Redaction35italic'; 
+  font-family:'Redaction35Italic'; 
   font-size: 1.0em;
 }
 
@@ -29,7 +29,7 @@ input::placeholder {
   position:absolute;
   width:auto;
   font-size: 1.5em;
-  font-family:'Redaction35italic'; 
+  font-family:'Redaction35Italic'; 
 }
 
 
@@ -45,5 +45,5 @@ input::placeholder {
 }
 
 span {
-  font-family: 'Redaction35italic'
+  font-family: 'Redaction35Italic'
 }

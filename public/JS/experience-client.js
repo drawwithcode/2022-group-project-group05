@@ -1,4 +1,4 @@
-var clientSocket = io();
+
 
 let start = false;
 let paired = false;

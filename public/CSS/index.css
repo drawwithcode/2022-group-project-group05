@@ -1,9 +1,6 @@
-#animation-hearts{
-  z-index:-3;
-}
 
 #pay-off{
-  margin: 2vh 0 0 0;
+  margin: 2vh 0 ;
   font-family:'Voxel'; 
   font-size: 3em;
 }
@@ -34,4 +31,3 @@
   transform: translateY(100px);
   transition: 2s all ease;
 }*/
-

@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="CSS/experience.css">
 
-    <script src="/socket.io/socket.io.js"></script>
+    
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
   </head>
@@ -21,14 +21,14 @@
 
     <!--button-->
       <button id="morse"></button>
-      <!--<img src="assets/elements/buttonHeart.png" id="heart">-->
+      <!--<img src="assets/SVG/buttonHeart.svg" id="heart">-->
       <button id="heart" style="top: 70vh; z-index: 1;">START</button>
       <span id="status">Waiting</span>
 
       
     <script>    
     
-      let url = new URL(location.href); 
+      let url = new URL(location.href);
       let input = url.searchParams.get("name1");
 
       //setTimeout(experienceOpener, 3600)
