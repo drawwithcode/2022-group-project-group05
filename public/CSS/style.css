@@ -29,7 +29,7 @@ html, body {
 
 body {
   position: relative;
-  height:96vh;
+  height:94vh;
   margin:2vh;
 
 }
@@ -88,7 +88,7 @@ a {
 }
 
 
-a:hover{
+a:hover {
   cursor: pointer;
   text-decoration: underline;
 }
@@ -195,14 +195,3 @@ canvas {
 .hidden {
   display: none
 }
-
-/*
-#scrollable-elt {
-  position: absolute;
-  z-index:-3;
-  top:0;
-  left:0;
-  width:100%;
-  background-color:red;
-  overflow-y: scroll;
-}*/
