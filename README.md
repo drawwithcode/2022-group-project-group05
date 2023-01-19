@@ -66,14 +66,14 @@ These parts corresponds to a flow composed of five html pages (the home, the log
 
 ## Exhibition + Homepage
 
-## Exhibition
+### Exhibition
 ![storyboard](README.img/storyboard.png)
 
 The experience is designed as an interactive exhibition that takes place in a room illuminated by soft pink lamps. </br>
 From the outside, people will stop to read the concept and decide if to join. </br> A computer will be then be placed right next the entrance, displaying the QR code that enables to access to the experience. 
 
 
-## Homepage
+### Homepage
 <img src="README.img/qrcode.gif" width="100%">
 After scanning the QR code the first page visible is the homepage where you can start the experience. By opening the menu the user is able to access the final gallery and the README file in the githup repository.</br>
 
