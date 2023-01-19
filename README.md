@@ -19,9 +19,9 @@ The server connects two people; every time one of them touches the heart button,
    b. [Structure](#structure)<br>
 
 2. Experience  
-   a. [Experience+Homepage](#Experience-+-Homepage)<br>
-   b. [Login+Matching](#Login-+-Matching)<br>
-   c. [Artwork+Gallery](#Artwork-+-Gallery)<br>  
+   a. [experience + homepage](#Experience-+-Homepage)<br>
+   b. [login + matching](#Login-+-Matching)<br>
+   c. [artwork + gallery](#Artwork-+-Gallery)<br>  
 
 3. Credits  
    a. [LetteralmenteN01](#letteralmenteN01)<br>
@@ -64,8 +64,9 @@ These parts corresponds to a flow composed of five html pages (the home, the log
 
 # ***Experience***
 
-</br> The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers. Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it.</br></br>
-## Exhibition + Homepage
+The whole aesthetic of N01 is playful and a bit silly, taking inspiration from love calculator’s websites on old computers. Cheesy love quotes and heart patterns make N01 almost feel like a dating website. The experience is created to make people have fun and enjoy, but also to reflect on the metaphor behind it.</br></br>
+
+## exhibition + homepage
 
 ### Exhibition
 ![storyboard](README.img/storyboard.png)
