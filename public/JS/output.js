@@ -195,7 +195,7 @@ p1.draw = function (){
   //chiamo la funzione che applica il dither sull'array di pixel del gradiente
   dither(imageData, [imageData.data.buffer]);
 
-  p1.image(outp, (windowWidth-outp.width)/2,  (windowHeight-outp.height)/2);
+  p1.image(outp, (windowWidth-outp.width)/2,  (windowHeight-outp.height)/2.5);
 }
 
 
@@ -203,7 +203,11 @@ p1.draw = function (){
 //////OUTPUT
 function graphicOutput(){
 
-  outp= p1.createGraphics(p1.width*3/4, p1.height/2.5);
+  if (p1.height<700){
+    outp= p1.createGraphics(p1.width*3/4, p1.height/2.25);
+  } else {
+    outp= p1.createGraphics(p1.width*3/4, p1.height/3);
+  }
 
   let size = (outp.width/2) / rows;//definisco la dimensione in base alla width della canvas
   let myindex = 0;
@@ -258,7 +262,12 @@ let artwork;
 p2 = new p5(sketch);
 
 p2.draw = function (){
-  p2.resizeCanvas(windowWidth*3/4, windowHeight/3);
+  if (p1.height<700){
+    p2.resizeCanvas(windowWidth*3/4, windowHeight/2.25);
+  } else {
+    p2.resizeCanvas(windowWidth*3/4, windowHeight/3);
+  }
+  
   p2.canvas.id= "output";
 
   p2.image(outp, 0,0);//disegno l'artwork

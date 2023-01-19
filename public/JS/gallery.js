@@ -1,4 +1,4 @@
-import { artwork } from "/public/JS/firebase.js"
+import { artwork } from "../JS/firebase.js"
 
 //imposto una funzione che controlla quando vengono importati i dati dal database ogni 100 millisecondi
 let loadingTime = setInterval( ()=>{
