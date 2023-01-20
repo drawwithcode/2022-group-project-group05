@@ -381,9 +381,9 @@ function colorSearch(targetHex) {
 The data sent by the two users are stored is used to render an artwork. The image consists of a pixeleted-heart divided in two half, one for each partecipant. The color of the heart is the one assigned by the server during the experience session while the name is the input given by the user in the first section of the website. </br>
 
 <div align= "center">
-  <img src="README.img/output1.png" width="30%"/>
-  <img src="README.img/output2.png" width="30%"/>
-  <img src="README.img/output3.png" width="30%"/>
+  <img src="README.img/N01_FRAG + Lello.png" width="30%"/>
+  <img src="README.img/N01_Lello + Marcoparco.png" width="30%"/>
+  <img src="README.img/N01_FRAG + Olly.png" width="30%"/>
 </div>
 
 #### ------------------------------------------------------ *code insights* ------------------------------------------------------
@@ -567,26 +567,10 @@ function galleryCreation () {
 # **Credits (｡♡‿♡｡)**
 
 ## ***Letteralmente N01***
-<div float= "left">
-  <div align= "center">
-  <img src="README.img/buttonHeart.svg" width="20%"/>
-  Davide Agostinelli (^▽^)
-  </div>
-  <div align= "center">
-  <img src="README.img/buttonHeart.svg" width="20%"/>
-  Elisa Debenettis (＾ε＾)
-  </div>
-  <div align= "center">
-  <img src="README.img/buttonHeart.svg" width="20%"/>
-  Martina Esposito (≧∇≦)
-  </div>
-  <div align= "center">
-  <img src="README.img/buttonHeart.svg" width="20%"/>
-  Giulia Gnessi (◡‿◡) 
-  </div>
-
-  (*･∀･)／♡＼(･∀･*)      
-</div>
+  Davide Agostinelli (^▽^)  
+  Elisa Debenettis (＾ε＾)  
+  Martina Esposito (≧∇≦)  
+  Giulia Gnessi (◡‿◡)      
 
 ## Info
 
@@ -594,8 +578,10 @@ Draw With Code: Creative Coding <br>
 Academic Year 2022/2023 <br>
 Politecnico di Milano – Dipartimento di Design
 
+
  Michele Mauri  
  Tommaso Elli  
  Andrea Benedetti  
-
+  
+(*･∀･)／♡＼(･∀･*) 
 
