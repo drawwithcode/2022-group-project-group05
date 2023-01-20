@@ -188,9 +188,6 @@ function colorSearch(targetHex) {
       }
     }
   }
-  let avgDist = distanceTotal / (subH * subW)
-  //p1.textSize(20)
-  p1.text(Math.round(avgDist*100)/100 + " success%: " + (total / (subH * subW)), 10, 10)
   let result = (total / (subH * subW) > PERCENT_THRESHOLD)
 
   return result
