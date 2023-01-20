@@ -27,10 +27,15 @@ html, body {
   visibility: visible;
 }
 
+html{
+  height: 100%
+}
+
 body {
   position: relative;
-  height:94vh;
-  margin:2vh;
+  height:100%;
+  margin:0;
+  padding:2vh;
 
 }
 

@@ -168,16 +168,8 @@ function colorSearch(targetHex) {
   let g = green(target)
   let b = blue(target)
 
-  
-
   video.loadPixels()
 
-  p1.push()
-  p1.stroke(255)
-  //p1.translate(p1.width / 2 + subW / 2, p1.height * 2 / 3 - subH / 2)
-  //p1.scale(-1,1)
-  //p1.image(sub, 0, 0)
-  
   let distanceTotal = 0;
   
   for (let x = 0; x < subW; x++){
