@@ -80,7 +80,7 @@ After scanning the QR code the first page visible is the home. From it the user 
   <img src="README.img/readme.gif" width="30%">
 </div> 
 
-#### ------------------------------------------------------- *code insight* -------------------------------------------------------
+#### --------------------------------------------------------- *code insight* ---------------------------------------------------------
 
 #### *dithered background*
 To process the pixels of the canva the code is composed of three functions, one the callback of the other. 
@@ -181,7 +181,7 @@ When the match is made, the people have to start sending messages touching the h
 </div>
 
 
-#### ------------------------------------------------------- *code insight* -------------------------------------------------------
+#### --------------------------------------------------------- *code insight* ---------------------------------------------------------
  
 
 ```javascript
@@ -272,7 +272,7 @@ The data sent by the two users are stored is used to render an artwork. The imag
   <img src="README.img/N01_FRAG + Olly.png" width="30%"/>
 </div>
 
-#### ------------------------------------------------------- *code insight* -------------------------------------------------------
+#### --------------------------------------------------------- *code insight* ---------------------------------------------------------
 
 The artwork, generated as a `p5.Graphics` in the setup, is rendered as an image into the draw function and then processed with the method `getImageData` to be exported as a `string` to the javascript file linked to firebase.
 </br>
@@ -307,7 +307,7 @@ At last but not least, the ouput of the users is displayed in a gallery where th
   <img src="README.img/gallery.gif" width="30%"/>
 </div>
 
-#### ------------------------------------------------------- *code insight* -------------------------------------------------------
+#### --------------------------------------------------------- *code insight* ---------------------------------------------------------
 
 Firebase functions are imported in an external javascript file of type `module`. This documents exports and imports functions and variables both from the javascripts file of the ouput and the gallery to get and set data into the database. </br>
 The method `get` in particular, returns an `array` of all the elements contained under a certain `#key` from the database. The `key` is defined using the inputs of the users, saving just one object per match.
