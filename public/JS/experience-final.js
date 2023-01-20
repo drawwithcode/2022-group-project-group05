@@ -68,6 +68,10 @@ function statusUpdate(data) {
   else {
     userColor = data.userColor
     pairColor = data.pairColor
+
+    let index = COLORS.indexOf(pairColor)
+    targetColor = COLOR_TO_FIND[index]
+      
     paired = true;
     stopLoading();
   }
@@ -85,6 +89,7 @@ function startApp() {
 let start = false;
 let paired = false;
 let pairColor;
+let targetColor;
 
 //setup oscillatore
 let osc = new p5.Oscillator("sine")
@@ -150,7 +155,7 @@ function setup() {
 function draw() {
 
   if (paired && videoReady) {
-    if (colorSearch(pairColor)) {
+    if (colorSearch(targetColor)) {
       successFind();
     }
   }
@@ -159,6 +164,26 @@ function draw() {
 
 const PIXEL_TRESHOLD = 50 //max 422 min 0
 const PERCENT_THRESHOLD = 0.7 //max 1 min 0
+const COLORS = [
+  "#008226",
+  "#00CB3B",
+  "#EAC400",
+  "#D25C5C",
+  "#FF0000",
+  "#A700D1",
+  "#0007A6",
+  "#00A9FF"
+]
+const COLOR_TO_FIND = [
+  "0AC832",
+  "1EF04F",
+  "FAEB70",
+  "FF875A",
+  "FF5500",
+  "E691FF",
+  "007DFF",
+  "00E3FF"
+]
 
 function colorSearch(targetHex) {
   let total = 0;
