@@ -69,8 +69,8 @@ function statusUpdate(data) {
     userColor = data.userColor
     pairColor = data.pairColor
 
-    //let index = COLORS.indexOf(pairColor)
-    //targetColor = COLOR_TO_FIND[index]
+    let index = COLORS.indexOf(pairColor)
+    targetColor = COLOR_TO_FIND[index]
     targetColor = pairColor;
       
     paired = true;
@@ -305,12 +305,18 @@ function successFind() {
 function successReceive(data) {
   console.log(data)
 
+  let index1 = COLORS.indexOf(data.color1)
+  let color1 = COLOR_TO_FIND[index1]
+  
+  let index2 = COLORS.indexOf(data.color2)
+  let color2 = COLOR_TO_FIND[index2]
+
   sessionStorage.setItem("msg1", JSON.stringify(data.msg1))
-  sessionStorage.setItem("color1", data.color1)
+  sessionStorage.setItem("color1", color1)
   sessionStorage.setItem("name1", data.name1)
 
   sessionStorage.setItem("msg2", JSON.stringify(data.msg2))
-  sessionStorage.setItem("color2", data.color2)
+  sessionStorage.setItem("color2", color2)
   sessionStorage.setItem("name2", data.name2)
 
   location.href="output.html"
