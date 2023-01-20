@@ -405,10 +405,10 @@ export {artwork};
 
 ## ***Attributions***
 
-[Socket.io](https://socket.io/) - to install the communication between the clients and the server 
-[render](https://render.com/) - to host the website
-[Firebase](https://console.firebase.google.com/) -to host the database
-[p5.library](https://p5js.org/) - to generate the graphic elements
+[Socket.io](https://socket.io/) - to install the communication between the clients and the server<br>
+[render](https://render.com/) - to host the website<br>
+[Firebase](https://console.firebase.google.com/) -to host the database<br>
+[p5.library](https://p5js.org/) - to generate the graphic elements<br>
  
 --- 
 
