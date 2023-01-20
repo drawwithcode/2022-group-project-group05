@@ -19,14 +19,14 @@ var io = serverSocket(server)
 
 //users setup
 const COLORS = [
-    "#0AC832",
-    "#1EF04F",
-    "#FAEB70",
-    "#FF875A",
-    "#FF5500",
-    "#E691FF",
-    "#007DFF",
-    "#00E3FF"
+    "#008226",
+    "#00CB3B",
+    "#EAC400",
+    "#D25C5C",
+    "#FF0000",
+    "#A700D1",
+    "#0007A6",
+    "#00A9FF"
   ]
 
 let colArray = []
