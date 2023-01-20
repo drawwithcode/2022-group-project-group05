@@ -9,8 +9,7 @@ N01 is a web experience that allows you to ***find your soulmate only talking wi
 
 The project takes inspiration from the experiment held at Cornell University, called *Communicating Intimacy One Bit at a Time*, where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device.
 
-The aim of the experience is to show the language behind the messages that we exchange on the web, binary code, and to do so it makes fun of the numerous apps and websites that now-days aims to find us our soulmate.  
-These technology use human communication to obtain a digital connection, while N01 does the contrary: the purpose of the website is to make us ***look for each other communicating digitally but physically connecting***. 
+The aim of the experience is to show the language behind the messages that we exchange on the web, binary code, and to do so it makes fun of the numerous apps and websites that now-days aim to find us our soulmate. These technologies use human communication to obtain a digital connection, while N01 does the contrary: the purpose of the website is to make us ***look for each other communicating digitally but physically connecting***. 
 
 N01 in this sense present itself as the ultimate love guru: a website that knows what’s best for you, but to get its knowledge you have to communicate with its language.
 
@@ -45,7 +44,7 @@ N01 in this sense present itself as the ultimate love guru: a website that knows
 
 The project has the aim to make *present* the basic language of every machine: ***binary code***. 
 
-N01 takes inspiration from the experiment held at Cornell University *Communicating Intimacy One Bit at a Time*, where chosen couples in long-distance relationships could only communicate using 1-bit messages. The results suggested that even a system of communication apparently very limited can be a valuable and rich channel for communicating a wide range of messages. 
+N01 takes inspiration from the experiment held at Cornell University *Communicating Intimacy One Bit at a Time*, where chosen couples in long-distance relationships could only communicate using 1-bit messages. The results suggested that even a system of communication apparently very limited can be a valuable and rich channel for communicating a wide range of messages.<br>
 In the same way N01 connects people trough single bit of information to show how the complexity of the digital communication is actually obtained through a very simple language, composed of only 0 and 1. It makes visible the vastity of outputs that a small amount of possibility can generate. </br>
 
 ## *Structure*
@@ -151,6 +150,9 @@ function drawCanvas(cnv, img) {
     ctx.putImageData(img, 0, 0);
 }
 ```
+credits: 
+[`kamoroso94/ordered-dither`](https://github.com/kamoroso94/ordered-dither)
+
 ---
 
 ### Login
@@ -342,8 +344,6 @@ export {artwork};
 [render](https://render.com/) - to host the website
 [Firebase](https://console.firebase.google.com/) -to host the database
 [p5.library](https://p5js.org/) - to generate the graphic elements
-
-[`kamoroso94/ordered-dither`](https://github.com/kamoroso94/ordered-dither) - for the dithering algorithm
  
 --- 
 

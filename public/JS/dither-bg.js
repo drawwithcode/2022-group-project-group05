@@ -194,7 +194,7 @@ class Heart {
 
   move() {
 
-    this.y= this.y-4 //si sposta verso l'alto di due pixel
+    this.y= this.y-4 //si sposta verso l'alto di 4 pixel
 
     p1.push();
       p1.translate(this.x, this.y);
