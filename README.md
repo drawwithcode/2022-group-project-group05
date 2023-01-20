@@ -183,17 +183,100 @@ When the match is made, the people have to start sending messages touching the h
 
 #### ------------------------------------------------------- *code insight* -------------------------------------------------------
 
-To connect the users the server uses 3 different functions.   
+#### *user pairing*
+The server internally manages the list of waiting users and pairs them by providing each with the other's id and color when possible.
+The first two users of the waiting list are assigned a new color from the array of possible colors, which are locked from being taken by other users, are assigned a reference to each other's id, which is what the server itself uses to recognize pairs, and lastly it starts a timer for each user that regularly updates the message sent in the last 21 seconds (70 * 300ms, where 300ms is represented by the CLOCK constant).
 
 ```javascript
-function socketSetup() {
-  clientSocket.on("morse", morseReceived)//makes the other user device play a sound
-  clientSocket.on("paired", statusUpdate)//if the users are paired stops the loading animation
-  clientSocket.on("unpaired", statusUpdate)// else keeps the user waiting
-  clientSocket.on("success", successReceive)//saves the data sent by the two users in the local.storage 
+//takes the first two waiting users and pairs them
+function pair() {
+    if(colArray.filter(color => !color.taken).length > 1){
+        let pairingUsers = [getUser(waiting[0]), getUser(waiting[1])]
+
+        for (let i = 0; i < pairingUsers.length; i++) {
+            let user = pairingUsers[i]
+            //assign paired id to users
+            user.pairedId = pairingUsers[1 - i].id
+                
+            //assign colors to users
+            if (user.color == 0) {
+                user.assignColor()
+            }
+
+            //start timers
+            user.timer = setInterval(function () {
+                user.updateMsg()
+            }, CLOCK)
+        }
+
+        let msg = [{}, {}];
+
+        for (let i = 0; i < msg.length; i++) {
+            //send users pair id
+            msg[i].id = pairingUsers[1 - i].id
+
+            //send users their color and color to search
+            msg[i].userColor = pairingUsers[i].color
+            msg[i].pairColor = pairingUsers[1 - i].color
+
+            //send users color of paired
+            msg[i].pairName = pairingUsers[1 - i].name
+
+            //send the message
+            io.to(pairingUsers[i].id).emit("paired", msg[i])
+        }
+
+        waiting.splice(0, 2);
+    }
 }
 
 ```
+
+#### *user object*
+The internal structure of every User object contains references to the user and their partner's socket id for forwarding purposes, the color, name and message saved to be served to the final output, a reference to the user's personal timer and two flags that check whether the user is interacting or not and prevent conflicting messages.
+
+```javascript
+class User{
+    constructor(id) {
+        this.id = id;
+        this.pairedId = 0;
+        this.color = 0;
+        this.name = "";
+        this.msg = [];
+        this.timer = 0;
+        this.active = false;
+        this.success = false;
+    }
+    //user methods
+}
+```
+#### *input record*
+This code defines how the server keeps track of the last 21 seconds of interaction between users: updateMsg() is called every interval to store the current state in an array. If the array has reached a certain length, the first element is removed.
+The state itself is changed when the server receives the message from the client, which is then forwarded to the client's partner to play the sound.
+
+```javascript
+User.prototype.updateMsg = function(){
+    this.msg.push(this.active);
+
+    if(this.msg.length > 70){
+        this.msg.shift()
+    }
+}
+
+//when user sends morse message, forward to paired user
+socket.on("morse", function (data) {
+    var sender = getUser(this.id);
+    var receiverId = sender.pairedId;
+    
+    if (receiverId != 0) {
+        io.to(receiverId).emit("morse", data)
+
+        //save the state of the sender (pressing or not)
+        sender.active = data;
+    }
+})
+```
+
 #### *color detection*
 
 The matching of the two users is done by scanning the color of the dithered canvas displayd on its device. The scanning works with the method `get` of `p5`, which returns an array of the r, g, b values of the pixels of an image. The camera looks indeed for the color assiged to the user by the server, and to detect if the color that is framing is correct it subtracts the r,g,b values of the pixels of nitial color to the one of the image.
