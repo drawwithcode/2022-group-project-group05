@@ -178,8 +178,6 @@ function colorSearch(targetHex) {
   //p1.scale(-1,1)
   //p1.image(sub, 0, 0)
   
-  p1.pop()
-
   let distanceTotal = 0;
   
   for (let x = 0; x < subW; x++){

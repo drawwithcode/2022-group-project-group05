@@ -63,7 +63,6 @@ quote.innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
 let counter = 0;
 let arrayHearts=Array.from(document.getElementsByClassName("hearts"));
 
-
 let loadingQuotes= setInterval(quotesDisplay, 600)
 
 function quotesDisplay(){

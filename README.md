@@ -9,8 +9,7 @@ N01 is a web experience that allows you to ***find your soulmate only talking wi
 
 The project takes inspiration from the experiment held at Cornell University, called *Communicating Intimacy One Bit at a Time*, where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device.
 
-The aim of the experience is to show the language behind the messages that we exchange on the web, binary code, and to do so it makes fun of the numerous apps and websites that now-days aims to find us our soulmate.  
-These technology use human communication to obtain a digital connection, while N01 does the contrary: the purpose of the website is to make us ***look for each other communicating digitally but physically connect***. 
+The aim of the experience is to show the language behind the messages that we exchange on the web, binary code, and to do so it makes fun of the numerous apps and websites that now-days aim to find us our soulmate. These technologies use human communication to obtain a digital connection, while N01 does the contrary: the purpose of the website is to make us ***look for each other communicating digitally but physically connecting***. 
 
 N01 in this sense present itself as the ultimate love guru: a website that knows what’s best for you, but to get its knowledge you have to communicate with its language.
 
@@ -45,7 +44,7 @@ N01 in this sense present itself as the ultimate love guru: a website that knows
 
 The project has the aim to make *present* the basic language of every machine: ***binary code***. 
 
-N01 takes inspiration from the experiment held at Cornell University *Communicating Intimacy One Bit at a Time*, where chosen couples in long-distance relationships could only communicate using 1-bit messages. The results suggested that even a system of communication apparently very limited can be a valuable and rich channel for communicating a wide range of messages. 
+N01 takes inspiration from the experiment held at Cornell University *Communicating Intimacy One Bit at a Time*, where chosen couples in long-distance relationships could only communicate using 1-bit messages. The results suggested that even a system of communication apparently very limited can be a valuable and rich channel for communicating a wide range of messages.<br>
 In the same way N01 connects people trough single bit of information to show how the complexity of the digital communication is actually obtained through a very simple language, composed of only 0 and 1. It makes visible the vastity of outputs that a small amount of possibility can generate. </br>
 
 ## *Structure*
@@ -80,15 +79,14 @@ After scanning the QR code the first page visible is the home. From it the user 
   <img src="README.img/readme.gif" width="30%">
 </div> 
 
-#### ------------------------------------------------------- *code insight* -------------------------------------------------------
+#### --------------------------------------------------------- *code insight* ---------------------------------------------------------
 
 #### *dithered background*
 To process the pixels of the canva the code is composed of three functions, one the callback of the other. 
 In the function `draw` the context of the canvas is processed as an array of pixels and passed as an argument of the second function.
+```javascript  
 
-```javascript
 //first function
-
 ctx = p1.canvas.getContext('2d');
 
 let gradient = ctx.createLinearGradient(0, valMapped, 0,  p1.height);
@@ -104,43 +102,43 @@ The iterations `map` the range of values for each channel, that usuually goes fr
 ```javascript 
 //second function
 function dither (imageData, []){
-    // imageData
-    const width = imageData.width;
-    const pixels = imageData.data;
-    const dither = dithers["rgb_4"];
-    
-    const intensity = (r, g, b) =>
-    Math.floor(0.2126 * r + 0.7152 * g + 0.0722 * b);
-    const clamp = (val, min, max) => Math.max(min, Math.min(val, max));
-    const map = (val, min1, max1, min2, max2) =>
-    ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
-    
-    const map = (val, min1, max1, min2, max2) => ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
-    
-    // filter
-    for (let i = 0; i < pixels.length; i += 4) {
-      const x = (i / 4) % width;
-      const y = Math.floor(i / 4 / width);
-      const colors = pixels.slice(i, i + 3);
-    
-      for (let c = 0; c < 3; c++) {
-        const thresholdMap = thresholdMaps[dither.mapIndex[c]];
-        const mapSide = thresholdMap.length;
-        const mapSize = mapSide * mapSide ;
-        const threshold = thresholdMap[x % mapSide][y % mapSide];
-        const numColors = dither.colorCount[c];
+  // imageData
+  const width = imageData.width;
+  const pixels = imageData.data;
+  const dither = dithers["rgb_4"];
+  
+  const intensity = (r, g, b) =>
+  Math.floor(0.2126 * r + 0.7152 * g + 0.0722 * b);
+  const clamp = (val, min, max) => Math.max(min, Math.min(val, max));
+  const map = (val, min1, max1, min2, max2) =>
+  ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
+  
+  const map = (val, min1, max1, min2, max2) => ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
+  
+  // filter
+  for (let i = 0; i < pixels.length; i += 4) {
+    const x = (i / 4) % width;
+    const y = Math.floor(i / 4 / width);
+    const colors = pixels.slice(i, i + 3);
+  
+    for (let c = 0; c < 3; c++) {
+      const thresholdMap = thresholdMaps[dither.mapIndex[c]];
+      const mapSide = thresholdMap.length;
+      const mapSize = mapSide * mapSide ;
+      const threshold = thresholdMap[x % mapSide][y % mapSide];
+      const numColors = dither.colorCount[c];
 
-        const color = Math.floor(
-          clamp( (numColors * colors[c]) / 256 + threshold / mapSize - 0.5,  0, numColors - 1)
-        );
-        const nearestColor = Math.floor(map(color, 0, numColors - 1, 0, 255));
-    
-        pixels[i + c] = nearestColor;
-      }
+      const color = Math.floor(
+        clamp( (numColors * colors[c]) / 256 + threshold / mapSize - 0.5,  0, numColors - 1)
+      );
+      const nearestColor = Math.floor(map(color, 0, numColors - 1, 0, 255));
+  
+      pixels[i + c] = nearestColor;
     }
-    
-    drawCanvas(ctx, imageData);
-}
+  }
+  drawCanvas(ctx, imageData);
+}  
+
  ```
 In the third function the array of pixels is then applied to the context of the original canvas to redraw its pixels. 
 
@@ -152,6 +150,9 @@ function drawCanvas(cnv, img) {
     ctx.putImageData(img, 0, 0);
 }
 ```
+credits: 
+[`kamoroso94/ordered-dither`](https://github.com/kamoroso94/ordered-dither)
+
 ---
 
 ### Login
@@ -324,18 +325,19 @@ function colorSearch(targetHex) {
   return result
 }
 ```
+-->
+
 ---
 
 ### Output
 The data sent by the two users are stored is used to render an artwork. The image consists of a pixeleted-heart divided in two half, one for each partecipant. The color of the heart is the one assigned by the server during the experience session while the name is the input given by the user in the first section of the website. </br>
 
 <div align= "center">
-  <img src="README.img/N01_FRAG + Lello.png" width="30%"/>
   <img src="README.img/N01_Lello + Marcoparco.png" width="30%"/>
   <img src="README.img/N01_FRAG + Olly.png" width="30%"/>
 </div>
 
-#### ------------------------------------------------------ *code insights* ------------------------------------------------------
+#### --------------------------------------------------------- *code insight* ---------------------------------------------------------
 
 The artwork, generated as a `p5.Graphics` in the setup, is rendered as an image into the draw function and then processed with the method `getImageData` to be exported as a `string` to the javascript file linked to firebase.
 </br>
@@ -364,13 +366,13 @@ p2.draw = function (){
 
 ### Gallery
 
-At last but not least, the ouput of the user is displayed in a gallery where they can see all the other artworks generated by the communication between all the partecipants of the experience. 
+At last but not least, the ouput of the users is displayed in a gallery where they can see all the other artworks generated by the communication between all the partecipants of the experience. 
 
 <div align= "center">
-  <img src="README.img/waiting1.gif" width="30%"/>
+  <img src="README.img/gallery.gif" width="30%"/>
 </div>
 
-#### ------------------------------------------------------ *code insights* ------------------------------------------------------
+#### --------------------------------------------------------- *code insight* ---------------------------------------------------------
 
 Firebase functions are imported in an external javascript file of type `module`. This documents exports and imports functions and variables both from the javascripts file of the ouput and the gallery to get and set data into the database. </br>
 The method `get` in particular, returns an `array` of all the elements contained under a certain `#key` from the database. The `key` is defined using the inputs of the users, saving just one object per match.
@@ -407,17 +409,15 @@ export {artwork};
 [render](https://render.com/) - to host the website
 [Firebase](https://console.firebase.google.com/) -to host the database
 [p5.library](https://p5js.org/) - to generate the graphic elements
-
-[`kamoroso94/ordered-dither`](https://github.com/kamoroso94/ordered-dither) - for the dithering algorithm
  
 --- 
 
-## ***Letteralmente N01***  
+## ***Letteralmente N01 <3***  
 
 #### Davide Agostinelli (^▽^)  
 ####  Elisa Debenettis (＾ε＾)  
 #### Martina Esposito (≧∇≦)  
-####  Giulia Gnessi (◡‿◡)      
+####  Giulia Gnessi (◡‿◡)   
 
 --- 
 
