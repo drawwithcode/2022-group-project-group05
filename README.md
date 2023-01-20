@@ -45,7 +45,7 @@ N01 in this sense present itself as the ultimate love guru: a website that knows
 The project has the aim to make *present* the basic language of every machine: ***binary code***. 
 
 N01 takes inspiration from the experiment held at Cornell University *Communicating Intimacy One Bit at a Time*, where chosen couples in long-distance relationships could only communicate using 1-bit messages. The results suggested that even a system of communication apparently very limited can be a valuable and rich channel for communicating a wide range of messages.<br>
-In the same way N01 connects people trough single bit of information to show how the complexity of the digital communication is actually obtained through a very simple language, composed of only 0 and 1. It makes visible the vastity of outputs that a small amount of possibility can generate. </br>
+In the same way N01 connects people trough single bit of information to show how the complexity of the digital communication is actually obtained through a very simple language, composed of only 0 and 1. It makes visible the vastity of outputs that a small amount of possibilities can generate. </br>
 
 ## *Structure*
 The website is composed of five main html pages: the home, the login, the experience, the output and the gallery.  
