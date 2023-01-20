@@ -350,10 +350,10 @@ export {artwork};
 
 ## ***Letteralmente N01 <3***  
 
-#### Davide Agostinelli
-####  Elisa Debenettis 
-#### Martina Esposito
-####  Giulia Gnessi   
+#### Davide Agostinelli (^▽^)  
+####  Elisa Debenettis (＾ε＾)  
+#### Martina Esposito (≧∇≦)  
+####  Giulia Gnessi (◡‿◡)   
 
 --- 
 
