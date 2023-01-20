@@ -85,10 +85,9 @@ After scanning the QR code the first page visible is the home. From it the user 
 #### *dithered background*
 To process the pixels of the canva the code is composed of three functions, one the callback of the other. 
 In the function `draw` the context of the canvas is processed as an array of pixels and passed as an argument of the second function.
+```javascript  
 
-```javascript
 //first function
-
 ctx = p1.canvas.getContext('2d');
 
 let gradient = ctx.createLinearGradient(0, valMapped, 0,  p1.height);
@@ -104,43 +103,43 @@ The iterations `map` the range of values for each channel, that usuually goes fr
 ```javascript 
 //second function
 function dither (imageData, []){
-    // imageData
-    const width = imageData.width;
-    const pixels = imageData.data;
-    const dither = dithers["rgb_4"];
-    
-    const intensity = (r, g, b) =>
-    Math.floor(0.2126 * r + 0.7152 * g + 0.0722 * b);
-    const clamp = (val, min, max) => Math.max(min, Math.min(val, max));
-    const map = (val, min1, max1, min2, max2) =>
-    ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
-    
-    const map = (val, min1, max1, min2, max2) => ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
-    
-    // filter
-    for (let i = 0; i < pixels.length; i += 4) {
-      const x = (i / 4) % width;
-      const y = Math.floor(i / 4 / width);
-      const colors = pixels.slice(i, i + 3);
-    
-      for (let c = 0; c < 3; c++) {
-        const thresholdMap = thresholdMaps[dither.mapIndex[c]];
-        const mapSide = thresholdMap.length;
-        const mapSize = mapSide * mapSide ;
-        const threshold = thresholdMap[x % mapSide][y % mapSide];
-        const numColors = dither.colorCount[c];
+  // imageData
+  const width = imageData.width;
+  const pixels = imageData.data;
+  const dither = dithers["rgb_4"];
+  
+  const intensity = (r, g, b) =>
+  Math.floor(0.2126 * r + 0.7152 * g + 0.0722 * b);
+  const clamp = (val, min, max) => Math.max(min, Math.min(val, max));
+  const map = (val, min1, max1, min2, max2) =>
+  ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
+  
+  const map = (val, min1, max1, min2, max2) => ((val - min1) / (max1 - min1)) * (max2 - min2) + min2;
+  
+  // filter
+  for (let i = 0; i < pixels.length; i += 4) {
+    const x = (i / 4) % width;
+    const y = Math.floor(i / 4 / width);
+    const colors = pixels.slice(i, i + 3);
+  
+    for (let c = 0; c < 3; c++) {
+      const thresholdMap = thresholdMaps[dither.mapIndex[c]];
+      const mapSide = thresholdMap.length;
+      const mapSize = mapSide * mapSide ;
+      const threshold = thresholdMap[x % mapSide][y % mapSide];
+      const numColors = dither.colorCount[c];
 
-        const color = Math.floor(
-          clamp( (numColors * colors[c]) / 256 + threshold / mapSize - 0.5,  0, numColors - 1)
-        );
-        const nearestColor = Math.floor(map(color, 0, numColors - 1, 0, 255));
-    
-        pixels[i + c] = nearestColor;
-      }
+      const color = Math.floor(
+        clamp( (numColors * colors[c]) / 256 + threshold / mapSize - 0.5,  0, numColors - 1)
+      );
+      const nearestColor = Math.floor(map(color, 0, numColors - 1, 0, 255));
+  
+      pixels[i + c] = nearestColor;
     }
-    
-    drawCanvas(ctx, imageData);
-}
+  }
+  drawCanvas(ctx, imageData);
+}  
+
  ```
 In the third function the array of pixels is then applied to the context of the original canvas to redraw its pixels. 
 
@@ -194,20 +193,20 @@ function socketSetup() {
 
 ```
 ```javascript
-    //when user sends morse message, forward to paired user
-    socket.on("morse", function (data) {
-        var sender = getUser(this.id);
-        var receiverId = sender.pairedId;
-        
-        if (receiverId != 0) {
-            io.to(receiverId).emit("morse", data)
+//when user sends morse message, forward to paired user
+socket.on("morse", function (data) {
+    var sender = getUser(this.id);
+    var receiverId = sender.pairedId;
+    
+    if (receiverId != 0) {
+        io.to(receiverId).emit("morse", data)
 
-            //save the state of the sender (pressing or not)
-            sender.active = data;
-        }
-        
-        console.log(this.id + " - morse")
-    })
+        //save the state of the sender (pressing or not)
+        sender.active = data;
+    }
+    
+    console.log(this.id + " - morse")
+})
 
 ```
 
