@@ -116,7 +116,7 @@ function setup() {
     audio: false,
     video: {
         facingMode: {
-          ideal: "environment",
+          ideal: "user",
         }
     }
 }, function() {
