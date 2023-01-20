@@ -186,7 +186,7 @@ When the match is made, the people have to start sending messages touching the h
 
 #### *user pairing*
 The server internally manages the list of waiting users and pairs them by providing each with the other's id and color when possible.
-The first two users of the waiting list are assigned a new color from the array of possible colors, which are locked from being taken by other users, are assigned a reference to each other's id, which is what the server itself uses to recognize pairs, and lastly it starts a timer for each user that regularly updates the message sent in the last 21 seconds (70 * 300ms, where 300ms is represented by the CLOCK constant).
+The first two users of the waiting list are assigned a new color from the array of possible colors, which are locked from being taken by other users, are assigned a reference to each other's id, which is what the server itself uses to recognize pairs, and lastly it starts a timer for each user that regularly updates the message sent in the last 42 seconds (70 * 600ms, where 600ms is represented by the CLOCK constant).
 
 ```javascript
 //takes the first two waiting users and pairs them
@@ -246,13 +246,14 @@ class User{
         this.msg = [];
         this.timer = 0;
         this.active = false;
+        this.sending = false;
         this.success = false;
     }
     //user methods
 }
 ```
 #### *input record*
-This code defines how the server keeps track of the last 21 seconds of interaction between users: updateMsg() is called every interval to store the current state in an array. If the array has reached a certain length, the first element is removed.
+This code defines how the server keeps track of the last 42 seconds of interaction between users: updateMsg() is called every interval to store the current state in an array. If the array has reached a certain length, the first element is removed.
 The state itself is changed when the server receives the message from the client, which is then forwarded to the client's partner to play the sound.
 
 ```javascript
@@ -262,30 +263,33 @@ User.prototype.updateMsg = function(){
     if(this.msg.length > 70){
         this.msg.shift()
     }
+
+    this.active = this.sending;
 }
 
 //when user sends morse message, forward to paired user
 socket.on("morse", function (data) {
     var sender = getUser(this.id);
     var receiverId = sender.pairedId;
+
+    sender.sending = data;
     
     if (receiverId != 0) {
         io.to(receiverId).emit("morse", data)
 
-        //save the state of the sender (pressing or not)
-        sender.active = data;
+        //activate current clock cycle
+        if(data) sender.active = true;
     }
+    
+    console.log(this.id + " - morse")
 })
 ```
 
 #### *color detection*
 
-The matching of the two users is done by scanning the color of the dithered canvas displayd on its device. The scanning works with the method `get` of `p5`, which returns an array of the r, g, b values of the pixels of an image. The camera looks indeed for the color assiged to the user by the server, and to detect if the color that is framing is correct it subtracts the r,g,b values of the pixels of nitial color to the one of the image.
+The matching of the two users is done by scanning the color of the dithered canvas displayd on its device. The scanning works by scanning the `pixels` array of `p5`, which returns an array of the r, g, b values of the pixels of an image. The camera looks for the color assiged to the user by the server, and to determine if the color in the frame is correct it calculates the distance in the RGB color space between the detected color and the searched color.
 
 ```javascript
-const PIXEL_TRESHOLD = 50 //max 422 min 0
-const PERCENT_THRESHOLD = 0.7 //max 1 min 0
-
 function colorSearch(targetHex) {
   let total = 0;
   let target = color(targetHex)
@@ -294,20 +298,17 @@ function colorSearch(targetHex) {
   let g = green(target)
   let b = blue(target)
 
-  let sub = video.get(subX, subY, subW, subH);
+  video.loadPixels()
 
-  p1.image(sub, p1.width / 2 - subW / 2, p1.height * 2 / 3 - subH / 2)
-  
   let distanceTotal = 0;
-
+  
   for (let x = 0; x < subW; x++){
     for (let y = 0; y < subH; y++){
+      let index = startingPosition + (4  * (y * subW + x))
 
-      let pixel = sub.get(x,y)
-
-      let diffR = Math.abs(red(pixel) - r)
-      let diffG = Math.abs(green(pixel) - g)
-      let diffB = Math.abs(blue(pixel) - b)
+      let diffR = Math.abs(video.pixels[index + 0] - r)
+      let diffG = Math.abs(video.pixels[index + 1] - g)
+      let diffB = Math.abs(video.pixels[index + 2] - b)
 
       let distance = Math.sqrt(diffR * diffR + diffG * diffG + diffB * diffB)
       distanceTotal += distance;
@@ -317,7 +318,6 @@ function colorSearch(targetHex) {
       }
     }
   }
-  
   let avgDist = distanceTotal / (subH * subW)
   p1.text(Math.round(avgDist*100)/100 + " success%: " + (total / (subH * subW)), 10, 10)
   let result = (total / (subH * subW) > PERCENT_THRESHOLD)
