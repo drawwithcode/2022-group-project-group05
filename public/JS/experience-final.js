@@ -91,12 +91,16 @@ let osc = new p5.Oscillator("sine")
 
 //setup camera
 let video;
+let videoReady = false;
 
 let subimage;
 let subW;
 let subH;
 let subX;
 let subY;
+
+//let d; //= pixelDensity()
+let startingPosition; // = 4 * d * (subY * video.width + subX)
 
 //setup bottoni
 document.getElementById('morse').oncontextmenu = function (event) {
@@ -121,15 +125,19 @@ function setup() {
     }
 }, function() {
     console.log('capture ready')
+    videoReady = true
+
+    subW = Math.round(video.width / 2)
+    subH = Math.round(video.height / 4)
+    subX = Math.round(video.width / 2 - subW / 2)
+    subY = Math.round(video.height - subH)
+
+    //d = pixelDensity()
+    startingPosition = 4 * (subY * video.width + subX)
 });
   video.hide();
 
   video.elt.setAttribute('playsinline', '');
-
-  subW = Math.round(video.width / 3)
-  subH = Math.round(video.height / 2)
-  subX = Math.round(video.width / 2 - subW / 2)
-  subY = Math.round(video.height / 2 - subH / 2)
 
   //setup oscillator
   osc.amp(1)
@@ -141,7 +149,7 @@ function setup() {
 
 function draw() {
 
-  if (paired) {
+  if (paired && videoReady) {
     if (colorSearch(pairColor)) {
       successFind();
     }
@@ -160,20 +168,25 @@ function colorSearch(targetHex) {
   let g = green(target)
   let b = blue(target)
 
-  let sub = video.get(subX, subY, subW, subH);
   
-  p1.image(sub, p1.width / 2 - subW / 2, p1.height * 2 / 3 - subH / 2)
+
+  video.loadPixels()
+
+  p1.push()
+  p1.stroke(255)
+  //p1.translate(p1.width / 2 + subW / 2, p1.height * 2 / 3 - subH / 2)
+  //p1.scale(-1,1)
+  //p1.image(sub, 0, 0)
   
   let distanceTotal = 0;
-
+  
   for (let x = 0; x < subW; x++){
     for (let y = 0; y < subH; y++){
+      let index = startingPosition + (4  * (y * subW + x))
 
-      let pixel = sub.get(x,y)
-
-      let diffR = Math.abs(red(pixel) - r)
-      let diffG = Math.abs(green(pixel) - g)
-      let diffB = Math.abs(blue(pixel) - b)
+      let diffR = Math.abs(video.pixels[index + 0] - r)
+      let diffG = Math.abs(video.pixels[index + 1] - g)
+      let diffB = Math.abs(video.pixels[index + 2] - b)
 
       let distance = Math.sqrt(diffR * diffR + diffG * diffG + diffB * diffB)
       distanceTotal += distance;

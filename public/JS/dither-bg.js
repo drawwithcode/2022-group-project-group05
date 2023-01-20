@@ -102,7 +102,7 @@ p1 = new p5(sketch)
 p1.draw = function (){
 
   p1.canvas.id = "bgCanvas"
-  ctx= p1.canvas.getContext('2d');
+  ctx= p1.canvas.getContext('2d', {willReadFrequently: true});
     
   //imposto un valore di noise che rende animato il mio gradiente di sfondo
   //rimappo il valore entro un range così che l'animazione sia delicata

@@ -49,6 +49,7 @@ class User{
         this.msg = [];
         this.timer = 0;
         this.active = false;
+        this.sending = false;
         this.success = false;
     }
 
@@ -58,6 +59,8 @@ class User{
         if(this.msg.length > 70){
             this.msg.shift()
         }
+
+        this.active = this.sending;
     }
 
     reset(){
@@ -108,7 +111,7 @@ class User{
     }
 }
 
-const CLOCK = 300;
+const CLOCK = 600;
 
 var users = [];
 
@@ -143,12 +146,14 @@ function newConnection(socket) {
     socket.on("morse", function (data) {
         var sender = getUser(this.id);
         var receiverId = sender.pairedId;
+
+        sender.sending = data;
         
         if (receiverId != 0) {
             io.to(receiverId).emit("morse", data)
 
-            //save the state of the sender (pressing or not)
-            sender.active = data;
+            //activate current clock cycle
+            if(data) sender.active = true;
         }
         
         console.log(this.id + " - morse")
