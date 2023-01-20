@@ -55,7 +55,7 @@ body {
 
 .down {
   position:absolute;
-  bottom:0;
+  bottom:2vh;
 }
 
 .content{
@@ -139,6 +139,7 @@ canvas {
   display:flex;
   padding: 0.6vh;
   z-index: 2;
+  margin: 2vh;
   top: 0px;
   right: 0px;
   width: 4vh;/*scrivo la larghezza come proporzione dell'altezza così da avere un menu sempre di forma quadrata*/

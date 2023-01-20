@@ -213,7 +213,9 @@ document.addEventListener("click", function(){
   let xHeart= p1.mouseX-heartImage.width
   let yHeart= p1.mouseY-heartImage.height
 
+  if(page!="experience"){
     arrayHeart.push(new Heart(xHeart, yHeart))//al click aggiungo un cuore all'array
+  }
 })
 
 
