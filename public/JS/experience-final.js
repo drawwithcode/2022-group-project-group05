@@ -69,8 +69,9 @@ function statusUpdate(data) {
     userColor = data.userColor
     pairColor = data.pairColor
 
-    let index = COLORS.indexOf(pairColor)
-    targetColor = COLOR_TO_FIND[index]
+    //let index = COLORS.indexOf(pairColor)
+    //targetColor = COLOR_TO_FIND[index]
+    targetColor = pairColor;
       
     paired = true;
     stopLoading();
@@ -163,7 +164,7 @@ function draw() {
 }
 
 const PIXEL_TRESHOLD = 50 //max 422 min 0
-const PERCENT_THRESHOLD = 0.7 //max 1 min 0
+const PERCENT_THRESHOLD = 0.5 //max 1 min 0
 const COLORS = [
   "#008226",
   "#00CB3B",
@@ -175,14 +176,14 @@ const COLORS = [
   "#00A9FF"
 ]
 const COLOR_TO_FIND = [
-  "0AC832",
-  "1EF04F",
-  "FAEB70",
-  "FF875A",
-  "FF5500",
-  "E691FF",
-  "007DFF",
-  "00E3FF"
+  "#0AC832",
+  "#1EF04F",
+  "#FAEB70",
+  "#FF875A",
+  "#FF5500",
+  "#E691FF",
+  "#007DFF",
+  "#00E3FF"
 ]
 
 function colorSearch(targetHex) {
