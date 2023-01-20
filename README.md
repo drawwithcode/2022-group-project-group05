@@ -266,7 +266,7 @@ function colorSearch(targetHex) {
 The data sent by the two users are stored is used to render an artwork. The image consists of a pixeleted-heart divided in two half, one for each partecipant. The color of the heart is the one assigned by the server during the experience session while the name is the input given by the user in the first section of the website. </br>
 
 <div align= "center">
-  <img src="README.img/N01_GGG + Marcellobello.png" width="30%"/>
+  <img src="README.img/N01_GGG + MarcelloBello.png" width="30%"/>
   <img src="README.img/N01_Lello + Marcoparco.png" width="30%"/>
   <img src="README.img/N01_FRAG + Olly.png" width="30%"/>
 </div>
