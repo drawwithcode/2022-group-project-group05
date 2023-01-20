@@ -1,15 +1,16 @@
 
 ![logo](README.img/logo.gif)
 
-Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find your soulmate. While in person we use a varied language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.</br></br>
+Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find your soulmate. While in person we use a varied language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better. </br>
 
-#### **What if communicating like machines could help us find true love? <3**
+#### **What if communicating like machines could help us find true love? <3**</br></br>
 
 N01 is a web experience that allows you to ***find your soulmate only talking with 1-bit messages***.  
 
 The project takes inspiration from the experiment held at Cornell University, called *Communicating Intimacy One Bit at a Time*, where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device.
 
-The aim of the experience is to show the language behind the messages that we exchange on the web, binary code, and to do so it makes fun of the numerous apps and websites that now-days aims to find us our soulmate. These technology indeed use human communication to obtain a digital connection; N01 does the contrary: the purpose is to ***find each other communicating digitally but physically connect***. 
+The aim of the experience is to show the language behind the messages that we exchange on the web, binary code, and to do so it makes fun of the numerous apps and websites that now-days aims to find us our soulmate.  
+These technology use human communication to obtain a digital connection, while N01 does the contrary: the purpose of the website is to make us ***look for each other communicating digitally but physically connect***. 
 
 N01 in this sense present itself as the ultimate love guru: a website that knows what’s best for you, but to get its knowledge you have to communicate with its language.
 
@@ -44,7 +45,8 @@ N01 in this sense present itself as the ultimate love guru: a website that knows
 
 The project has the aim to make *present* the basic language of every machine: ***binary code***. 
 
-N01 takes inspiration from the experiment held at Cornell University *Communicating Intimacy One Bit at a Time*, where chosen couples in long-distance relationships could only communicate using one bit messages. the results suggested  that even a one-bit communication device is seen by users as a valuable and rich channel for communicating intimacy, despite the availability of wider channels. In the same way N01 connects people and show them that even with the smaller amount of possibilities, you can connect and bond with someone. </br>
+N01 takes inspiration from the experiment held at Cornell University *Communicating Intimacy One Bit at a Time*, where chosen couples in long-distance relationships could only communicate using 1-bit messages. The results suggested that even a system of communication apparently very limited can be a valuable and rich channel for communicating a wide range of messages. 
+In the same way N01 connects people trough single bit of information to show how the complexity of the digital communication is actually obtained through a very simple language, composed of only 0 and 1. It makes visible the vastity of outputs that a small amount of possibility can generate. </br>
 
 ## *Structure*
 The website is composed of five main html pages: the home, the login, the experience, the output and the gallery.  
