@@ -325,6 +325,7 @@ function pair() {
 -->
 #### *color detection*
 
+The matching of the two users is done by scanning the color of the dithered canvas displayd on its device. The scanning works with the method `get` of `p5`, which returns an array of the r, g, b values of the pixels of an image. The camera looks indeed for the color assiged to the user by the server, and to detect if the color that is framing is correct it subtracts the r,g,b values of the pixels of nitial color to the one of the image.
 
 ```javascript
 const PIXEL_TRESHOLD = 50 //max 422 min 0
@@ -369,12 +370,6 @@ function colorSearch(targetHex) {
   return result
 }
 ```
-
-
-#### *inputs storage*
-```javascript
-```
-
 ---
 
 ### Output
