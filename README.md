@@ -10,7 +10,7 @@ N01 is a web experience that allows you to ***find your soulmate only talking wi
 The project takes inspiration from the experiment held at Cornell University, called *Communicating Intimacy One Bit at a Time*, where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device.
 
 The aim of the experience is to show the language behind the messages that we exchange on the web, binary code, and to do so it makes fun of the numerous apps and websites that now-days aims to find us our soulmate.  
-These technology use human communication to obtain a digital connection, while N01 does the contrary: the purpose of the website is to make us ***look for each other communicating digitally but physically connect***. 
+These technology use human communication to obtain a digital connection, while N01 does the contrary: the purpose of the website is to make us ***look for each other communicating digitally but physically connecting***. 
 
 N01 in this sense present itself as the ultimate love guru: a website that knows what’s best for you, but to get its knowledge you have to communicate with its language.
 
@@ -266,7 +266,6 @@ function colorSearch(targetHex) {
 The data sent by the two users are stored is used to render an artwork. The image consists of a pixeleted-heart divided in two half, one for each partecipant. The color of the heart is the one assigned by the server during the experience session while the name is the input given by the user in the first section of the website. </br>
 
 <div align= "center">
-  <img src="README.img/N01_GGG + MarcelloBello.png" width="30%"/>
   <img src="README.img/N01_Lello + Marcoparco.png" width="30%"/>
   <img src="README.img/N01_FRAG + Olly.png" width="30%"/>
 </div>
