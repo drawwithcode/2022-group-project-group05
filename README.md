@@ -1,35 +1,37 @@
 
 ![logo](README.img/logoverogif.gif)
 
-Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find  your soulmate. While in person we use a varicolored language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.</br></br>
+Since the rise of technology human relationships have really changed, and now it’s even possible to rely on algorithms to find your soulmate. While in person we use a varied language, online we only communicate with combinations of 0 and 1. Nevertheless, the latter seems to work better.</br></br>
 
-#### **What if communicating like machines could help us find true love more? <3**
+#### **What if communicating like machines could help us find true love? <3**
 
-N01 is a web experience that allows you to ***find your soulmate only talking with one bit messages***. 
-The project takes inspiration from the experiment held at Cornell University, called *Communicating Intimacy One Bit at a Time*, where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
-N01 is a web experience that allows you to find your soulmate only talking with one bit messages.
+N01 is a web experience that allows you to ***find your soulmate only talking with 1-bit messages***.  
 
-The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device. The purpose is to find each other and physically connect. N01 not only finds your match, but also your soulmate. As the ultimate love guru, N01 knows what’s best for you, but to get it you have to communicate with its language. 
+The project takes inspiration from the experiment held at Cornell University, called *Communicating Intimacy One Bit at a Time*, where chosen couples could only communicate using one bit messages. The idea behind N01 is the same one: The server connects two people; every time one of them touches the heart button, it generates a sound in the other person’s device.
+
+The aim of the experience is to show the language behind the messages that we exchange on the web, ***binary code***, and to do so it makes fun of the numerous apps and websites that now-days aims to find us our soulmate. These technology indeed use human communication to obtain a digital connection; N01 does the contrary: the purpose is to ***find each other communicating digitally but physically connect***. 
+
+N01 in this sense present itself as the ultimate love guru: a website that knows what’s best for you, but to get its knowledge you have to communicate with its language.
 
 ---
 
-#### **INDEX**  
+#### **INDEX <3**  
 
 1. Concept (っ◕‿◕)っ ♡      
-   a. [binary code](#binary-code)<br>
-   b. [structure](#structure)<br>
+   1.1 [binary code](#binary-code)<br>
+   1.2 [structure](#structure)<br>
 
 2. Experience (´ε｀ )♡       
-   a. [exhibition](#exhibition)<br>
-   b. [homepage](#homepage)<br>
-   c. [login](#login)<br>
-   d. [matching](#matching)<br>
-   e. [artwork](#experience)<br>
-   f. [gallery](#experience)<br>
+   2.1 [exhibition](#exhibition)<br>
+   2.2 [homepage](#homepage)<br>
+   2.3 [login](#login)<br>
+   2.4 [matching](#matching)<br>
+   2.5 [artwork](#experience)<br>
+   2.6 [gallery](#experience)<br>
 
 3. Credits (｡♡‿♡｡)     
-   a. [letteralmenteN01](#letteralmenteN01)<br>
-   b. [info](#info)<br>
+   3.1 [info](#info)<br>
+   3.2 [letteralmenteN01](#letteralmenteN01)<br>
 
 
 
@@ -164,7 +166,6 @@ function drawCanvas(cnv, img) {
 }
  
 ```
-credits to: [`kamoroso94/ordered-dither`](https://github.com/kamoroso94/ordered-dither) <br>
 
 <!-- 
 #### *heart animation*
@@ -561,19 +562,31 @@ function galleryCreation () {
 
 # **Credits (｡♡‿♡｡)**
 
-## ***Letteralmente N01***
-  Davide Agostinelli (^▽^)  
-  Elisa Debenettis (＾ε＾)  
-  Martina Esposito (≧∇≦)  
-  Giulia Gnessi (◡‿◡)      
+## ***Attributions***
 
-## Info
+[Socket.io](https://socket.io/) - to install the communication between the clients and the server 
+[render](https://render.com/) - to host the website
+[Firebase](https://console.firebase.google.com/) -to host the database
+[p5.library](https://p5js.org/) - to generate the graphic elements
+
+[`kamoroso94/ordered-dither`](https://github.com/kamoroso94/ordered-dither) - for the dithering algorithm
+ 
+--- 
+
+## ***Letteralmente N01***  
+
+#### Davide Agostinelli (^▽^)  
+####  Elisa Debenettis (＾ε＾)  
+#### Martina Esposito (≧∇≦)  
+####  Giulia Gnessi (◡‿◡)      
+
+--- 
 
 Draw With Code: Creative Coding <br>
 Academic Year 2022/2023 <br>
 Politecnico di Milano – Dipartimento di Design
 
-#### ***Faculty***
+#### Faculty
  Michele Mauri  
  Tommaso Elli  
  Andrea Benedetti  
