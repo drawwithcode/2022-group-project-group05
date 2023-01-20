@@ -161,13 +161,9 @@ function colorSearch(targetHex) {
   let b = blue(target)
 
   let sub = video.get(subX, subY, subW, subH);
-
-  p1.push()
-  p1.stroke(255)
+  
   p1.image(sub, p1.width / 2 - subW / 2, p1.height * 2 / 3 - subH / 2)
   
-  p1.pop()
-
   let distanceTotal = 0;
 
   for (let x = 0; x < subW; x++){
